@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AA0B6366D2BF60571158A90 /* Pods_ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
 		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
 		97D25685224B1F9C00175E42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D25683224B1F9C00175E42 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C25E772FFF45292F7B6B4CC /* Pods-ARFoodie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.release.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.release.xcconfig"; sourceTree = "<group>"; };
+		535020E1A0264B630C2A6DCA /* Pods-ARFoodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.debug.xcconfig"; sourceTree = "<group>"; };
+		7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D25681224B1F9C00175E42 /* MainARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainARViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AA0B6366D2BF60571158A90 /* Pods_ARFoodie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44D4AFD57FF8B4BE9D0CC169 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A247BB393FA43DF454E13D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				535020E1A0264B630C2A6DCA /* Pods-ARFoodie.debug.xcconfig */,
+				3C25E772FFF45292F7B6B4CC /* Pods-ARFoodie.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		97D25673224B1F9C00175E42 = {
 			isa = PBXGroup;
 			children = (
 				97D2567E224B1F9C00175E42 /* ARFoodie */,
 				97D2567D224B1F9C00175E42 /* Products */,
+				4A247BB393FA43DF454E13D3 /* Pods */,
+				44D4AFD57FF8B4BE9D0CC169 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97D2568E224B1F9E00175E42 /* Build configuration list for PBXNativeTarget "ARFoodie" */;
 			buildPhases = (
+				A737941859FD2C12CAEABD8B /* [CP] Check Pods Manifest.lock */,
 				97D25678224B1F9C00175E42 /* Sources */,
 				97D25679224B1F9C00175E42 /* Frameworks */,
 				97D2567A224B1F9C00175E42 /* Resources */,
+				BBA8510DF1BF655E9FC422AE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A737941859FD2C12CAEABD8B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARFoodie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBA8510DF1BF655E9FC422AE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARFoodie/Pods-ARFoodie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARFoodie/Pods-ARFoodie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		97D25678224B1F9C00175E42 /* Sources */ = {
@@ -280,6 +353,7 @@
 		};
 		97D2568F224B1F9E00175E42 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 535020E1A0264B630C2A6DCA /* Pods-ARFoodie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +372,7 @@
 		};
 		97D25690224B1F9E00175E42 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C25E772FFF45292F7B6B4CC /* Pods-ARFoodie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
