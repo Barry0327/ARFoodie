@@ -1,0 +1,16 @@
+PODS:
+  - ARCL (1.0.4)
+
+DEPENDENCIES:
+  - ARCL
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ARCL
+
+SPEC CHECKSUMS:
+  ARCL: 5fd2b0d7aabf91f15dbc0e8c510b25516b8a755a
+
+PODFILE CHECKSUM: 032e9036ef789aa93ff98de6254b72b141fc9773
+
+COCOAPODS: 1.6.1
