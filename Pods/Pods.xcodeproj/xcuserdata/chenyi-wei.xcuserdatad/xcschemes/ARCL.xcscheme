@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AE6C26B16F44C241480BDC48E76BD476"
+               BlueprintIdentifier = "90618D569C3323EA3A28580E969DC8D0"
                BuildableName = "ARCL.framework"
                BlueprintName = "ARCL"
                ReferencedContainer = "container:Pods.xcodeproj">

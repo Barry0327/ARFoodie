@@ -8,26 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		0583C150D66F4B67E4B624701738405A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111957A052C5F3FB7920C50D4B77207A /* Foundation.framework */; };
-		1BD8418E12F4D7CD867202F98F6D03EB /* FloatingPoint+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C01207A24B3490B1D32B45BDD065DA /* FloatingPoint+Radians.swift */; };
-		201B99EEE596F402E515032C313147A8 /* ARCL-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 50BBCE56905D3057F07053366A03E299 /* ARCL-dummy.m */; };
-		381ECB6801B8B0D99D0F4D4F517579BB /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43CDD7872696D00EB227F17EFBF07D1 /* CLLocation+Extensions.swift */; };
-		3CEEAAF14E34948394659524505458B6 /* ARCL-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C0104D608BB36D0244169E1B87FAE44 /* ARCL-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F871BED69D621F2326A044DC43F6F9F /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8230D3988FD81A5287D22357D2CD58 /* CGPoint+Extensions.swift */; };
-		43CB2FBDD17ECD83C69566C7416E174F /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883294C46C22FCD985C00561932EB88B /* SCNNode+Extensions.swift */; };
-		488E3FC98765C9F4FA293D84EF87F486 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111957A052C5F3FB7920C50D4B77207A /* Foundation.framework */; };
-		4F6079E064AD0A5EC67CE3AED31E961B /* LocationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67276B2536AA8385E593CC17B947260D /* LocationNode.swift */; };
-		64D6C249A6D4733FDF2C4ED89FB39011 /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AE3583C179FD373C8BB476AE5B28D8 /* SCNVector3+Extensions.swift */; };
-		8ED0B263470D09593685CA6AEA59CD3A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A572C50452DE3C4A9120FD06BD4264 /* UIKit.framework */; };
-		8F33F210E876F7B4C7015DBF7F1EE07C /* SceneLocationEstimate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133FD55DD4EB1A92B0D253E92B152AA /* SceneLocationEstimate+Extensions.swift */; };
-		93A9E9E7E3BD2234489311C2B58DE747 /* SceneLocationEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419443DE4A31B50D4A5D6C88E598E9E1 /* SceneLocationEstimate.swift */; };
-		A7BA0190EA5780B48D55D9BBD8EC2E17 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB12438FEFF2F5C842DC29F73B79B3F /* CoreLocation.framework */; };
-		B125580DB372717E1855480F1A759ADC /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB57CD82241F90DE544909B98E85FA5B /* SceneKit.framework */; };
-		B91531D68861656DD3626C7CA1B249BB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0613DD858C57087AAA5AE2846C8E1AD3 /* MapKit.framework */; };
+		0AA40D881EDD1E402825018798D47376 /* LocationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DA4076270169C61011B2FF2012EFCD /* LocationNode.swift */; };
+		0E407E6FE585C0C8C3A7B0EEABEA6277 /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253B819C38886A54092CFBC887C0DAAA /* SCNNode+Extensions.swift */; };
+		1EC06248508514740435E3F39FB0E86F /* SceneLocationEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B78AC494548A4AC5C3F1C5A6E5C1D /* SceneLocationEstimate.swift */; };
+		2D94DBE8716E826258BB6E060DADB0D3 /* SceneLocationViewEstimateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7EEF09ED306B02F11A1E11BEA4C260 /* SceneLocationViewEstimateDelegate.swift */; };
+		34E4222D76AA5B5A0AD8EF1F453A4F3D /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CABDF69005D5EA9F7A41B5F1B88FD36 /* LocationManager.swift */; };
+		428B4E149B0B41BEBB8B515C0210E84A /* CLLocation+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6AA8378A7412A873E61D78DEDA471 /* CLLocation+Extensions.swift */; };
+		4C268DAD0EE3B7713ACADD828DA66C55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111957A052C5F3FB7920C50D4B77207A /* Foundation.framework */; };
+		4E84ABF34F481F216E83548890D54316 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35073B82D363939C21FB09DF7E554743 /* ARKit.framework */; };
+		653CD3990B37483D08A3DAD81A3C08CA /* SceneLocationView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB156ED84409F9B4939C14A3130917 /* SceneLocationView+Extensions.swift */; };
+		70F9FA052A0F5F5EF8629D46DE36CBD0 /* SceneLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE54C3537EA1D3CEFC12E78CB7418D5 /* SceneLocationManager.swift */; };
+		71E0AF18187A506B620ABFBC349E8249 /* PolylineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77018B5F6600977BB57E4B0C342DE07E /* PolylineNode.swift */; };
+		959CCC3C17BDA0CEDF2DB2C6BC7F0A2F /* SceneLocationEstimate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F563F61A5F564848E15A5D9042923608 /* SceneLocationEstimate+Extensions.swift */; };
+		A1C50224C025B3FBC237669A49A17713 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB12438FEFF2F5C842DC29F73B79B3F /* CoreLocation.framework */; };
+		AD6011B19EB3219665D7459EA51101D1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0613DD858C57087AAA5AE2846C8E1AD3 /* MapKit.framework */; };
+		B492B1CBE15C4A50328C819842F9CE39 /* LocationAnnotationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6812ECCE22C45EF5225B50739EC488 /* LocationAnnotationNode.swift */; };
+		BF7BAA00ACAF6849243FEAEF539F6BB2 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB57CD82241F90DE544909B98E85FA5B /* SceneKit.framework */; };
 		BFDCF7786BF5BE2034E61868C1117803 /* Pods-ARFoodie-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7596723DA8919829716931F1996B207C /* Pods-ARFoodie-dummy.m */; };
 		C7145B254AA747CA0CF5EAC646998E47 /* Pods-ARFoodie-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 36813A22A7BEBE2B04F756D88637099B /* Pods-ARFoodie-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D276B3868E36C2B717FB9477EF1062A1 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35073B82D363939C21FB09DF7E554743 /* ARKit.framework */; };
-		DC5EFD5163C8638AC582D648CC2675D1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2CFF6B92F0670BEDDE1169669F6416 /* LocationManager.swift */; };
-		E34058CE524879EA747FDF776CEFC027 /* SceneLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D8B4C6FA8A98292F756106F06C97C /* SceneLocationView.swift */; };
+		CAC34E3CB8D81155F81D319928B6F73E /* SceneLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E8906BCFFDE31094F85CF3F48FB5B7 /* SceneLocationView.swift */; };
+		D3DCE87D38401180ACA4759C0E26F6B8 /* BaseTypes+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91272033B9D408A6F97651BDCE2F6C0 /* BaseTypes+Extensions.swift */; };
+		E309584AC0E779693E1CC7606BCF242D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06A572C50452DE3C4A9120FD06BD4264 /* UIKit.framework */; };
+		E427958D0527435C43EB2F265D5C3488 /* FloatingPoint+Radians.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607D1B991F607BE7FA3059A8CA0F5428 /* FloatingPoint+Radians.swift */; };
+		E7F7E7A83A8A1A50C31A74CE73B92110 /* ARCL-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E5660F2CB7306F0B478E2DC648BEEA2 /* ARCL-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE3D7690D9224E2AB6A7B03EBFE3624B /* SCNVector3+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5A5D534C604CFD677A21276B7C3398 /* SCNVector3+Extensions.swift */; };
+		EFB11AB3B88DA2CEB6070621762680A7 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DB127A30672B7D8FB56E2118F83F69 /* CGPoint+Extensions.swift */; };
+		F2247504D9D1E884DC44CFC93F2D879D /* ARCL-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB98676283781984E031AF7BA0A62BA8 /* ARCL-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,44 +41,50 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AE6C26B16F44C241480BDC48E76BD476;
+			remoteGlobalIDString = 90618D569C3323EA3A28580E969DC8D0;
 			remoteInfo = ARCL;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04E8906BCFFDE31094F85CF3F48FB5B7 /* SceneLocationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SceneLocationView.swift; path = ARCL/Source/SceneLocationView.swift; sourceTree = "<group>"; };
 		0613DD858C57087AAA5AE2846C8E1AD3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		06A572C50452DE3C4A9120FD06BD4264 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		07AE3583C179FD373C8BB476AE5B28D8 /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SCNVector3+Extensions.swift"; path = "ARCL/Source/SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
-		0E53CE2A1CBF317B76A40642642459FF /* ARCL-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ARCL-prefix.pch"; sourceTree = "<group>"; };
 		111957A052C5F3FB7920C50D4B77207A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		13EB12EEB3CCBEB08829952B48DD0AFE /* ARCL-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ARCL-Info.plist"; sourceTree = "<group>"; };
+		1D7EEF09ED306B02F11A1E11BEA4C260 /* SceneLocationViewEstimateDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SceneLocationViewEstimateDelegate.swift; path = ARCL/Source/SceneLocationViewEstimateDelegate.swift; sourceTree = "<group>"; };
+		253B819C38886A54092CFBC887C0DAAA /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SCNNode+Extensions.swift"; path = "ARCL/Source/Extensions/SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 		29865651F33028089479DF028C43CA74 /* Pods-ARFoodie-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ARFoodie-acknowledgements.plist"; sourceTree = "<group>"; };
+		2BE54C3537EA1D3CEFC12E78CB7418D5 /* SceneLocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SceneLocationManager.swift; path = "ARCL/Source/Location Manager/SceneLocationManager.swift"; sourceTree = "<group>"; };
 		35073B82D363939C21FB09DF7E554743 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/ARKit.framework; sourceTree = DEVELOPER_DIR; };
 		36813A22A7BEBE2B04F756D88637099B /* Pods-ARFoodie-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ARFoodie-umbrella.h"; sourceTree = "<group>"; };
-		419443DE4A31B50D4A5D6C88E598E9E1 /* SceneLocationEstimate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SceneLocationEstimate.swift; path = ARCL/Source/SceneLocationEstimate.swift; sourceTree = "<group>"; };
 		4381B71015FE57E645BF0C462D2497AF /* ARCL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ARCL.framework; path = ARCL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		50BBCE56905D3057F07053366A03E299 /* ARCL-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ARCL-dummy.m"; sourceTree = "<group>"; };
-		5D2CFF6B92F0670BEDDE1169669F6416 /* LocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = ARCL/Source/LocationManager.swift; sourceTree = "<group>"; };
-		67276B2536AA8385E593CC17B947260D /* LocationNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationNode.swift; path = ARCL/Source/LocationNode.swift; sourceTree = "<group>"; };
-		67C01207A24B3490B1D32B45BDD065DA /* FloatingPoint+Radians.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FloatingPoint+Radians.swift"; path = "ARCL/Source/FloatingPoint+Radians.swift"; sourceTree = "<group>"; };
+		540B78AC494548A4AC5C3F1C5A6E5C1D /* SceneLocationEstimate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SceneLocationEstimate.swift; path = "ARCL/Source/Location Manager/SceneLocationEstimate.swift"; sourceTree = "<group>"; };
+		5E5660F2CB7306F0B478E2DC648BEEA2 /* ARCL-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ARCL-umbrella.h"; sourceTree = "<group>"; };
+		607D1B991F607BE7FA3059A8CA0F5428 /* FloatingPoint+Radians.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FloatingPoint+Radians.swift"; path = "ARCL/Source/Extensions/FloatingPoint+Radians.swift"; sourceTree = "<group>"; };
 		69D1C35DF575F0AA853A43C4D4D51BF6 /* Pods-ARFoodie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ARFoodie.release.xcconfig"; sourceTree = "<group>"; };
+		6C6812ECCE22C45EF5225B50739EC488 /* LocationAnnotationNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationAnnotationNode.swift; path = ARCL/Source/Nodes/LocationAnnotationNode.swift; sourceTree = "<group>"; };
 		7596723DA8919829716931F1996B207C /* Pods-ARFoodie-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ARFoodie-dummy.m"; sourceTree = "<group>"; };
-		770DE087526FF0DD61F8780E67E70BEB /* ARCL-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ARCL-Info.plist"; sourceTree = "<group>"; };
-		8133FD55DD4EB1A92B0D253E92B152AA /* SceneLocationEstimate+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SceneLocationEstimate+Extensions.swift"; path = "ARCL/Source/SceneLocationEstimate+Extensions.swift"; sourceTree = "<group>"; };
-		84892A597ECAAE94010CD4B0B61DFF36 /* ARCL.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ARCL.modulemap; sourceTree = "<group>"; };
-		8774156AD6897547C856F9CCBBC7F9D9 /* ARCL.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ARCL.xcconfig; sourceTree = "<group>"; };
-		883294C46C22FCD985C00561932EB88B /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SCNNode+Extensions.swift"; path = "ARCL/Source/SCNNode+Extensions.swift"; sourceTree = "<group>"; };
-		8C0104D608BB36D0244169E1B87FAE44 /* ARCL-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ARCL-umbrella.h"; sourceTree = "<group>"; };
+		77018B5F6600977BB57E4B0C342DE07E /* PolylineNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PolylineNode.swift; path = ARCL/Source/Nodes/PolylineNode.swift; sourceTree = "<group>"; };
+		8CABDF69005D5EA9F7A41B5F1B88FD36 /* LocationManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = "ARCL/Source/Location Manager/LocationManager.swift"; sourceTree = "<group>"; };
+		8F5A5D534C604CFD677A21276B7C3398 /* SCNVector3+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SCNVector3+Extensions.swift"; path = "ARCL/Source/Extensions/SCNVector3+Extensions.swift"; sourceTree = "<group>"; };
+		94DA4076270169C61011B2FF2012EFCD /* LocationNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationNode.swift; path = ARCL/Source/Nodes/LocationNode.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DC7D260F2690D17352A32EB57B9EA48 /* Pods-ARFoodie.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ARFoodie.modulemap"; sourceTree = "<group>"; };
-		A96D8B4C6FA8A98292F756106F06C97C /* SceneLocationView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SceneLocationView.swift; path = ARCL/Source/SceneLocationView.swift; sourceTree = "<group>"; };
+		9ED6AA8378A7412A873E61D78DEDA471 /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CLLocation+Extensions.swift"; path = "ARCL/Source/Extensions/CLLocation+Extensions.swift"; sourceTree = "<group>"; };
+		A0153C67869F3059AD595E7EB6CE413D /* ARCL-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ARCL-prefix.pch"; sourceTree = "<group>"; };
+		A91272033B9D408A6F97651BDCE2F6C0 /* BaseTypes+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "BaseTypes+Extensions.swift"; path = "ARCL/Source/Extensions/BaseTypes+Extensions.swift"; sourceTree = "<group>"; };
 		ABF5FC4D6090455F0D12F76584B2B16B /* Pods-ARFoodie-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ARFoodie-frameworks.sh"; sourceTree = "<group>"; };
 		B0197F0857F58F5AD2EEA72C611C4611 /* Pods_ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ARFoodie.framework; path = "Pods-ARFoodie.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B068E09C8C6F69220DB1CCF8FB894FA5 /* Pods-ARFoodie-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ARFoodie-Info.plist"; sourceTree = "<group>"; };
+		C5C6F5C4328CA246B2649DD91CFA9EFC /* ARCL.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ARCL.modulemap; sourceTree = "<group>"; };
 		C9F6209F45BE0FA6F34E600235BEFB2E /* Pods-ARFoodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ARFoodie.debug.xcconfig"; sourceTree = "<group>"; };
 		CB57CD82241F90DE544909B98E85FA5B /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/SceneKit.framework; sourceTree = DEVELOPER_DIR; };
-		CB8230D3988FD81A5287D22357D2CD58 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGPoint+Extensions.swift"; path = "ARCL/Source/CGPoint+Extensions.swift"; sourceTree = "<group>"; };
-		D43CDD7872696D00EB227F17EFBF07D1 /* CLLocation+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CLLocation+Extensions.swift"; path = "ARCL/Source/CLLocation+Extensions.swift"; sourceTree = "<group>"; };
+		CEEB156ED84409F9B4939C14A3130917 /* SceneLocationView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SceneLocationView+Extensions.swift"; path = "ARCL/Source/SceneLocationView+Extensions.swift"; sourceTree = "<group>"; };
+		DB98676283781984E031AF7BA0A62BA8 /* ARCL-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ARCL-dummy.m"; sourceTree = "<group>"; };
+		EFD734058E12659EDE3CD6786E4F1385 /* ARCL.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ARCL.xcconfig; sourceTree = "<group>"; };
+		F2DB127A30672B7D8FB56E2118F83F69 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGPoint+Extensions.swift"; path = "ARCL/Source/Extensions/CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		F563F61A5F564848E15A5D9042923608 /* SceneLocationEstimate+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SceneLocationEstimate+Extensions.swift"; path = "ARCL/Source/Location Manager/SceneLocationEstimate+Extensions.swift"; sourceTree = "<group>"; };
 		F594DFE62F13DD4275600164B4E22C37 /* Pods-ARFoodie-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ARFoodie-acknowledgements.markdown"; sourceTree = "<group>"; };
 		FCB12438FEFF2F5C842DC29F73B79B3F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -86,22 +98,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8FE4EAEAAAB36E87F07A24FD1B9C2684 /* Frameworks */ = {
+		9953F252A86A034958D06B7A6C068262 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D276B3868E36C2B717FB9477EF1062A1 /* ARKit.framework in Frameworks */,
-				A7BA0190EA5780B48D55D9BBD8EC2E17 /* CoreLocation.framework in Frameworks */,
-				488E3FC98765C9F4FA293D84EF87F486 /* Foundation.framework in Frameworks */,
-				B91531D68861656DD3626C7CA1B249BB /* MapKit.framework in Frameworks */,
-				B125580DB372717E1855480F1A759ADC /* SceneKit.framework in Frameworks */,
-				8ED0B263470D09593685CA6AEA59CD3A /* UIKit.framework in Frameworks */,
+				4E84ABF34F481F216E83548890D54316 /* ARKit.framework in Frameworks */,
+				A1C50224C025B3FBC237669A49A17713 /* CoreLocation.framework in Frameworks */,
+				4C268DAD0EE3B7713ACADD828DA66C55 /* Foundation.framework in Frameworks */,
+				AD6011B19EB3219665D7459EA51101D1 /* MapKit.framework in Frameworks */,
+				BF7BAA00ACAF6849243FEAEF539F6BB2 /* SceneKit.framework in Frameworks */,
+				E309584AC0E779693E1CC7606BCF242D /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0BC4A04AB5E2AED52884493F71102250 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65CFF443B025F3A509300312BD13DB1B /* ARCL */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2F8B1DAD866AEC159FBD59E6BE0E9F0A /* Pods-ARFoodie */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,25 +139,6 @@
 			path = "Target Support Files/Pods-ARFoodie";
 			sourceTree = "<group>";
 		};
-		505944BB6DA7326D1A48CE37C449AEC5 /* ARCL */ = {
-			isa = PBXGroup;
-			children = (
-				CB8230D3988FD81A5287D22357D2CD58 /* CGPoint+Extensions.swift */,
-				D43CDD7872696D00EB227F17EFBF07D1 /* CLLocation+Extensions.swift */,
-				67C01207A24B3490B1D32B45BDD065DA /* FloatingPoint+Radians.swift */,
-				5D2CFF6B92F0670BEDDE1169669F6416 /* LocationManager.swift */,
-				67276B2536AA8385E593CC17B947260D /* LocationNode.swift */,
-				419443DE4A31B50D4A5D6C88E598E9E1 /* SceneLocationEstimate.swift */,
-				8133FD55DD4EB1A92B0D253E92B152AA /* SceneLocationEstimate+Extensions.swift */,
-				A96D8B4C6FA8A98292F756106F06C97C /* SceneLocationView.swift */,
-				883294C46C22FCD985C00561932EB88B /* SCNNode+Extensions.swift */,
-				07AE3583C179FD373C8BB476AE5B28D8 /* SCNVector3+Extensions.swift */,
-				97C048FF7EBCDAAAD7B1AAAE887FB1DF /* Support Files */,
-			);
-			name = ARCL;
-			path = ARCL;
-			sourceTree = "<group>";
-		};
 		5714AD11A9227E7A72BA9065241416D3 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,26 +147,43 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		97C048FF7EBCDAAAD7B1AAAE887FB1DF /* Support Files */ = {
+		65CFF443B025F3A509300312BD13DB1B /* ARCL */ = {
 			isa = PBXGroup;
 			children = (
-				84892A597ECAAE94010CD4B0B61DFF36 /* ARCL.modulemap */,
-				8774156AD6897547C856F9CCBBC7F9D9 /* ARCL.xcconfig */,
-				50BBCE56905D3057F07053366A03E299 /* ARCL-dummy.m */,
-				770DE087526FF0DD61F8780E67E70BEB /* ARCL-Info.plist */,
-				0E53CE2A1CBF317B76A40642642459FF /* ARCL-prefix.pch */,
-				8C0104D608BB36D0244169E1B87FAE44 /* ARCL-umbrella.h */,
+				A91272033B9D408A6F97651BDCE2F6C0 /* BaseTypes+Extensions.swift */,
+				F2DB127A30672B7D8FB56E2118F83F69 /* CGPoint+Extensions.swift */,
+				9ED6AA8378A7412A873E61D78DEDA471 /* CLLocation+Extensions.swift */,
+				607D1B991F607BE7FA3059A8CA0F5428 /* FloatingPoint+Radians.swift */,
+				6C6812ECCE22C45EF5225B50739EC488 /* LocationAnnotationNode.swift */,
+				8CABDF69005D5EA9F7A41B5F1B88FD36 /* LocationManager.swift */,
+				94DA4076270169C61011B2FF2012EFCD /* LocationNode.swift */,
+				77018B5F6600977BB57E4B0C342DE07E /* PolylineNode.swift */,
+				540B78AC494548A4AC5C3F1C5A6E5C1D /* SceneLocationEstimate.swift */,
+				F563F61A5F564848E15A5D9042923608 /* SceneLocationEstimate+Extensions.swift */,
+				2BE54C3537EA1D3CEFC12E78CB7418D5 /* SceneLocationManager.swift */,
+				04E8906BCFFDE31094F85CF3F48FB5B7 /* SceneLocationView.swift */,
+				CEEB156ED84409F9B4939C14A3130917 /* SceneLocationView+Extensions.swift */,
+				1D7EEF09ED306B02F11A1E11BEA4C260 /* SceneLocationViewEstimateDelegate.swift */,
+				253B819C38886A54092CFBC887C0DAAA /* SCNNode+Extensions.swift */,
+				8F5A5D534C604CFD677A21276B7C3398 /* SCNVector3+Extensions.swift */,
+				B76C2AF7DB0D5298D5623D982E486AB5 /* Support Files */,
+			);
+			name = ARCL;
+			path = ARCL;
+			sourceTree = "<group>";
+		};
+		B76C2AF7DB0D5298D5623D982E486AB5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C5C6F5C4328CA246B2649DD91CFA9EFC /* ARCL.modulemap */,
+				EFD734058E12659EDE3CD6786E4F1385 /* ARCL.xcconfig */,
+				DB98676283781984E031AF7BA0A62BA8 /* ARCL-dummy.m */,
+				13EB12EEB3CCBEB08829952B48DD0AFE /* ARCL-Info.plist */,
+				A0153C67869F3059AD595E7EB6CE413D /* ARCL-prefix.pch */,
+				5E5660F2CB7306F0B478E2DC648BEEA2 /* ARCL-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/ARCL";
-			sourceTree = "<group>";
-		};
-		B4614E954AD6B3DB5CAD70091F7FA273 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				505944BB6DA7326D1A48CE37C449AEC5 /* ARCL */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -173,7 +191,7 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D68CA58901FBF589D75F5E40F1EAF5BA /* Frameworks */,
-				B4614E954AD6B3DB5CAD70091F7FA273 /* Pods */,
+				0BC4A04AB5E2AED52884493F71102250 /* Pods */,
 				EF44108B84ECFC78C132122FE65001C5 /* Products */,
 				5714AD11A9227E7A72BA9065241416D3 /* Targets Support Files */,
 			);
@@ -220,25 +238,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55A4F098364CF68EBDE3B738C4EDF23F /* Headers */ = {
+		AEB884EB963B5A6E423C3F5F206A48AE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CEEAAF14E34948394659524505458B6 /* ARCL-umbrella.h in Headers */,
+				E7F7E7A83A8A1A50C31A74CE73B92110 /* ARCL-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		AE6C26B16F44C241480BDC48E76BD476 /* ARCL */ = {
+		90618D569C3323EA3A28580E969DC8D0 /* ARCL */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D248DB54888240D99362BA17EDFEA93 /* Build configuration list for PBXNativeTarget "ARCL" */;
+			buildConfigurationList = 1BFE882507AF4F76597400B1D7F33206 /* Build configuration list for PBXNativeTarget "ARCL" */;
 			buildPhases = (
-				55A4F098364CF68EBDE3B738C4EDF23F /* Headers */,
-				E74E56332F59C85CCC50B329A56E3F30 /* Sources */,
-				8FE4EAEAAAB36E87F07A24FD1B9C2684 /* Frameworks */,
-				A71AF306AB3AC3484B783679FE384B83 /* Resources */,
+				AEB884EB963B5A6E423C3F5F206A48AE /* Headers */,
+				4B9611F16192C2731121C020C918874A /* Sources */,
+				9953F252A86A034958D06B7A6C068262 /* Frameworks */,
+				78CE9958FD2F829C522A99D337B5CEC3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -289,7 +307,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AE6C26B16F44C241480BDC48E76BD476 /* ARCL */,
+				90618D569C3323EA3A28580E969DC8D0 /* ARCL */,
 				F37DE67B88356918E5CD5CB3F564BD59 /* Pods-ARFoodie */,
 			);
 		};
@@ -303,7 +321,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A71AF306AB3AC3484B783679FE384B83 /* Resources */ = {
+		78CE9958FD2F829C522A99D337B5CEC3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,29 +331,35 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4B9611F16192C2731121C020C918874A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2247504D9D1E884DC44CFC93F2D879D /* ARCL-dummy.m in Sources */,
+				D3DCE87D38401180ACA4759C0E26F6B8 /* BaseTypes+Extensions.swift in Sources */,
+				EFB11AB3B88DA2CEB6070621762680A7 /* CGPoint+Extensions.swift in Sources */,
+				428B4E149B0B41BEBB8B515C0210E84A /* CLLocation+Extensions.swift in Sources */,
+				E427958D0527435C43EB2F265D5C3488 /* FloatingPoint+Radians.swift in Sources */,
+				B492B1CBE15C4A50328C819842F9CE39 /* LocationAnnotationNode.swift in Sources */,
+				34E4222D76AA5B5A0AD8EF1F453A4F3D /* LocationManager.swift in Sources */,
+				0AA40D881EDD1E402825018798D47376 /* LocationNode.swift in Sources */,
+				71E0AF18187A506B620ABFBC349E8249 /* PolylineNode.swift in Sources */,
+				959CCC3C17BDA0CEDF2DB2C6BC7F0A2F /* SceneLocationEstimate+Extensions.swift in Sources */,
+				1EC06248508514740435E3F39FB0E86F /* SceneLocationEstimate.swift in Sources */,
+				70F9FA052A0F5F5EF8629D46DE36CBD0 /* SceneLocationManager.swift in Sources */,
+				653CD3990B37483D08A3DAD81A3C08CA /* SceneLocationView+Extensions.swift in Sources */,
+				CAC34E3CB8D81155F81D319928B6F73E /* SceneLocationView.swift in Sources */,
+				2D94DBE8716E826258BB6E060DADB0D3 /* SceneLocationViewEstimateDelegate.swift in Sources */,
+				0E407E6FE585C0C8C3A7B0EEABEA6277 /* SCNNode+Extensions.swift in Sources */,
+				EE3D7690D9224E2AB6A7B03EBFE3624B /* SCNVector3+Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A65EB27A0EDA624DA547FA4A6D8E70E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BFDCF7786BF5BE2034E61868C1117803 /* Pods-ARFoodie-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E74E56332F59C85CCC50B329A56E3F30 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				201B99EEE596F402E515032C313147A8 /* ARCL-dummy.m in Sources */,
-				3F871BED69D621F2326A044DC43F6F9F /* CGPoint+Extensions.swift in Sources */,
-				381ECB6801B8B0D99D0F4D4F517579BB /* CLLocation+Extensions.swift in Sources */,
-				1BD8418E12F4D7CD867202F98F6D03EB /* FloatingPoint+Radians.swift in Sources */,
-				DC5EFD5163C8638AC582D648CC2675D1 /* LocationManager.swift in Sources */,
-				4F6079E064AD0A5EC67CE3AED31E961B /* LocationNode.swift in Sources */,
-				8F33F210E876F7B4C7015DBF7F1EE07C /* SceneLocationEstimate+Extensions.swift in Sources */,
-				93A9E9E7E3BD2234489311C2B58DE747 /* SceneLocationEstimate.swift in Sources */,
-				E34058CE524879EA747FDF776CEFC027 /* SceneLocationView.swift in Sources */,
-				43CB2FBDD17ECD83C69566C7416E174F /* SCNNode+Extensions.swift in Sources */,
-				64D6C249A6D4733FDF2C4ED89FB39011 /* SCNVector3+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,48 +369,12 @@
 		4361823991041A1827D3E23916D3FC21 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ARCL;
-			target = AE6C26B16F44C241480BDC48E76BD476 /* ARCL */;
+			target = 90618D569C3323EA3A28580E969DC8D0 /* ARCL */;
 			targetProxy = EF276C0A0EB50441560D15A9B81CBA77 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1AD49D9F6577466A0BD471210B1258C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8774156AD6897547C856F9CCBBC7F9D9 /* ARCL.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ARCL/ARCL-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ARCL/ARCL-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/ARCL/ARCL.modulemap";
-				PRODUCT_MODULE_NAME = ARCL;
-				PRODUCT_NAME = ARCL;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		200AA6A63F2EF7D889710A7256144E69 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69D1C35DF575F0AA853A43C4D4D51BF6 /* Pods-ARFoodie.release.xcconfig */;
@@ -490,6 +478,41 @@
 			};
 			name = Debug;
 		};
+		568FC27F9EE146C1469ADB9CAB0CF94A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD734058E12659EDE3CD6786E4F1385 /* ARCL.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ARCL/ARCL-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ARCL/ARCL-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ARCL/ARCL.modulemap";
+				PRODUCT_MODULE_NAME = ARCL;
+				PRODUCT_NAME = ARCL;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		61D46F2B330E160E46E73955AAE661F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C9F6209F45BE0FA6F34E600235BEFB2E /* Pods-ARFoodie.debug.xcconfig */;
@@ -522,41 +545,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		81F9E798CEF9143AF7A0F85A73C670F9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8774156AD6897547C856F9CCBBC7F9D9 /* ARCL.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ARCL/ARCL-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ARCL/ARCL-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/ARCL/ARCL.modulemap";
-				PRODUCT_MODULE_NAME = ARCL;
-				PRODUCT_NAME = ARCL;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -623,9 +611,54 @@
 			};
 			name = Release;
 		};
+		E3915CFEE8E3D3E3697EB6B4E7FC904C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFD734058E12659EDE3CD6786E4F1385 /* ARCL.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ARCL/ARCL-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ARCL/ARCL-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ARCL/ARCL.modulemap";
+				PRODUCT_MODULE_NAME = ARCL;
+				PRODUCT_NAME = ARCL;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1BFE882507AF4F76597400B1D7F33206 /* Build configuration list for PBXNativeTarget "ARCL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				568FC27F9EE146C1469ADB9CAB0CF94A /* Debug */,
+				E3915CFEE8E3D3E3697EB6B4E7FC904C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2BFCF1444C92597507A8C540FEB2DB8F /* Build configuration list for PBXNativeTarget "Pods-ARFoodie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -640,15 +673,6 @@
 			buildConfigurations = (
 				4093433A309EFE160336AC736594AB22 /* Debug */,
 				924D56B1D59CD3049300EAEEA256114E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5D248DB54888240D99362BA17EDFEA93 /* Build configuration list for PBXNativeTarget "ARCL" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				81F9E798CEF9143AF7A0F85A73C670F9 /* Debug */,
-				1AD49D9F6577466A0BD471210B1258C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
