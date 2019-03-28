@@ -8,5 +8,7 @@ target 'ARFoodie' do
   # Pods for ARFoodie
 
   pod 'ARCL'
-
+  pod 'Alamofire', '~> 5.0.0-beta.3'
+  pod 'SwiftLint'
+  
 end
