@@ -14,51 +14,15 @@ class MainARViewController: UIViewController {
 
     var sceneLocationView = SceneLocationView()
 
+    let restaurantInfoManager = RestaurantInfoManager.shared
+
+    var restaurants: [Restaurant] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let myImage = UIImage(named: "pin")!
-        var restaurants: [Restaurant] = []
-        let rest1 = Restaurant.init(name: "大橋頭米糕", photo: myImage, lat: 25.063294, lng: 121.518642)
-        let rest2 = Restaurant.init(name: "大橋頭麻薯冰", photo: myImage, lat: 25.063804, lng: 121.518810)
-        restaurants = [rest1, rest2]
-
-
-        for rest in restaurants {
-
-            let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
-            let location = CLLocation(coordinate: coordinate, altitude: 0)
-
-
-            let nameLabel = UILabel(frame: CGRect(x: 130, y: 10, width: 100, height: 50))
-            nameLabel.text = rest.name
-
-            let imgView = UIImageView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-            let myImage = UIImage(named: "pin")!
-
-            imgView.image = myImage
-
-            let view = UIView()
-            view.frame = CGRect.init(x: 0, y: 0, width: 250, height: 150)
-            view.layer.cornerRadius = 0.5
-            view.clipsToBounds = true
-            view.addSubview(imgView)
-            view.addSubview(nameLabel)
-            view.backgroundColor = UIColor.clear
-
-
-
-            let annotaionNode = LocationAnnotationNode(location: location, view: view)
-
-            self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
-        }
-
-
-
-
-
-
-//        self.sceneLocationView.run()
+        self.restaurantInfoManager.delegate = self
+        self.restaurantInfoManager.fetchRestaurant()
 
         view.addSubview(self.sceneLocationView)
 
@@ -80,6 +44,46 @@ class MainARViewController: UIViewController {
         super.viewWillAppear(animated)
 
         self.sceneLocationView.pause()
+    }
+}
+extension MainARViewController: RestaurantInfoDelegate {
+
+    func manager(_ manager: RestaurantInfoManager, didFetch restaurants: [Restaurant]) {
+
+        self.restaurants = restaurants
+
+        for rest in restaurants {
+
+            let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
+            let location = CLLocation(coordinate: coordinate, altitude: 0)
+
+            let nameLabel = UILabel(frame: CGRect(x: 130, y: 10, width: 100, height: 50))
+            nameLabel.text = rest.name
+
+            let imgView = UIImageView(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+            let myImage = UIImage(named: "pin")!
+
+            imgView.image = myImage
+
+            let view = UIView()
+            view.frame = CGRect.init(x: 0, y: 0, width: 250, height: 150)
+            view.layer.cornerRadius = 0.5
+            view.clipsToBounds = true
+            view.addSubview(imgView)
+            view.addSubview(nameLabel)
+            view.backgroundColor = UIColor.clear
+
+            let annotaionNode = LocationAnnotationNode(location: location, view: view)
+//            annotaionNode.scaleRelativeToDistance = true
+
+            self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
+            self.sceneLocationView.run()
+        }
+
+    }
+
+    func manager(_ manager: RestaurantInfoManager, didFailed with: Error) {
+
     }
 }
 

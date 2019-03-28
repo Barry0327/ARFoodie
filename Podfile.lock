@@ -1,16 +1,24 @@
 PODS:
+  - Alamofire (5.0.0-beta.3)
   - ARCL (1.1.0)
+  - SwiftLint (0.31.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.3)
   - ARCL
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - ARCL
+    - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: 50d6fa7e8cbe7f84559e86ab641ffd029db655f8
   ARCL: 8b0a375942c575472c3cdbec80262d8400f1ec42
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 032e9036ef789aa93ff98de6254b72b141fc9773
+PODFILE CHECKSUM: ef53f88130ffc00adf4b9e1c371321edb9821e4a
 
 COCOAPODS: 1.6.1

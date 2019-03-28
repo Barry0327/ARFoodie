@@ -11,8 +11,7 @@ import UIKit
 struct Restaurant {
 
     let name: String
-    let photo: UIImage
+    let photo: UIImage?
     let lat: Double
     let lng: Double
-    
 }
