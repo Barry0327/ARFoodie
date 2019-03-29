@@ -9,6 +9,7 @@ import ARCL
 import CoreLocation
 import UIKit
 import MapKit
+import ARKit
 
 class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -19,6 +20,8 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     var restaurants: [Restaurant] = []
 
     let locationManager = CLLocationManager()
+
+    var userCurrentLocation: CLLocation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        print("run")
         self.sceneLocationView.run()
 
     }
@@ -47,8 +51,12 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        print("pause")
         self.sceneLocationView.pause()
     }
+
+    // MARK: Core Location Delegate Method.
+    /***********************************************************************/
 
     func startReceivingLocationChanges() {
 
@@ -69,6 +77,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
             if location.horizontalAccuracy > 0 {
 
+                self.userCurrentLocation = location
                 self.locationManager.stopUpdatingLocation()
                 let latitude = String(location.coordinate.latitude)
                 let longtitude = String(location.coordinate.longitude)
@@ -78,6 +87,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 }
+
 extension MainARViewController: RestaurantInfoDelegate {
 
     func manager(_ manager: RestaurantInfoManager, didFetch restaurants: [Restaurant]) {
@@ -87,32 +97,53 @@ extension MainARViewController: RestaurantInfoDelegate {
         for rest in restaurants {
 
             let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
-            let location = CLLocation(coordinate: coordinate, altitude: Double.random(in: 10...70))
+            let location = CLLocation(coordinate: coordinate, altitude: Double.random(in: 0...60))
 
-            let nameLabel = UILabel(frame: CGRect(x: 10, y: 10, width: 150, height: 50))
+            let nameLabel = UILabel(frame: CGRect(x: 5, y: 5, width: 240, height: 30))
             nameLabel.text = rest.name
-            nameLabel.textColor = .white
+            nameLabel.textColor = .black
+            nameLabel.font = UIFont.systemFont(ofSize: 20)
             nameLabel.adjustsFontSizeToFitWidth = true
 
-            let view = UIView()
+            let ratingLabel = UILabel(frame: CGRect(x: 5, y: 35, width: 150, height: 30))
+            ratingLabel.textColor = .black
+            let rating: Double = rest.rating ?? 0
+            let userRatingsTotal: Double = rest.userRatingsTotal ?? 0
+            ratingLabel.text = "評價: \(rating) (\(Int(userRatingsTotal)))"
+            ratingLabel.font = UIFont.systemFont(ofSize: 14)
+
+            let restaurantLocation = CLLocation.init(latitude: rest.lat, longitude: rest.lng)
+            let distance = self.userCurrentLocation?.distance(from: restaurantLocation)
+
+            let distanceLabel = UILabel(frame: CGRect(x: 160, y: 35, width: 90, height: 30))
+            distanceLabel.text = "\(String(format: "%.1f", distance!))m"
+            distanceLabel.font = UIFont.systemFont(ofSize: 14)
+            distanceLabel.textColor = UIColor(r: 79, g: 79, b: 79, a: 1)
+
+            let view = ARView()
             view.isOpaque = false
-            view.frame = CGRect.init(x: 0, y: 0, width: 250, height: 100)
+            view.frame = CGRect.init(x: 0, y: 0, width: 250, height: 70)
             view.layer.cornerRadius = 20
             view.clipsToBounds = true
-            view.addSubview(nameLabel)
-            view.backgroundColor = UIColor(r: 0, g: 0, b: 0, a: 0.7)
+            view.backgroundColor = UIColor(r: 255, g: 255, b: 255, a: 0.7)
             view.layer.applySketchShadow()
+            view.addSubview(nameLabel)
+            view.addSubview(ratingLabel)
+            view.addSubview(distanceLabel)
+            view.placeID = rest.placeID
 
             let annotaionNode = LocationAnnotationNode(location: location, view: view)
-
 //            annotaionNode.scaleRelativeToDistance = true
+            annotaionNode.renderOnTop()
 
             self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
-            self.sceneLocationView.run()
+//            self.sceneLocationView.run()
+
         }
 
     }
 
+    #warning("Add action when API requset failed")
     func manager(_ manager: RestaurantInfoManager, didFailed with: Error) {
 
     }
@@ -145,6 +176,20 @@ extension CALayer {
             let dxValue = -spread
             let rect = bounds.insetBy(dx: dxValue, dy: dxValue)
             shadowPath = UIBezierPath(rect: rect).cgPath
+        }
+    }
+}
+
+extension SCNNode {
+    func renderOnTop() {
+        self.renderingOrder = 2
+        if let geom = self.geometry {
+            for material in geom.materials {
+                material.readsFromDepthBuffer = false
+            }
+        }
+        for child in self.childNodes {
+            child.renderOnTop()
         }
     }
 }

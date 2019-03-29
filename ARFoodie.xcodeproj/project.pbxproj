@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1AA0B6366D2BF60571158A90 /* Pods_ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */; };
+		971DCDA9224E166400A70512 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971DCDA8224E166300A70512 /* ARView.swift */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
 		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
 		97D25685224B1F9C00175E42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D25683224B1F9C00175E42 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		3C25E772FFF45292F7B6B4CC /* Pods-ARFoodie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.release.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.release.xcconfig"; sourceTree = "<group>"; };
 		535020E1A0264B630C2A6DCA /* Pods-ARFoodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.debug.xcconfig"; sourceTree = "<group>"; };
 		7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		971DCDA8224E166300A70512 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D25681224B1F9C00175E42 /* MainARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainARViewController.swift; sourceTree = "<group>"; };
@@ -85,8 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				97D25693224C9E9400175E42 /* Model */,
-				97D25692224C9E8B00175E42 /* View */,
 				97D25691224C9E7800175E42 /* Controller */,
+				97D25692224C9E8B00175E42 /* View */,
 				97D25686224B1F9E00175E42 /* Assets.xcassets */,
 				97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */,
 				97D2568B224B1F9E00175E42 /* Info.plist */,
@@ -97,8 +99,8 @@
 		97D25691224C9E7800175E42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
+				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,6 +119,7 @@
 				97D25694224C9EBD00175E42 /* Restaurant.swift */,
 				97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */,
 				97D25699224CD04F00175E42 /* Portocol.swift */,
+				971DCDA8224E166300A70512 /* ARView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
+				971DCDA9224E166400A70512 /* ARView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
