@@ -22,7 +22,8 @@ class RestaurantInfoManager {
         let parameters: Parameters = [
 
             "location": "\(lat),\(lng)",
-            "radius": "300",
+//            "radius": "300",
+            "rankby": "distance",
             "types": "restaurant",
             "language": "zh_TW",
             "key": "AIzaSyCnDQviBdsqd55DfGHkSToCnXXz66WEIhY"
@@ -51,11 +52,13 @@ class RestaurantInfoManager {
 
                 guard
                     status == "OK",
-                    let restaurantList = json["results"] as? [[String: Any]]
+                    var restaurantList = json["results"] as? [[String: Any]]
                 else {
                     print("Failed paring 3")
                     return
                 }
+
+                restaurantList.removeLast(5)
 
                 var restaurants: [Restaurant] = []
 
@@ -63,7 +66,10 @@ class RestaurantInfoManager {
 
                     guard
                         let geometry = item["geometry"] as? [String: Any],
-                        let name = item["name"] as? String
+                        let name = item["name"] as? String,
+                        let rating = item["rating"] as? Double?,
+                        let userRatingsTotal = item["user_ratings_total"] as? Double?,
+                        let placeID = item["place_id"] as? String
                     else {
                         print("Failed paring 4")
                         return
@@ -82,7 +88,7 @@ class RestaurantInfoManager {
                             return
                     }
 
-                    let restaurant = Restaurant.init(name: name, photo: nil, lat: lat, lng: lng)
+                    let restaurant = Restaurant.init(placeID: placeID, name: name, lat: lat, lng: lng, rating: rating, userRatingsTotal: userRatingsTotal)
 
                     restaurants.append(restaurant)
 

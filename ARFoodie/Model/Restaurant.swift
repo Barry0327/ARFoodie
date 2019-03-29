@@ -10,8 +10,10 @@ import UIKit
 
 struct Restaurant {
 
+    let placeID: String
     let name: String
-    let photo: UIImage?
     let lat: Double
     let lng: Double
+    let rating: Double?
+    let userRatingsTotal: Double?
 }
