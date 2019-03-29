@@ -15,15 +15,15 @@ class RestaurantInfoManager {
 
     weak var delegate: RestaurantInfoDelegate?
 
-    func fetchRestaurant() {
+    func fetchRestaurant(lat: String, lng: String) {
 
         let endPointURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
         let parameters: Parameters = [
 
-            "location": "25.0634243,121.5194408",
-            "radius": "500",
-            "types": "food",
+            "location": "\(lat),\(lng)",
+            "radius": "300",
+            "types": "restaurant",
             "language": "zh_TW",
             "key": "AIzaSyCnDQviBdsqd55DfGHkSToCnXXz66WEIhY"
 
@@ -32,10 +32,11 @@ class RestaurantInfoManager {
         AF.request(endPointURL, method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
 
             if response.error != nil {
+
+                self.delegate?.manager(RestaurantInfoManager.shared, didFailed: response.error!)
+
                 return
             }
-
-
             if response.result.isSuccess {
 
                 guard let json = response.result.value as? [String: Any] else {
@@ -48,25 +49,22 @@ class RestaurantInfoManager {
                     return
                 }
 
-                guard status == "OK" else {
-                    print("Request Failed")
-                    return
-                }
-
-                guard var restaurantList = json["results"] as? [[String: Any]] else {
+                guard
+                    status == "OK",
+                    let restaurantList = json["results"] as? [[String: Any]]
+                else {
                     print("Failed paring 3")
                     return
                 }
-
-                // first and last item are always not restaurant
-                restaurantList.removeFirst()
-                restaurantList.removeLast()
 
                 var restaurants: [Restaurant] = []
 
                 for item in restaurantList {
 
-                    guard let geometry = item["geometry"] as? [String: Any] else {
+                    guard
+                        let geometry = item["geometry"] as? [String: Any],
+                        let name = item["name"] as? String
+                    else {
                         print("Failed paring 4")
                         return
                     }
@@ -82,11 +80,6 @@ class RestaurantInfoManager {
                         else {
                             print("Failed paring 6")
                             return
-                    }
-
-                    guard let name = item["name"] as? String else {
-                        print("Failed paring 7")
-                        return
                     }
 
                     let restaurant = Restaurant.init(name: name, photo: nil, lat: lat, lng: lng)

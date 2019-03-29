@@ -87,8 +87,6 @@
 				97D25693224C9E9400175E42 /* Model */,
 				97D25692224C9E8B00175E42 /* View */,
 				97D25691224C9E7800175E42 /* Controller */,
-				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
-				97D25683224B1F9C00175E42 /* Main.storyboard */,
 				97D25686224B1F9E00175E42 /* Assets.xcassets */,
 				97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */,
 				97D2568B224B1F9E00175E42 /* Info.plist */,
@@ -99,6 +97,7 @@
 		97D25691224C9E7800175E42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
 			);
 			path = Controller;
@@ -107,6 +106,7 @@
 		97D25692224C9E8B00175E42 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				97D25683224B1F9C00175E42 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
