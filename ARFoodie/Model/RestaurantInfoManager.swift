@@ -58,7 +58,7 @@ class RestaurantInfoManager {
                     return
                 }
 
-                restaurantList.removeLast(5)
+                restaurantList.removeLast(4)
 
                 var restaurants: [Restaurant] = []
 
