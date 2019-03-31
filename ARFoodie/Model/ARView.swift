@@ -11,5 +11,4 @@ import UIKit
 class ARView: UIView {
 
     var placeID: String = ""
-
 }

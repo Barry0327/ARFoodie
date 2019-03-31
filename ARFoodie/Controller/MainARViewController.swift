@@ -23,6 +23,8 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     var userCurrentLocation: CLLocation?
 
+    var adjustedHeight: Double = -12
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -86,6 +88,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+
 }
 
 extension MainARViewController: RestaurantInfoDelegate {
@@ -95,9 +98,6 @@ extension MainARViewController: RestaurantInfoDelegate {
         self.restaurants = restaurants
 
         for rest in restaurants {
-
-            let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
-            let location = CLLocation(coordinate: coordinate, altitude: Double.random(in: 0...60))
 
             let nameLabel = UILabel(frame: CGRect(x: 5, y: 5, width: 240, height: 30))
             nameLabel.text = rest.name
@@ -123,8 +123,7 @@ extension MainARViewController: RestaurantInfoDelegate {
             let view = ARView()
             view.isOpaque = false
             view.frame = CGRect.init(x: 0, y: 0, width: 250, height: 70)
-            view.layer.cornerRadius = 20
-            view.clipsToBounds = true
+//            view.clipsToBounds = true
             view.backgroundColor = UIColor(r: 255, g: 255, b: 255, a: 0.7)
             view.layer.applySketchShadow()
             view.addSubview(nameLabel)
@@ -132,8 +131,45 @@ extension MainARViewController: RestaurantInfoDelegate {
             view.addSubview(distanceLabel)
             view.placeID = rest.placeID
 
+            let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 250, height: 60), cornerRadius: 5)
+            path.move(to: CGPoint(x: 115, y: 60))
+            path.addLine(to: CGPoint(x: 125, y: 70))
+            path.addLine(to: CGPoint(x: 135, y: 60))
+            path.close()
+
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.path = path.cgPath
+
+            view.layer.mask = shapeLayer
+
+            let distanceInDouble: Double = Double(exactly: distance ?? 0) ?? 0
+            print(distanceInDouble)
+
+//            switch distanceInDouble {
+//
+//            case 0...50:
+//                adjustedHeight = 20
+//
+//            case 51...100:
+//                adjustedHeight = 40
+//
+//            case 101...150:
+//                adjustedHeight = 60
+//
+//            case 151...200:
+//                adjustedHeight = 80
+//
+//            default:
+//                adjustedHeight = 100
+//            }
+
+            let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
+            let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
+            self.adjustedHeight += 8
+            print(adjustedHeight)
+
             let annotaionNode = LocationAnnotationNode(location: location, view: view)
-//            annotaionNode.scaleRelativeToDistance = true
+
             annotaionNode.renderOnTop()
 
             self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
@@ -181,6 +217,8 @@ extension CALayer {
 }
 
 extension SCNNode {
+
+    // This solved flickering issue.
     func renderOnTop() {
         self.renderingOrder = 2
         if let geom = self.geometry {
