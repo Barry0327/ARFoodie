@@ -22,7 +22,6 @@ class RestaurantInfoManager {
         let parameters: Parameters = [
 
             "location": "\(lat),\(lng)",
-//            "radius": "300",
             "rankby": "distance",
             "types": "restaurant",
             "language": "zh_TW",

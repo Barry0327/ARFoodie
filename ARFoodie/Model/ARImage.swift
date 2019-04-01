@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ARView: UIView {
+class ARImage: UIImage {
 
     var placeID: String = ""
+
 }
