@@ -23,7 +23,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     var userCurrentLocation: CLLocation?
 
-    var adjustedHeight: Double = -12
+    var adjustedHeight: Double = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,55 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
         view.addSubview(self.sceneLocationView)
 
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.locationTapped(tapRecognizer:)))
+
+        sceneLocationView.addGestureRecognizer(tapRecognizer)
+        sceneLocationView.isUserInteractionEnabled = true
+
+    }
+    @objc func locationTapped(tapRecognizer: UITapGestureRecognizer) {
+        if tapRecognizer.state == UIGestureRecognizer.State.ended {
+            let sceneView = sceneLocationView as SCNView
+            let hits = sceneView.hitTest(tapRecognizer.location(in: tapRecognizer.view), options: nil) as [SCNHitTestResult]
+            guard let hit = hits.first?.node.parent else { return }
+            print(hit)
+            guard let node = hit as? LocationAnnotationNode else {
+                print("Failed")
+                return
+            }
+            print(node)
+            guard let node2 = node.childNodes.first else {
+                print("GG")
+                return
+            }
+            guard let node3 = node2 as? AnnotationNode else {
+                print("GGG")
+                return
+            }
+            self.locationNodeTouched(node: node3)
+
+        }
+
+    }
+    func locationNodeTouched(node: AnnotationNode) {
+        // Do stuffs with the node instance
+
+        // node could have either node.view or node.image
+        if let nodeImage = node.image {
+
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+
+            guard
+                let detailVC = storyboard.instantiateViewController(
+                    withIdentifier: "DetailTableViewController"
+                    ) as? DetailTableViewController
+                else { fatalError("Please check the ID for DetailTableViewController")}
+
+            detailVC.placeID = nodeImage.accessibilityIdentifier
+
+            
+            self.present(detailVC, animated: true, completion: nil)
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -45,13 +94,16 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
         print("run")
         self.sceneLocationView.run()
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         print("pause")
         self.sceneLocationView.pause()
@@ -120,16 +172,14 @@ extension MainARViewController: RestaurantInfoDelegate {
             distanceLabel.font = UIFont.systemFont(ofSize: 14)
             distanceLabel.textColor = UIColor(r: 79, g: 79, b: 79, a: 1)
 
-            let view = ARView()
+            let view = UIView()
             view.isOpaque = false
             view.frame = CGRect.init(x: 0, y: 0, width: 250, height: 70)
-//            view.clipsToBounds = true
             view.backgroundColor = UIColor(r: 255, g: 255, b: 255, a: 0.7)
             view.layer.applySketchShadow()
             view.addSubview(nameLabel)
             view.addSubview(ratingLabel)
             view.addSubview(distanceLabel)
-            view.placeID = rest.placeID
 
             let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 250, height: 60), cornerRadius: 5)
             path.move(to: CGPoint(x: 115, y: 60))
@@ -142,43 +192,25 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             view.layer.mask = shapeLayer
 
+            let image = view.asImage()
+            image.accessibilityIdentifier = rest.placeID
+
             let distanceInDouble: Double = Double(exactly: distance ?? 0) ?? 0
             print(distanceInDouble)
 
-//            switch distanceInDouble {
-//
-//            case 0...50:
-//                adjustedHeight = 20
-//
-//            case 51...100:
-//                adjustedHeight = 40
-//
-//            case 101...150:
-//                adjustedHeight = 60
-//
-//            case 151...200:
-//                adjustedHeight = 80
-//
-//            default:
-//                adjustedHeight = 100
-//            }
-
             let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
             let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
-            self.adjustedHeight += 8
+            self.adjustedHeight += 3
             print(adjustedHeight)
 
-            let annotaionNode = LocationAnnotationNode(location: location, view: view)
+            let annotaionNode = LocationAnnotationNode(location: location, image: image)
 
             annotaionNode.renderOnTop()
 
             self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
-//            self.sceneLocationView.run()
 
         }
-
     }
-
     #warning("Add action when API requset failed")
     func manager(_ manager: RestaurantInfoManager, didFailed with: Error) {
 
@@ -231,3 +263,15 @@ extension SCNNode {
         }
     }
 }
+extension UIView {
+
+    // Using a function since `var image` might conflict with an existing variable
+    // (like on `UIImageView`)
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+            }
+    }
+}
+

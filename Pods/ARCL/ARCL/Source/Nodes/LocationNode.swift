@@ -15,7 +15,7 @@ import CoreLocation
 open class AnnotationNode: SCNNode {
     public var view: UIView?
     public var image: UIImage?
-
+    
     public init(view: UIView?, image: UIImage?) {
         super.init()
         self.view = view

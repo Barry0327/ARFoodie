@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1AA0B6366D2BF60571158A90 /* Pods_ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */; };
-		971DCDA9224E166400A70512 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971DCDA8224E166300A70512 /* ARView.swift */; };
+		97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97187AB82251BEB80096E52D /* DetailTableViewController.swift */; };
+		97187ABB2251D4F30096E52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97187ABA2251D4F30096E52D /* Main.storyboard */; };
+		971DCDA9224E166400A70512 /* ARImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971DCDA8224E166300A70512 /* ARImage.swift */; };
+		97A49FA3225201E900DC4B43 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA1225201E900DC4B43 /* ImageCell.swift */; };
+		97A49FA4225201E900DC4B43 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97A49FA2225201E900DC4B43 /* TableViewCell.xib */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
 		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
-		97D25685224B1F9C00175E42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D25683224B1F9C00175E42 /* Main.storyboard */; };
 		97D25687224B1F9E00175E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D25686224B1F9E00175E42 /* Assets.xcassets */; };
 		97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */; };
 		97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25694224C9EBD00175E42 /* Restaurant.swift */; };
@@ -23,11 +26,14 @@
 		3C25E772FFF45292F7B6B4CC /* Pods-ARFoodie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.release.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.release.xcconfig"; sourceTree = "<group>"; };
 		535020E1A0264B630C2A6DCA /* Pods-ARFoodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.debug.xcconfig"; sourceTree = "<group>"; };
 		7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		971DCDA8224E166300A70512 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
+		97187AB82251BEB80096E52D /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		97187ABA2251D4F30096E52D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		971DCDA8224E166300A70512 /* ARImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARImage.swift; sourceTree = "<group>"; };
+		97A49FA1225201E900DC4B43 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		97A49FA2225201E900DC4B43 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D25681224B1F9C00175E42 /* MainARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainARViewController.swift; sourceTree = "<group>"; };
-		97D25684224B1F9C00175E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97D25686224B1F9E00175E42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97D25689224B1F9E00175E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97D2568B224B1F9E00175E42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
+				97187AB82251BEB80096E52D /* DetailTableViewController.swift */,
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -108,7 +115,9 @@
 		97D25692224C9E8B00175E42 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				97D25683224B1F9C00175E42 /* Main.storyboard */,
+				97187ABA2251D4F30096E52D /* Main.storyboard */,
+				97A49FA1225201E900DC4B43 /* ImageCell.swift */,
+				97A49FA2225201E900DC4B43 /* TableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,7 +128,7 @@
 				97D25694224C9EBD00175E42 /* Restaurant.swift */,
 				97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */,
 				97D25699224CD04F00175E42 /* Portocol.swift */,
-				971DCDA8224E166300A70512 /* ARView.swift */,
+				971DCDA8224E166300A70512 /* ARImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,9 +194,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97187ABB2251D4F30096E52D /* Main.storyboard in Resources */,
+				97A49FA4225201E900DC4B43 /* TableViewCell.xib in Resources */,
 				97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */,
 				97D25687224B1F9E00175E42 /* Assets.xcassets in Resources */,
-				97D25685224B1F9C00175E42 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,26 +274,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */,
+				97A49FA3225201E900DC4B43 /* ImageCell.swift in Sources */,
 				97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */,
 				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
-				971DCDA9224E166400A70512 /* ARView.swift in Sources */,
+				971DCDA9224E166400A70512 /* ARImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		97D25683224B1F9C00175E42 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				97D25684224B1F9C00175E42 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
