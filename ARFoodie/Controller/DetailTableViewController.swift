@@ -26,7 +26,7 @@ class DetailTableViewController: UITableViewController {
         let leftBarButton = UIBarButtonItem(customView: button)
         self.navigationItem.setRightBarButton(leftBarButton, animated: true)
 
-//        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+        tableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
 
     }
 
@@ -39,21 +39,26 @@ class DetailTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else { fatalError() }
-//
-//        cell.button.addTarget(self, action: #selector(self.backToLastView), for: .touchUpInside)
-//
-//        return cell
-//    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { fatalError() }
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        let viewWidth = view.bounds.width
+        return viewWidth
+    }
 
     /*
     // Override to support conditional editing of the table view.
