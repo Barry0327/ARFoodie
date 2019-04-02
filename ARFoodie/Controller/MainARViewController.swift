@@ -67,22 +67,6 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     func locationNodeTouched(node: AnnotationNode) {
         // Do stuffs with the node instance
 
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-
-        guard
-            let detailVC = storyboard.instantiateViewController(
-                withIdentifier: "DetailTableViewController"
-                ) as? DetailTableViewController
-            else { fatalError("Please check the ID for DetailTableViewController")}
-
-        let navigationCTL = UINavigationController(rootViewController: detailVC)
-
-        self.sceneLocationView.pause()
-
-        self.sceneLocationView.removeFromSuperview()
-
-        self.present(navigationCTL, animated: true, completion: nil)
-
         // node could have either node.view or node.image
         if let nodeImage = node.image {
 
@@ -220,7 +204,7 @@ extension MainARViewController: RestaurantInfoDelegate {
             self.adjustedHeight += 3
             print(adjustedHeight)
 
-            let annotaionNode = LocationAnnotationNode(location: location, view: view)
+            let annotaionNode = LocationAnnotationNode(location: location, image: image)
 
             annotaionNode.renderOnTop()
 

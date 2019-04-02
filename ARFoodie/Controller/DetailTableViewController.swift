@@ -12,6 +12,26 @@ class DetailTableViewController: UITableViewController {
 
     var placeID: String?
 
+    enum DetailSection {
+
+        // swiftlint:disable nesting
+        enum InformationRow {
+
+            case phoneNumber, address, businessHours
+
+        }
+        // swiftlint:enable nesting
+
+        case informaion(rows: [InformationRow])
+
+        case photo
+    }
+
+    let detailSections: [DetailSection] = [
+
+        .photo,
+        .informaion(rows: [.phoneNumber, .address, .businessHours])
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +48,8 @@ class DetailTableViewController: UITableViewController {
 
         tableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
 
+        tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
+
     }
 
     @objc func backToLastView() {
@@ -38,26 +60,71 @@ class DetailTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return detailSections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+
+        let section = detailSections[section]
+
+        switch section {
+        case .photo:
+            return 1
+        case let .informaion(rows): return rows.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { fatalError() }
+        let section = detailSections[indexPath.section]
+        switch section {
+        case .photo:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { fatalError() }
 
-        return cell
+            return cell
+
+        case let .informaion(rows):
+
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell else { fatalError() }
+
+            let row = rows[indexPath.row]
+
+            switch row {
+
+            case .phoneNumber:
+                cell.iconImageView.image = UIImage(named: "icons8-ringer-volume-100")
+                cell.infoLabel.text = "02 22527788"
+
+                return cell
+
+            case .address:
+                cell.iconImageView.image = UIImage(named: "icons8-address-100")
+                cell.infoLabel.text = "台北市大同區重慶北路四段20號"
+
+                return cell
+
+            case .businessHours:
+                cell.iconImageView.image = UIImage(named: "icons8-open-sign-100")
+                cell.infoLabel.text = "9:00 ~ 18:00"
+
+                return cell
+            }
+
+        }
+
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        let viewWidth = view.bounds.width
-        return viewWidth
+        switch indexPath.section {
+        case 0:
+            let viewWidth = view.bounds.width
+            return viewWidth
+
+        default:
+            return 60
+        }
+
     }
 
     /*

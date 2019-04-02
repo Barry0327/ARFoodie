@@ -15,6 +15,7 @@ class PhotoCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "pin")
+        imageView.contentMode = .scaleAspectFit
 
         return imageView
     }()
