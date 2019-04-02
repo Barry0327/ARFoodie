@@ -67,6 +67,22 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     func locationNodeTouched(node: AnnotationNode) {
         // Do stuffs with the node instance
 
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+
+        guard
+            let detailVC = storyboard.instantiateViewController(
+                withIdentifier: "DetailTableViewController"
+                ) as? DetailTableViewController
+            else { fatalError("Please check the ID for DetailTableViewController")}
+
+        let navigationCTL = UINavigationController(rootViewController: detailVC)
+
+        self.sceneLocationView.pause()
+
+        self.sceneLocationView.removeFromSuperview()
+
+        self.present(navigationCTL, animated: true, completion: nil)
+
         // node could have either node.view or node.image
         if let nodeImage = node.image {
 
@@ -80,8 +96,9 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
             detailVC.placeID = nodeImage.accessibilityIdentifier
 
-            
-            self.present(detailVC, animated: true, completion: nil)
+            let navigationCTL = UINavigationController(rootViewController: detailVC)
+
+            self.present(navigationCTL, animated: true, completion: nil)
         }
     }
 
@@ -203,7 +220,7 @@ extension MainARViewController: RestaurantInfoDelegate {
             self.adjustedHeight += 3
             print(adjustedHeight)
 
-            let annotaionNode = LocationAnnotationNode(location: location, image: image)
+            let annotaionNode = LocationAnnotationNode(location: location, view: view)
 
             annotaionNode.renderOnTop()
 
@@ -216,62 +233,3 @@ extension MainARViewController: RestaurantInfoDelegate {
 
     }
 }
-
-extension UIColor {
-
-    // swiftlint:disable all
-    convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
-
-    }
-}
-
-extension CALayer {
-    func applySketchShadow(
-        color: UIColor = .black,
-        alpha: Float = 0.5,
-        xPosition: CGFloat = 0,
-        yPosition: CGFloat = 2,
-        blur: CGFloat = 4,
-        spread: CGFloat = 0) {
-        shadowColor = color.cgColor
-        shadowOpacity = alpha
-        shadowOffset = CGSize(width: xPosition, height: yPosition)
-        shadowRadius = blur / 2.0
-        if spread == 0 {
-            shadowPath = nil
-        } else {
-            let dxValue = -spread
-            let rect = bounds.insetBy(dx: dxValue, dy: dxValue)
-            shadowPath = UIBezierPath(rect: rect).cgPath
-        }
-    }
-}
-
-extension SCNNode {
-
-    // This solved flickering issue.
-    func renderOnTop() {
-        self.renderingOrder = 2
-        if let geom = self.geometry {
-            for material in geom.materials {
-                material.readsFromDepthBuffer = false
-            }
-        }
-        for child in self.childNodes {
-            child.renderOnTop()
-        }
-    }
-}
-extension UIView {
-
-    // Using a function since `var image` might conflict with an existing variable
-    // (like on `UIImageView`)
-    func asImage() -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: bounds)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
-            }
-    }
-}
-
