@@ -6,7 +6,7 @@
 //  Copyright © 2019 Chen Yi-Wei. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Restaurant {
 

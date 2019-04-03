@@ -10,19 +10,23 @@ import UIKit
 
 class DetailTableViewController: UITableViewController {
 
-    var placeID: String?
+    var placeID: String = ""
+
+    let restaurantDetailManager = RestaurantDetailManager.shared
+
+    var restaurantDetail = RestaurantDetail.init(
+        name: "暫無資料", address: "暫無資料", phoneNumber: "暫無資料", photoRef: ""
+    )
+
+    enum InformationRow {
+
+        case phoneNumber, address, businessHours
+
+    }
 
     enum DetailSection {
 
-        // swiftlint:disable nesting
-        enum InformationRow {
-
-            case phoneNumber, address, businessHours
-
-        }
-        // swiftlint:enable nesting
-
-        case informaion(rows: [InformationRow])
+        case information(rows: [InformationRow])
 
         case photo
     }
@@ -30,12 +34,17 @@ class DetailTableViewController: UITableViewController {
     let detailSections: [DetailSection] = [
 
         .photo,
-        .informaion(rows: [.phoneNumber, .address, .businessHours])
+        .information(rows: [.phoneNumber, .address, .businessHours])
     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print(placeID)
+
+        self.restaurantDetailManager.fetchDetails(placeID: placeID)
+
+        restaurantDetailManager.delegate = self
 
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon-cross"), for: .normal)
@@ -50,10 +59,11 @@ class DetailTableViewController: UITableViewController {
 
         tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
 
+//        tableView.separatorStyle = .none
+
     }
 
     @objc func backToLastView() {
-        print("Ruuuunnn")
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -70,7 +80,7 @@ class DetailTableViewController: UITableViewController {
         switch section {
         case .photo:
             return 1
-        case let .informaion(rows): return rows.count
+        case let .information(rows): return rows.count
         }
     }
 
@@ -81,9 +91,13 @@ class DetailTableViewController: UITableViewController {
         case .photo:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { fatalError() }
 
+            cell.nameLabel.text = restaurantDetail.name
+            cell.restImageView.fetchImage(with: restaurantDetail.photoRef)
+            cell.selectionStyle = .none
+
             return cell
 
-        case let .informaion(rows):
+        case let .information(rows):
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "InfoCell", for: indexPath) as? InfoCell else { fatalError() }
 
@@ -93,13 +107,13 @@ class DetailTableViewController: UITableViewController {
 
             case .phoneNumber:
                 cell.iconImageView.image = UIImage(named: "icons8-ringer-volume-100")
-                cell.infoLabel.text = "02 22527788"
+                cell.infoLabel.text = restaurantDetail.phoneNumber
 
                 return cell
 
             case .address:
                 cell.iconImageView.image = UIImage(named: "icons8-address-100")
-                cell.infoLabel.text = "台北市大同區重慶北路四段20號"
+                cell.infoLabel.text = restaurantDetail.address
 
                 return cell
 
@@ -116,60 +130,55 @@ class DetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        switch indexPath.section {
-        case 0:
-            let viewWidth = view.bounds.width
-            return viewWidth
+        let section = detailSections[indexPath.section]
 
-        default:
+        switch section {
+        case .photo:
+            return 250
+        case .information:
             return 60
         }
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let section = detailSections[indexPath.section]
+
+        switch section {
+
+        case let .information(rows):
+
+            let row = rows[indexPath.row]
+
+            switch row {
+
+            case .phoneNumber:
+                print("Call")
+                return
+
+            default:
+                return
+            }
+
+        default:
+            return
+        }
+    }
+}
+
+extension DetailTableViewController: RestaurantDetailDelegate {
+
+    func manager(_ manager: RestaurantDetailManager, didFetch restaurant: RestaurantDetail) {
+
+        self.restaurantDetail = restaurant
+
+        self.tableView.reloadData()
 
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+    func manager(_ manager: RestaurantDetailManager, didFailed with: Error) {
 
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

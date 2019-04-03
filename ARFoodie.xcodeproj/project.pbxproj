@@ -13,6 +13,8 @@
 		97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA1225201E900DC4B43 /* PhotoCell.swift */; };
 		97A49FA622526CB600DC4B43 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA522526CB600DC4B43 /* Extension.swift */; };
 		97A49FA82253254B00DC4B43 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA72253254B00DC4B43 /* InfoCell.swift */; };
+		97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */; };
+		97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
 		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
 		97D25687224B1F9E00175E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D25686224B1F9E00175E42 /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		97A49FA1225201E900DC4B43 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		97A49FA522526CB600DC4B43 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		97A49FA72253254B00DC4B43 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
+		97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailManager.swift; sourceTree = "<group>"; };
 		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D25681224B1F9C00175E42 /* MainARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainARViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				97D25694224C9EBD00175E42 /* Restaurant.swift */,
+				97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */,
 				97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */,
+				97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */,
 				97D25699224CD04F00175E42 /* Portocol.swift */,
 			);
 			path = Model;
@@ -276,10 +282,12 @@
 				97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */,
 				97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */,
 				97A49FA82253254B00DC4B43 /* InfoCell.swift in Sources */,
+				97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */,
 				97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */,
 				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
+				97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
 				97A49FA622526CB600DC4B43 /* Extension.swift in Sources */,
 			);

@@ -14,8 +14,9 @@ class PhotoCell: UITableViewCell {
 
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "pin")
-        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "icon-placeholder")
+        imageView.contentMode = .center
+        imageView.tintColor = .gray
 
         return imageView
     }()
@@ -33,8 +34,9 @@ class PhotoCell: UITableViewCell {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "餐廳名稱"
         label.textColor = .white
+        label.adjustsFontSizeToFitWidth = true
+        label.text = "暫無資料"
 
         return label
     }()
@@ -73,7 +75,7 @@ class PhotoCell: UITableViewCell {
 
     func setUpLabelBackground() {
         labelBackground.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        labelBackground.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        labelBackground.widthAnchor.constraint(equalToConstant: 250).isActive = true
         labelBackground.leadingAnchor.constraint(equalTo: restImageView.leadingAnchor).isActive = true
         labelBackground.bottomAnchor.constraint(equalTo: restImageView.bottomAnchor, constant: -20).isActive = true
     }

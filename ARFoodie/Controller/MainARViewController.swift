@@ -42,24 +42,16 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     }
     @objc func locationTapped(tapRecognizer: UITapGestureRecognizer) {
         if tapRecognizer.state == UIGestureRecognizer.State.ended {
-            let sceneView = sceneLocationView as SCNView
-            let hits = sceneView.hitTest(tapRecognizer.location(in: tapRecognizer.view), options: nil) as [SCNHitTestResult]
-            guard let hit = hits.first?.node.parent else { return }
-            print(hit)
-            guard let node = hit as? LocationAnnotationNode else {
-                print("Failed")
+//            let sceneView = sceneLocationView as SCNView
+            let location: CGPoint = tapRecognizer.location(in: self.sceneLocationView)
+//            let hits = sceneView.hitTest(tapRecognizer.location(in: tapRecognizer.view), options: nil) as [SCNHitTestResult]
+            let hits = self.sceneLocationView.hitTest(location, options: nil)
+//            guard let hit = hits.first?.node.parent else { return }
+            guard let hit = hits.first?.node as? AnnotationNode else {
+                print("GGGGG")
                 return
             }
-            print(node)
-            guard let node2 = node.childNodes.first else {
-                print("GG")
-                return
-            }
-            guard let node3 = node2 as? AnnotationNode else {
-                print("GGG")
-                return
-            }
-            self.locationNodeTouched(node: node3)
+            self.locationNodeTouched(node: hit)
 
         }
 
@@ -78,7 +70,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
                     ) as? DetailTableViewController
                 else { fatalError("Please check the ID for DetailTableViewController")}
 
-            detailVC.placeID = nodeImage.accessibilityIdentifier
+            detailVC.placeID = nodeImage.accessibilityIdentifier ?? ""
 
             let navigationCTL = UINavigationController(rootViewController: detailVC)
 
