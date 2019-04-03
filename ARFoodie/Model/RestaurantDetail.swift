@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct RestaurantDetail {
 
@@ -14,5 +15,6 @@ struct RestaurantDetail {
     let address: String
     let phoneNumber: String
     let photoRef: String
+    let coordinate: CLLocationCoordinate2D
 //    let businessHours: String
 }
