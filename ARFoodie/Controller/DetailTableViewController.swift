@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class DetailTableViewController: UITableViewController {
 
@@ -15,7 +16,11 @@ class DetailTableViewController: UITableViewController {
     let restaurantDetailManager = RestaurantDetailManager.shared
 
     var restaurantDetail = RestaurantDetail.init(
-        name: "暫無資料", address: "暫無資料", phoneNumber: "暫無資料", photoRef: ""
+        name: "暫無資料",
+        address: "暫無資料",
+        phoneNumber: "暫無資料",
+        photoRef: "",
+        coordinate: CLLocationCoordinate2D.init()
     )
 
     enum InformationRow {
@@ -29,14 +34,17 @@ class DetailTableViewController: UITableViewController {
         case information(rows: [InformationRow])
 
         case photo
+
+        case map
     }
 
     let detailSections: [DetailSection] = [
 
         .photo,
-        .information(rows: [.phoneNumber, .address, .businessHours])
+        .information(rows: [.phoneNumber, .address, .businessHours]),
+        .map
     ]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,6 +67,8 @@ class DetailTableViewController: UITableViewController {
 
         tableView.register(InfoCell.self, forCellReuseIdentifier: "InfoCell")
 
+        tableView.register(MapCell.self, forCellReuseIdentifier: "MapCell")
+
 //        tableView.separatorStyle = .none
 
     }
@@ -78,7 +88,7 @@ class DetailTableViewController: UITableViewController {
         let section = detailSections[section]
 
         switch section {
-        case .photo:
+        case .photo, .map:
             return 1
         case let .information(rows): return rows.count
         }
@@ -123,6 +133,19 @@ class DetailTableViewController: UITableViewController {
 
                 return cell
             }
+        case .map:
+
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as? MapCell else { fatalError() }
+
+            let annotation = MKPointAnnotation()
+            let coordinate = restaurantDetail.coordinate
+            annotation.coordinate = coordinate
+
+            cell.mapView.addAnnotation(annotation)
+            let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
+            cell.mapView.setRegion(region, animated: true)
+
+            return cell
 
         }
 
@@ -137,6 +160,8 @@ class DetailTableViewController: UITableViewController {
             return 250
         case .information:
             return 60
+        case .map:
+            return 250
         }
     }
 
@@ -158,6 +183,8 @@ class DetailTableViewController: UITableViewController {
                 print("Call")
                 return
 
+            case .businessHours:
+                return
             default:
                 return
             }

@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import MapKit
 
 class RestaurantDetailManager {
 
@@ -50,22 +51,36 @@ class RestaurantDetailManager {
                     let address = result["formatted_address"] as? String,
                     let phoneNumber = result["formatted_phone_number"] as? String,
                     let name = result["name"] as? String,
-                    let photos = result["photos"] as? [[String: Any]]
+                    let photos = result["photos"] as? [[String: Any]],
+                    let geometry = result["geometry"] as? [String: Any]
                     else {
                         print("Failed parsing 3")
                         return
                 }
                 let photo = photos[0]
-                guard let photoRef = photo["photo_reference"] as? String else {
+                guard
+                    let photoRef = photo["photo_reference"] as? String,
+                    let location = geometry["location"] as? [String: Double]
+                    else {
                     print("Failed parsing 4")
                     return
                 }
+
+                guard
+                    let lat = location["lat"],
+                    let lng = location["lng"]
+                    else {
+                        print("Failed parsing 5")
+                        return
+                }
+
+                let coordinate = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
 
 //                if let openingHours = result["opening_hours"] as? [String: Any] {
 //                    print(openingHours)
 //                }
 
-                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photoRef: photoRef)
+                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photoRef: photoRef, coordinate: coordinate)
 
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else {

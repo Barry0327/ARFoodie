@@ -48,7 +48,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
             let hits = self.sceneLocationView.hitTest(location, options: nil)
 //            guard let hit = hits.first?.node.parent else { return }
             guard let hit = hits.first?.node as? AnnotationNode else {
-                print("GGGGG")
+                print("Faield to get node")
                 return
             }
             self.locationNodeTouched(node: hit)
@@ -125,6 +125,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
             if location.horizontalAccuracy > 0 {
 
                 self.userCurrentLocation = location
+                locationManager.delegate = nil
                 self.locationManager.stopUpdatingLocation()
                 let latitude = String(location.coordinate.latitude)
                 let longtitude = String(location.coordinate.longitude)
