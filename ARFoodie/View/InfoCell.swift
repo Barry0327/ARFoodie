@@ -24,7 +24,9 @@ class InfoCell: UITableViewCell {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "02 22428779"
+        label.text = "暫無資料"
+        label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
 
         return label
     }()
@@ -37,7 +39,6 @@ class InfoCell: UITableViewCell {
         contentView.addSubview(infoLabel)
         setIconImageView()
         setInfoLabel()
-
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -57,7 +58,7 @@ class InfoCell: UITableViewCell {
 
         infoLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         infoLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 15).isActive = true
-        infoLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 30).isActive = true
+        infoLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         infoLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
     }
 }

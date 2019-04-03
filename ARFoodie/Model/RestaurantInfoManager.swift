@@ -37,6 +37,7 @@ class RestaurantInfoManager {
 
                 return
             }
+            
             if response.result.isSuccess {
 
                 guard let json = response.result.value as? [String: Any] else {

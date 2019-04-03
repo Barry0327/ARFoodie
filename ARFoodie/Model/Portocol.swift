@@ -15,3 +15,11 @@ protocol RestaurantInfoDelegate: AnyObject {
     func manager(_ manager: RestaurantInfoManager, didFailed with: Error)
 
 }
+
+protocol RestaurantDetailDelegate: AnyObject {
+
+    func manager(_ manager: RestaurantDetailManager, didFetch restaurant: RestaurantDetail)
+
+    func manager(_ manager: RestaurantDetailManager, didFailed with: Error)
+
+}
