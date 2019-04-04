@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MapKit
+import GoogleMaps
 
 class DetailTableViewController: UITableViewController {
 
@@ -137,16 +137,15 @@ class DetailTableViewController: UITableViewController {
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as? MapCell else { fatalError() }
 
-            let annotation = MKPointAnnotation()
-            let coordinate = restaurantDetail.coordinate
-            annotation.coordinate = coordinate
-
-            cell.mapView.addAnnotation(annotation)
-            let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
-            cell.mapView.setRegion(region, animated: true)
+            let camera = GMSCameraPosition.camera(withTarget: restaurantDetail.coordinate, zoom: 16.0)
+            cell.mapView.camera = camera
+            cell.mapView.delegate = self
+            let marker = GMSMarker()
+            marker.position = restaurantDetail.coordinate
+            marker.title = restaurantDetail.name
+            marker.map = cell.mapView
 
             return cell
-
         }
 
     }
@@ -184,11 +183,22 @@ class DetailTableViewController: UITableViewController {
                 return
 
             case .businessHours:
+//                UIApplication.shared.open(
+//                    URL(string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=ChIJLR3pAzmpQjQRASefA8UBjhE")!,
+//                    options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]
+//                )
                 return
             default:
                 return
             }
 
+        case .map:
+            if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
+                print("Work!")
+            } else {
+                print("Na!")
+            }
+            return
         default:
             return
         }
@@ -207,5 +217,17 @@ extension DetailTableViewController: RestaurantDetailDelegate {
 
     func manager(_ manager: RestaurantDetailManager, didFailed with: Error) {
 
+    }
+}
+
+extension DetailTableViewController: GMSMapViewDelegate {
+
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+
+        UIApplication.shared.open(
+            URL(string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)")!,
+            options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]
+        )
+        return true
     }
 }
