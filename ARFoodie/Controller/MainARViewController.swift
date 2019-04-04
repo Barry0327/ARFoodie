@@ -25,6 +25,20 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     var adjustedHeight: Double = 0
 
+    let reloadButton: UIButton = {
+
+        let button = UIButton()
+        button.setImage(
+            UIImage(named: "icons8-synchronize-filled-480"),
+            for: .normal
+        )
+        button.tintColor = .white
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
+
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,6 +47,8 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         self.restaurantInfoManager.delegate = self
 
         view.addSubview(self.sceneLocationView)
+        view.addSubview(reloadButton)
+        self.setReloadButton()
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.locationTapped(tapRecognizer:)))
 
@@ -40,6 +56,22 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         sceneLocationView.isUserInteractionEnabled = true
 
     }
+
+    func setReloadButton() {
+
+        reloadButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        reloadButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        reloadButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        reloadButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+    }
+
+    @objc func reloadData() {
+
+        self.sceneLocationView.removeAllNodes()
+        self.adjustedHeight = 0
+        self.startReceivingLocationChanges()
+    }
+
     @objc func locationTapped(tapRecognizer: UITapGestureRecognizer) {
         if tapRecognizer.state == UIGestureRecognizer.State.ended {
 //            let sceneView = sceneLocationView as SCNView
