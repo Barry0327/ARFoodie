@@ -8,10 +8,11 @@
 
 import Foundation
 import MapKit
+import GoogleMaps
 
 class MapCell: UITableViewCell {
 
-    let mapView = MKMapView()
+    let mapView = GMSMapView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 

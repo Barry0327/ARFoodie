@@ -1,24 +1,32 @@
 PODS:
   - Alamofire (5.0.0-beta.3)
   - ARCL (1.1.0)
+  - GoogleMaps (3.0.3):
+    - GoogleMaps/Maps (= 3.0.3)
+  - GoogleMaps/Base (3.0.3)
+  - GoogleMaps/Maps (3.0.3):
+    - GoogleMaps/Base
   - SwiftLint (0.31.0)
 
 DEPENDENCIES:
   - Alamofire (= 5.0.0-beta.3)
   - ARCL (= 1.1.0)
+  - GoogleMaps
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - ARCL
+    - GoogleMaps
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: 50d6fa7e8cbe7f84559e86ab641ffd029db655f8
   ARCL: 8b0a375942c575472c3cdbec80262d8400f1ec42
+  GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: accb8f4e218798f3e413d135c08afead34952de2
+PODFILE CHECKSUM: 72f9dc23dc97426e53db44fb1644dfb024dd35ae
 
 COCOAPODS: 1.6.1
