@@ -179,26 +179,25 @@ class DetailTableViewController: UITableViewController {
             switch row {
 
             case .phoneNumber:
-                print("Call")
+                let phoneNumber = restaurantDetail.phoneNumber.filter { "0123456789".contains($0)}
+                print(phoneNumber)
+                guard let number = URL(string: "tel://\(phoneNumber)") else { return }
+
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(number)
+                } else {
+                    // Fallback on earlier versions
+                    UIApplication.shared.openURL(number)
+                }
                 return
 
             case .businessHours:
-//                UIApplication.shared.open(
-//                    URL(string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=ChIJLR3pAzmpQjQRASefA8UBjhE")!,
-//                    options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]
-//                )
+
                 return
             default:
                 return
             }
 
-        case .map:
-            if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
-                print("Work!")
-            } else {
-                print("Na!")
-            }
-            return
         default:
             return
         }
@@ -224,8 +223,12 @@ extension DetailTableViewController: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
 
+        guard let url = URL(string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)")
+            else {
+            return false
+        }
         UIApplication.shared.open(
-            URL(string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)")!,
+            url,
             options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]
         )
         return true
