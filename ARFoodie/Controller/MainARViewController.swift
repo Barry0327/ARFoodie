@@ -194,7 +194,7 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
             let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
-            self.adjustedHeight += 3
+            self.adjustedHeight += 4
             print(adjustedHeight)
 
             let annotaionNode = LocationAnnotationNode(location: location, image: image)
@@ -205,8 +205,12 @@ extension MainARViewController: RestaurantInfoDelegate {
 
         }
     }
-    #warning("Add action when API requset failed")
     func manager(_ manager: RestaurantInfoManager, didFailed with: Error) {
 
+        let alert = UIAlertController(title: "連線失敗", message: "連線有問題，請檢查網路連線", preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "OK", style: .cancel)
+
+        alert.addAction(action)
     }
 }

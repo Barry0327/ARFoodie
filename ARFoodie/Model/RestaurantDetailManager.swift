@@ -16,6 +16,8 @@ class RestaurantDetailManager {
 
     weak var delegate: RestaurantDetailDelegate?
 
+    // swiftlint:disable cyclomatic_complexity
+
     func fetchDetails(placeID: String) {
 
         let endPointURL = "https://maps.googleapis.com/maps/api/place/details/json"
@@ -76,11 +78,37 @@ class RestaurantDetailManager {
 
                 let coordinate = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
 
-//                if let openingHours = result["opening_hours"] as? [String: Any] {
-//                    print(openingHours)
-//                }
+                var weeKDayForToday: String = ""
 
-                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photoRef: photoRef, coordinate: coordinate)
+                if
+                    let openingHours = result["opening_hours"] as? [String: Any],
+                    let weekDays = openingHours["weekday_text"] as? [String]
+                {
+                    let today = Date()
+                    let calendar = Calendar.current
+                    let weekDay = calendar.component(.weekday, from: today)
+
+                    switch weekDay {
+                    case 1:
+                        weeKDayForToday = weekDays[6]
+                    case 2:
+                        weeKDayForToday = weekDays[0]
+                    case 3:
+                        weeKDayForToday = weekDays[1]
+                    case 4:
+                        weeKDayForToday = weekDays[2]
+                    case 5:
+                        weeKDayForToday = weekDays[3]
+                    case 6:
+                        weeKDayForToday = weekDays[4]
+                    case 7:
+                        weeKDayForToday = weekDays[5]
+                    default:
+                        weeKDayForToday = "暫無資料"
+                    }
+                }
+
+                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photoRef: photoRef, coordinate: coordinate, businessHours: weeKDayForToday)
 
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else {

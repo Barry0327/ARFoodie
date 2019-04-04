@@ -20,7 +20,8 @@ class DetailTableViewController: UITableViewController {
         address: "暫無資料",
         phoneNumber: "暫無資料",
         photoRef: "",
-        coordinate: CLLocationCoordinate2D.init()
+        coordinate: CLLocationCoordinate2D.init(),
+        businessHours: "暫無資料"
     )
 
     enum InformationRow {
@@ -129,7 +130,7 @@ class DetailTableViewController: UITableViewController {
 
             case .businessHours:
                 cell.iconImageView.image = UIImage(named: "icons8-open-sign-100")
-                cell.infoLabel.text = "9:00 ~ 18:00"
+                cell.infoLabel.text = restaurantDetail.businessHours
 
                 return cell
             }
@@ -194,8 +195,18 @@ class DetailTableViewController: UITableViewController {
             case .businessHours:
 
                 return
-            default:
-                return
+
+            case .address:
+                guard let url = URL(
+                    string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)"
+                    )
+                    else {
+                        return
+                }
+                UIApplication.shared.open(
+                    url,
+                    options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]
+                )
             }
 
         default:
@@ -223,7 +234,9 @@ extension DetailTableViewController: GMSMapViewDelegate {
 
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
 
-        guard let url = URL(string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)")
+        guard let url = URL(
+            string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)"
+            )
             else {
             return false
         }

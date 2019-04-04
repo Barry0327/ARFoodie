@@ -15,6 +15,8 @@ class RestaurantInfoManager {
 
     weak var delegate: RestaurantInfoDelegate?
 
+    // swiftlint:disable cyclomatic_complexity
+
     func fetchRestaurant(lat: String, lng: String) {
 
         let endPointURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
@@ -33,8 +35,12 @@ class RestaurantInfoManager {
 
             if response.error != nil {
 
-                self.delegate?.manager(RestaurantInfoManager.shared, didFailed: response.error!)
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
 
+                    self.delegate?.manager(RestaurantInfoManager.shared, didFailed: response.error!)
+
+                }
                 return
             }
             if response.result.isSuccess {
