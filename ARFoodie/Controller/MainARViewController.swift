@@ -23,7 +23,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     var userCurrentLocation: CLLocation?
 
-    var adjustedHeight: Double = 0
+    var adjustedHeight: Double = 5
 
     let reloadButton: UIButton = {
 
@@ -74,11 +74,10 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     @objc func locationTapped(tapRecognizer: UITapGestureRecognizer) {
         if tapRecognizer.state == UIGestureRecognizer.State.ended {
-//            let sceneView = sceneLocationView as SCNView
             let location: CGPoint = tapRecognizer.location(in: self.sceneLocationView)
-//            let hits = sceneView.hitTest(tapRecognizer.location(in: tapRecognizer.view), options: nil) as [SCNHitTestResult]
+
             let hits = self.sceneLocationView.hitTest(location, options: nil)
-//            guard let hit = hits.first?.node.parent else { return }
+
             guard let hit = hits.first?.node as? AnnotationNode else {
                 print("Faield to get node")
                 return
@@ -226,7 +225,7 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
             let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
-            self.adjustedHeight += 4
+            self.adjustedHeight += 2
             print(adjustedHeight)
 
             let annotaionNode = LocationAnnotationNode(location: location, image: image)

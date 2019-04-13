@@ -31,7 +31,7 @@ class RestaurantInfoManager {
 
         ]
 
-        AF.request(endPointURL, method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request(endPointURL, method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
 
             if response.error != nil {
 
@@ -49,6 +49,7 @@ class RestaurantInfoManager {
                     print("Failed paring 1")
                     return
                 }
+                print(json)
 
                 guard let status = json["status"] as? String else {
                     print("Failed paring 2")

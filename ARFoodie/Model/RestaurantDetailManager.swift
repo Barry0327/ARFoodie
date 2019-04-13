@@ -28,7 +28,7 @@ class RestaurantDetailManager {
             "language": "zh_TW"
         ]
 
-        AF.request(endPointURL, method: .get, parameters: parameters).responseJSON { (response) in
+        Alamofire.request(endPointURL, method: .get, parameters: parameters).responseJSON { (response) in
 
             if response.error != nil {
 
@@ -41,6 +41,7 @@ class RestaurantDetailManager {
                     print("Failed parsing 1")
                     return
                 }
+
                 guard
                     let result = json["result"] as? [String: Any],
                     let status = json["status"] as? String
@@ -51,17 +52,30 @@ class RestaurantDetailManager {
                 guard
                     status == "OK",
                     let address = result["formatted_address"] as? String,
-                    let phoneNumber = result["formatted_phone_number"] as? String,
                     let name = result["name"] as? String,
-                    let photos = result["photos"] as? [[String: Any]],
                     let geometry = result["geometry"] as? [String: Any]
                     else {
                         print("Failed parsing 3")
                         return
                 }
-                let photo = photos[0]
+                var photoRef = "暫無資料"
+                var phoneNumber = "暫無資料"
+
+                if let photos = result["photos"] as? [[String: Any]] {
+
+                    let photo = photos[0]
+
+                    if let photoRefString = photo["photo_reference"] as? String {
+                        photoRef = photoRefString
+                    }
+                }
+
+                if let formattedPhoneNumber = result["formatted_phone_number"] as? String {
+                    phoneNumber = formattedPhoneNumber
+
+                }
+
                 guard
-                    let photoRef = photo["photo_reference"] as? String,
                     let location = geometry["location"] as? [String: Double]
                     else {
                     print("Failed parsing 4")
@@ -78,7 +92,7 @@ class RestaurantDetailManager {
 
                 let coordinate = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
 
-                var weeKDayForToday: String = ""
+                var weeKDayForToday: String = "暫無資料"
 
                 if
                     let openingHours = result["opening_hours"] as? [String: Any],
@@ -109,6 +123,8 @@ class RestaurantDetailManager {
                 }
 
                 let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photoRef: photoRef, coordinate: coordinate, businessHours: weeKDayForToday)
+
+                print(restaurant.photoRef)
 
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1AA0B6366D2BF60571158A90 /* Pods_ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */; };
+		970230DB225907D600BD8AF2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970230DA225907D600BD8AF2 /* RegisterViewController.swift */; };
 		97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97187AB82251BEB80096E52D /* DetailTableViewController.swift */; };
 		97187ABB2251D4F30096E52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97187ABA2251D4F30096E52D /* Main.storyboard */; };
 		97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA1225201E900DC4B43 /* PhotoCell.swift */; };
@@ -16,6 +17,8 @@
 		97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */; };
 		97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */; };
 		97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAD2254DC5A00DC4B43 /* MapCell.swift */; };
+		97A49FB022573D4000DC4B43 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAF22573D4000DC4B43 /* LogInViewController.swift */; };
+		97A6C8DD22622876002FAA90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97A6C8DC22622876002FAA90 /* GoogleService-Info.plist */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
 		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
 		97D25687224B1F9E00175E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D25686224B1F9E00175E42 /* Assets.xcassets */; };
@@ -29,6 +32,7 @@
 		3C25E772FFF45292F7B6B4CC /* Pods-ARFoodie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.release.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.release.xcconfig"; sourceTree = "<group>"; };
 		535020E1A0264B630C2A6DCA /* Pods-ARFoodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.debug.xcconfig"; sourceTree = "<group>"; };
 		7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		970230DA225907D600BD8AF2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		97187AB82251BEB80096E52D /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		97187ABA2251D4F30096E52D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		97A49FA1225201E900DC4B43 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -37,6 +41,8 @@
 		97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
 		97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailManager.swift; sourceTree = "<group>"; };
 		97A49FAD2254DC5A00DC4B43 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
+		97A49FAF22573D4000DC4B43 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		97A6C8DC22622876002FAA90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D25681224B1F9C00175E42 /* MainARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainARViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +83,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		97A6C8DB22620F0A002FAA90 /* Cell Controller */ = {
+			isa = PBXGroup;
+			children = (
+				97A49FA1225201E900DC4B43 /* PhotoCell.swift */,
+				97A49FA72253254B00DC4B43 /* InfoCell.swift */,
+				97A49FAD2254DC5A00DC4B43 /* MapCell.swift */,
+			);
+			path = "Cell Controller";
+			sourceTree = "<group>";
+		};
 		97D25673224B1F9C00175E42 = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +118,7 @@
 				97D25691224C9E7800175E42 /* Controller */,
 				97D25692224C9E8B00175E42 /* View */,
 				97D25686224B1F9E00175E42 /* Assets.xcassets */,
-				97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */,
+				97A6C8DC22622876002FAA90 /* GoogleService-Info.plist */,
 				97D2568B224B1F9E00175E42 /* Info.plist */,
 			);
 			path = ARFoodie;
@@ -111,10 +127,13 @@
 		97D25691224C9E7800175E42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
+				97A49FAF22573D4000DC4B43 /* LogInViewController.swift */,
+				970230DA225907D600BD8AF2 /* RegisterViewController.swift */,
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
 				97187AB82251BEB80096E52D /* DetailTableViewController.swift */,
-				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 				97A49FA522526CB600DC4B43 /* Extension.swift */,
+				97A6C8DB22620F0A002FAA90 /* Cell Controller */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -123,9 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				97187ABA2251D4F30096E52D /* Main.storyboard */,
-				97A49FA1225201E900DC4B43 /* PhotoCell.swift */,
-				97A49FA72253254B00DC4B43 /* InfoCell.swift */,
-				97A49FAD2254DC5A00DC4B43 /* MapCell.swift */,
+				97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97187ABB2251D4F30096E52D /* Main.storyboard in Resources */,
+				97A6C8DD22622876002FAA90 /* GoogleService-Info.plist in Resources */,
 				97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */,
 				97D25687224B1F9E00175E42 /* Assets.xcassets in Resources */,
 			);
@@ -285,6 +303,14 @@
 				"${PODS_ROOT}/Target Support Files/Pods-ARFoodie/Pods-ARFoodie-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/LFLiveKit/LFLiveKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/YTLiveStreaming/YTLiveStreaming.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -292,6 +318,14 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LFLiveKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YTLiveStreaming.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -311,8 +345,10 @@
 				97A49FA82253254B00DC4B43 /* InfoCell.swift in Sources */,
 				97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */,
 				97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */,
+				97A49FB022573D4000DC4B43 /* LogInViewController.swift in Sources */,
 				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
+				970230DB225907D600BD8AF2 /* RegisterViewController.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
 				97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
