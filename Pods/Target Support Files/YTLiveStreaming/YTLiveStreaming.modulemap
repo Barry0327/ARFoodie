@@ -1,0 +1,6 @@
+framework module YTLiveStreaming {
+  umbrella header "YTLiveStreaming-umbrella.h"
+
+  export *
+  module * { export * }
+}

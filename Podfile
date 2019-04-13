@@ -8,8 +8,10 @@ target 'ARFoodie' do
   # Pods for ARFoodie
 
   pod 'SwiftLint'
-  pod 'Alamofire', '5.0.0-beta.3'
+  pod 'Alamofire', '~> 4.0'
   pod 'ARCL', '1.1.0'
   pod 'GoogleMaps'
+  pod 'Firebase/Core'
+  pod 'YTLiveStreaming'
   
 end

@@ -20,6 +20,42 @@ extension UIView {
             layer.render(in: rendererContext.cgContext)
         }
     }
+
+    func anchor(
+        top: NSLayoutYAxisAnchor?,
+        leading: NSLayoutXAxisAnchor?,
+        bottom: NSLayoutYAxisAnchor?,
+        trailing: NSLayoutXAxisAnchor?,
+        padding: UIEdgeInsets = .zero,
+        size: CGSize = .zero
+        ) {
+
+        translatesAutoresizingMaskIntoConstraints = false
+
+        if let top = top {
+            topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
+        }
+
+        if let leading = leading {
+            leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
+        }
+
+        if let trailing = trailing {
+            trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
+        }
+
+        if let bottom = bottom {
+            bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
+        }
+
+        if size.width != 0 {
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        }
+
+        if size.height != 0 {
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        }
+    }
 }
 
 extension SCNNode {
@@ -75,6 +111,15 @@ extension UIImageView {
 
     func fetchImage(with ref: String) {
 
+        print(ref)
+
+        guard ref != "暫無資料" else {
+
+            print("Return")
+            return
+
+        }
+
         let endPointURL = "https://maps.googleapis.com/maps/api/place/photo"
 
         let parameters: Parameters = [
@@ -84,12 +129,13 @@ extension UIImageView {
             "maxheight": 250
         ]
 
-        AF.request(endPointURL, method: .get, parameters: parameters).responseData { (response) in
+        Alamofire.request(endPointURL, method: .get, parameters: parameters).responseData { (response) in
 
             if response.error != nil {
                 print("Image request failed")
                 return
-        }
+            }
+
             if response.result.isSuccess {
 
                 if let data = response.result.value {

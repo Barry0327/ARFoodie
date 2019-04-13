@@ -19,7 +19,7 @@ class DetailTableViewController: UITableViewController {
         name: "暫無資料",
         address: "暫無資料",
         phoneNumber: "暫無資料",
-        photoRef: "",
+        photoRef: "暫無資料",
         coordinate: CLLocationCoordinate2D.init(),
         businessHours: "暫無資料"
     )
@@ -51,9 +51,8 @@ class DetailTableViewController: UITableViewController {
 
         print(placeID)
 
+        self.restaurantDetailManager.delegate = self
         self.restaurantDetailManager.fetchDetails(placeID: placeID)
-
-        restaurantDetailManager.delegate = self
 
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon-cross"), for: .normal)
