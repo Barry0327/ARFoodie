@@ -57,7 +57,6 @@ class RestaurantInfoManager {
                     print("Failed paring 1")
                     return
                 }
-                print(json)
 
                 guard let status = json["status"] as? String else {
                     print("Failed paring 2")
@@ -107,7 +106,6 @@ class RestaurantInfoManager {
                     restaurants.append(restaurant)
 
                 }
-                print(restaurants)
 
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }

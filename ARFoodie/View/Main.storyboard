@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ug-NS-530" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4826" y="-1088"/>
+            <point key="canvasLocation" x="4718" y="-1596"/>
         </scene>
         <!--Detail Table View Controller-->
         <scene sceneID="Xvq-Rt-Rue">
@@ -56,10 +56,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lUQ-RJ-wTs"/>
                     </view>
+                    <connections>
+                        <segue destination="HNQ-Gw-oMe" kind="show" identifier="FinishLogin" id="o4s-Md-j1r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A34-oX-G1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711" y="-1072"/>
+            <point key="canvasLocation" x="2913" y="-1441"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="xMq-KC-Z9L">
@@ -77,12 +80,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M0S-gv-lnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2671" y="-1073"/>
+            <point key="canvasLocation" x="2913" y="-439"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabbar Controller-->
         <scene sceneID="coM-03-yrI">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="HNQ-Gw-oMe" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HNQ-Gw-oMe" customClass="TabbarController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2gv-Bc-aCp">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -95,7 +98,10 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ObW-gO-T1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3861.5999999999999" y="-1088.0059970014993"/>
+            <point key="canvasLocation" x="3834" y="-1073"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="o4s-Md-j1r"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInViewController: UIViewController {
 
@@ -91,6 +92,7 @@ class LogInViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("登入", for: .normal)
         button.backgroundColor = .red
+        button.addTarget(self, action: #selector(loginBTNPressed), for: .touchUpInside)
 
         return button
     }()
@@ -110,6 +112,22 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardWillShow(notifiction:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardWillHide(notificiton:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+
+        self.hideKeyboardWhenTappedAround()
+
         view.backgroundColor = .gray
         view.addSubview(appNameLabel)
         view.addSubview(containerView)
@@ -125,6 +143,40 @@ class LogInViewController: UIViewController {
 
         setAppNameLabel()
         setContaionerView()
+    }
+
+    deinit {
+        print("LoginView deinited")
+    }
+
+    @objc func loginBTNPressed() {
+        guard
+            let email = emailTextField.text,
+            let password = passwordTextField.text,
+            email.count > 0,
+            password.count > 0
+        else {
+            print("Please check the email and password again")
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+
+            if let error = error {
+
+                let alert = UIAlertController(title: "登入失敗",
+                                              message: error.localizedDescription,
+                                              preferredStyle: .alert)
+
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+                self.present(alert, animated: true, completion: nil)
+
+            }
+
+            self.performSegue(withIdentifier: "FinishLogin", sender: self)
+
+        }
+
     }
 
     @objc func registerBTNPressed() {
