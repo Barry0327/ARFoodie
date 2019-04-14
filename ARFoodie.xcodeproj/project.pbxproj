@@ -19,6 +19,10 @@
 		97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAD2254DC5A00DC4B43 /* MapCell.swift */; };
 		97A49FB022573D4000DC4B43 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAF22573D4000DC4B43 /* LogInViewController.swift */; };
 		97A6C8DD22622876002FAA90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97A6C8DC22622876002FAA90 /* GoogleService-Info.plist */; };
+		97A6C8E022632F2D002FAA90 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8DF22632F2D002FAA90 /* UIViewExtension.swift */; };
+		97A6C8E222632F86002FAA90 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */; };
+		97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */; };
+		97A6C8E622636253002FAA90 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E522636253002FAA90 /* TabbarController.swift */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
 		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
 		97D25687224B1F9E00175E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D25686224B1F9E00175E42 /* Assets.xcassets */; };
@@ -43,6 +47,10 @@
 		97A49FAD2254DC5A00DC4B43 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		97A49FAF22573D4000DC4B43 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		97A6C8DC22622876002FAA90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		97A6C8DF22632F2D002FAA90 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		97A6C8E522636253002FAA90 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D25681224B1F9C00175E42 /* MainARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainARViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +101,17 @@
 			path = "Cell Controller";
 			sourceTree = "<group>";
 		};
+		97A6C8DE22632E9E002FAA90 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				97A49FA522526CB600DC4B43 /* Extension.swift */,
+				97A6C8DF22632F2D002FAA90 /* UIViewExtension.swift */,
+				97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */,
+				97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		97D25673224B1F9C00175E42 = {
 			isa = PBXGroup;
 			children = (
@@ -127,12 +146,13 @@
 		97D25691224C9E7800175E42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				97A6C8DE22632E9E002FAA90 /* Extension */,
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 				97A49FAF22573D4000DC4B43 /* LogInViewController.swift */,
 				970230DA225907D600BD8AF2 /* RegisterViewController.swift */,
+				97A6C8E522636253002FAA90 /* TabbarController.swift */,
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
 				97187AB82251BEB80096E52D /* DetailTableViewController.swift */,
-				97A49FA522526CB600DC4B43 /* Extension.swift */,
 				97A6C8DB22620F0A002FAA90 /* Cell Controller */,
 			);
 			path = Controller;
@@ -345,11 +365,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97A6C8E022632F2D002FAA90 /* UIViewExtension.swift in Sources */,
 				97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */,
 				97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */,
 				97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */,
+				97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */,
 				97A49FA82253254B00DC4B43 /* InfoCell.swift in Sources */,
 				97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */,
+				97A6C8E622636253002FAA90 /* TabbarController.swift in Sources */,
 				97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */,
 				97A49FB022573D4000DC4B43 /* LogInViewController.swift in Sources */,
 				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
@@ -358,6 +381,7 @@
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
 				97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
+				97A6C8E222632F86002FAA90 /* UIImageViewExtension.swift in Sources */,
 				97A49FA622526CB600DC4B43 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

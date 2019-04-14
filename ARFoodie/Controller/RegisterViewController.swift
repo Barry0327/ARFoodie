@@ -154,6 +154,20 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardWillShow(notifiction:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardWillHide(notificiton:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+
         self.hideKeyboardWhenTappedAround()
 
         view.addSubview(profileImgView)
@@ -175,6 +189,10 @@ class RegisterViewController: UIViewController {
         containerView.addSubview(registerButton)
 
         setLayout()
+    }
+
+    deinit {
+        print("registerVC deinited")
     }
 
     // MARK: Register function
@@ -213,7 +231,10 @@ class RegisterViewController: UIViewController {
                 self.emailTextField.text = nil
                 self.passwordTextField.text = nil
                 self.confirmTextField.text = nil
+
                 self.performSegue(withIdentifier: "FinishRegister", sender: nil)
+
+                NotificationCenter.default.removeObserver(self)
 
             }
         } else {
