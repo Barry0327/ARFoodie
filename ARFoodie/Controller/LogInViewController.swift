@@ -129,9 +129,14 @@ class LogInViewController: UIViewController {
 
     @objc func registerBTNPressed() {
 
-        let registerVC = RegisterViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        self.present(registerVC, animated: true, completion: nil)
+        if let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController {
+
+            self.present(registerVC, animated: true, completion: nil)
+
+        }
+
     }
 
     func setAppNameLabel() {

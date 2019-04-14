@@ -15,9 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let apiKey: String = {
+
+        if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
+            return key
+        }
+        return ""
+    }()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        GMSServices.provideAPIKey("AIzaSyCnDQviBdsqd55DfGHkSToCnXXz66WEIhY")
+        GMSServices.provideAPIKey(apiKey)
         FirebaseApp.configure()
         return true
     }

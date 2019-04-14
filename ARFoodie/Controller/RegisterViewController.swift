@@ -154,6 +154,8 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround()
+
         view.addSubview(profileImgView)
         view.addSubview(containerView)
 
@@ -190,6 +192,30 @@ class RegisterViewController: UIViewController {
 
         if passwordTextField.text == confirmTextField.text {
 
+            Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+
+                if error != nil {
+                    print("Failed to sign up.")
+                    return
+                }
+                let userRef = Database.database().reference(withPath: "users")
+                guard let user = result?.user else { return }
+
+                let displayName = self.nameTextField.text ?? ""
+
+                userRef.child(user.uid).setValue(
+                    [
+                        "email": email,
+                        "displayName": displayName
+                    ]
+                )
+                self.nameTextField.text = nil
+                self.emailTextField.text = nil
+                self.passwordTextField.text = nil
+                self.confirmTextField.text = nil
+                self.performSegue(withIdentifier: "FinishRegister", sender: nil)
+
+            }
         } else {
             print("confirm password again")
         }
