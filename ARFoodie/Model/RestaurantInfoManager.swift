@@ -17,13 +17,8 @@ class RestaurantInfoManager {
 
     let apiKey: String = {
 
-        if let path = Bundle.main.path(forResource: "Info", ofType: "plist") {
-            if let plist = NSDictionary(contentsOfFile: path) as NSDictionary? {
-                if let apiKey = plist["API_KEY"] as? String, !apiKey.isEmpty {
-
-                    return apiKey
-                }
-            }
+        if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
+            return key
         }
         return ""
     }()

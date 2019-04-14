@@ -11,7 +11,10 @@ target 'ARFoodie' do
   pod 'Alamofire', '~> 4.0'
   pod 'ARCL', '1.1.0'
   pod 'GoogleMaps'
-  pod 'Firebase/Core'
   pod 'YTLiveStreaming'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
   
 end
