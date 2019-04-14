@@ -27,6 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(apiKey)
         FirebaseApp.configure()
+
+//        Auth.auth().addStateDidChangeListener { (_, user) in
+//
+//            if user != nil {
+//
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                if let mainVC = storyboard.instantiateViewController(withIdentifier: "MainARViewController") as? MainARViewController {
+//                    self.window?.rootViewController = mainVC
+//                }
+//            }
+//        }
         return true
     }
 

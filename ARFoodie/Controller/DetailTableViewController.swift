@@ -24,6 +24,18 @@ class DetailTableViewController: UITableViewController {
         businessHours: "暫無資料"
     )
 
+    lazy var dismissBTN: UIBarButtonItem = {
+
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "icon-cross"), for: .normal)
+        button.frame = CGRect(x: 11, y: 20, width: 19, height: 19)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(self.backToLastView), for: .touchUpInside)
+
+        let leftBarButton = UIBarButtonItem(customView: button)
+        return leftBarButton
+    }()
+
     enum InformationRow {
 
         case phoneNumber, address, businessHours
@@ -54,14 +66,7 @@ class DetailTableViewController: UITableViewController {
         self.restaurantDetailManager.delegate = self
         self.restaurantDetailManager.fetchDetails(placeID: placeID)
 
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "icon-cross"), for: .normal)
-        button.frame = CGRect(x: 11, y: 20, width: 19, height: 19)
-        button.tintColor = .black
-        button.addTarget(self, action: #selector(self.backToLastView), for: .touchUpInside)
-
-        let leftBarButton = UIBarButtonItem(customView: button)
-        self.navigationItem.setRightBarButton(leftBarButton, animated: true)
+        self.navigationItem.setRightBarButton(dismissBTN, animated: true)
 
         tableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
 
