@@ -190,7 +190,6 @@ class RegisterViewController: UIViewController {
 
         if passwordTextField.text == confirmTextField.text {
 
-
         } else {
             print("confirm password again")
         }

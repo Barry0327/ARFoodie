@@ -16,6 +16,19 @@ class RestaurantDetailManager {
 
     weak var delegate: RestaurantDetailDelegate?
 
+    let apiKey: String = {
+
+        if let path = Bundle.main.path(forResource: "Info", ofType: "plist") {
+            if let plist = NSDictionary(contentsOfFile: path) as NSDictionary? {
+                if let apiKey = plist["API_KEY"] as? String, !apiKey.isEmpty {
+
+                    return apiKey
+                }
+            }
+        }
+        return ""
+    }()
+
     // swiftlint:disable cyclomatic_complexity
 
     func fetchDetails(placeID: String) {
@@ -24,7 +37,7 @@ class RestaurantDetailManager {
 
         let parameters: Parameters = [
             "placeid": placeID,
-            "key": "AIzaSyCnDQviBdsqd55DfGHkSToCnXXz66WEIhY",
+            "key": apiKey,
             "language": "zh_TW"
         ]
 
