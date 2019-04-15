@@ -44,7 +44,22 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGs-zb-hQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5604" y="-1596"/>
+            <point key="canvasLocation" x="5527" y="-1596"/>
+        </scene>
+        <!--Live View Controller-->
+        <scene sceneID="3Np-jc-CUk">
+            <objects>
+                <viewController storyboardIdentifier="LFLiveViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gja-Ml-uyn" customClass="LFLiveViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cr6-W1-LHk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ODi-zO-aBK"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ing-tN-OdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6372" y="-1596.2518740629687"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="SPN-VH-c4Y">

@@ -8,12 +8,16 @@
 
 import UIKit
 import GoogleMaps
+import GoogleSignIn
+import YTLiveStreaming
 
-class DetailTableViewController: UITableViewController {
+class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
     var placeID: String = ""
 
     let restaurantDetailManager = RestaurantDetailManager.shared
+
+    let input: YTLiveStreaming = YTLiveStreaming()
 
     var restaurantDetail = RestaurantDetail.init(
         name: "暫無資料",
@@ -34,6 +38,18 @@ class DetailTableViewController: UITableViewController {
 
         let leftBarButton = UIBarButtonItem(customView: button)
         return leftBarButton
+    }()
+
+    lazy var createBoardcastBTN: UIBarButtonItem = {
+
+        let button = UIButton(type: .custom)
+        button.frame = CGRect(x: 0, y: 0, width: 19, height: 19)
+        button.backgroundColor = .blue
+        button.addTarget(self, action: #selector(createBoardcast), for: .touchUpInside)
+
+        let rightBarButton = UIBarButtonItem(customView: button)
+        return rightBarButton
+
     }()
 
     enum InformationRow {
@@ -66,7 +82,8 @@ class DetailTableViewController: UITableViewController {
         self.restaurantDetailManager.delegate = self
         self.restaurantDetailManager.fetchDetails(placeID: placeID)
 
-        self.navigationItem.setRightBarButton(dismissBTN, animated: true)
+        self.navigationItem.setLeftBarButton(dismissBTN, animated: true)
+        self.navigationItem.setRightBarButton(createBoardcastBTN, animated: true)
 
         tableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
 
@@ -78,8 +95,21 @@ class DetailTableViewController: UITableViewController {
 
     }
 
+    // MARK: - UIBarButtonItem Action
+
     @objc func backToLastView() {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @objc func createBoardcast() {
+
+        GIDSignIn.sharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance()?.uiDelegate = self
+        GIDSignIn.sharedInstance()?.scopes = [
+            "https://www.googleapis.com/auth/youtube",
+            "https://www.googleapis.com/auth/youtube.force-ssl"
+        ]
+        GIDSignIn.sharedInstance()?.signIn()
     }
 
     // MARK: - Table view data source
@@ -249,5 +279,39 @@ extension DetailTableViewController: GMSMapViewDelegate {
             options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]
         )
         return true
+    }
+}
+
+extension DetailTableViewController: GIDSignInDelegate {
+
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+
+        guard let currentUser = GIDSignIn.sharedInstance()?.currentUser else {
+            return
+        }
+
+        GoogleOAuth2.sharedInstance.accessToken = currentUser.authentication.accessToken
+
+        let title = "Test"
+        let description = "Test"
+        let date = Date.init()
+        print(date)
+
+        self.input.createBroadcast(title, description: description, startTime: date) { (boardcast) in
+
+            guard let boardcast = boardcast else {
+                print("Falied to get boardcast")
+                return
+            }
+            print(boardcast)
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            if let lfViewController = storyboard.instantiateViewController(withIdentifier: "LFLiveViewController") as? LFLiveViewController {
+
+                self.present(lfViewController, animated: true, completion: nil)
+                
+            }
+        }
     }
 }

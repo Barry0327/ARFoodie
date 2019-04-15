@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
 
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 10, y: 10, width: 20, height: 20)
-        button.addTarget(self, action: #selector(signUpDidTap), for: .touchUpInside)
+        button.addTarget(self, action: #selector(singOut), for: .touchUpInside)
         button.backgroundColor = .red
 
         let barButton = UIBarButtonItem(customView: button)
@@ -30,7 +30,7 @@ class ProfileViewController: UIViewController {
 
     }
 
-    @objc func signUpDidTap() {
+    @objc func singOut() {
 
         if Auth.auth().currentUser != nil {
 
