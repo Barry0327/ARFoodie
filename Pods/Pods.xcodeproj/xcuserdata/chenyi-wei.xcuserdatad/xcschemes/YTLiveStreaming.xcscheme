@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "26E3388439F149526219FFDDE98E36BF"
+               BlueprintIdentifier = "C509F87D6065B7F65330C6EBD6C327A8"
                BuildableName = "YTLiveStreaming.framework"
                BlueprintName = "YTLiveStreaming"
                ReferencedContainer = "container:Pods.xcodeproj">

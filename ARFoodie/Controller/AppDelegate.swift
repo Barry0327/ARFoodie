@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import Firebase
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,22 +24,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return ""
     }()
 
+    let clientID: String = {
+
+        if let key = Bundle.main.object(forInfoDictionaryKey: "CLIENT_ID") as? String {
+            return key
+        }
+        return ""
+    }()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(apiKey)
         FirebaseApp.configure()
 
-//        Auth.auth().addStateDidChangeListener { (_, user) in
-//
-//            if user != nil {
-//
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                if let mainVC = storyboard.instantiateViewController(withIdentifier: "MainARViewController") as? MainARViewController {
-//                    self.window?.rootViewController = mainVC
-//                }
-//            }
-//        }
+        GIDSignIn.sharedInstance()?.clientID = clientID
+
         return true
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [ : ]) -> Bool {
+
+        return GIDSignIn.sharedInstance().handle(
+            url as URL?,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

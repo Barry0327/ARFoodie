@@ -18,12 +18,16 @@
 		97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */; };
 		97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAD2254DC5A00DC4B43 /* MapCell.swift */; };
 		97A49FB022573D4000DC4B43 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAF22573D4000DC4B43 /* LogInViewController.swift */; };
-		97A6C8DD22622876002FAA90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97A6C8DC22622876002FAA90 /* GoogleService-Info.plist */; };
 		97A6C8E022632F2D002FAA90 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8DF22632F2D002FAA90 /* UIViewExtension.swift */; };
 		97A6C8E222632F86002FAA90 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */; };
 		97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */; };
 		97A6C8E622636253002FAA90 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E522636253002FAA90 /* TabbarController.swift */; };
 		97A6C8E82263895F002FAA90 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E72263895F002FAA90 /* ProfileViewController.swift */; };
+		97A6C8EA226488C9002FAA90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97A6C8E9226488C9002FAA90 /* GoogleService-Info.plist */; };
+		97A6C8F222648C9E002FAA90 /* LFLivePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F022648C9D002FAA90 /* LFLivePreview.m */; };
+		97A6C8F822648CEA002FAA90 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F622648CEA002FAA90 /* UIView+YYAdd.m */; };
+		97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F722648CEA002FAA90 /* UIControl+YYAdd.m */; };
+		97A6C8FB22648E17002FAA90 /* LFLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8FA22648E17002FAA90 /* LFLiveViewController.swift */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
 		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
 		97D25687224B1F9E00175E42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97D25686224B1F9E00175E42 /* Assets.xcassets */; };
@@ -47,12 +51,20 @@
 		97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailManager.swift; sourceTree = "<group>"; };
 		97A49FAD2254DC5A00DC4B43 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
 		97A49FAF22573D4000DC4B43 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		97A6C8DC22622876002FAA90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97A6C8DF22632F2D002FAA90 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		97A6C8E522636253002FAA90 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		97A6C8E72263895F002FAA90 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		97A6C8E9226488C9002FAA90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		97A6C8EF22648C9C002FAA90 /* ARFoodie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARFoodie-Bridging-Header.h"; sourceTree = "<group>"; };
+		97A6C8F022648C9D002FAA90 /* LFLivePreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLivePreview.m; sourceTree = "<group>"; };
+		97A6C8F122648C9E002FAA90 /* LFLivePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLivePreview.h; sourceTree = "<group>"; };
+		97A6C8F422648CE8002FAA90 /* UIControl+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+YYAdd.h"; sourceTree = "<group>"; };
+		97A6C8F522648CE9002FAA90 /* UIView+YYAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YYAdd.h"; sourceTree = "<group>"; };
+		97A6C8F622648CEA002FAA90 /* UIView+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YYAdd.m"; sourceTree = "<group>"; };
+		97A6C8F722648CEA002FAA90 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
+		97A6C8FA22648E17002FAA90 /* LFLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFLiveViewController.swift; sourceTree = "<group>"; };
 		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D25681224B1F9C00175E42 /* MainARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainARViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +126,28 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		97A6C8EB22648BFA002FAA90 /* LFLive */ = {
+			isa = PBXGroup;
+			children = (
+				97A6C8F122648C9E002FAA90 /* LFLivePreview.h */,
+				97A6C8F022648C9D002FAA90 /* LFLivePreview.m */,
+				97A6C8FA22648E17002FAA90 /* LFLiveViewController.swift */,
+				97A6C8EF22648C9C002FAA90 /* ARFoodie-Bridging-Header.h */,
+			);
+			path = LFLive;
+			sourceTree = "<group>";
+		};
+		97A6C8F322648CD7002FAA90 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				97A6C8F422648CE8002FAA90 /* UIControl+YYAdd.h */,
+				97A6C8F722648CEA002FAA90 /* UIControl+YYAdd.m */,
+				97A6C8F522648CE9002FAA90 /* UIView+YYAdd.h */,
+				97A6C8F622648CEA002FAA90 /* UIView+YYAdd.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		97D25673224B1F9C00175E42 = {
 			isa = PBXGroup;
 			children = (
@@ -139,7 +173,7 @@
 				97D25691224C9E7800175E42 /* Controller */,
 				97D25692224C9E8B00175E42 /* View */,
 				97D25686224B1F9E00175E42 /* Assets.xcassets */,
-				97A6C8DC22622876002FAA90 /* GoogleService-Info.plist */,
+				97A6C8E9226488C9002FAA90 /* GoogleService-Info.plist */,
 				97D2568B224B1F9E00175E42 /* Info.plist */,
 			);
 			path = ARFoodie;
@@ -148,6 +182,8 @@
 		97D25691224C9E7800175E42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				97A6C8F322648CD7002FAA90 /* Category */,
+				97A6C8EB22648BFA002FAA90 /* LFLive */,
 				97A6C8DE22632E9E002FAA90 /* Extension */,
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 				97A49FAF22573D4000DC4B43 /* LogInViewController.swift */,
@@ -218,6 +254,7 @@
 				TargetAttributes = {
 					97D2567B224B1F9C00175E42 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -245,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97187ABB2251D4F30096E52D /* Main.storyboard in Resources */,
-				97A6C8DD22622876002FAA90 /* GoogleService-Info.plist in Resources */,
+				97A6C8EA226488C9002FAA90 /* GoogleService-Info.plist in Resources */,
 				97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */,
 				97D25687224B1F9E00175E42 /* Assets.xcassets in Resources */,
 			);
@@ -264,12 +301,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ARFoodie/Pods-ARFoodie-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -327,6 +366,7 @@
 				"${BUILT_PRODUCTS_DIR}/ARCL/ARCL.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/LFLiveKit/LFLiveKit.framework",
@@ -345,6 +385,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARCL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LFLiveKit.framework",
@@ -369,12 +410,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				97A6C8E022632F2D002FAA90 /* UIViewExtension.swift in Sources */,
+				97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */,
 				97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */,
 				97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */,
 				97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */,
 				97A49FA82253254B00DC4B43 /* InfoCell.swift in Sources */,
+				97A6C8F222648C9E002FAA90 /* LFLivePreview.m in Sources */,
 				97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */,
+				97A6C8F822648CEA002FAA90 /* UIView+YYAdd.m in Sources */,
+				97A6C8FB22648E17002FAA90 /* LFLiveViewController.swift in Sources */,
 				97A6C8E622636253002FAA90 /* TabbarController.swift in Sources */,
 				97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */,
 				97A6C8E82263895F002FAA90 /* ProfileViewController.swift in Sources */,
@@ -525,6 +570,7 @@
 			baseConfigurationReference = 535020E1A0264B630C2A6DCA /* Pods-ARFoodie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
 				INFOPLIST_FILE = ARFoodie/Info.plist;
@@ -534,6 +580,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BarryChen.ARFoodie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ARFoodie/Controller/LFLive/ARFoodie-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -544,6 +592,7 @@
 			baseConfigurationReference = 3C25E772FFF45292F7B6B4CC /* Pods-ARFoodie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
 				INFOPLIST_FILE = ARFoodie/Info.plist;
@@ -553,6 +602,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BarryChen.ARFoodie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ARFoodie/Controller/LFLive/ARFoodie-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
