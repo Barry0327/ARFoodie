@@ -41,10 +41,12 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
     lazy var createBoardcastBTN: UIBarButtonItem = {
 
         let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 19, height: 19)
-        button.backgroundColor = .blue
+        button.frame = CGRect(x: 11, y: 20, width: 35, height: 35)
+        button.setImage(UIImage(named: "icons8-video-call-100"), for: .normal)
+        button.imageView?.contentMode = .scaleToFill
         button.addTarget(self, action: #selector(createBoardcast), for: .touchUpInside)
-
+        button.tintColor = .black
+        
         let rightBarButton = UIBarButtonItem(customView: button)
         return rightBarButton
 
