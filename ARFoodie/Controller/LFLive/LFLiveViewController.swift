@@ -10,15 +10,76 @@ import UIKit
 import LFLiveKit
 import YTLiveStreaming
 
-class LFLiveViewController: UIViewController {
+class LFLiveViewController: UIViewController, LiveStreamTransitioning {
 
     let lfView = LFLivePreview()
+
+    let input: YTLiveStreaming = YTLiveStreaming()
+
+    var boardcast: LiveBroadcastStreamModel?
+
+    let liveStreamManager = LiveStreamManager.shared
+
+    lazy var publishButton: UIButton = {
+
+        let button = UIButton()
+        button.setTitleColor(.red, for: .normal)
+        button.setTitle("開始直播", for: .normal)
+        button.addTarget(self, action: #selector(pulishBTNPressed), for: .touchUpInside)
+
+        return button
+    }()
+
+    lazy var changeCameraBTN: UIButton = {
+
+        let button = UIButton()
+        button.setImage(
+            UIImage(named: "icons8-switch-camera-filled-100"),
+            for: .normal
+        )
+        button.imageView?.contentMode = .scaleAspectFit
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(changeCameraBTNPressed), for: .touchUpInside)
+
+        let edgeInsets = UIEdgeInsets.init(top: 40, left: 40, bottom: 40, right: 40)
+        button.imageEdgeInsets = edgeInsets
+
+        return button
+    }()
+
+    lazy var cancelButton: UIButton = {
+
+        let button = UIButton()
+        button.setImage(
+            UIImage(named: "icon-cross"),
+            for: .normal
+        )
+        button.imageView?.contentMode = .scaleAspectFit
+        button.tintColor = .white
+        button.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
+
+        let edgeInsets = UIEdgeInsets.init(top: 40, left: 40, bottom: 40, right: 40)
+        button.imageEdgeInsets = edgeInsets
+
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        liveStreamManager.delegate = self
+        liveStreamManager.boardcast = self.boardcast
+
         view.addSubview(lfView)
-        lfView.frame = view.frame
+        lfView.addSubview(publishButton)
+        lfView.addSubview(changeCameraBTN)
+        lfView.addSubview(cancelButton)
+
+        setLayout()
+    }
+
+    deinit {
+        self.lfView.stopPublishing()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,5 +90,94 @@ class LFLiveViewController: UIViewController {
 
             self.lfView.prepareForUsing()
         }
+    }
+
+    // MARK: - Publish Button Function
+    @objc func pulishBTNPressed() {
+
+        if self.publishButton.isSelected {
+            self.publishButton.isSelected = false
+            self.publishButton.setTitle("開始直播", for: .normal)
+
+            self.liveStreamManager.completeBoardcast {
+
+                self.lfView.stopPublishing()
+                print("LFView did stop")
+            }
+        } else {
+            self.publishButton.isSelected = true
+            self.publishButton.setTitle("結束直播", for: .normal)
+
+            self.liveStreamManager.startBoardcast()
+        }
+    }
+
+    @objc func changeCameraBTNPressed() {
+        self.lfView.changeCameraPosition()
+    }
+
+    @objc func cancelButtonPressed() {
+
+        guard let boardcast = self.boardcast else {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+
+        self.input.deleteBroadcast(id: boardcast.id) { (success) in
+
+            if success {
+                print("Boardcast \(boardcast.id) was deleted!")
+            } else {
+                print("Failed to delete boardcast")
+            }
+
+            self.dismiss(animated: true, completion: nil)
+
+            self.liveStreamManager.completeBoardcast {
+                self.lfView.stopPublishing()
+                print("LFView did stop")
+            }
+        }
+    }
+
+    func setLayout() {
+
+        lfView.frame = view.frame
+
+        publishButton.anchor(
+            top: nil,
+            leading: lfView.leadingAnchor,
+            bottom: lfView.bottomAnchor,
+            trailing: lfView.trailingAnchor,
+            padding: .init(top: 0, left: 100, bottom: 30, right: 100),
+            size: .init(width: 0, height: 30)
+        )
+
+        changeCameraBTN.anchor(
+            top: lfView.topAnchor,
+            leading: nil,
+            bottom: nil,
+            trailing: lfView.trailingAnchor,
+            padding: .init(top: 20, left: 0, bottom: 0, right: 10),
+            size: .init(width: 50, height: 50)
+        )
+
+        cancelButton.anchor(
+            top: lfView.topAnchor,
+            leading: lfView.leadingAnchor,
+            bottom: nil,
+            trailing: nil,
+            padding: .init(top: 20, left: 10, bottom: 0, right: 0),
+            size: .init(width: 50, height: 50)
+        )
+    }
+}
+
+extension LFLiveViewController: LiveStreamManagerDelegate {
+
+    func manager(_ manager: LiveStreamManager, didFetch broadcastURL: String) {
+
+        self.lfView.startPublishing(withStreamURL: broadcastURL)
+
     }
 }

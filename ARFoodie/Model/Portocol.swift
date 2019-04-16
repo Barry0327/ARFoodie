@@ -23,3 +23,8 @@ protocol RestaurantDetailDelegate: AnyObject {
     func manager(_ manager: RestaurantDetailManager, didFailed with: Error)
 
 }
+
+protocol LiveStreamManagerDelegate: AnyObject {
+
+    func manager(_ manager: LiveStreamManager, didFetch broadcastURL: String)
+}

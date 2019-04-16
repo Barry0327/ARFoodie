@@ -46,6 +46,21 @@
             </objects>
             <point key="canvasLocation" x="5527" y="-1596"/>
         </scene>
+        <!--Create Live Boardcast View Controller-->
+        <scene sceneID="DKl-a0-7Kf">
+            <objects>
+                <viewController storyboardIdentifier="CreateLiveBoardcastViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O0u-3K-9O3" customClass="CreateLiveBoardcastViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4r7-aJ-r9e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ykL-RD-EsR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k2X-So-FAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6372" y="-1596"/>
+        </scene>
         <!--Live View Controller-->
         <scene sceneID="3Np-jc-CUk">
             <objects>
@@ -59,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ing-tN-OdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6372" y="-1596.2518740629687"/>
+            <point key="canvasLocation" x="7212" y="-1596"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="SPN-VH-c4Y">
