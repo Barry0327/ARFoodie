@@ -11,6 +11,9 @@
 		970230DB225907D600BD8AF2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970230DA225907D600BD8AF2 /* RegisterViewController.swift */; };
 		97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97187AB82251BEB80096E52D /* DetailTableViewController.swift */; };
 		97187ABB2251D4F30096E52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97187ABA2251D4F30096E52D /* Main.storyboard */; };
+		9738E836226576B100EA2CBC /* LiveStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9738E835226576B100EA2CBC /* LiveStreamManager.swift */; };
+		9738E8382265817F00EA2CBC /* CreateLiveBorcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */; };
+		9756356B2265D6EF009AE63B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9756356A2265D6EF009AE63B /* GoogleService-Info.plist */; };
 		97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA1225201E900DC4B43 /* PhotoCell.swift */; };
 		97A49FA622526CB600DC4B43 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA522526CB600DC4B43 /* Extension.swift */; };
 		97A49FA82253254B00DC4B43 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA72253254B00DC4B43 /* InfoCell.swift */; };
@@ -23,7 +26,6 @@
 		97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */; };
 		97A6C8E622636253002FAA90 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E522636253002FAA90 /* TabbarController.swift */; };
 		97A6C8E82263895F002FAA90 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E72263895F002FAA90 /* ProfileViewController.swift */; };
-		97A6C8EA226488C9002FAA90 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97A6C8E9226488C9002FAA90 /* GoogleService-Info.plist */; };
 		97A6C8F222648C9E002FAA90 /* LFLivePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F022648C9D002FAA90 /* LFLivePreview.m */; };
 		97A6C8F822648CEA002FAA90 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F622648CEA002FAA90 /* UIView+YYAdd.m */; };
 		97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F722648CEA002FAA90 /* UIControl+YYAdd.m */; };
@@ -44,6 +46,9 @@
 		970230DA225907D600BD8AF2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		97187AB82251BEB80096E52D /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		97187ABA2251D4F30096E52D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9738E835226576B100EA2CBC /* LiveStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamManager.swift; sourceTree = "<group>"; };
+		9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLiveBorcastViewController.swift; sourceTree = "<group>"; };
+		9756356A2265D6EF009AE63B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97A49FA1225201E900DC4B43 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		97A49FA522526CB600DC4B43 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		97A49FA72253254B00DC4B43 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
@@ -56,7 +61,6 @@
 		97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		97A6C8E522636253002FAA90 /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		97A6C8E72263895F002FAA90 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		97A6C8E9226488C9002FAA90 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		97A6C8EF22648C9C002FAA90 /* ARFoodie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARFoodie-Bridging-Header.h"; sourceTree = "<group>"; };
 		97A6C8F022648C9D002FAA90 /* LFLivePreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLivePreview.m; sourceTree = "<group>"; };
 		97A6C8F122648C9E002FAA90 /* LFLivePreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLivePreview.h; sourceTree = "<group>"; };
@@ -129,10 +133,10 @@
 		97A6C8EB22648BFA002FAA90 /* LFLive */ = {
 			isa = PBXGroup;
 			children = (
+				97A6C8EF22648C9C002FAA90 /* ARFoodie-Bridging-Header.h */,
 				97A6C8F122648C9E002FAA90 /* LFLivePreview.h */,
 				97A6C8F022648C9D002FAA90 /* LFLivePreview.m */,
 				97A6C8FA22648E17002FAA90 /* LFLiveViewController.swift */,
-				97A6C8EF22648C9C002FAA90 /* ARFoodie-Bridging-Header.h */,
 			);
 			path = LFLive;
 			sourceTree = "<group>";
@@ -173,7 +177,7 @@
 				97D25691224C9E7800175E42 /* Controller */,
 				97D25692224C9E8B00175E42 /* View */,
 				97D25686224B1F9E00175E42 /* Assets.xcassets */,
-				97A6C8E9226488C9002FAA90 /* GoogleService-Info.plist */,
+				9756356A2265D6EF009AE63B /* GoogleService-Info.plist */,
 				97D2568B224B1F9E00175E42 /* Info.plist */,
 			);
 			path = ARFoodie;
@@ -191,6 +195,7 @@
 				97A6C8E522636253002FAA90 /* TabbarController.swift */,
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
 				97187AB82251BEB80096E52D /* DetailTableViewController.swift */,
+				9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */,
 				97A6C8E72263895F002FAA90 /* ProfileViewController.swift */,
 				97A6C8DB22620F0A002FAA90 /* Cell Controller */,
 			);
@@ -213,6 +218,7 @@
 				97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */,
 				97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */,
 				97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */,
+				9738E835226576B100EA2CBC /* LiveStreamManager.swift */,
 				97D25699224CD04F00175E42 /* Portocol.swift */,
 			);
 			path = Model;
@@ -282,7 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97187ABB2251D4F30096E52D /* Main.storyboard in Resources */,
-				97A6C8EA226488C9002FAA90 /* GoogleService-Info.plist in Resources */,
+				9756356B2265D6EF009AE63B /* GoogleService-Info.plist in Resources */,
 				97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */,
 				97D25687224B1F9E00175E42 /* Assets.xcassets in Resources */,
 			);
@@ -410,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97A6C8E022632F2D002FAA90 /* UIViewExtension.swift in Sources */,
+				9738E836226576B100EA2CBC /* LiveStreamManager.swift in Sources */,
 				97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */,
 				97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */,
 				97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */,
@@ -428,6 +435,7 @@
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
 				970230DB225907D600BD8AF2 /* RegisterViewController.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
+				9738E8382265817F00EA2CBC /* CreateLiveBorcastViewController.swift in Sources */,
 				97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
 				97A6C8E222632F86002FAA90 /* UIImageViewExtension.swift in Sources */,

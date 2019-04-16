@@ -17,8 +17,6 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
     let restaurantDetailManager = RestaurantDetailManager.shared
 
-    let input: YTLiveStreaming = YTLiveStreaming()
-
     var restaurantDetail = RestaurantDetail.init(
         name: "暫無資料",
         address: "暫無資料",
@@ -292,25 +290,15 @@ extension DetailTableViewController: GIDSignInDelegate {
 
         GoogleOAuth2.sharedInstance.accessToken = currentUser.authentication.accessToken
 
-        let title = "Test"
-        let description = "Test"
-        let date = Date.init()
-        print(date)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        self.input.createBroadcast(title, description: description, startTime: date) { (boardcast) in
+        if let createLiveBoardcastViewController = storyboard.instantiateViewController(withIdentifier: "CreateLiveBoardcastViewController") as? CreateLiveBoardcastViewController {
 
-            guard let boardcast = boardcast else {
-                print("Falied to get boardcast")
-                return
-            }
-            print(boardcast)
+            createLiveBoardcastViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
 
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-            if let lfViewController = storyboard.instantiateViewController(withIdentifier: "LFLiveViewController") as? LFLiveViewController {
-
-                self.present(lfViewController, animated: true, completion: nil)
-                
+                self.present(createLiveBoardcastViewController, animated: true, completion: nil)
             }
         }
     }

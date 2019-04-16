@@ -234,8 +234,7 @@ class RegisterViewController: UIViewController {
 
                 self.performSegue(withIdentifier: "FinishRegister", sender: nil)
 
-                NotificationCenter.default.removeObserver(self)
-
+                self.dismiss(animated: true, completion: nil)
             }
         } else {
             print("confirm password again")

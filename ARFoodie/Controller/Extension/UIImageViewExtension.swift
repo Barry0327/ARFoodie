@@ -13,6 +13,14 @@ extension UIImageView {
 
     func fetchImage(with ref: String) {
 
+        let apiKey: String = {
+
+            if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
+                return key
+            }
+            return ""
+        }()
+
         print(ref)
 
         guard ref != "暫無資料" else {
@@ -27,7 +35,7 @@ extension UIImageView {
         let parameters: Parameters = [
 
             "photoreference": ref,
-            "key": "AIzaSyCnDQviBdsqd55DfGHkSToCnXXz66WEIhY",
+            "key": apiKey,
             "maxheight": 250
         ]
 
