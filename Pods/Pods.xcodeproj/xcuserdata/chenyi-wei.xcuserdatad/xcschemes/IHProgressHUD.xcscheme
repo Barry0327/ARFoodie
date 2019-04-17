@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8C0613004BE1A9B87291FC37FEBA7CBC"
-               BuildableName = "SwiftLint"
-               BlueprintName = "SwiftLint"
+               BlueprintIdentifier = "5801F9EEEAF3839A7D90E82FA0E8D8B3"
+               BuildableName = "IHProgressHUD.framework"
+               BlueprintName = "IHProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

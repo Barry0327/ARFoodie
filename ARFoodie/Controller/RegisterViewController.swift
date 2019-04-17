@@ -15,6 +15,10 @@ class RegisterViewController: UIViewController {
 
         let imgView = UIImageView()
         imgView.backgroundColor = .blue
+        imgView.image = UIImage(named: "user")
+        imgView.layer.cornerRadius = 125/2
+        imgView.layer.borderWidth = 1
+        imgView.layer.borderColor = UIColor.black.cgColor
 
         return imgView
     }()
@@ -234,7 +238,6 @@ class RegisterViewController: UIViewController {
 
                 self.performSegue(withIdentifier: "FinishRegister", sender: nil)
 
-                self.dismiss(animated: true, completion: nil)
             }
         } else {
             print("confirm password again")

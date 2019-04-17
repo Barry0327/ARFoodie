@@ -39,6 +39,8 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         return button
     }()
 
+    // MARK: - ViewDidLoad Method
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -133,8 +135,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         self.sceneLocationView.pause()
     }
 
-    // MARK: Core Location Delegate Method.
-    /***********************************************************************/
+    // MARK: - Core Location Delegate Method.
 
     func startReceivingLocationChanges() {
 
@@ -167,6 +168,8 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     }
 
 }
+
+// MARK: - RestaurantInfoDelegate Method
 
 extension MainARViewController: RestaurantInfoDelegate {
 

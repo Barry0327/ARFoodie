@@ -23,10 +23,22 @@ class ProfileViewController: UIViewController {
 
     }()
 
+    let profileImageView: UIImageView = {
+
+        let imgView = UIImageView()
+        imgView.backgroundColor = .red
+
+        return imgView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.setRightBarButton(signOutBTN, animated: true)
+
+        view.addSubview(profileImageView)
+
+        setLayout()
 
     }
 
@@ -47,5 +59,15 @@ class ProfileViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+
+    func setLayout() {
+
+        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -200).isActive = true
+
+        profileImageView.widthAnchor.constraint(equalToConstant: 175).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 175).isActive = true
+
     }
 }
