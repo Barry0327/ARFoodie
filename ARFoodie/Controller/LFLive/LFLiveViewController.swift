@@ -9,6 +9,7 @@
 import UIKit
 import LFLiveKit
 import YTLiveStreaming
+import IHProgressHUD
 
 class LFLiveViewController: UIViewController, LiveStreamTransitioning {
 
@@ -96,32 +97,50 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
     @objc func pulishBTNPressed() {
 
         if self.publishButton.isSelected {
+
             self.publishButton.isSelected = false
+
             self.publishButton.setTitle("開始直播", for: .normal)
+
+            IHProgressHUD.show()
 
             self.liveStreamManager.completeBoardcast {
 
                 self.lfView.stopPublishing()
+
                 print("LFView did stop")
+
+                IHProgressHUD.dismiss()
             }
         } else {
+
             self.publishButton.isSelected = true
+
             self.publishButton.setTitle("結束直播", for: .normal)
 
+            IHProgressHUD.show(withStatus: "連線中..")
+
             self.liveStreamManager.startBoardcast()
+
         }
     }
 
     @objc func changeCameraBTNPressed() {
+
         self.lfView.changeCameraPosition()
+
     }
 
     @objc func cancelButtonPressed() {
 
         guard let boardcast = self.boardcast else {
+
             self.dismiss(animated: true, completion: nil)
+
             return
         }
+
+        IHProgressHUD.show()
 
         self.input.deleteBroadcast(id: boardcast.id) { (success) in
 
@@ -131,11 +150,16 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
                 print("Failed to delete boardcast")
             }
 
+            IHProgressHUD.dismiss()
+
             self.dismiss(animated: true, completion: nil)
 
             self.liveStreamManager.completeBoardcast {
+
                 self.lfView.stopPublishing()
+
                 print("LFView did stop")
+
             }
         }
     }
@@ -178,6 +202,7 @@ extension LFLiveViewController: LiveStreamManagerDelegate {
     func manager(_ manager: LiveStreamManager, didFetch broadcastURL: String) {
 
         self.lfView.startPublishing(withStreamURL: broadcastURL)
+        IHProgressHUD.dismiss()
 
     }
 }

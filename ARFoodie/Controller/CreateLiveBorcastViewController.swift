@@ -8,6 +8,7 @@
 
 import UIKit
 import YTLiveStreaming
+import IHProgressHUD
 
 class CreateLiveBoardcastViewController: UIViewController {
 
@@ -105,6 +106,9 @@ class CreateLiveBoardcastViewController: UIViewController {
             print("Please enter title")
             return
         }
+
+        IHProgressHUD.show(withStatus: "連線中")
+
         let description = self.descriptionTextField.text
 
         let date = Date.init()
@@ -115,6 +119,7 @@ class CreateLiveBoardcastViewController: UIViewController {
                 print("Falied to get boardcast")
                 return
             }
+
             print(boardcast)
 
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -125,6 +130,8 @@ class CreateLiveBoardcastViewController: UIViewController {
 
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
+
+                    IHProgressHUD.dismiss()
 
                     self.present(lfViewController, animated: true, completion: nil)
 

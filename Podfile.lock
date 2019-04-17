@@ -92,6 +92,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.5.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - IHProgressHUD (0.1.4)
   - KeychainAccess (3.2.0)
   - leveldb-library (1.20)
   - LFLiveKit (2.6)
@@ -124,6 +125,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - GoogleMaps
   - GoogleSignIn
+  - IHProgressHUD (from `https://github.com/Swiftify-Corp/IHProgressHUD.git`)
   - SwiftLint
   - YTLiveStreaming
 
@@ -157,6 +159,15 @@ SPEC REPOS:
     - SwiftyJSON
     - YTLiveStreaming
 
+EXTERNAL SOURCES:
+  IHProgressHUD:
+    :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
+
+CHECKOUT OPTIONS:
+  IHProgressHUD:
+    :commit: 6c160f4ef2e9b924de58c8df3382a57ced957dfd
+    :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
+
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   ARCL: 8b0a375942c575472c3cdbec80262d8400f1ec42
@@ -175,6 +186,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  IHProgressHUD: a01846bfbb581c761c79747c67b08387c3bdfae3
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   LFLiveKit: 2219563721f8aa0f188effc3395a06e2d53b23f2
@@ -186,6 +198,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   YTLiveStreaming: 62db20f1dc6ee0aed654356ee220e5b14b1506a0
 
-PODFILE CHECKSUM: 4415185326b49fd3877b49abdc374a0846081dd4
+PODFILE CHECKSUM: 1069efa94b68b2f10165eb5cdb7457d3271c63ce
 
 COCOAPODS: 1.6.1

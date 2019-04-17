@@ -10,10 +10,13 @@ import UIKit
 import GoogleMaps
 import GoogleSignIn
 import YTLiveStreaming
+import Firebase
 
 class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
     var placeID: String = ""
+
+    var user: CurrentUser?
 
     let restaurantDetailManager = RestaurantDetailManager.shared
 
@@ -46,10 +49,32 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
         button.imageView?.contentMode = .scaleToFill
         button.addTarget(self, action: #selector(createBoardcast), for: .touchUpInside)
         button.tintColor = .black
-        
+
         let rightBarButton = UIBarButtonItem(customView: button)
         return rightBarButton
 
+    }()
+
+    let containerView: UIView = {
+
+        let view = UIView()
+
+        return view
+    }()
+
+    let messageTextField: UITextField = {
+
+        let textField = UITextField()
+
+        return textField
+
+    }()
+
+    let sendButton: UIButton = {
+
+        let button = UIButton()
+
+        return button
     }()
 
     enum InformationRow {
@@ -65,19 +90,26 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
         case photo
 
         case map
+
+        case comment
     }
 
     let detailSections: [DetailSection] = [
 
         .photo,
         .information(rows: [.phoneNumber, .address, .businessHours]),
-        .map
+        .map,
+        .comment
     ]
+
+    // MARK: - View Did Load Method
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print(placeID)
+
+        fetchUserInfo()
 
         self.restaurantDetailManager.delegate = self
         self.restaurantDetailManager.fetchDetails(placeID: placeID)
@@ -91,11 +123,34 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
         tableView.register(MapCell.self, forCellReuseIdentifier: "MapCell")
 
-//        tableView.separatorStyle = .none
+        tableView.register(CommentCell.self, forCellReuseIdentifier: "CommentCell")
 
     }
 
-    // MARK: - UIBarButtonItem Action
+    func fetchUserInfo() {
+
+        Auth.auth().addStateDidChangeListener { (_, user) in
+
+            guard let user = user else { return }
+            self.user = CurrentUser.init(authData: user)
+
+            let usersRef = Database.database().reference(withPath: "users")
+            let currentUserRef = usersRef.child(self.user!.uid)
+
+            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
+
+                guard
+                    let info = snapshot.value as? [String: Any],
+                    let displayName = info["displayName"] as? String
+                    else { return }
+
+                self.user?.displayName = displayName
+
+            })
+        }
+    }
+
+    // MARK: - UIBarButtonItem Action Mehod
 
     @objc func backToLastView() {
         self.dismiss(animated: true, completion: nil)
@@ -112,7 +167,7 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance()?.signIn()
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table View Data Source Method
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return detailSections.count
@@ -123,9 +178,13 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
         let section = detailSections[section]
 
         switch section {
-        case .photo, .map:
-            return 1
+
+        case .photo, .map: return 1
+
         case let .information(rows): return rows.count
+
+        case .comment: return 5
+
         }
     }
 
@@ -181,6 +240,17 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
             marker.map = cell.mapView
 
             return cell
+
+        case .comment:
+
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell else { fatalError() }
+
+            cell.nameLabel.text = "Barry"
+            cell.commentBody.text = "好吃好吃好吃好吃好吃好吃好吃好好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃"
+            cell.profileImageView.image = UIImage(named: "user")
+
+            return cell
+
         }
 
     }
@@ -196,6 +266,24 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
             return 60
         case .map:
             return 250
+        case .comment:
+            return UITableView.automaticDimension
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        let section = detailSections[indexPath.section]
+
+        switch section {
+        case .photo:
+            return 250
+        case .information:
+            return 60
+        case .map:
+            return 250
+        case .comment:
+            return 200
         }
     }
 
