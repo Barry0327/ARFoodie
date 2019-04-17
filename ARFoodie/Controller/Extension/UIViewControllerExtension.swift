@@ -20,12 +20,12 @@ extension UIViewController {
     }
 
     @objc func keyboardWillShow(notifiction: Notification) {
-        guard let userInfo = notifiction.userInfo else { return }
-        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-            else { return }
-        let keyboardFrame = keyboardSize.cgRectValue
+        guard
+            let keybroadFrame = notifiction.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardHeight = keybroadFrame.cgRectValue.height
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= keyboardFrame.height - 60
+            self.view.frame.origin.y -= keyboardHeight - 60
         }
     }
 

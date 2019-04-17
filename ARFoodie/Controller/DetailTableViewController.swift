@@ -11,6 +11,7 @@ import GoogleMaps
 import GoogleSignIn
 import YTLiveStreaming
 import Firebase
+import ChameleonFramework
 
 class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
@@ -58,13 +59,17 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
     let containerView: UIView = {
 
         let view = UIView()
+        view.backgroundColor = UIColor.flatNavyBlueDark
+        view.isOpaque = true
 
         return view
     }()
 
-    let messageTextField: UITextField = {
+    let commentTextField: UITextField = {
 
         let textField = UITextField()
+        textField.borderStyle = .roundedRect
+        textField.placeholder = "留言..."
 
         return textField
 
@@ -73,6 +78,8 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
     let sendButton: UIButton = {
 
         let button = UIButton()
+        button.setTitle("發佈", for: .normal)
+        button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
 
         return button
     }()
@@ -109,7 +116,17 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
         print(placeID)
 
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
+        self.tableView.addGestureRecognizer(gesture)
+
         fetchUserInfo()
+
+        containerView.addSubview(commentTextField)
+        containerView.addSubview(sendButton)
+
+        self.navigationController?.view.addSubview(containerView)
+
+        setUpTextFieldLayOut()
 
         self.restaurantDetailManager.delegate = self
         self.restaurantDetailManager.fetchDetails(placeID: placeID)
@@ -125,7 +142,74 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
         tableView.register(CommentCell.self, forCellReuseIdentifier: "CommentCell")
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleKeyboardNotifiction(notifiction:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleKeyboardNotifiction(notifiction:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+
     }
+
+    func setUpTextFieldLayOut() {
+
+        containerView.anchor(
+            top: nil,
+            leading: self.navigationController?.view.leadingAnchor,
+            bottom: self.navigationController?.view.bottomAnchor,
+            trailing: self.navigationController?.view.trailingAnchor,
+            size: .init(width: 0, height: 50)
+        )
+
+        sendButton.anchor(
+            top: containerView.topAnchor,
+            leading: nil,
+            bottom: nil,
+            trailing: containerView.trailingAnchor,
+            padding: .init(top: 10, left: 0, bottom: 0, right: 10),
+            size: .init(width: 50, height: 30)
+        )
+
+        commentTextField.anchor(
+            top: containerView.topAnchor,
+            leading: containerView.leadingAnchor,
+            bottom: nil,
+            trailing: sendButton.leadingAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 10),
+            size: .init(width: 0, height: 30)
+        )
+
+    }
+
+    @objc func tableViewTapped() {
+        self.commentTextField.endEditing(true)
+    }
+
+    @objc func handleKeyboardNotifiction(notifiction: Notification) {
+
+        guard
+            let keybroadFrame = notifiction.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+            else { return }
+
+        let keyboardHeight = keybroadFrame.cgRectValue.height
+
+        let isKeyboardShowing = notifiction.name == UIResponder.keyboardWillShowNotification
+
+        self.navigationController?.view.frame.origin.y = isKeyboardShowing ? -keyboardHeight : 0
+
+        UIView.animate(withDuration: 0.3) {
+
+            self.navigationController?.view.layoutIfNeeded()
+        }
+    }
+
 
     func fetchUserInfo() {
 
@@ -393,3 +477,4 @@ extension DetailTableViewController: GIDSignInDelegate {
         }
     }
 }
+

@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D2852D8906ABCA6BC2A45A042BE6459C"
-               BuildableName = "SwiftLint"
-               BlueprintName = "SwiftLint"
+               BlueprintIdentifier = "9FE7EDA641B673E235FD345BF0736F7F"
+               BuildableName = "ChameleonFramework.framework"
+               BlueprintName = "ChameleonFramework"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

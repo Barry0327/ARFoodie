@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (4.8.2)
   - ARCL (1.1.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - Firebase/Auth (5.20.1):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.4.2)
@@ -119,6 +122,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - ARCL (= 1.1.0)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -160,10 +164,15 @@ SPEC REPOS:
     - YTLiveStreaming
 
 EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
   IHProgressHUD:
     :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
 
 CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 6dd284bde21ea2e7f9fd89bc36f40df16e16369d
+    :git: https://github.com/ViccAlexander/Chameleon.git
   IHProgressHUD:
     :commit: 6c160f4ef2e9b924de58c8df3382a57ced957dfd
     :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
@@ -171,6 +180,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   ARCL: 8b0a375942c575472c3cdbec80262d8400f1ec42
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Firebase: 2f5235e62f141cb86181c3af0dfe4509706351ac
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
   FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
@@ -198,6 +208,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   YTLiveStreaming: 62db20f1dc6ee0aed654356ee220e5b14b1506a0
 
-PODFILE CHECKSUM: 1069efa94b68b2f10165eb5cdb7457d3271c63ce
+PODFILE CHECKSUM: 5232d8a72c4bd709f41a768661a33ac458d8ea18
 
 COCOAPODS: 1.6.1
