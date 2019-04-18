@@ -14,7 +14,6 @@ class CommentCell: UITableViewCell {
 
         let imgView = UIImageView()
         imgView.layer.cornerRadius = 25
-
         return imgView
     }()
 

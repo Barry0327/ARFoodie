@@ -11,7 +11,7 @@ import Firebase
 
 class RegisterViewController: UIViewController {
 
-    let profileImgView: UIImageView = {
+    lazy var profileImgView: UIImageView = {
 
         let imgView = UIImageView()
         imgView.backgroundColor = .blue
@@ -19,6 +19,14 @@ class RegisterViewController: UIViewController {
         imgView.layer.cornerRadius = 125/2
         imgView.layer.borderWidth = 1
         imgView.layer.borderColor = UIColor.black.cgColor
+        imgView.isUserInteractionEnabled = true
+        imgView.addGestureRecognizer(
+            UITapGestureRecognizer(
+            target: self,
+            action: #selector(profileImageViewSelectHandler)
+        )
+        )
+        imgView.clipsToBounds = true
 
         return imgView
     }()
@@ -193,61 +201,6 @@ class RegisterViewController: UIViewController {
         containerView.addSubview(registerButton)
 
         setLayout()
-    }
-
-    deinit {
-        print("registerVC deinited")
-    }
-
-    // MARK: Register function
-
-    @objc func registerPressed() {
-
-        guard
-            let email = emailTextField.text,
-            let password = passwordTextField.text,
-            emailTextField.text != "",
-            passwordTextField.text != ""
-            else {
-                return
-        }
-
-        if passwordTextField.text == confirmTextField.text {
-
-            Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-
-                if error != nil {
-                    print("Failed to sign up.")
-                    return
-                }
-                let userRef = Database.database().reference(withPath: "users")
-                guard let user = result?.user else { return }
-
-                let displayName = self.nameTextField.text ?? ""
-
-                userRef.child(user.uid).setValue(
-                    [
-                        "email": email,
-                        "displayName": displayName
-                    ]
-                )
-                self.nameTextField.text = nil
-                self.emailTextField.text = nil
-                self.passwordTextField.text = nil
-                self.confirmTextField.text = nil
-
-                self.performSegue(withIdentifier: "FinishRegister", sender: nil)
-
-            }
-        } else {
-            print("confirm password again")
-        }
-
-    }
-
-    @objc func cancelBTNPressed() {
-
-        self.dismiss(animated: true, completion: nil)
     }
 
     func setLayout() {
