@@ -17,6 +17,8 @@
 		9756356D22662BFE009AE63B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9756356C22662BFE009AE63B /* Assets.xcassets */; };
 		9756356F2266E1FF009AE63B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756356E2266E1FF009AE63B /* User.swift */; };
 		975635712266FDC0009AE63B /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975635702266FDC0009AE63B /* CommentCell.swift */; };
+		9756357322682003009AE63B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756357222682003009AE63B /* Comment.swift */; };
+		97563575226835BB009AE63B /* RegisterViewController + handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97563574226835BA009AE63B /* RegisterViewController + handlers.swift */; };
 		97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA1225201E900DC4B43 /* PhotoCell.swift */; };
 		97A49FA622526CB600DC4B43 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA522526CB600DC4B43 /* Extension.swift */; };
 		97A49FA82253254B00DC4B43 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA72253254B00DC4B43 /* InfoCell.swift */; };
@@ -54,6 +56,8 @@
 		9756356C22662BFE009AE63B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9756356E2266E1FF009AE63B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		975635702266FDC0009AE63B /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		9756357222682003009AE63B /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		97563574226835BA009AE63B /* RegisterViewController + handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController + handlers.swift"; sourceTree = "<group>"; };
 		97A49FA1225201E900DC4B43 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		97A49FA522526CB600DC4B43 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		97A49FA72253254B00DC4B43 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 				97A49FAF22573D4000DC4B43 /* LogInViewController.swift */,
 				970230DA225907D600BD8AF2 /* RegisterViewController.swift */,
+				97563574226835BA009AE63B /* RegisterViewController + handlers.swift */,
 				97A6C8E522636253002FAA90 /* TabbarController.swift */,
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
 				97187AB82251BEB80096E52D /* DetailTableViewController.swift */,
@@ -220,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				9756356E2266E1FF009AE63B /* User.swift */,
+				9756357222682003009AE63B /* Comment.swift */,
 				97D25694224C9EBD00175E42 /* Restaurant.swift */,
 				97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */,
 				97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */,
@@ -428,8 +434,10 @@
 				9756356F2266E1FF009AE63B /* User.swift in Sources */,
 				97A6C8E022632F2D002FAA90 /* UIViewExtension.swift in Sources */,
 				9738E836226576B100EA2CBC /* LiveStreamManager.swift in Sources */,
+				9756357322682003009AE63B /* Comment.swift in Sources */,
 				97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */,
 				97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */,
+				97563575226835BB009AE63B /* RegisterViewController + handlers.swift in Sources */,
 				97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */,
 				97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */,

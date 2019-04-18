@@ -19,6 +19,10 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
     var user: CurrentUser?
 
+    var comments = [Comment]()
+
+    let restaurantsRef = Database.database().reference(withPath: "restaurants")
+
     let restaurantDetailManager = RestaurantDetailManager.shared
 
     var restaurantDetail = RestaurantDetail.init(
@@ -75,11 +79,12 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
     }()
 
-    let sendButton: UIButton = {
+    lazy var sendButton: UIButton = {
 
         let button = UIButton()
         button.setTitle("發佈", for: .normal)
         button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
+        button.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
 
         return button
     }()
@@ -121,10 +126,12 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
         fetchUserInfo()
 
-        containerView.addSubview(commentTextField)
-        containerView.addSubview(sendButton)
+        fetchComments()
 
         self.navigationController?.view.addSubview(containerView)
+
+        containerView.addSubview(commentTextField)
+        containerView.addSubview(sendButton)
 
         setUpTextFieldLayOut()
 
@@ -210,6 +217,35 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
         }
     }
 
+    func fetchComments() {
+
+        let restaurantRef = restaurantsRef.child(self.placeID)
+        let commentRef = restaurantRef.child("comments")
+
+        commentRef.observe(.value) { (snapshot) in
+
+            var comments = [Comment]()
+
+            for child in snapshot.children {
+
+                if
+                    let snapshot = child as? DataSnapshot,
+                    let comment = Comment.init(snapshot: snapshot) {
+
+                    comments.append(comment)
+                }
+            }
+
+            DispatchQueue.main.async { [weak self] in
+
+                guard let self = self else { return }
+
+                self.comments = comments
+                self.tableView.reloadData()
+            }
+        }
+
+    }
 
     func fetchUserInfo() {
 
@@ -236,6 +272,38 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
     // MARK: - UIBarButtonItem Action Mehod
 
+    @objc func sendButtonTapped() {
+
+        print("Triggered")
+        self.commentTextField.endEditing(true)
+        self.commentTextField.isEnabled = false
+        self.sendButton.isEnabled = false
+
+        let restaurantRef = restaurantsRef.child(self.placeID)
+        let commentRef = restaurantRef.child("comments")
+
+        guard
+            let name = self.user?.displayName,
+            let uid = self.user?.uid,
+            let content = self.commentTextField.text
+            else { return }
+
+        let comment = Comment.init(name: name, uid: uid, content: content)
+
+        commentRef.childByAutoId().setValue(comment.toAnyObject()) { (error, _) in
+
+            if error != nil {
+                print(error!)
+            } else {
+
+                print("send comment successfully")
+                self.commentTextField.text = ""
+                self.commentTextField.isEnabled = true
+                self.sendButton.isEnabled = true
+            }
+        }
+    }
+
     @objc func backToLastView() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -245,9 +313,12 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance()?.delegate = self
         GIDSignIn.sharedInstance()?.uiDelegate = self
         GIDSignIn.sharedInstance()?.scopes = [
+
             "https://www.googleapis.com/auth/youtube",
             "https://www.googleapis.com/auth/youtube.force-ssl"
+
         ]
+
         GIDSignIn.sharedInstance()?.signIn()
     }
 
@@ -267,8 +338,17 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
         case let .information(rows): return rows.count
 
-        case .comment: return 5
+        case .comment:
 
+            if self.comments.count == 0 {
+
+                return 1
+
+            } else {
+
+                return self.comments.count
+
+            }
         }
     }
 
@@ -329,11 +409,21 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell else { fatalError() }
 
-            cell.nameLabel.text = "Barry"
-            cell.commentBody.text = "好吃好吃好吃好吃好吃好吃好吃好好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃好吃"
-            cell.profileImageView.image = UIImage(named: "user")
+            if self.comments.count == 0 {
 
-            return cell
+                cell.commentBody.text = "尚無評論"
+                cell.commentBody.textColor = .gray
+
+                return cell
+
+            } else {
+
+                cell.nameLabel.text = self.comments[indexPath.row].senderName
+                cell.commentBody.text = self.comments[indexPath.row].content
+                cell.profileImageView.image = UIImage(named: "user")
+
+                return cell
+            }
 
         }
 
@@ -477,4 +567,3 @@ extension DetailTableViewController: GIDSignInDelegate {
         }
     }
 }
-
