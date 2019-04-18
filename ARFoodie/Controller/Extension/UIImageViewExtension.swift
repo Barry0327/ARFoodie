@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Firebase
 
 extension UIImageView {
 
@@ -65,4 +66,5 @@ extension UIImageView {
 
         }
     }
+
 }

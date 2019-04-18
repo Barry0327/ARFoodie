@@ -17,6 +17,7 @@ target 'ARFoodie' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'FirebaseUI/Storage'
   pod 'GoogleSignIn'
   pod 'IHProgressHUD', :git => 'https://github.com/Swiftify-Corp/IHProgressHUD.git'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'

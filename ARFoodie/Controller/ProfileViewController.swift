@@ -8,8 +8,11 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
 
 class ProfileViewController: UIViewController {
+
+    var user: User?
 
     lazy var signOutBTN: UIBarButtonItem = {
 
@@ -26,7 +29,10 @@ class ProfileViewController: UIViewController {
     let profileImageView: UIImageView = {
 
         let imgView = UIImageView()
-        imgView.backgroundColor = .red
+        imgView.layer.cornerRadius = 85
+        imgView.clipsToBounds = true
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.image = UIImage(named: "user")
 
         return imgView
     }()
@@ -40,6 +46,8 @@ class ProfileViewController: UIViewController {
 
         setLayout()
 
+        fetchUserInfo()
+
     }
 
     @objc func singOut() {
@@ -48,6 +56,7 @@ class ProfileViewController: UIViewController {
 
             print("did sign out")
             do {
+
                 try Auth.auth().signOut()
 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -64,10 +73,52 @@ class ProfileViewController: UIViewController {
     func setLayout() {
 
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -200).isActive = true
+        profileImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150).isActive = true
 
-        profileImageView.widthAnchor.constraint(equalToConstant: 175).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 175).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 170).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 170).isActive = true
+
+    }
+
+    func fetchUserInfo() {
+
+        Auth.auth().addStateDidChangeListener { (_, user) in
+
+            guard let user = user else { return }
+
+            print("triggerd")
+
+            self.user = User.init(authData: user)
+
+            let usersRef = Database.database().reference(withPath: "users")
+            let currentUserRef = usersRef.child(self.user!.uid)
+
+            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
+
+                guard
+                    let info = snapshot.value as? [String: Any],
+                    let displayName = info["displayName"] as? String
+                    else { return }
+
+                self.user?.displayName = displayName
+
+                self.fetchProfileImage()
+
+            })
+        }
+    }
+
+    func fetchProfileImage() {
+
+        let storageRef = Storage.storage().reference().child("profileImages")
+
+        guard let user = self.user else { return }
+
+        let imageRef = storageRef.child("\(user.uid).png")
+
+        let placeholder = UIImage(named: "user")
+
+        self.profileImageView.sd_setImage(with: imageRef, placeholderImage: placeholder)
 
     }
 }

@@ -11,6 +11,7 @@ import GoogleMaps
 import GoogleSignIn
 import YTLiveStreaming
 import Firebase
+import FirebaseUI
 import ChameleonFramework
 
 class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
@@ -420,7 +421,14 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
                 cell.nameLabel.text = self.comments[indexPath.row].senderName
                 cell.commentBody.text = self.comments[indexPath.row].content
-                cell.profileImageView.image = UIImage(named: "user")
+
+                let storageRef = Storage.storage().reference().child("profileImages")
+
+                let imageRef = storageRef.child("\(self.comments[indexPath.row].senderUid).png")
+
+                let placeholder = UIImage(named: "user")
+
+                cell.profileImageView.sd_setImage(with: imageRef, placeholderImage: placeholder)
 
                 return cell
             }
