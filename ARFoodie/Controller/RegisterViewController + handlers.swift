@@ -22,7 +22,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         self.present(picker, animated: true, completion: nil)
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 
         var selectImage: UIImage?
 
@@ -89,7 +89,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 
             if let uploadData = data {
 
-                imageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                imageRef.putData(uploadData, metadata: nil, completion: { (_, error) in
 
                     if error != nil {
 

@@ -25,7 +25,7 @@ class LiveStreamManager: LiveStreamTransitioning {
             print("Boardcast is nil")
             return
         }
-        self.input.startBroadcast(boardcast, delegate: self) { (streamName, streamURL, date) in
+        self.input.startBroadcast(boardcast, delegate: self) { (streamName, streamURL, _) in
 
             guard
                 let streamName = streamName,

@@ -60,6 +60,9 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseUI/Storage (6.2.1):
+    - Firebase/Storage (~> 5.0)
+    - SDWebImage (~> 4.0)
   - GoogleAppMeasurement (5.8.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -118,6 +121,9 @@ PODS:
   - nanopb/encode (0.3.901)
   - Protobuf (3.7.0)
   - Result (3.2.4)
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
   - SwiftLint (0.31.0)
   - SwiftyJSON (4.3.0)
   - YTLiveStreaming (0.2.12):
@@ -135,6 +141,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
+  - FirebaseUI/Storage
   - GoogleMaps
   - GoogleSignIn
   - IHProgressHUD (from `https://github.com/Swiftify-Corp/IHProgressHUD.git`)
@@ -155,6 +162,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - FirebaseMessaging
     - FirebaseStorage
+    - FirebaseUI
     - GoogleAppMeasurement
     - GoogleMaps
     - GoogleSignIn
@@ -168,6 +176,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - Result
+    - SDWebImage
     - SwiftLint
     - SwiftyJSON
     - YTLiveStreaming
@@ -200,6 +209,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
   FirebaseMessaging: 4235f949ce1c4e827aeb19705ba5c53f9b85aa10
   FirebaseStorage: 6162ef4322502b818d9de0ec552f5226d283de43
+  FirebaseUI: c9e227a7d44e2e422a461cb3f4ead8dc5c7326e6
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
@@ -214,10 +224,11 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   YTLiveStreaming: 62db20f1dc6ee0aed654356ee220e5b14b1506a0
 
-PODFILE CHECKSUM: 053b5358ca68c1b4310982c801125ce856f151e5
+PODFILE CHECKSUM: cb72182b5fc44c31ac7adfe1e771cf59891c4553
 
 COCOAPODS: 1.6.1
