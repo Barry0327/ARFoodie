@@ -13,6 +13,7 @@ target 'ARFoodie' do
   pod 'GoogleMaps'
   pod 'YTLiveStreaming'
   pod 'Firebase/Core'
+  pod 'Firebase/Storage'
   pod 'Firebase/Messaging'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'

@@ -17,7 +17,7 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
     var placeID: String = ""
 
-    var user: CurrentUser?
+    var user: User?
 
     var comments = [Comment]()
 
@@ -252,7 +252,7 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
         Auth.auth().addStateDidChangeListener { (_, user) in
 
             guard let user = user else { return }
-            self.user = CurrentUser.init(authData: user)
+            self.user = User.init(authData: user)
 
             let usersRef = Database.database().reference(withPath: "users")
             let currentUserRef = usersRef.child(self.user!.uid)

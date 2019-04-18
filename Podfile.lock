@@ -18,6 +18,9 @@ PODS:
   - Firebase/Messaging (5.20.1):
     - Firebase/CoreOnly
     - FirebaseMessaging (= 3.5.0)
+  - Firebase/Storage (5.20.1):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.1.1)
   - FirebaseAnalytics (5.8.0):
     - FirebaseCore (~> 5.4)
     - FirebaseInstanceID (~> 3.8)
@@ -53,6 +56,10 @@ PODS:
     - GoogleUtilities/Reachability (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
     - Protobuf (~> 3.1)
+  - FirebaseStorage (3.1.1):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.2)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleAppMeasurement (5.8.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -127,6 +134,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
+  - Firebase/Storage
   - GoogleMaps
   - GoogleSignIn
   - IHProgressHUD (from `https://github.com/Swiftify-Corp/IHProgressHUD.git`)
@@ -146,6 +154,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstanceID
     - FirebaseMessaging
+    - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleMaps
     - GoogleSignIn
@@ -190,6 +199,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 2c15b0ea6f2c6eb5e57413f9d6340f1e50b81ae3
   FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
   FirebaseMessaging: 4235f949ce1c4e827aeb19705ba5c53f9b85aa10
+  FirebaseStorage: 6162ef4322502b818d9de0ec552f5226d283de43
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
@@ -208,6 +218,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   YTLiveStreaming: 62db20f1dc6ee0aed654356ee220e5b14b1506a0
 
-PODFILE CHECKSUM: 5232d8a72c4bd709f41a768661a33ac458d8ea18
+PODFILE CHECKSUM: 053b5358ca68c1b4310982c801125ce856f151e5
 
 COCOAPODS: 1.6.1
