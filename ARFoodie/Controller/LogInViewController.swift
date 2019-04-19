@@ -20,6 +20,7 @@ class LogInViewController: UIViewController {
         label.textAlignment = .center
 
         return label
+
     }()
 
     let containerView: UIView = {
@@ -142,6 +143,7 @@ class LogInViewController: UIViewController {
         containerView.addSubview(registerBTN)
 
         setAppNameLabel()
+
         setContaionerView()
     }
 
@@ -150,6 +152,7 @@ class LogInViewController: UIViewController {
     }
 
     @objc func loginBTNPressed() {
+
         guard
             let email = emailTextField.text,
             let password = passwordTextField.text,
@@ -159,6 +162,7 @@ class LogInViewController: UIViewController {
             print("Please check the email and password again")
             return
         }
+
         Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
 
             if let error = error {

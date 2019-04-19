@@ -65,6 +65,16 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
         return button
     }()
 
+    let liveImageView: UIImageView = {
+
+        let imgView = UIImageView()
+        imgView.image = UIImage(named: "live")
+//        imgView.isHidden = true
+
+        return imgView
+
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,6 +85,7 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
         lfView.addSubview(publishButton)
         lfView.addSubview(changeCameraBTN)
         lfView.addSubview(cancelButton)
+        lfView.addSubview(liveImageView)
 
         setLayout()
     }
@@ -194,6 +205,16 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
             padding: .init(top: 20, left: 10, bottom: 0, right: 0),
             size: .init(width: 50, height: 50)
         )
+
+        liveImageView.anchor(
+            top: cancelButton.bottomAnchor,
+            leading: lfView.leadingAnchor,
+            bottom: nil,
+            trailing: nil,
+            padding: .init(top: 10, left: 10, bottom: 0, right: 0),
+            size: .init(width: 60, height: 30)
+        )
+
     }
 }
 

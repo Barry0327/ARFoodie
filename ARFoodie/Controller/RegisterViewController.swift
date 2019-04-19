@@ -22,9 +22,9 @@ class RegisterViewController: UIViewController {
         imgView.isUserInteractionEnabled = true
         imgView.addGestureRecognizer(
             UITapGestureRecognizer(
-            target: self,
-            action: #selector(profileImageViewSelectHandler)
-        )
+                target: self,
+                action: #selector(profileImageViewSelectHandler)
+            )
         )
         imgView.clipsToBounds = true
 
@@ -42,7 +42,7 @@ class RegisterViewController: UIViewController {
     let nameLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "使用者名稱"
+        label.text = "用戶名稱"
 
         return label
     }()
@@ -201,6 +201,7 @@ class RegisterViewController: UIViewController {
         containerView.addSubview(registerButton)
 
         setLayout()
+
     }
 
     func setLayout() {

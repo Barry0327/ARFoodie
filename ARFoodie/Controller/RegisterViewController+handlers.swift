@@ -20,6 +20,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         picker.allowsEditing = true
 
         self.present(picker, animated: true, completion: nil)
+
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
