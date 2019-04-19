@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseUI
 import ChameleonFramework
+import GoogleSignIn
 
 class ProfileViewController: UIViewController {
 
@@ -116,13 +117,13 @@ class ProfileViewController: UIViewController {
         return label
     }()
 
-    let changePasswordBTN: UIButton = {
+    lazy var changePasswordBTN: UIButton = {
 
         let button = UIButton()
         button.setTitle("變更密碼", for: .normal)
         button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.textAlignment = .left
+        button.contentHorizontalAlignment = .left
 
         return button
     }()
@@ -145,13 +146,13 @@ class ProfileViewController: UIViewController {
 
     }()
 
-    let disConnectBTN: UIButton = {
+    lazy var youtubeConnectBTN: UIButton = {
 
         let button = UIButton()
-        button.setTitle("解除連結", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
         button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.textAlignment = .left
+        button.addTarget(self, action: #selector(youtubeConnectHandler), for: .touchUpInside)
+        button.contentHorizontalAlignment = .left
 
         return button
     }()
@@ -177,12 +178,14 @@ class ProfileViewController: UIViewController {
 
         bottomContainerView.addSubview(connectedAccountLabel)
         bottomContainerView.addSubview(youtubeAccountLabel)
-        bottomContainerView.addSubview(disConnectBTN)
+        bottomContainerView.addSubview(youtubeConnectBTN)
 
         setTopLayout()
         setBottomLayout()
 
         fetchUserInfo()
+
+        checkYoutubeConnectState()
 
     }
 
@@ -195,6 +198,8 @@ class ProfileViewController: UIViewController {
             do {
 
                 try Auth.auth().signOut()
+
+                GIDSignIn.sharedInstance()?.signOut()
 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
@@ -348,13 +353,13 @@ class ProfileViewController: UIViewController {
             size: .init(width: 0, height: 30)
         )
 
-        disConnectBTN.anchor(
+        youtubeConnectBTN.anchor(
             top: youtubeAccountLabel.bottomAnchor,
             leading: nameLabel.leadingAnchor,
             bottom: nil,
             trailing: nil,
             padding: .init(top: 5, left: 0, bottom: 0, right: 0),
-            size: .init(width: 70, height: 30)
+            size: .init(width: 100, height: 30)
         )
     }
 
