@@ -14,6 +14,7 @@ struct User {
     let uid: String
     let email: String
     var displayName: String = ""
+    var profileImageUID: String?
 
     init(uid: String, email: String, displayName: String) {
 
@@ -29,9 +30,11 @@ struct User {
     }
 
     func toAnyObject() -> Any {
+
         return [
             "email": self.email,
-            "displayName": self.displayName
+            "displayName": self.displayName,
+            "profileImageUID": self.profileImageUID
         ]
     }
 

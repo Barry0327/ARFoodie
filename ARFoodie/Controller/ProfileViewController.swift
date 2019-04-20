@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
         return .lightContent
     }
 
-    var user: User?
+    var currentUser: User?
 
     let topContainterView: UIView = {
 
@@ -162,6 +162,10 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        currentUser = CurrentUser.shared.user
+
+        fetchProfileImage()
+
         view.addSubview(topContainterView)
         view.addSubview(signOutBTN)
         view.addSubview(profileImageView)
@@ -180,10 +184,18 @@ class ProfileViewController: UIViewController {
         bottomContainerView.addSubview(youtubeAccountLabel)
         bottomContainerView.addSubview(youtubeConnectBTN)
 
+        nameContent.text = currentUser?.displayName
+        emailContent.text = currentUser?.email
+
         setTopLayout()
         setBottomLayout()
 
-        fetchUserInfo()
+        checkYoutubeConnectState()
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
         checkYoutubeConnectState()
 
@@ -363,42 +375,13 @@ class ProfileViewController: UIViewController {
         )
     }
 
-    func fetchUserInfo() {
-
-        Auth.auth().addStateDidChangeListener { (_, user) in
-
-            guard let user = user else { return }
-
-            print("triggerd")
-
-            self.user = User.init(authData: user)
-
-            let usersRef = Database.database().reference(withPath: "users")
-
-            let currentUserRef = usersRef.child(self.user!.uid)
-
-            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
-
-                guard
-                    let info = snapshot.value as? [String: Any],
-                    let displayName = info["displayName"] as? String
-                    else { return }
-
-                self.user?.displayName = displayName
-
-                self.fetchProfileImage()
-
-            })
-        }
-    }
-
     func fetchProfileImage() {
+
+        guard let user = currentUser else { return }
 
         let storageRef = Storage.storage().reference().child("profileImages")
 
-        guard let user = self.user else { return }
-
-        let imageRef = storageRef.child("\(user.uid).png")
+        let imageRef = storageRef.child("\(user.profileImageUID!).png")
 
         let placeholder = UIImage(named: "user")
 

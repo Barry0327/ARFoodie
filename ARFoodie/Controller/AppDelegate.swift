@@ -33,11 +33,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
         GMSServices.provideAPIKey(apiKey)
+
         FirebaseApp.configure()
 
         GIDSignIn.sharedInstance()?.clientID = clientID
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+        if Auth.auth().currentUser != nil {
+
+            if let mainTabbarC = storyboard.instantiateViewController(withIdentifier: "TabbarController") as? TabbarController {
+
+                self.window?.rootViewController = mainTabbarC
+
+            }
+        } else {
+
+            if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
+
+                self.window?.rootViewController = loginVC
+
+            }
+
+        }
 
         return true
     }
