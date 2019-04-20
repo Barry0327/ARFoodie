@@ -40,7 +40,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
         }
 
-        guard let user = self.user else {
+        guard let user = self.currentUser else {
 
             print("No user!")
 
@@ -52,7 +52,9 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
         let storageRef = Storage.storage().reference().child("profileImages")
 
-        let imageRef = storageRef.child("\(user.uid).png")
+        let imageUID = NSUUID.init().uuidString
+
+        let imageRef = storageRef.child("\(imageUID).png")
 
         let data = self.profileImageView.image?.pngData()
 
@@ -67,6 +69,17 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                 }
 
             })
+
+            let usersRef = Database.database().reference().child("users")
+
+            let userRef = usersRef.child(user.uid).child("profileImageUID")
+
+            userRef.setValue(imageUID) { (error, _) in
+
+                if error != nil {
+                    print(error!.localizedDescription)
+                }
+            }
         }
 
         self.dismiss(animated: true, completion: nil)

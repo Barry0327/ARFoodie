@@ -84,13 +84,15 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 
             let storageRef = Storage.storage().reference().child("profileImages")
 
-            let imageRef = storageRef.child("\(user.uid).png")
+            let imgName = NSUUID.init().uuidString
+
+            let imageRef = storageRef.child("\(imgName).png")
 
             let data = self.profileImgView.image?.pngData()
 
             if let uploadData = data {
 
-                imageRef.putData(uploadData, metadata: nil, completion: { (_, error) in
+                imageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
 
                     if error != nil {
 
@@ -101,10 +103,16 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 
                     let displayName = self.nameTextField.text ?? ""
 
-                    let user = User.init(uid: user.uid, email: email, displayName: displayName)
+                    var user = User.init(uid: user.uid, email: email, displayName: displayName)
+
+                    user.profileImageUID = imgName
+
                     let value = user.toAnyObject()
 
+                    CurrentUser.shared.user = user
+
                     self.registerUserIntoDatabase(uid: user.uid, value: value)
+
                 })
             }
         }

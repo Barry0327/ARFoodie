@@ -10,6 +10,7 @@ import CoreLocation
 import UIKit
 import MapKit
 import ARKit
+import Firebase
 
 class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -39,12 +40,13 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         return button
     }()
 
-    // MARK: - ViewDidLoad Method
+// MARK: - ViewDidLoad Method
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.startReceivingLocationChanges()
+        fetchUserInfo()
+//        self.startReceivingLocationChanges()
 
         self.restaurantInfoManager.delegate = self
 
@@ -57,6 +59,38 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         sceneLocationView.addGestureRecognizer(tapRecognizer)
         sceneLocationView.isUserInteractionEnabled = true
 
+    }
+
+    func fetchUserInfo() {
+
+        Auth.auth().addStateDidChangeListener { (_, user) in
+
+            guard let user = user else { return }
+
+            print("triggerd")
+
+            var currentUser = User.init(authData: user)
+
+            let usersRef = Database.database().reference(withPath: "users")
+
+            let currentUserRef = usersRef.child(user.uid)
+
+            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
+
+                guard
+                    let info = snapshot.value as? [String: Any],
+                    let displayName = info["displayName"] as? String,
+                    let imgUID = info["profileImageUID"] as? String
+                    else { return }
+
+                currentUser.displayName = displayName
+
+                currentUser.profileImageUID = imgUID
+
+                CurrentUser.shared.user = currentUser
+
+            })
+        }
     }
 
     func setReloadButton() {
@@ -72,10 +106,13 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         self.sceneLocationView.removeAllNodes()
         self.adjustedHeight = 0
         self.startReceivingLocationChanges()
+
     }
 
     @objc func locationTapped(tapRecognizer: UITapGestureRecognizer) {
+
         if tapRecognizer.state == UIGestureRecognizer.State.ended {
+
             let location: CGPoint = tapRecognizer.location(in: self.sceneLocationView)
 
             let hits = self.sceneLocationView.hitTest(location, options: nil)
@@ -84,13 +121,13 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
                 print("Faield to get node")
                 return
             }
+
             self.locationNodeTouched(node: hit)
 
         }
 
     }
     func locationNodeTouched(node: AnnotationNode) {
-        // Do stuffs with the node instance
 
         // node could have either node.view or node.image
         if let nodeImage = node.image {
@@ -108,6 +145,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
             let navigationCTL = UINavigationController(rootViewController: detailVC)
 
             self.present(navigationCTL, animated: true, completion: nil)
+
         }
     }
 
@@ -115,6 +153,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLayoutSubviews()
 
         self.sceneLocationView.frame = view.bounds
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -157,12 +196,16 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
             if location.horizontalAccuracy > 0 {
 
                 self.userCurrentLocation = location
-                locationManager.delegate = nil
+
+                self.locationManager.delegate = nil
+
                 self.locationManager.stopUpdatingLocation()
+
                 let latitude = String(location.coordinate.latitude)
                 let longtitude = String(location.coordinate.longitude)
 
                 self.restaurantInfoManager.fetchRestaurant(lat: latitude, lng: longtitude)
+
             }
         }
     }
@@ -239,6 +282,7 @@ extension MainARViewController: RestaurantInfoDelegate {
 
         }
     }
+
     func manager(_ manager: RestaurantInfoManager, didFailed with: Error) {
 
         let alert = UIAlertController(title: "連線失敗", message: "連線有問題，請檢查網路連線", preferredStyle: .alert)
@@ -246,5 +290,6 @@ extension MainARViewController: RestaurantInfoDelegate {
         let action = UIAlertAction(title: "OK", style: .cancel)
 
         alert.addAction(action)
+
     }
 }

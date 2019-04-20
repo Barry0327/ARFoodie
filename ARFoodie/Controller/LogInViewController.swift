@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import IHProgressHUD
 
 class LogInViewController: UIViewController {
 
@@ -162,10 +163,13 @@ class LogInViewController: UIViewController {
             print("Please check the email and password again")
             return
         }
+        IHProgressHUD.show()
 
-        Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
 
             if let error = error {
+
+                IHProgressHUD.dismiss()
 
                 let alert = UIAlertController(title: "登入失敗",
                                               message: error.localizedDescription,
@@ -176,6 +180,35 @@ class LogInViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
 
             }
+
+            guard let userID = result?.user.uid else {
+
+                IHProgressHUD.dismiss()
+
+                return
+
+            }
+
+            let currentUserRef = Database.database().reference(withPath: "users").child(userID)
+
+            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
+
+                guard
+                    let info = snapshot.value as? [String: Any],
+                    let displayName = info["displayName"] as? String,
+                    let imgUID = info["profileImageUID"] as? String
+                    else { return }
+
+                var currentUser = User.init(authData: result!.user)
+
+                currentUser.displayName = displayName
+
+                currentUser.profileImageUID = imgUID
+
+                CurrentUser.shared.user = currentUser
+
+            })
+            IHProgressHUD.dismiss()
 
             self.performSegue(withIdentifier: "FinishLogin", sender: self)
 

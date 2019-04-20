@@ -18,8 +18,6 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
     var placeID: String = ""
 
-    var user: User?
-
     var comments = [Comment]()
 
     let restaurantsRef = Database.database().reference(withPath: "restaurants")
@@ -124,8 +122,6 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
         self.tableView.addGestureRecognizer(gesture)
-
-        fetchUserInfo()
 
         fetchComments()
 
@@ -248,29 +244,6 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
     }
 
-    func fetchUserInfo() {
-
-        Auth.auth().addStateDidChangeListener { (_, user) in
-
-            guard let user = user else { return }
-            self.user = User.init(authData: user)
-
-            let usersRef = Database.database().reference(withPath: "users")
-            let currentUserRef = usersRef.child(self.user!.uid)
-
-            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
-
-                guard
-                    let info = snapshot.value as? [String: Any],
-                    let displayName = info["displayName"] as? String
-                    else { return }
-
-                self.user?.displayName = displayName
-
-            })
-        }
-    }
-
     // MARK: - UIBarButtonItem Action Mehod
 
     @objc func sendButtonTapped() {
@@ -284,8 +257,8 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
         let commentRef = restaurantRef.child("comments")
 
         guard
-            let name = self.user?.displayName,
-            let uid = self.user?.uid,
+            let name = CurrentUser.shared.user?.displayName,
+            let uid = CurrentUser.shared.user?.uid,
             let content = self.commentTextField.text
             else { return }
 
@@ -424,17 +397,29 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
                 let storageRef = Storage.storage().reference().child("profileImages")
 
-                let imageRef = storageRef.child("\(self.comments[indexPath.row].senderUid).png")
+                let usersRef = Database.database().reference().child("users")
 
-                let placeholder = UIImage(named: "user")
+                let userRef = usersRef.child(self.comments[indexPath.row].senderUid)
 
-                cell.profileImageView.sd_setImage(with: imageRef, placeholderImage: placeholder)
+                userRef.observeSingleEvent(of: .value) { (snapshot) in
+
+                    guard
+                        let info = snapshot.value as? [String: Any],
+                        let imgUID = info["profileImageUID"] as? String
+                        else { return }
+
+                    let imageRef = storageRef.child("\(imgUID).png")
+
+                    let placeholder = UIImage(named: "user")
+
+                    cell.profileImageView.sd_setImage(with: imageRef, placeholderImage: placeholder)
+
+                }
 
                 return cell
+
             }
-
         }
-
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -542,7 +527,7 @@ extension DetailTableViewController: GMSMapViewDelegate {
             string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)"
             )
             else {
-            return false
+                return false
         }
         UIApplication.shared.open(
             url,
