@@ -52,6 +52,15 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
         let storageRef = Storage.storage().reference().child("profileImages")
 
+        let originalImageRef = storageRef.child("\(user.profileImageUID!).png")
+
+        originalImageRef.delete { (error) in
+
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+
         let imageUID = NSUUID.init().uuidString
 
         let imageRef = storageRef.child("\(imageUID).png")
