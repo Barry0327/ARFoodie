@@ -23,5 +23,6 @@ target 'ARFoodie' do
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   pod 'Fabric', '~> 1.9.0'
   pod 'Crashlytics', '~> 3.12.0'
+  pod 'StatusAlert', '~> 1.1.0'
 
 end

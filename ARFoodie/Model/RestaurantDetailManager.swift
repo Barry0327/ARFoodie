@@ -40,6 +40,7 @@ class RestaurantDetailManager {
 
             if response.error != nil {
 
+                print("Failed to fetch restaurant detail")
                 return
             }
 

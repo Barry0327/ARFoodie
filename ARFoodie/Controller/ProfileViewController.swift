@@ -124,6 +124,7 @@ class ProfileViewController: UIViewController {
         button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.contentHorizontalAlignment = .left
+        button.addTarget(self, action: #selector(changePasswordTapped), for: .touchUpInside)
 
         return button
     }()
