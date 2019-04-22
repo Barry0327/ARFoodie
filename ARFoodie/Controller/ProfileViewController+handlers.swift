@@ -161,4 +161,42 @@ extension ProfileViewController: GIDSignInDelegate, GIDSignInUIDelegate {
 
         }
     }
+
+    @objc func changePasswordTapped() {
+
+        let alert = UIAlertController(title: "變更密碼", message: nil, preferredStyle: .alert)
+
+        alert.addTextField { (textfield) in
+
+            textfield.placeholder = "新密碼"
+            textfield.isSecureTextEntry = true
+
+        }
+
+        let changeAction = UIAlertAction.init(title: "確認", style: .default) { (_) in
+
+            guard
+                let textField = alert.textFields?.first,
+                let newPassword = textField.text,
+                newPassword.count >= 6
+                else { return }
+
+            Auth.auth().currentUser?.updatePassword(to: newPassword, completion: { (error) in
+
+                if error != nil {
+                    print(error!.localizedDescription)
+                }
+
+                print("Changed password")
+
+            })
+        }
+
+        let cancelAction = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+
+        alert.addAction(changeAction)
+        alert.addAction(cancelAction)
+
+        self.present(alert, animated: true, completion: nil)
+    }
 }

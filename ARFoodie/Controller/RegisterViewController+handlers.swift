@@ -44,7 +44,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 
     @objc func registerPressed() {
 
-        IHProgressHUD.show(withStatus: "連線中..")
+        IHProgressHUD.show(withStatus: "連線中...")
 
         guard
             let email = emailTextField.text,
@@ -92,7 +92,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 
             if let uploadData = data {
 
-                imageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                imageRef.putData(uploadData, metadata: nil, completion: { (_, error) in
 
                     if error != nil {
 
@@ -118,11 +118,14 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         }
 
     }
+
     private func registerUserIntoDatabase(uid: String, value: Any) {
 
         let userRef = Database.database().reference(withPath: "users")
 
-        userRef.child(uid).setValue(value)
+        userRef.child(uid).setValue(value) { (error, _) in
+            
+        }
 
         self.nameTextField.text = nil
         self.emailTextField.text = nil
@@ -134,6 +137,7 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         self.performSegue(withIdentifier: "FinishRegister", sender: nil)
 
     }
+
     @objc func cancelBTNPressed() {
 
         self.dismiss(animated: true, completion: nil)

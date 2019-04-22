@@ -39,6 +39,7 @@
 		97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F722648CEA002FAA90 /* UIControl+YYAdd.m */; };
 		97A6C8FB22648E17002FAA90 /* LFLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8FA22648E17002FAA90 /* LFLiveViewController.swift */; };
 		97B718E0226AC3690010BF33 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718DF226AC3690010BF33 /* CurrentUser.swift */; };
+		97B718E2226C9B150010BF33 /* ErrorHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718E1226C9B150010BF33 /* ErrorHandlers.swift */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
 		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
 		97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */; };
@@ -86,6 +87,7 @@
 		97A6C8F722648CEA002FAA90 /* UIControl+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+YYAdd.m"; sourceTree = "<group>"; };
 		97A6C8FA22648E17002FAA90 /* LFLiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LFLiveViewController.swift; sourceTree = "<group>"; };
 		97B718DF226AC3690010BF33 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		97B718E1226C9B150010BF33 /* ErrorHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlers.swift; sourceTree = "<group>"; };
 		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D25681224B1F9C00175E42 /* MainARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainARViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				9738E835226576B100EA2CBC /* LiveStreamManager.swift */,
 				975635792269B677009AE63B /* FirebaseManager.swift */,
 				97D25699224CD04F00175E42 /* Portocol.swift */,
+				97B718E1226C9B150010BF33 /* ErrorHandlers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/StatusAlert/StatusAlert.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/YTLiveStreaming/YTLiveStreaming.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -447,6 +451,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatusAlert.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YTLiveStreaming.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -473,6 +478,7 @@
 				97563575226835BB009AE63B /* RegisterViewController+handlers.swift in Sources */,
 				97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */,
 				97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */,
+				97B718E2226C9B150010BF33 /* ErrorHandlers.swift in Sources */,
 				9756357A2269B677009AE63B /* FirebaseManager.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */,
 				97A49FA82253254B00DC4B43 /* InfoCell.swift in Sources */,
