@@ -6,8 +6,41 @@
 //  Copyright © 2019 Chen Yi-Wei. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import StatusAlert
 
-//enum AuthenticationError: Error {
-//    case <#case#>
-//}
+enum AuthenticationError: Error {
+
+    case invalidInformation
+
+    case connetError
+
+}
+
+extension AuthenticationError: CustomStringConvertible {
+
+    var description: String {
+
+        switch self {
+
+        case .invalidInformation: return "資訊錯誤"
+
+        case .connetError: return "連線錯誤"
+
+        }
+    }
+}
+
+extension Error {
+
+    func alert(message: String = "") {
+
+        let alert = StatusAlert()
+
+        alert.title = "\(self)"
+        alert.message = message
+        alert.alertShowingDuration = 3
+
+        alert.showInKeyWindow()
+    }
+}

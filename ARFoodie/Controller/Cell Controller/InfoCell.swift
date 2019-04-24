@@ -39,6 +39,7 @@ class InfoCell: UITableViewCell {
         contentView.addSubview(infoLabel)
         setIconImageView()
         setInfoLabel()
+        contentView.backgroundColor = UIColor(hexString: "#faefd1")
     }
 
     required init?(coder aDecoder: NSCoder) {

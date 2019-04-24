@@ -101,10 +101,15 @@ class CreateLiveBoardcastViewController: UIViewController {
 
     @objc func starBTNPressed() {
 
-        print("start pressed")
-        guard let title = self.titleTextField.text else {
-            print("Please enter title")
-            return
+        guard
+            let title = self.titleTextField.text,
+            title.count > 0
+
+            else {
+
+                AuthenticationError.invalidInformation.alert(message: "請輸入直播標題")
+
+                return
         }
 
         IHProgressHUD.show(withStatus: "連線中")
@@ -116,7 +121,9 @@ class CreateLiveBoardcastViewController: UIViewController {
         self.input.createBroadcast(title, description: description, startTime: date) { (boardcast) in
 
             guard let boardcast = boardcast else {
-                print("Falied to get boardcast")
+
+                AuthenticationError.connetError.alert(message: "請確認您已啟用Youtube的直播功能")
+
                 return
             }
 
@@ -129,6 +136,7 @@ class CreateLiveBoardcastViewController: UIViewController {
                 lfViewController.boardcast = boardcast
 
                 DispatchQueue.main.async { [weak self] in
+
                     guard let self = self else { return }
 
                     IHProgressHUD.dismiss()

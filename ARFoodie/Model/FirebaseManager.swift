@@ -13,30 +13,47 @@ class FirebaseManager {
 
     static let shared = FirebaseManager()
 
-    func fetchUserInfo(user: Firebase.User?) {
+    func fetchUserInfo(completionhandler: @escaping () -> Void) {
 
-        guard let user = user else { return }
+        Auth.auth().addStateDidChangeListener { (_, user) in
 
-        print("triggerd")
+            guard let user = user else { return }
 
-        var currentUser = User.init(authData: user)
+            print("Triggerd")
 
-        let usersRef = Database.database().reference(withPath: "users")
+            var currentUser = User.init(authData: user)
 
-        let currentUserRef = usersRef.child(user.uid)
+            let usersRef = Database.database().reference(withPath: "users")
 
-        currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            let currentUserRef = usersRef.child(user.uid)
 
-            guard
-                let info = snapshot.value as? [String: Any],
-                let displayName = info["displayName"] as? String
-                else { return }
+            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
 
-            currentUser.displayName = displayName
+                DispatchQueue.main.async { [weak self] in
 
-            CurrentUser.shared.user = currentUser
+                    guard self != nil else { return }
 
-        })
+                    guard
+                        let info = snapshot.value as? [String: Any],
+                        let displayName = info["displayName"] as? String,
+                        let imgUID = info["profileImageUID"] as? String
+                        else {
 
+                            print("Failed to get current user info")
+                            return
+
+                    }
+
+                    currentUser.displayName = displayName
+
+                    currentUser.profileImageUID = imgUID
+
+                    CurrentUser.shared.user = currentUser
+                }
+
+            })
+        }
+
+        completionhandler()
     }
 }
