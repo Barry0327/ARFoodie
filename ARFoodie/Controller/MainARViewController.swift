@@ -14,6 +14,8 @@ import Firebase
 
 class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
+    let firebaseManager = FirebaseManager.shared
+
     var sceneLocationView = SceneLocationView()
 
     let restaurantInfoManager = RestaurantInfoManager.shared
@@ -26,7 +28,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     var adjustedHeight: Double = 5
 
-    let reloadButton: UIButton = {
+    let searchRestaurantsBTN: UIButton = {
 
         let button = UIButton()
         button.setImage(
@@ -45,13 +47,12 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchUserInfo()
-//        self.startReceivingLocationChanges()
+        firebaseManager.fetchUserInfo { }
 
         self.restaurantInfoManager.delegate = self
 
         view.addSubview(self.sceneLocationView)
-        view.addSubview(reloadButton)
+        view.addSubview(searchRestaurantsBTN)
         self.setReloadButton()
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.locationTapped(tapRecognizer:)))
@@ -61,50 +62,18 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     }
 
-    func fetchUserInfo() {
-
-        Auth.auth().addStateDidChangeListener { (_, user) in
-
-            guard let user = user else { return }
-
-            print("triggerd")
-
-            var currentUser = User.init(authData: user)
-
-            let usersRef = Database.database().reference(withPath: "users")
-
-            let currentUserRef = usersRef.child(user.uid)
-
-            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
-
-                guard
-                    let info = snapshot.value as? [String: Any],
-                    let displayName = info["displayName"] as? String,
-                    let imgUID = info["profileImageUID"] as? String
-                    else { return }
-
-                currentUser.displayName = displayName
-
-                currentUser.profileImageUID = imgUID
-
-                CurrentUser.shared.user = currentUser
-
-            })
-        }
-    }
-
     func setReloadButton() {
 
-        reloadButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        reloadButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        reloadButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        reloadButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        searchRestaurantsBTN.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        searchRestaurantsBTN.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        searchRestaurantsBTN.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        searchRestaurantsBTN.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
     }
 
     @objc func reloadData() {
 
         self.sceneLocationView.removeAllNodes()
-        self.adjustedHeight = 0
+        self.adjustedHeight = 5
         self.startReceivingLocationChanges()
 
     }
@@ -127,6 +96,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         }
 
     }
+
     func locationNodeTouched(node: AnnotationNode) {
 
         // node could have either node.view or node.image

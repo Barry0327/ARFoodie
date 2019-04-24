@@ -11,14 +11,18 @@ import Firebase
 
 class RegisterViewController: UIViewController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+
     lazy var profileImgView: UIImageView = {
 
         let imgView = UIImageView()
-        imgView.backgroundColor = .blue
+        imgView.tintColor = UIColor(hexString: "feffdf")
         imgView.image = UIImage(named: "user")
         imgView.layer.cornerRadius = 125/2
         imgView.layer.borderWidth = 1
-        imgView.layer.borderColor = UIColor.black.cgColor
+        imgView.layer.borderColor = UIColor(hexString: "feffdf")?.cgColor
         imgView.isUserInteractionEnabled = true
         imgView.addGestureRecognizer(
             UITapGestureRecognizer(
@@ -34,7 +38,6 @@ class RegisterViewController: UIViewController {
     let containerView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = .red
 
         return view
     }()
@@ -42,7 +45,11 @@ class RegisterViewController: UIViewController {
     let nameLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "用戶名稱"
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!
+        ]
+        let attributeString = NSAttributedString(string: "用戶名稱", attributes: textAttributes)
+        label.attributedText = attributeString
 
         return label
     }()
@@ -50,7 +57,10 @@ class RegisterViewController: UIViewController {
     let nameTextField: UITextField = {
 
         let textField = UITextField()
-        textField.placeholder = "輸入名稱"
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "輸入名稱",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
+        )
         textField.textAlignment = .center
 
         return textField
@@ -59,7 +69,7 @@ class RegisterViewController: UIViewController {
     let nameSeparator: UIView = {
 
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(hexString: "feffdf")
 
         return view
     }()
@@ -67,7 +77,11 @@ class RegisterViewController: UIViewController {
     let emailLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "登入帳號"
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!
+        ]
+        let attributeString = NSAttributedString(string: "登入帳號", attributes: textAttributes)
+        label.attributedText = attributeString
 
         return label
     }()
@@ -76,7 +90,10 @@ class RegisterViewController: UIViewController {
 
         let textField = UITextField()
         textField.textAlignment = .center
-        textField.placeholder = "輸入電子郵件"
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "輸入電子郵件",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
+        )
 
         return textField
     }()
@@ -84,7 +101,7 @@ class RegisterViewController: UIViewController {
     let emailSeparator: UIView = {
 
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(hexString: "feffdf")
 
         return view
     }()
@@ -92,7 +109,11 @@ class RegisterViewController: UIViewController {
     let passwordLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "登入密碼"
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!
+        ]
+        let attributeString = NSAttributedString(string: "登入密碼", attributes: textAttributes)
+        label.attributedText = attributeString
 
         return label
     }()
@@ -101,7 +122,10 @@ class RegisterViewController: UIViewController {
 
         let textField = UITextField()
         textField.textAlignment = .center
-        textField.placeholder = "輸入密碼"
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "輸入密碼",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
+        )
         textField.isSecureTextEntry = true
 
         return textField
@@ -110,7 +134,7 @@ class RegisterViewController: UIViewController {
     let passwordSeparator: UIView = {
 
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(hexString: "feffdf")
 
         return view
     }()
@@ -118,7 +142,11 @@ class RegisterViewController: UIViewController {
     let confirmLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "確認密碼"
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!
+        ]
+        let attributeString = NSAttributedString(string: "確認密碼", attributes: textAttributes)
+        label.attributedText = attributeString
 
         return label
     }()
@@ -127,7 +155,10 @@ class RegisterViewController: UIViewController {
 
         let textField = UITextField()
         textField.textAlignment = .center
-        textField.placeholder = "再次輸入密碼"
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "再次輸入密碼",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
+        )
         textField.isSecureTextEntry = true
 
         return textField
@@ -136,7 +167,7 @@ class RegisterViewController: UIViewController {
     let confirmSeparator: UIView = {
 
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(hexString: "feffdf")
 
         return view
     }()
@@ -144,9 +175,16 @@ class RegisterViewController: UIViewController {
     let cancelButton: UIButton = {
 
         let button = UIButton()
-        button.backgroundColor = .blue
+        button.backgroundColor = .clear
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor(hexString: "feffdf")?.cgColor
         button.layer.cornerRadius = 22
-        button.setTitle("取消", for: .normal)
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
+        ]
+        let attributeString = NSAttributedString(string: "取消", attributes: textAttributes)
+        button.setAttributedTitle(attributeString, for: .normal)
         button.addTarget(self, action: #selector(cancelBTNPressed), for: .touchUpInside)
 
         return button
@@ -155,9 +193,14 @@ class RegisterViewController: UIViewController {
     let registerButton: UIButton = {
 
         let button = UIButton()
-        button.backgroundColor = .gray
+        button.backgroundColor = UIColor(hexString: "feffdf")
         button.layer.cornerRadius = 22
-        button.setTitle("註冊", for: .normal)
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "ef5a5a")!,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
+        ]
+        let attributeString = NSAttributedString(string: "註冊", attributes: textAttributes)
+        button.setAttributedTitle(attributeString, for: .normal)
         button.addTarget(self, action: #selector(registerPressed), for: .touchUpInside)
 
         return button
@@ -181,6 +224,8 @@ class RegisterViewController: UIViewController {
         )
 
         self.hideKeyboardWhenTappedAround()
+
+        view.backgroundColor = UIColor(hexString: "ef5a5a")
 
         view.addSubview(profileImgView)
         view.addSubview(containerView)

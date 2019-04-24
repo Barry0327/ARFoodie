@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
         return .lightContent
     }
 
+    let firebaseManager = FirebaseManager.shared
+
     var currentUser: User?
 
     let topContainterView: UIView = {
@@ -74,6 +76,7 @@ class ProfileViewController: UIViewController {
     let bottomContainerView: UIView = {
 
         let view = UIView()
+        view.backgroundColor = UIColor(hexString: "#faefd1")
         return view
     }()
 
@@ -163,9 +166,16 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currentUser = CurrentUser.shared.user
+        view.backgroundColor = UIColor(hexString: "#faefd1")
 
-        fetchProfileImage()
+        firebaseManager.fetchUserInfo { [weak self] in
+
+            guard let self = self else { return }
+            self.currentUser = CurrentUser.shared.user
+            self.nameContent.text = self.currentUser?.displayName
+            self.emailContent.text = self.currentUser?.email
+            self.fetchProfileImage()
+        }
 
         view.addSubview(topContainterView)
         view.addSubview(signOutBTN)
@@ -184,9 +194,6 @@ class ProfileViewController: UIViewController {
         bottomContainerView.addSubview(connectedAccountLabel)
         bottomContainerView.addSubview(youtubeAccountLabel)
         bottomContainerView.addSubview(youtubeConnectBTN)
-
-        nameContent.text = currentUser?.displayName
-        emailContent.text = currentUser?.email
 
         setTopLayout()
         setBottomLayout()
@@ -214,6 +221,8 @@ class ProfileViewController: UIViewController {
 
                 GIDSignIn.sharedInstance()?.signOut()
 
+                CurrentUser.shared.user = nil
+
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
 
@@ -222,14 +231,13 @@ class ProfileViewController: UIViewController {
 
             } catch {
 
+                AuthenticationError.connetError.alert(message: error.localizedDescription)
+
                 print(error.localizedDescription)
 
             }
-
         } else {
-
-            print("not sign in yet")
-
+            AuthenticationError.connetError.alert(message: "您尚未登入")
         }
     }
 

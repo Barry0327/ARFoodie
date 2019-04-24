@@ -9,16 +9,25 @@
 import UIKit
 import Firebase
 import IHProgressHUD
+import ChameleonFramework
 
 class LogInViewController: UIViewController {
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     let appNameLabel: UILabel = {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "ARFoodie"
-        label.font = UIFont.systemFont(ofSize: 30)
         label.textAlignment = .center
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.font: UIFont(name: "SnellRoundhand-Black", size: 55) as Any
+        ]
+        let attributeString = NSAttributedString(string: "ARFoodie", attributes: textAttributes)
+        label.attributedText = attributeString
 
         return label
 
@@ -29,7 +38,6 @@ class LogInViewController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
 
-        view.backgroundColor = .white
         return view
     }()
 
@@ -37,7 +45,8 @@ class LogInViewController: UIViewController {
 
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.image = #imageLiteral(resourceName: "icons8-new-post-96")
+        imgView.image = #imageLiteral(resourceName: "icons8-new-post-96 (1)")
+        imgView.tintColor = UIColor(hexString: "feffdf")
 
         return imgView
     }()
@@ -45,15 +54,20 @@ class LogInViewController: UIViewController {
     let emailTextField: UITextField = {
 
         let textField = UITextField()
-        textField.placeholder = "輸入電子郵件"
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "輸入電子郵件",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
+        )
+        textField.textColor = .white
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
+
     }()
 
     let emailSeparatorView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(hexString: "feffdf")
         view.translatesAutoresizingMaskIntoConstraints = false
 
         return view
@@ -65,6 +79,7 @@ class LogInViewController: UIViewController {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "icons8-lock-filled-480")
+        imgView.tintColor = UIColor(hexString: "feffdf")
 
         return imgView
     }()
@@ -72,7 +87,12 @@ class LogInViewController: UIViewController {
     let passwordTextField: UITextField = {
 
         let textField = UITextField()
-        textField.placeholder = "輸入密碼"
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "輸入密碼",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
+        )
+        textField.textColor = .white
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
 
         return textField
@@ -82,7 +102,7 @@ class LogInViewController: UIViewController {
 
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(hexString: "feffdf")
         return view
 
     }()
@@ -92,8 +112,13 @@ class LogInViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("登入", for: .normal)
-        button.backgroundColor = .red
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "ef5a5a")!,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
+        ]
+        let attributeString = NSAttributedString(string: "登入", attributes: textAttributes)
+        button.setAttributedTitle(attributeString, for: .normal)
+        button.backgroundColor = UIColor(hexString: "feffdf")
         button.addTarget(self, action: #selector(loginBTNPressed), for: .touchUpInside)
 
         return button
@@ -104,12 +129,21 @@ class LogInViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("註冊", for: .normal)
-        button.backgroundColor = .blue
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
+        ]
+        let attributeString = NSAttributedString(string: "註冊", attributes: textAttributes)
+        button.setAttributedTitle(attributeString, for: .normal)
+        button.backgroundColor = .clear
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor(hexString: "feffdf")?.cgColor
         button.addTarget(self, action: #selector(registerBTNPressed), for: .touchUpInside)
 
         return button
     }()
+
+    // MARK: - View Did Load
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +164,7 @@ class LogInViewController: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
 
-        view.backgroundColor = .gray
+        view.backgroundColor = UIColor(hexString: "#ea5959")
         view.addSubview(appNameLabel)
         view.addSubview(containerView)
 
@@ -160,12 +194,16 @@ class LogInViewController: UIViewController {
             email.count > 0,
             password.count > 0
         else {
-            print("Please check the email and password again")
+
+            AuthenticationError.invalidInformation.alert(message: "帳號或密碼有誤")
             return
         }
+
         IHProgressHUD.show()
 
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
+
+            guard let self = self else { return }
 
             if let error = error {
 
@@ -230,20 +268,20 @@ class LogInViewController: UIViewController {
 
     func setAppNameLabel() {
 
-        appNameLabel.widthAnchor.constraint(equalToConstant: 160).isActive = true
-        appNameLabel.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        appNameLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        appNameLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
         appNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        appNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -160).isActive = true
+        appNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150).isActive = true
     }
 
     func setContaionerView() {
 
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 40).isActive = true
+        containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-//        containerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        containerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+//        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+//        containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
 
         emailIcon.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18).isActive = true
         emailIcon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15).isActive = true
@@ -251,26 +289,26 @@ class LogInViewController: UIViewController {
         emailIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
 
         emailTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        emailTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16).isActive = true
+        emailTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18).isActive = true
         emailTextField.leadingAnchor.constraint(equalTo: emailIcon.trailingAnchor, constant: 10).isActive = true
         emailTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
 
         emailSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         emailSeparatorView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         emailSeparatorView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-        emailSeparatorView.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 5).isActive = true
+        emailSeparatorView.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 3).isActive = true
 
         passwordIcon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15).isActive = true
         passwordIcon.topAnchor.constraint(equalTo: emailSeparatorView.bottomAnchor, constant: 28).isActive = true
         passwordIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
         passwordIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
 
-        passwordTextField.topAnchor.constraint(equalTo: emailSeparatorView.bottomAnchor, constant: 27).isActive = true
+        passwordTextField.topAnchor.constraint(equalTo: emailSeparatorView.bottomAnchor, constant: 29).isActive = true
         passwordTextField.leadingAnchor.constraint(equalTo: passwordIcon.trailingAnchor, constant: 10).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
         passwordTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
 
-        passwordSeparator.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5).isActive = true
+        passwordSeparator.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 3).isActive = true
         passwordSeparator.heightAnchor.constraint(equalToConstant: 1).isActive = true
         passwordSeparator.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
         passwordSeparator.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true

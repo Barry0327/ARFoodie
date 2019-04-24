@@ -73,7 +73,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
                 if error != nil {
 
-                    print(error!.localizedDescription)
+                    AuthenticationError.connetError.alert(message: error!.localizedDescription)
 
                 }
 
@@ -179,16 +179,19 @@ extension ProfileViewController: GIDSignInDelegate, GIDSignInUIDelegate {
                 let textField = alert.textFields?.first,
                 let newPassword = textField.text,
                 newPassword.count >= 6
-                else { return }
+                else {
+
+                    AuthenticationError.invalidInformation.alert(message: "密碼必須至少大於6個字元")
+
+                    return
+
+            }
 
             Auth.auth().currentUser?.updatePassword(to: newPassword, completion: { (error) in
 
                 if error != nil {
-                    print(error!.localizedDescription)
+                    AuthenticationError.invalidInformation.alert(message: error!.localizedDescription)
                 }
-
-                print("Changed password")
-
             })
         }
 
@@ -198,5 +201,6 @@ extension ProfileViewController: GIDSignInDelegate, GIDSignInUIDelegate {
         alert.addAction(cancelAction)
 
         self.present(alert, animated: true, completion: nil)
+
     }
 }

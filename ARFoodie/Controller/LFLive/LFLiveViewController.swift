@@ -115,7 +115,9 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
 
             IHProgressHUD.show()
 
-            self.liveStreamManager.completeBoardcast {
+            self.liveStreamManager.completeBoardcast { [weak self] in
+
+                guard let self = self else { return }
 
                 self.lfView.stopPublishing()
 

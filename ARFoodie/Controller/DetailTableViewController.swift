@@ -120,6 +120,10 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
 
         print(placeID)
 
+        self.navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonDark
+
+        self.tableView.backgroundColor = UIColor(hexString: "#faefd1")
+
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
         self.tableView.addGestureRecognizer(gesture)
 
@@ -329,7 +333,9 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let section = detailSections[indexPath.section]
+
         switch section {
+
         case .photo:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { fatalError() }
 
@@ -348,18 +354,21 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
             switch row {
 
             case .phoneNumber:
+
                 cell.iconImageView.image = UIImage(named: "icons8-ringer-volume-100")
                 cell.infoLabel.text = restaurantDetail.phoneNumber
 
                 return cell
 
             case .address:
+
                 cell.iconImageView.image = UIImage(named: "icons8-address-100")
                 cell.infoLabel.text = restaurantDetail.address
 
                 return cell
 
             case .businessHours:
+
                 cell.iconImageView.image = UIImage(named: "icons8-open-sign-100")
                 cell.infoLabel.text = restaurantDetail.businessHours
 
@@ -372,6 +381,7 @@ class DetailTableViewController: UITableViewController, GIDSignInUIDelegate {
             let camera = GMSCameraPosition.camera(withTarget: restaurantDetail.coordinate, zoom: 16.0)
             cell.mapView.camera = camera
             cell.mapView.delegate = self
+
             let marker = GMSMarker()
             marker.position = restaurantDetail.coordinate
             marker.title = restaurantDetail.name
@@ -516,6 +526,8 @@ extension DetailTableViewController: RestaurantDetailDelegate {
 
     func manager(_ manager: RestaurantDetailManager, didFailed with: Error) {
 
+        AuthenticationError.connetError.alert(message: with.localizedDescription)
+
     }
 }
 
@@ -553,9 +565,11 @@ extension DetailTableViewController: GIDSignInDelegate {
 
             createLiveBoardcastViewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             DispatchQueue.main.async { [weak self] in
+
                 guard let self = self else { return }
 
                 self.present(createLiveBoardcastViewController, animated: true, completion: nil)
+
             }
         }
     }

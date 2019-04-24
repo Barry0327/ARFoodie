@@ -8,6 +8,7 @@
 
 import UIKit
 import YTLiveStreaming
+import StatusAlert
 
 class LiveStreamManager: LiveStreamTransitioning {
 
@@ -44,7 +45,7 @@ class LiveStreamManager: LiveStreamTransitioning {
         }
     }
 
-    func completeBoardcast(completionhandler: () -> Void) {
+    func completeBoardcast(completionhandler: @escaping () -> Void) {
 
         guard let boardcast = self.boardcast else {
             print("Boardcast is nil")
@@ -57,9 +58,15 @@ class LiveStreamManager: LiveStreamTransitioning {
                 print("sucess to stop")
 
             } else {
-                print("Failed to stop")
+
+//                let alert = StatusAlert()
+//                alert.title = "停止直播失敗"
+//                alert.message = "您可以嘗試從Youtube上停止直播"
+//                alert.alertShowingDuration = 3
+//                alert.showInKeyWindow()
             }
 
+            completionhandler()
         }
     }
 }

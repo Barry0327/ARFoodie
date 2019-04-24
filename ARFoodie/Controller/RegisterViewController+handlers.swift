@@ -44,32 +44,32 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 
     @objc func registerPressed() {
 
-        IHProgressHUD.show(withStatus: "連線中...")
-
         guard
             let email = emailTextField.text,
             let password = passwordTextField.text,
             emailTextField.text != "",
-            passwordTextField.text != ""
+            passwordTextField.text != "",
+            password.count >= 6
             else {
-                IHProgressHUD.dismiss()
-                return
+
+                return AuthenticationError.invalidInformation.alert(message: "請確認email及密碼資訊是否正確(密碼必須大於6個字元)")
         }
 
         guard passwordTextField.text == confirmTextField.text else {
 
-            IHProgressHUD.dismiss()
+            return AuthenticationError.invalidInformation.alert(message: "請再次確認密碼是否正確")
 
-            return
         }
+
+        IHProgressHUD.show(withStatus: "連線中...")
 
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
 
             if error != nil {
 
-                print(error!.localizedDescription)
-
                 IHProgressHUD.dismiss()
+
+                AuthenticationError.invalidInformation.alert(message: error!.localizedDescription)
 
                 return
             }
@@ -124,7 +124,10 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
         let userRef = Database.database().reference(withPath: "users")
 
         userRef.child(uid).setValue(value) { (error, _) in
-            
+
+            if error != nil {
+                print("Failed to save user data")
+            }
         }
 
         self.nameTextField.text = nil
