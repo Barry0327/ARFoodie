@@ -25,5 +25,6 @@ target 'ARFoodie' do
   pod 'Crashlytics', '~> 3.12.0'
   pod 'StatusAlert', '~> 1.1.0'
   pod 'Cosmos', '~> 18.0'
+  pod 'TransitionButton'
 
 end

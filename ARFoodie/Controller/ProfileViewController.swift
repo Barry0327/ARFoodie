@@ -25,31 +25,21 @@ class ProfileViewController: UIViewController {
     let topContainterView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor.flatWatermelonDark
 
         return view
     }()
 
-    lazy var signOutBTN: UIButton = {
+    lazy var signOutBTN: UIBarButtonItem = {
 
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(singOut), for: .touchUpInside)
-        button.setImage(UIImage(named: "sign-out-option"), for: .normal)
-        button.tintColor = .white
+        button.setImage(UIImage(named: "icons8-exit-100"), for: .normal)
+        button.tintColor = UIColor(hexString: "#faefd1")
 
-        return button
+        let barButton = UIBarButtonItem(customView: button)
 
-    }()
+        return barButton
 
-    let titleLabel: UILabel = {
-
-        let label = UILabel()
-        label.text = "個人檔案"
-        label.textAlignment = .center
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-
-        return label
     }()
 
     lazy var profileImageView: UIImageView = {
@@ -107,7 +97,7 @@ class ProfileViewController: UIViewController {
     let nameContent: UILabel = {
 
         let label = UILabel()
-        label.text = "Barry"
+        label.text = CurrentUser.shared.user?.displayName
 
         return label
     }()
@@ -115,7 +105,7 @@ class ProfileViewController: UIViewController {
     let emailContent: UILabel = {
 
         let label = UILabel()
-        label.text = "fm334142@gmail.com"
+        label.text = CurrentUser.shared.user?.email
 
         return label
     }()
@@ -168,20 +158,31 @@ class ProfileViewController: UIViewController {
 
         view.backgroundColor = UIColor(hexString: "#faefd1")
 
-        firebaseManager.fetchUserInfo { [weak self] in
+        navigationItem.setRightBarButton(signOutBTN, animated: true)
 
-            guard let self = self else { return }
-            self.currentUser = CurrentUser.shared.user
-            self.nameContent.text = self.currentUser?.displayName
-            self.emailContent.text = self.currentUser?.email
-            self.fetchProfileImage()
+        navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ea5959")
+
+        navigationItem.title = "個人檔案"
+
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 21, weight: .bold)
+        ]
+        firebaseManager.fetchUserInfo {
+
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.currentUser = CurrentUser.shared.user
+                self.nameContent.text = self.currentUser?.displayName
+                self.emailContent.text = self.currentUser?.email
+                self.fetchProfileImage()
+            }
+
         }
 
         view.addSubview(topContainterView)
-        view.addSubview(signOutBTN)
         view.addSubview(profileImageView)
         view.addSubview(bottomContainerView)
-        view.addSubview(titleLabel)
 
         bottomContainerView.addSubview(nameLabel)
         bottomContainerView.addSubview(emailLabel)
@@ -245,17 +246,6 @@ class ProfileViewController: UIViewController {
 
     func setTopLayout() {
 
-        titleLabel.anchor(
-            top: view.topAnchor,
-            leading: nil,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 20, left: 0, bottom: 0, right: 0),
-            size: .init(width: 150, height: 30)
-        )
-
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
         topContainterView.anchor(
             top: view.topAnchor,
             leading: view.leadingAnchor,
@@ -263,17 +253,6 @@ class ProfileViewController: UIViewController {
             trailing: view.trailingAnchor,
             size: .init(width: 0, height: 270)
         )
-
-        signOutBTN.anchor(
-            top: nil,
-            leading: nil,
-            bottom: nil,
-            trailing: view.trailingAnchor,
-            padding: .init(top: 20, left: 0, bottom: 0, right: 10),
-            size: .init(width: 20, height: 20)
-        )
-
-        signOutBTN.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
 
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true

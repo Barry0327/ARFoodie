@@ -17,7 +17,11 @@ class FirebaseManager {
 
         Auth.auth().addStateDidChangeListener { (_, user) in
 
-            guard let user = user else { return }
+            guard let user = user else {
+
+                return
+
+            }
 
             print("Triggerd")
 
@@ -49,6 +53,7 @@ class FirebaseManager {
                     currentUser.profileImageUID = imgUID
 
                     CurrentUser.shared.user = currentUser
+
                 }
 
             })

@@ -131,6 +131,7 @@ PODS:
   - StatusAlert (1.1.0)
   - SwiftLint (0.31.0)
   - SwiftyJSON (4.3.0)
+  - TransitionButton (0.5.2)
   - YTLiveStreaming (0.2.12):
     - KeychainAccess
     - LFLiveKit
@@ -155,6 +156,7 @@ DEPENDENCIES:
   - IHProgressHUD (from `https://github.com/Swiftify-Corp/IHProgressHUD.git`)
   - StatusAlert (~> 1.1.0)
   - SwiftLint
+  - TransitionButton
   - YTLiveStreaming
 
 SPEC REPOS:
@@ -192,6 +194,7 @@ SPEC REPOS:
     - StatusAlert
     - SwiftLint
     - SwiftyJSON
+    - TransitionButton
     - YTLiveStreaming
 
 EXTERNAL SOURCES:
@@ -244,8 +247,9 @@ SPEC CHECKSUMS:
   StatusAlert: 4d6dadebf5f7abd5648fa774ef3062f2f95cc4aa
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  TransitionButton: fb271583d9c9e4bb116b97103047e5157653f233
   YTLiveStreaming: 62db20f1dc6ee0aed654356ee220e5b14b1506a0
 
-PODFILE CHECKSUM: a179ded26065e528d20c1e9588c2982d74fa9ff9
+PODFILE CHECKSUM: 4af09e8a0eebb0608701635ff64f3175105058b8
 
 COCOAPODS: 1.6.1

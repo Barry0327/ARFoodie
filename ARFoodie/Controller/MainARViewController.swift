@@ -11,6 +11,8 @@ import UIKit
 import MapKit
 import ARKit
 import Firebase
+import TransitionButton
+import Cosmos
 
 class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
@@ -28,16 +30,21 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     var adjustedHeight: Double = 5
 
-    let searchRestaurantsBTN: UIButton = {
+    lazy var searchRestaurantsBTN: TransitionButton = {
 
-        let button = UIButton()
-        button.setImage(
-            UIImage(named: "icons8-synchronize-filled-480"),
-            for: .normal
-        )
-        button.tintColor = .white
+        let button = TransitionButton()
+
+        button.backgroundColor = UIColor(hexString: "#ea5959")
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.cornerRadius = 25
         button.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
+        ]
+        let attributeString = NSAttributedString(string: "找美食", attributes: textAttributes)
+        button.setAttributedTitle(attributeString, for: .normal)
+        button.spinnerColor = UIColor(hexString: "feffdf")!
 
         return button
     }()
@@ -53,7 +60,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
         view.addSubview(self.sceneLocationView)
         view.addSubview(searchRestaurantsBTN)
-        self.setReloadButton()
+        self.setSearchButton()
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.locationTapped(tapRecognizer:)))
 
@@ -62,16 +69,17 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     }
 
-    func setReloadButton() {
+    func setSearchButton() {
 
-        searchRestaurantsBTN.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        searchRestaurantsBTN.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        searchRestaurantsBTN.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        searchRestaurantsBTN.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        searchRestaurantsBTN.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        searchRestaurantsBTN.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        searchRestaurantsBTN.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
+        searchRestaurantsBTN.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
     @objc func reloadData() {
 
+        self.searchRestaurantsBTN.startAnimation()
         self.sceneLocationView.removeAllNodes()
         self.adjustedHeight = 5
         self.startReceivingLocationChanges()
@@ -192,18 +200,24 @@ extension MainARViewController: RestaurantInfoDelegate {
 
         for rest in restaurants {
 
-            let nameLabel = UILabel(frame: CGRect(x: 5, y: 5, width: 240, height: 30))
+            let nameLabel = UILabel(frame: CGRect(x: 5, y: 5, width: 230, height: 30))
             nameLabel.text = rest.name
             nameLabel.textColor = .black
-            nameLabel.font = UIFont.systemFont(ofSize: 20)
+            nameLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
             nameLabel.adjustsFontSizeToFitWidth = true
 
-            let ratingLabel = UILabel(frame: CGRect(x: 5, y: 35, width: 150, height: 30))
-            ratingLabel.textColor = .black
             let rating: Double = rest.rating ?? 0
             let userRatingsTotal: Double = rest.userRatingsTotal ?? 0
-            ratingLabel.text = "評價: \(rating) (\(Int(userRatingsTotal)))"
-            ratingLabel.font = UIFont.systemFont(ofSize: 14)
+
+            let ratingView = CosmosView(frame: CGRect(x: 5, y: 35, width: 150, height: 30))
+            ratingView.settings.updateOnTouch = false
+            ratingView.settings.starSize = 16
+            ratingView.settings.starMargin = 1
+            ratingView.settings.filledColor = UIColor(hexString: "#ea5959")!
+            ratingView.settings.filledBorderColor = UIColor(hexString: "#ea5959")!
+            ratingView.settings.emptyBorderColor = UIColor(hexString: "#ea5959")!
+            ratingView.rating = rating
+            ratingView.text = String(format: "%.0f", userRatingsTotal)
 
             let restaurantLocation = CLLocation.init(latitude: rest.lat, longitude: rest.lng)
             let distance = self.userCurrentLocation?.distance(from: restaurantLocation)
@@ -215,14 +229,14 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             let view = UIView()
             view.isOpaque = false
-            view.frame = CGRect.init(x: 0, y: 0, width: 250, height: 70)
+            view.frame = CGRect.init(x: 0, y: 0, width: 240, height: 70)
             view.backgroundColor = UIColor(r: 255, g: 255, b: 255, a: 0.7)
             view.layer.applySketchShadow()
             view.addSubview(nameLabel)
-            view.addSubview(ratingLabel)
+            view.addSubview(ratingView)
             view.addSubview(distanceLabel)
 
-            let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 250, height: 60), cornerRadius: 5)
+            let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 240, height: 60), cornerRadius: 5)
             path.move(to: CGPoint(x: 115, y: 60))
             path.addLine(to: CGPoint(x: 125, y: 70))
             path.addLine(to: CGPoint(x: 135, y: 60))
@@ -241,7 +255,7 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
             let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
-            self.adjustedHeight += 2
+            self.adjustedHeight += 4
             print(adjustedHeight)
 
             let annotaionNode = LocationAnnotationNode(location: location, image: image)
@@ -250,6 +264,12 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
 
+        }
+        DispatchQueue.main.async { [weak self] in
+
+            guard let self = self else { return }
+
+            self.searchRestaurantsBTN.stopAnimation()
         }
     }
 

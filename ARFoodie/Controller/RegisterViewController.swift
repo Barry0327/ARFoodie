@@ -12,7 +12,7 @@ import Firebase
 class RegisterViewController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
+        return .lightContent
     }
 
     lazy var profileImgView: UIImageView = {
@@ -205,6 +205,8 @@ class RegisterViewController: UIViewController {
 
         return button
     }()
+
+    // MARK: - View Did Load
 
     override func viewDidLoad() {
         super.viewDidLoad()
