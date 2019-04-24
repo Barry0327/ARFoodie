@@ -164,7 +164,8 @@ class LogInViewController: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
 
-        view.backgroundColor = UIColor(hexString: "#ea5959")
+//        view.backgroundColor = UIColor(hexString: "#ea5959")
+        view.backgroundColor = UIColor.flatWatermelonDark
         view.addSubview(appNameLabel)
         view.addSubview(containerView)
 

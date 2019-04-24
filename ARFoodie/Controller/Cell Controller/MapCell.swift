@@ -22,6 +22,8 @@ class MapCell: UITableViewCell {
 
         setMapView()
 
+        mapView.isMyLocationEnabled = true
+
     }
 
     required init?(coder aDecoder: NSCoder) {
