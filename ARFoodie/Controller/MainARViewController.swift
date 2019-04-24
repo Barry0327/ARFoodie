@@ -114,8 +114,8 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
             guard
                 let detailVC = storyboard.instantiateViewController(
-                    withIdentifier: "DetailTableViewController"
-                    ) as? DetailTableViewController
+                    withIdentifier: "DetailViewController"
+                    ) as? DetailViewController
                 else { fatalError("Please check the ID for DetailTableViewController")}
 
             detailVC.placeID = nodeImage.accessibilityIdentifier ?? ""
@@ -213,9 +213,10 @@ extension MainARViewController: RestaurantInfoDelegate {
             ratingView.settings.updateOnTouch = false
             ratingView.settings.starSize = 16
             ratingView.settings.starMargin = 1
-            ratingView.settings.filledColor = UIColor(hexString: "#ea5959")!
-            ratingView.settings.filledBorderColor = UIColor(hexString: "#ea5959")!
-            ratingView.settings.emptyBorderColor = UIColor(hexString: "#ea5959")!
+            ratingView.settings.fillMode = .half
+            ratingView.settings.filledColor = UIColor.flatWatermelonDark
+            ratingView.settings.filledBorderColor = UIColor.flatWatermelonDark
+            ratingView.settings.emptyBorderColor = UIColor.flatWatermelonDark
             ratingView.rating = rating
             ratingView.text = String(format: "%.0f", userRatingsTotal)
 

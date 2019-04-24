@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class TabbarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tabBar.tintColor = UIColor(hexString: "#ea5959")
+        tabBar.tintColor = UIColor.flatWatermelonDark
 
         if let tabBarItems = tabBar.items {
 

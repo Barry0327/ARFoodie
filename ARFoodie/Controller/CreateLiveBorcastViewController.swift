@@ -19,7 +19,7 @@ class CreateLiveBoardcastViewController: UIViewController {
         let view = UIView()
         view.layer.cornerRadius = 20
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hexString: "feffdf")!
 
         return view
     }()
@@ -28,6 +28,7 @@ class CreateLiveBoardcastViewController: UIViewController {
 
         let label = UILabel()
         label.text = "標題"
+        label.textColor = UIColor(hexString: "#ea5959")
 
         return label
     }()
@@ -45,6 +46,7 @@ class CreateLiveBoardcastViewController: UIViewController {
 
         let label = UILabel()
         label.text = "描述(選填)"
+        label.textColor = UIColor(hexString: "#ea5959")
 
         return label
     }()
@@ -62,8 +64,15 @@ class CreateLiveBoardcastViewController: UIViewController {
 
         let button = UIButton()
         button.layer.cornerRadius = 20
-        button.setTitle("取消", for: .normal)
-        button.backgroundColor = .red
+        button.layer.borderColor = UIColor(hexString: "ef5a5a")?.cgColor
+        button.layer.borderWidth = 2
+        button.backgroundColor = .clear
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "ef5a5a")!,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .bold)
+        ]
+        let attributeString = NSAttributedString(string: "取消", attributes: textAttributes)
+        button.setAttributedTitle(attributeString, for: .normal)
         button.addTarget(self, action: #selector(cancelBTNPressed), for: .touchUpInside)
 
         return button
@@ -73,8 +82,13 @@ class CreateLiveBoardcastViewController: UIViewController {
 
         let button = UIButton()
         button.layer.cornerRadius = 20
-        button.setTitle("確認", for: .normal)
-        button.backgroundColor = .green
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .bold)
+        ]
+        let attributeString = NSAttributedString(string: "確認", attributes: textAttributes)
+        button.setAttributedTitle(attributeString, for: .normal)
+        button.backgroundColor = UIColor(hexString: "#ea5959")
         button.addTarget(self, action: #selector(starBTNPressed), for: .touchUpInside)
 
         return button

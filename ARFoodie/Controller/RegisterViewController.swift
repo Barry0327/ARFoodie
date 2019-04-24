@@ -180,7 +180,7 @@ class RegisterViewController: UIViewController {
         button.layer.borderColor = UIColor(hexString: "feffdf")?.cgColor
         button.layer.cornerRadius = 22
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonDark,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "取消", attributes: textAttributes)
@@ -227,7 +227,7 @@ class RegisterViewController: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
 
-        view.backgroundColor = UIColor(hexString: "ef5a5a")
+        view.backgroundColor = UIColor.flatWatermelonDark
 
         view.addSubview(profileImgView)
         view.addSubview(containerView)

@@ -101,44 +101,33 @@ class RestaurantDetailManager {
 
                 let coordinate = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
 
-                var weeKDayForToday: String = "暫無資料"
+                var isOpening: Bool?
 
                 if
                     let openingHours = result["opening_hours"] as? [String: Any],
-                    let weekDays = openingHours["weekday_text"] as? [String]
+                    let openNow = openingHours["open_now"] as? Bool
                 {
-                    let today = Date()
-                    let calendar = Calendar.current
-                    let weekDay = calendar.component(.weekday, from: today)
-
-                    switch weekDay {
-                    case 1:
-                        weeKDayForToday = weekDays[6]
-                    case 2:
-                        weeKDayForToday = weekDays[0]
-                    case 3:
-                        weeKDayForToday = weekDays[1]
-                    case 4:
-                        weeKDayForToday = weekDays[2]
-                    case 5:
-                        weeKDayForToday = weekDays[3]
-                    case 6:
-                        weeKDayForToday = weekDays[4]
-                    case 7:
-                        weeKDayForToday = weekDays[5]
-                    default:
-                        weeKDayForToday = "暫無資料"
-                    }
+                    isOpening = openNow
                 }
 
-                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photoRef: photoRef, coordinate: coordinate, businessHours: weeKDayForToday)
+                var rating: Double?
+                var userRatingTotal: Double?
+
+                if
+                    let ratingStar = result["rating"] as? Double,
+                    let userRatingTotalNumber = result["user_ratings_total"] as? Double
+                {
+                    rating = ratingStar
+                    userRatingTotal = userRatingTotalNumber
+                }
+
+                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photoRef: photoRef, coordinate: coordinate, isOpening: isOpening, rating: rating, userRatingsTotal: userRatingTotal)
 
                 print(restaurant.photoRef)
 
                 DispatchQueue.main.async { [weak self] in
-                    guard let self = self else {
-                        return
-                    }
+                    guard let self = self else { return }
+
                     self.delegate?.manager(RestaurantDetailManager.shared, didFetch: restaurant)
 
                 }

@@ -65,11 +65,11 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
         return button
     }()
 
-    let liveImageView: UIImageView = {
+    lazy var liveImageView: UIImageView = {
 
         let imgView = UIImageView()
         imgView.image = UIImage(named: "live")
-//        imgView.isHidden = true
+        imgView.alpha = 0
 
         return imgView
 
@@ -124,6 +124,15 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
                 print("LFView did stop")
 
                 IHProgressHUD.dismiss()
+
+                DispatchQueue.main.async { [weak self] in
+
+                    guard let self = self else { return }
+
+                    UIView.animate(withDuration: 0.6, animations: {
+                        self.liveImageView.alpha = 0
+                    })
+                }
             }
         } else {
 
@@ -213,8 +222,8 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
             leading: lfView.leadingAnchor,
             bottom: nil,
             trailing: nil,
-            padding: .init(top: 10, left: 10, bottom: 0, right: 0),
-            size: .init(width: 60, height: 30)
+            padding: .init(top: 5, left: 10, bottom: 0, right: 0),
+            size: .init(width: 60, height: 45)
         )
 
     }
@@ -226,6 +235,15 @@ extension LFLiveViewController: LiveStreamManagerDelegate {
 
         self.lfView.startPublishing(withStreamURL: broadcastURL)
         IHProgressHUD.dismiss()
+
+        DispatchQueue.main.async { [weak self] in
+
+            guard let self = self else { return }
+
+            UIView.animate(withDuration: 0.6, animations: {
+                self.liveImageView.alpha = 1
+            })
+        }
 
     }
 }

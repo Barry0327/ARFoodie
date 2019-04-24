@@ -16,5 +16,7 @@ struct RestaurantDetail {
     let phoneNumber: String
     let photoRef: String
     let coordinate: CLLocationCoordinate2D
-    let businessHours: String?
+    let isOpening: Bool?
+    let rating: Double?
+    let userRatingsTotal: Double?
 }
