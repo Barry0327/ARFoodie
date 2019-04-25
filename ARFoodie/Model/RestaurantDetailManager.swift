@@ -122,8 +122,6 @@ class RestaurantDetailManager {
 
                 let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photoRef: photoRef, coordinate: coordinate, isOpening: isOpening, rating: rating, userRatingsTotal: userRatingTotal)
 
-                print(restaurant.photoRef)
-
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
 

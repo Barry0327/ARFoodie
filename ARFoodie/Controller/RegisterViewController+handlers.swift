@@ -147,3 +147,29 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 
     }
 }
+
+extension RegisterViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        switch textField {
+
+        case self.nameTextField:
+
+            self.emailTextField.becomeFirstResponder()
+
+        case self.emailTextField:
+
+            self.passwordTextField.becomeFirstResponder()
+
+        case self.passwordTextField:
+
+            self.confirmTextField.becomeFirstResponder()
+
+        default:
+            self.registerPressed()
+        }
+
+        return false
+    }
+}

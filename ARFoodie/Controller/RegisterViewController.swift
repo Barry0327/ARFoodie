@@ -211,6 +211,11 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.nameTextField.delegate = self
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.confirmTextField.delegate = self
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.keyboardWillShow(notifiction:)),

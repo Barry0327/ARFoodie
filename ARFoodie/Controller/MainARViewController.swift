@@ -16,7 +16,7 @@ import Cosmos
 
 class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
-    let firebaseManager = FirebaseManager.shared
+    let firebaseManager = FirebaseManager()
 
     var sceneLocationView = SceneLocationView()
 
@@ -54,7 +54,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        firebaseManager.fetchUserInfo { }
+        firebaseManager.fetchUserInfo()
 
         self.restaurantInfoManager.delegate = self
 
@@ -262,8 +262,6 @@ extension MainARViewController: RestaurantInfoDelegate {
             let annotaionNode = LocationAnnotationNode(location: location, image: image)
 
             annotaionNode.renderOnTop()
-
-            annotaionNode.scaleRelativeToDistance = true
 
             self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
 

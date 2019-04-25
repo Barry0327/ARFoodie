@@ -18,8 +18,6 @@ class ProfileViewController: UIViewController {
         return .lightContent
     }
 
-    let firebaseManager = FirebaseManager.shared
-
     var currentUser: User?
 
     let topContainterView: UIView = {
@@ -168,17 +166,11 @@ class ProfileViewController: UIViewController {
             NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 21, weight: .bold)
         ]
-        firebaseManager.fetchUserInfo {
 
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.currentUser = CurrentUser.shared.user
-                self.nameContent.text = self.currentUser?.displayName
-                self.emailContent.text = self.currentUser?.email
-                self.fetchProfileImage()
-            }
-
-        }
+        self.currentUser = CurrentUser.shared.user
+        self.nameContent.text = self.currentUser?.displayName
+        self.emailContent.text = self.currentUser?.email
+        self.fetchProfileImage()
 
         view.addSubview(topContainterView)
         view.addSubview(profileImageView)

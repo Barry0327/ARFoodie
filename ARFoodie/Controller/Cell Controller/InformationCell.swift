@@ -12,13 +12,44 @@ import ChameleonFramework
 
 class InformationCell: UITableViewCell {
 
+    var restaurantDetail: RestaurantDetail? {
+
+        didSet {
+            self.addressLabel.text = restaurantDetail?.address
+            self.nameLabel.text = restaurantDetail?.name
+            self.phoneLabel.text = restaurantDetail?.phoneNumber
+            self.ratingView.rating = restaurantDetail?.rating ?? 0
+            self.ratingView.text = String(restaurantDetail?.userRatingsTotal ?? 0)
+
+            if restaurantDetail?.photoRef != "暫無資料" {
+
+                self.imgView.fetchImage(with: restaurantDetail!.photoRef)
+                print("Fetch the image")
+
+            }
+
+            if restaurantDetail?.isOpening != nil {
+
+                if restaurantDetail!.isOpening! {
+                    self.isOpeningIcon.image = UIImage(named: "icons8-open-sign-100")
+                    self.isOpeningIcon.tintColor = UIColor.flatGreenDark
+                } else {
+                    self.isOpeningIcon.image = UIImage(named: "icons8-closed-sign-100")
+                    self.isOpeningIcon.tintColor = UIColor.flatGrayDark
+                }
+            }
+        }
+    }
+
     let imgView: UIImageView = {
 
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
         imgView.layer.cornerRadius = 5
         imgView.clipsToBounds = true
+        imgView.tintColor = .gray
         imgView.image = UIImage(named: "icon-placeholder")
+        imgView.contentMode = .scaleAspectFit
 
         return imgView
 
@@ -58,6 +89,7 @@ class InformationCell: UITableViewCell {
         label.addGestureRecognizer(gesture)
 
         return label
+
     }()
 
     let addressLabel: UILabel = {
