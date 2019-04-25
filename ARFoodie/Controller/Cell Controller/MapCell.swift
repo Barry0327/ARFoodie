@@ -23,6 +23,7 @@ class MapCell: UITableViewCell {
         setMapView()
 
         mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
 
     }
 
