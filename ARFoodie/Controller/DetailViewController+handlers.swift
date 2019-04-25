@@ -24,7 +24,7 @@ extension DetailViewController: GIDSignInDelegate, GIDSignInUIDelegate {
 
         self.view.frame.origin.y = isKeyboardShowing ? -keyboardHeight : 0
 
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.5) {
 
             self.view.layoutIfNeeded()
         }
@@ -65,8 +65,15 @@ extension DetailViewController: GIDSignInDelegate, GIDSignInUIDelegate {
         guard
             let name = CurrentUser.shared.user?.displayName,
             let uid = CurrentUser.shared.user?.uid,
-            let content = self.commentTextField.text
-            else { return }
+            let content = self.commentTextField.text,
+            content != ""
+            else {
+
+                self.commentTextField.isEnabled = true
+                self.sendButton.isEnabled = true
+                return
+
+        }
 
         let comment = Comment.init(name: name, uid: uid, content: content)
 

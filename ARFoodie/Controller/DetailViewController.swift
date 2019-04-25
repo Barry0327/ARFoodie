@@ -23,7 +23,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
     let restaurantsRef = Database.database().reference(withPath: "restaurants")
 
-    let restaurantDetailManager = RestaurantDetailManager.shared
+    let restaurantDetailManager = RestaurantDetailManager()
 
     var restaurantDetail = RestaurantDetail.init(
         name: "暫無資料",
@@ -56,6 +56,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         tableView.addGestureRecognizer(gesture)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.init(hexString: "fff4e1")
 
         return tableView
     }()
@@ -63,7 +64,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     let containerView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor.flatNavyBlueDark
+        view.backgroundColor = UIColor.white
         view.isOpaque = true
 
         return view
@@ -94,7 +95,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon-cross"), for: .normal)
         button.frame = CGRect(x: 11, y: 20, width: 19, height: 19)
-        button.tintColor = .black
+        button.tintColor = UIColor.init(hexString: "fff4e1")
         button.addTarget(self, action: #selector(self.backToLastView), for: .touchUpInside)
 
         let leftBarButton = UIBarButtonItem(customView: button)
@@ -108,7 +109,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         button.setImage(UIImage(named: "icons8-video-call-100"), for: .normal)
         button.imageView?.contentMode = .scaleToFill
         button.addTarget(self, action: #selector(createBoardcast), for: .touchUpInside)
-        button.tintColor = .black
+        button.tintColor = UIColor.init(hexString: "fff4e1")
 
         let rightBarButton = UIBarButtonItem(customView: button)
         return rightBarButton
@@ -447,7 +448,7 @@ extension DetailViewController: GMSMapViewDelegate {
 
 extension DetailViewController: RestaurantDetailDelegate {
 
-    func manager(_ manager: RestaurantDetailManager, didFetch restaurant: RestaurantDetail) {
+    func restaurantDetailManager(didFetch restaurant: RestaurantDetail) {
 
         self.restaurantDetail = restaurant
 
@@ -457,7 +458,7 @@ extension DetailViewController: RestaurantDetailDelegate {
 
     }
 
-    func manager(_ manager: RestaurantDetailManager, didFailed with: Error) {
+    func restaurantDetailManager(didFailed with: Error) {
 
         AuthenticationError.connetError.alert(message: with.localizedDescription)
 

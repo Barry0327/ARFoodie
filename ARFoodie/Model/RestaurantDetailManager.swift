@@ -12,8 +12,6 @@ import MapKit
 
 class RestaurantDetailManager {
 
-    static let shared: RestaurantDetailManager = RestaurantDetailManager()
-
     weak var delegate: RestaurantDetailDelegate?
 
     let apiKey: String = {
@@ -41,6 +39,7 @@ class RestaurantDetailManager {
             if response.error != nil {
 
                 print("Failed to fetch restaurant detail")
+                self.delegate?.restaurantDetailManager(didFailed: response.error!)
                 return
             }
 
@@ -128,7 +127,7 @@ class RestaurantDetailManager {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
 
-                    self.delegate?.manager(RestaurantDetailManager.shared, didFetch: restaurant)
+                    self.delegate?.restaurantDetailManager(didFetch: restaurant)
 
                 }
             }

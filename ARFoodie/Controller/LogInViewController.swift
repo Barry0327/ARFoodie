@@ -23,7 +23,7 @@ class LogInViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "fff4e1")!,
             NSAttributedString.Key.font: UIFont(name: "SnellRoundhand-Black", size: 55) as Any
         ]
         let attributeString = NSAttributedString(string: "ARFoodie", attributes: textAttributes)
@@ -59,6 +59,7 @@ class LogInViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
         )
         textField.textColor = .white
+        textField.tintColor = UIColor(hexString: "fff4e1")
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
 
@@ -67,7 +68,7 @@ class LogInViewController: UIViewController {
     let emailSeparatorView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "feffdf")
+        view.backgroundColor = UIColor(hexString: "fff4e1")
         view.translatesAutoresizingMaskIntoConstraints = false
 
         return view
@@ -79,7 +80,7 @@ class LogInViewController: UIViewController {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "icons8-lock-filled-480")
-        imgView.tintColor = UIColor(hexString: "feffdf")
+        imgView.tintColor = UIColor(hexString: "fff4e1")
 
         return imgView
     }()
@@ -92,6 +93,7 @@ class LogInViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
         )
         textField.textColor = .white
+        textField.tintColor = UIColor(hexString: "fff4e1")
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
 
@@ -102,7 +104,7 @@ class LogInViewController: UIViewController {
 
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(hexString: "feffdf")
+        view.backgroundColor = UIColor(hexString: "fff4e1")
         return view
 
     }()
@@ -113,7 +115,7 @@ class LogInViewController: UIViewController {
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "ef5a5a")!,
+            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonDark,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "登入", attributes: textAttributes)
@@ -164,7 +166,6 @@ class LogInViewController: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
 
-//        view.backgroundColor = UIColor(hexString: "#ea5959")
         view.backgroundColor = UIColor.flatWatermelonDark
         view.addSubview(appNameLabel)
         view.addSubview(containerView)
