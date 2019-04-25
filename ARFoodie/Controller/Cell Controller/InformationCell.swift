@@ -87,6 +87,8 @@ class InformationCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        contentView.backgroundColor = UIColor(hexString: "fff4e1")
+
         contentView.addSubview(imgView)
         contentView.addSubview(isOpeningIcon)
         contentView.addSubview(nameLabel)

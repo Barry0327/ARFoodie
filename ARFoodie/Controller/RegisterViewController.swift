@@ -18,11 +18,11 @@ class RegisterViewController: UIViewController {
     lazy var profileImgView: UIImageView = {
 
         let imgView = UIImageView()
-        imgView.tintColor = UIColor(hexString: "feffdf")
+        imgView.tintColor = UIColor(hexString: "fff4e1")
         imgView.image = UIImage(named: "user")
         imgView.layer.cornerRadius = 125/2
         imgView.layer.borderWidth = 1
-        imgView.layer.borderColor = UIColor(hexString: "feffdf")?.cgColor
+        imgView.layer.borderColor = UIColor(hexString: "fff4e1")?.cgColor
         imgView.isUserInteractionEnabled = true
         imgView.addGestureRecognizer(
             UITapGestureRecognizer(
@@ -46,7 +46,7 @@ class RegisterViewController: UIViewController {
 
         let label = UILabel()
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "fff4e1")!
         ]
         let attributeString = NSAttributedString(string: "用戶名稱", attributes: textAttributes)
         label.attributedText = attributeString
@@ -69,7 +69,7 @@ class RegisterViewController: UIViewController {
     let nameSeparator: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "feffdf")
+        view.backgroundColor = UIColor(hexString: "fff4e1")
 
         return view
     }()
@@ -78,7 +78,7 @@ class RegisterViewController: UIViewController {
 
         let label = UILabel()
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "fff4e1")!
         ]
         let attributeString = NSAttributedString(string: "登入帳號", attributes: textAttributes)
         label.attributedText = attributeString
@@ -101,7 +101,7 @@ class RegisterViewController: UIViewController {
     let emailSeparator: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "feffdf")
+        view.backgroundColor = UIColor(hexString: "fff4e1")
 
         return view
     }()
@@ -110,7 +110,7 @@ class RegisterViewController: UIViewController {
 
         let label = UILabel()
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "fff4e1")!
         ]
         let attributeString = NSAttributedString(string: "登入密碼", attributes: textAttributes)
         label.attributedText = attributeString
@@ -134,7 +134,7 @@ class RegisterViewController: UIViewController {
     let passwordSeparator: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "feffdf")
+        view.backgroundColor = UIColor(hexString: "fff4e1")
 
         return view
     }()
@@ -143,7 +143,7 @@ class RegisterViewController: UIViewController {
 
         let label = UILabel()
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "fff4e1")!
         ]
         let attributeString = NSAttributedString(string: "確認密碼", attributes: textAttributes)
         label.attributedText = attributeString
@@ -167,7 +167,7 @@ class RegisterViewController: UIViewController {
     let confirmSeparator: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "feffdf")
+        view.backgroundColor = UIColor(hexString: "fff4e1")
 
         return view
     }()
@@ -177,10 +177,10 @@ class RegisterViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .clear
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor(hexString: "feffdf")?.cgColor
+        button.layer.borderColor = UIColor(hexString: "fff4e1")?.cgColor
         button.layer.cornerRadius = 22
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonDark,
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "fff4e1")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "取消", attributes: textAttributes)
@@ -193,10 +193,10 @@ class RegisterViewController: UIViewController {
     let registerButton: UIButton = {
 
         let button = UIButton()
-        button.backgroundColor = UIColor(hexString: "feffdf")
+        button.backgroundColor = UIColor(hexString: "fff4e1")
         button.layer.cornerRadius = 22
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "ef5a5a")!,
+            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonDark,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "註冊", attributes: textAttributes)

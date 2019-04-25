@@ -20,7 +20,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
     var sceneLocationView = SceneLocationView()
 
-    let restaurantInfoManager = RestaurantInfoManager.shared
+    let restaurantInfoManager = RestaurantInfoManager()
 
     var restaurants: [Restaurant] = []
 
@@ -194,7 +194,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
 extension MainARViewController: RestaurantInfoDelegate {
 
-    func manager(_ manager: RestaurantInfoManager, didFetch restaurants: [Restaurant]) {
+    func restaurantInfoManager(didFetch restaurants: [Restaurant]) {
 
         self.restaurants = restaurants
 
@@ -263,6 +263,8 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             annotaionNode.renderOnTop()
 
+            annotaionNode.scaleRelativeToDistance = true
+
             self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
 
         }
@@ -274,7 +276,7 @@ extension MainARViewController: RestaurantInfoDelegate {
         }
     }
 
-    func manager(_ manager: RestaurantInfoManager, didFailed with: Error) {
+    func restaurantInfoManager(didFailed with: Error) {
 
         let alert = UIAlertController(title: "連線失敗", message: "連線有問題，請檢查網路連線", preferredStyle: .alert)
 

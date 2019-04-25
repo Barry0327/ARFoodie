@@ -11,8 +11,6 @@ import Alamofire
 
 class RestaurantInfoManager {
 
-    static let shared: RestaurantInfoManager = RestaurantInfoManager()
-
     weak var delegate: RestaurantInfoDelegate?
 
     let apiKey: String = {
@@ -46,7 +44,7 @@ class RestaurantInfoManager {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
 
-                    self.delegate?.manager(RestaurantInfoManager.shared, didFailed: response.error!)
+                    self.delegate?.restaurantInfoManager(didFailed: response.error!)
 
                 }
                 return
@@ -110,7 +108,7 @@ class RestaurantInfoManager {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
 
-                    self.delegate?.manager(RestaurantInfoManager.shared, didFetch: restaurants)
+                    self.delegate?.restaurantInfoManager(didFetch: restaurants)
 
                 }
 

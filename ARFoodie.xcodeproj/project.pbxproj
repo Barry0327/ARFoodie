@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1AA0B6366D2BF60571158A90 /* Pods_ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */; };
 		970230DB225907D600BD8AF2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970230DA225907D600BD8AF2 /* RegisterViewController.swift */; };
-		97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97187AB82251BEB80096E52D /* DetailTableViewController.swift */; };
 		97187ABB2251D4F30096E52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97187ABA2251D4F30096E52D /* Main.storyboard */; };
 		9738E836226576B100EA2CBC /* LiveStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9738E835226576B100EA2CBC /* LiveStreamManager.swift */; };
 		9738E8382265817F00EA2CBC /* CreateLiveBorcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */; };
@@ -56,7 +55,6 @@
 		535020E1A0264B630C2A6DCA /* Pods-ARFoodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.debug.xcconfig"; sourceTree = "<group>"; };
 		7E9F18285D7C095981D6E413 /* Pods_ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		970230DA225907D600BD8AF2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		97187AB82251BEB80096E52D /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		97187ABA2251D4F30096E52D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9738E835226576B100EA2CBC /* LiveStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamManager.swift; sourceTree = "<group>"; };
 		9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLiveBorcastViewController.swift; sourceTree = "<group>"; };
@@ -220,7 +218,6 @@
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
 				97B718E722706B5C0010BF33 /* DetailViewController.swift */,
 				97B718E9227075AB0010BF33 /* DetailViewController+handlers.swift */,
-				97187AB82251BEB80096E52D /* DetailTableViewController.swift */,
 				9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */,
 				97A6C8E72263895F002FAA90 /* ProfileViewController.swift */,
 				9756357B2269BBBA009AE63B /* ProfileViewController+handlers.swift */,
@@ -487,7 +484,6 @@
 				9738E836226576B100EA2CBC /* LiveStreamManager.swift in Sources */,
 				9756357322682003009AE63B /* Comment.swift in Sources */,
 				97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */,
-				97187AB92251BEB80096E52D /* DetailTableViewController.swift in Sources */,
 				97B718EA227075AB0010BF33 /* DetailViewController+handlers.swift in Sources */,
 				97563575226835BB009AE63B /* RegisterViewController+handlers.swift in Sources */,
 				97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */,
