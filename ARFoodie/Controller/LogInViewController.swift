@@ -150,6 +150,9 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.keyboardWillShow(notifiction:)),
@@ -325,5 +328,20 @@ class LogInViewController: UIViewController {
         registerBTN.widthAnchor.constraint(equalToConstant: 120).isActive = true
         registerBTN.heightAnchor.constraint(equalToConstant: 45).isActive = true
 
+    }
+}
+
+extension LogInViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        switch textField {
+        case self.emailTextField:
+            self.passwordTextField.becomeFirstResponder()
+        default:
+            self.loginBTNPressed()
+        }
+
+        return false
     }
 }

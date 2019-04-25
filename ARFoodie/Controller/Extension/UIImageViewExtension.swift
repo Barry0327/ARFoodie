@@ -22,8 +22,6 @@ extension UIImageView {
             return ""
         }()
 
-        print(ref)
-
         guard ref != "暫無資料" else {
 
             print("Return")
@@ -37,8 +35,17 @@ extension UIImageView {
 
             "photoreference": ref,
             "key": apiKey,
-            "maxheight": 250
+            "maxheight": 100,
+            "maxwidth": 80
         ]
+
+        let imageCache = NSCache<NSString, UIImage>()
+
+        if let imageFromCache = imageCache.object(forKey: ref as NSString) {
+            self.image = imageFromCache
+            print("LoadImageFromCache")
+            return
+        }
 
         Alamofire.request(endPointURL, method: .get, parameters: parameters).responseData { (response) in
 
@@ -56,7 +63,13 @@ extension UIImageView {
                         guard let self = self else {
                             return
                         }
-                        self.image = UIImage(data: data)
+
+                        let image = UIImage(data: data)
+
+                        imageCache.setObject(image!, forKey: ref as NSString)
+
+                        self.image = image
+
                         print(response.result.debugDescription)
                     }
                 } else {

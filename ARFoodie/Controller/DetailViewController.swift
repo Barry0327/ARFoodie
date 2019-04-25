@@ -121,6 +121,14 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.register(InformationCell.self, forCellReuseIdentifier: "InformationCell")
+
+        tableView.register(MapCell.self, forCellReuseIdentifier: "MapCell")
+
+        tableView.register(CommentCell.self, forCellReuseIdentifier: "CommentCell")
+
+        tableView.separatorStyle = .none
+
         self.navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonDark
 
         navigationController?.navigationBar.titleTextAttributes = [
@@ -156,14 +164,6 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-
-        tableView.register(InformationCell.self, forCellReuseIdentifier: "InformationCell")
-
-        tableView.register(MapCell.self, forCellReuseIdentifier: "MapCell")
-
-        tableView.register(CommentCell.self, forCellReuseIdentifier: "CommentCell")
-
-        tableView.separatorStyle = .none
 
     }
 
@@ -267,6 +267,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         let section = detailSections[indexPath.section]
 
         switch section {
+
         case .map:
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as? MapCell else { fatalError() }
@@ -286,28 +287,35 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "InformationCell", for: indexPath) as? InformationCell else { fatalError() }
 
-            cell.nameLabel.text = restaurantDetail.name
+            cell.restaurantDetail = self.restaurantDetail
 
-            cell.phoneLabel.text = restaurantDetail.phoneNumber
+//            cell.nameLabel.text = restaurantDetail.name
+//
+//            cell.phoneLabel.text = restaurantDetail.phoneNumber
+//
+//            cell.addressLabel.text = restaurantDetail.address
 
-            cell.addressLabel.text = restaurantDetail.address
+//            if restaurantDetail.photoRef != "暫無資料" {
+//
+//                cell.imgView.fetchImage(with: restaurantDetail.photoRef)
+//                print("Fetch the image")
+//
+//            }
 
-            cell.imgView.fetchImage(with: restaurantDetail.photoRef)
+//            cell.ratingView.rating = restaurantDetail.rating ?? 0
+//
+//            cell.ratingView.text = String(format: "%.0f", restaurantDetail.userRatingsTotal ?? 0)
 
-            cell.ratingView.rating = restaurantDetail.rating ?? 0
-
-            cell.ratingView.text = String(format: "%.0f", restaurantDetail.userRatingsTotal ?? 0)
-
-            if restaurantDetail.isOpening != nil {
-
-                if restaurantDetail.isOpening! {
-                    cell.isOpeningIcon.image = UIImage(named: "icons8-open-sign-100")
-                    cell.isOpeningIcon.tintColor = UIColor.flatGreenDark
-                } else {
-                    cell.isOpeningIcon.image = UIImage(named: "icons8-closed-sign-100")
-                    cell.isOpeningIcon.tintColor = UIColor.flatGrayDark
-                }
-            }
+//            if restaurantDetail.isOpening != nil {
+//
+//                if restaurantDetail.isOpening! {
+//                    cell.isOpeningIcon.image = UIImage(named: "icons8-open-sign-100")
+//                    cell.isOpeningIcon.tintColor = UIColor.flatGreenDark
+//                } else {
+//                    cell.isOpeningIcon.image = UIImage(named: "icons8-closed-sign-100")
+//                    cell.isOpeningIcon.tintColor = UIColor.flatGrayDark
+//                }
+//            }
 
             return cell
 

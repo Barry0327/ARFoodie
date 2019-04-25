@@ -8,17 +8,19 @@
 
 import UIKit
 import Firebase
+import IHProgressHUD
 
 class FirebaseManager {
 
-    static let shared = FirebaseManager()
+    func fetchUserInfo() {
 
-    func fetchUserInfo(completionhandler: @escaping () -> Void) {
+        IHProgressHUD.show()
 
         Auth.auth().addStateDidChangeListener { (_, user) in
 
             guard let user = user else {
 
+                IHProgressHUD.dismiss()
                 return
 
             }
@@ -44,6 +46,8 @@ class FirebaseManager {
                         else {
 
                             print("Failed to get current user info")
+                            IHProgressHUD.dismiss()
+
                             return
 
                     }
@@ -54,11 +58,12 @@ class FirebaseManager {
 
                     CurrentUser.shared.user = currentUser
 
+                    IHProgressHUD.dismiss()
+
                 }
 
             })
         }
 
-        completionhandler()
     }
 }
