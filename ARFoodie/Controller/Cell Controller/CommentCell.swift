@@ -29,6 +29,8 @@ class CommentCell: UITableViewCell {
     let nameLabel: UILabel = {
 
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.textColor = UIColor.flatWatermelonDark
 
         return label
     }()
@@ -42,13 +44,25 @@ class CommentCell: UITableViewCell {
         return label
     }()
 
+    let separatorView: UIView = {
+
+        let view = UIView()
+        view.backgroundColor = UIColor.flatWatermelonDark
+
+        return view
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.addSubview(profileImageView)
         contentView.addSubview(containerView)
+        contentView.addSubview(separatorView)
+
         containerView.addSubview(nameLabel)
         containerView.addSubview(commentBody)
+
+        selectionStyle = .none
 
         setLayout()
 
@@ -94,6 +108,15 @@ class CommentCell: UITableViewCell {
             bottom: containerView.bottomAnchor,
             trailing: containerView.trailingAnchor,
             padding: .init(top: 10, left: 10, bottom: 10, right: 10)
+        )
+
+        separatorView.anchor(
+            top: nil,
+            leading: contentView.leadingAnchor,
+            bottom: contentView.bottomAnchor,
+            trailing: contentView.trailingAnchor,
+            padding: .init(top: 0, left: 10, bottom: 1, right: 10),
+            size: .init(width: 0, height: 1)
         )
 
     }

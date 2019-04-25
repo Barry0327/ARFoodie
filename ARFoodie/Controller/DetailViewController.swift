@@ -13,8 +13,9 @@ import YTLiveStreaming
 import Firebase
 import FirebaseUI
 import ChameleonFramework
+import MessageUI
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
     var placeID: String = ""
 
@@ -161,6 +162,8 @@ class DetailViewController: UIViewController {
 
         tableView.register(CommentCell.self, forCellReuseIdentifier: "CommentCell")
 
+        tableView.separatorStyle = .none
+
     }
 
     func setLayout() {
@@ -298,8 +301,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 
                 if restaurantDetail.isOpening! {
                     cell.isOpeningIcon.image = UIImage(named: "icons8-open-sign-100")
+                    cell.isOpeningIcon.tintColor = UIColor.flatGreenDark
                 } else {
                     cell.isOpeningIcon.image = UIImage(named: "icons8-closed-sign-100")
+                    cell.isOpeningIcon.tintColor = UIColor.flatGrayDark
                 }
             }
 
@@ -363,10 +368,81 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableView.automaticDimension
         }
     }
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+
+        let section = detailSections[indexPath.section]
+
+        switch section {
+
+        case .comment:
+
+            guard self.comments.count > 0 else { return false }
+
+            return true
+
+        default: return false
+
+        }
+    }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let section = detailSections[indexPath.section]
+
+        switch section {
+        case .comment:
+
+            let report = UITableViewRowAction(style: .destructive, title: "檢舉") { (_, indexPath) in
+
+                let composeVC = MFMailComposeViewController()
+                composeVC.delegate = self
+                composeVC.mailComposeDelegate = self
+
+                composeVC.setToRecipients(["fm334142@gmail.com"])
+                composeVC.setSubject("檢舉評論")
+
+                let messageBody: String = "被檢舉者 UserID: \n\(self.comments[indexPath.row].senderUid)\n\n評論UID:\n\(self.comments[indexPath.row].commentUID!)\n\n請簡短描述檢舉原因:"
+
+                composeVC.setMessageBody(messageBody, isHTML: false)
+
+                self.present(composeVC, animated: true, completion: nil)
+
+            }
+
+            return [report]
+        default:
+            return nil
+        }
+    }
+}
+extension DetailViewController: MFMailComposeViewControllerDelegate {
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+
+        print("called")
+
+        controller.dismiss(animated: true, completion: nil)
+
+    }
 }
 
 extension DetailViewController: GMSMapViewDelegate {
 
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+
+        guard let url = URL(
+            string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)"
+            )
+            else {
+                return false
+        }
+        UIApplication.shared.open(
+            url,
+            options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]
+        )
+        return true
+    }
 }
 
 extension DetailViewController: RestaurantDetailDelegate {

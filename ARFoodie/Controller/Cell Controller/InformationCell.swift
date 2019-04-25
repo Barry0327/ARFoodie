@@ -16,8 +16,9 @@ class InformationCell: UITableViewCell {
 
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
-        imgView.layer.cornerRadius = 20
+        imgView.layer.cornerRadius = 5
         imgView.clipsToBounds = true
+        imgView.image = UIImage(named: "icon-placeholder")
 
         return imgView
 
@@ -48,11 +49,13 @@ class InformationCell: UITableViewCell {
 
     }()
 
-    let phoneLabel: UILabel = {
+    lazy var phoneLabel: UILabel = {
 
         let label = UILabel()
         label.textColor = UIColor.flatSkyBlue
         label.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(phoneLabelTapped))
+        label.addGestureRecognizer(gesture)
 
         return label
     }()
@@ -73,6 +76,14 @@ class InformationCell: UITableViewCell {
         return imgView
     }()
 
+    let separatorView: UIView = {
+
+        let view = UIView()
+        view.backgroundColor = UIColor.flatWatermelonDark
+
+        return view
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -82,6 +93,7 @@ class InformationCell: UITableViewCell {
         contentView.addSubview(ratingView)
         contentView.addSubview(phoneLabel)
         contentView.addSubview(addressLabel)
+        contentView.addSubview(separatorView)
 
         setLayout()
     }
@@ -147,5 +159,29 @@ class InformationCell: UITableViewCell {
             padding: .init(top: 5, left: 0, bottom: 0, right: 10),
             size: .init(width: 0, height: 45)
         )
+
+        separatorView.anchor(
+            top: nil,
+            leading: contentView.leadingAnchor,
+            bottom: contentView.bottomAnchor,
+            trailing: contentView.trailingAnchor,
+            padding: .init(top: 0, left: 10, bottom: 1, right: 10),
+            size: .init(width: 0, height: 1)
+        )
+    }
+
+    @objc func phoneLabelTapped() {
+
+        let phoneNumber = phoneLabel.text!.filter { "0123456789".contains($0)}
+
+        guard let number = URL(string: "tel://\(phoneNumber)") else { return }
+
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(number)
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(number)
+        }
+
     }
 }

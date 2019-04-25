@@ -17,6 +17,8 @@ struct Comment {
 
     let content: String
 
+    var commentUID: String?
+
     init(name: String, uid: String, content: String) {
 
         self.senderName = name
@@ -36,6 +38,7 @@ struct Comment {
         self.senderName = senderName
         self.senderUid = senderUid
         self.content = content
+        self.commentUID = snapshot.key
 
     }
 
