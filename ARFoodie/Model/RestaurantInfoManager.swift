@@ -69,7 +69,7 @@ class RestaurantInfoManager {
                     return
                 }
 
-                restaurantList.removeLast(4)
+                restaurantList.removeLast(6)
 
                 var restaurants: [Restaurant] = []
 
@@ -111,9 +111,7 @@ class RestaurantInfoManager {
                     self.delegate?.restaurantInfoManager(didFetch: restaurants)
 
                 }
-
             }
         }
-
     }
 }

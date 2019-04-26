@@ -56,7 +56,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         tableView.addGestureRecognizer(gesture)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.init(hexString: "fff4e1")
+        tableView.backgroundColor = UIColor.init(hexString: "F2EDEC")
 
         return tableView
     }()
@@ -95,7 +95,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon-cross"), for: .normal)
         button.frame = CGRect(x: 11, y: 20, width: 19, height: 19)
-        button.tintColor = UIColor.init(hexString: "fff4e1")
+        button.tintColor = UIColor.init(hexString: "F2EDEC")
         button.addTarget(self, action: #selector(self.backToLastView), for: .touchUpInside)
 
         let leftBarButton = UIBarButtonItem(customView: button)
@@ -109,7 +109,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         button.setImage(UIImage(named: "icons8-video-call-100"), for: .normal)
         button.imageView?.contentMode = .scaleToFill
         button.addTarget(self, action: #selector(createBoardcast), for: .touchUpInside)
-        button.tintColor = UIColor.init(hexString: "fff4e1")
+        button.tintColor = UIColor.init(hexString: "F2EDEC")
 
         let rightBarButton = UIBarButtonItem(customView: button)
         return rightBarButton
@@ -120,6 +120,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.commentTextField.delegate = self
 
         tableView.register(InformationCell.self, forCellReuseIdentifier: "InformationCell")
 
@@ -132,7 +134,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         self.navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonDark
 
         navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "F2EDEC")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 21, weight: .bold)
         ]
 
@@ -227,6 +229,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
                 guard let self = self else { return }
 
                 self.comments = comments
+
                 self.tableView.reloadData()
             }
         }

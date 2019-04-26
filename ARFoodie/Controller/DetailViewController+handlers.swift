@@ -87,6 +87,10 @@ extension DetailViewController: GIDSignInDelegate, GIDSignInUIDelegate {
                 self.commentTextField.text = ""
                 self.commentTextField.isEnabled = true
                 self.sendButton.isEnabled = true
+
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                    self.tableView.scrollToBottom()
+                }
             }
         }
     }
@@ -113,4 +117,15 @@ extension DetailViewController: GIDSignInDelegate, GIDSignInUIDelegate {
             }
         }
     }
+}
+
+extension DetailViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        self.sendButtonTapped()
+
+        return false
+    }
+
 }
