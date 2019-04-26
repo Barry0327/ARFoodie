@@ -34,12 +34,12 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
         let button = TransitionButton()
 
-        button.backgroundColor = UIColor(hexString: "#ea5959")
+        button.backgroundColor = UIColor.flatWatermelonDark
         button.translatesAutoresizingMaskIntoConstraints = false
         button.cornerRadius = 25
         button.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "E4DAD8")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "找美食", attributes: textAttributes)
@@ -223,7 +223,7 @@ extension MainARViewController: RestaurantInfoDelegate {
             let restaurantLocation = CLLocation.init(latitude: rest.lat, longitude: rest.lng)
             let distance = self.userCurrentLocation?.distance(from: restaurantLocation)
 
-            let distanceLabel = UILabel(frame: CGRect(x: 160, y: 35, width: 90, height: 30))
+            let distanceLabel = UILabel(frame: CGRect(x: 160, y: 30, width: 90, height: 30))
             distanceLabel.text = "\(String(format: "%.1f", distance!))m"
             distanceLabel.font = UIFont.systemFont(ofSize: 14)
             distanceLabel.textColor = UIColor(r: 79, g: 79, b: 79, a: 1)
@@ -231,7 +231,8 @@ extension MainARViewController: RestaurantInfoDelegate {
             let view = UIView()
             view.isOpaque = false
             view.frame = CGRect.init(x: 0, y: 0, width: 240, height: 70)
-            view.backgroundColor = UIColor(r: 255, g: 255, b: 255, a: 0.7)
+            view.backgroundColor = UIColor(hexString: "F2EDEC")
+            view.alpha = 0.7
             view.layer.applySketchShadow()
             view.addSubview(nameLabel)
             view.addSubview(ratingView)
@@ -256,7 +257,7 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
             let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
-            self.adjustedHeight += 4
+            self.adjustedHeight += 5
             print(adjustedHeight)
 
             let annotaionNode = LocationAnnotationNode(location: location, image: image)

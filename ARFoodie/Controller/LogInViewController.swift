@@ -23,7 +23,7 @@ class LogInViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "fff4e1")!,
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "E4DAD8")!,
             NSAttributedString.Key.font: UIFont(name: "SnellRoundhand-Black", size: 55) as Any
         ]
         let attributeString = NSAttributedString(string: "ARFoodie", attributes: textAttributes)
@@ -46,7 +46,7 @@ class LogInViewController: UIViewController {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "icons8-new-post-96 (1)")
-        imgView.tintColor = UIColor(hexString: "feffdf")
+        imgView.tintColor = UIColor(hexString: "E4DAD8")
 
         return imgView
     }()
@@ -58,8 +58,8 @@ class LogInViewController: UIViewController {
             string: "輸入電子郵件",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
         )
-        textField.textColor = .white
-        textField.tintColor = UIColor(hexString: "fff4e1")
+        textField.textColor = UIColor(hexString: "E4DAD8")
+        textField.tintColor = UIColor(hexString: "E4DAD8")
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
 
@@ -68,7 +68,7 @@ class LogInViewController: UIViewController {
     let emailSeparatorView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "fff4e1")
+        view.backgroundColor = UIColor(hexString: "E4DAD8")
         view.translatesAutoresizingMaskIntoConstraints = false
 
         return view
@@ -80,7 +80,7 @@ class LogInViewController: UIViewController {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "icons8-lock-filled-480")
-        imgView.tintColor = UIColor(hexString: "fff4e1")
+        imgView.tintColor = UIColor(hexString: "E4DAD8")
 
         return imgView
     }()
@@ -93,7 +93,7 @@ class LogInViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
         )
         textField.textColor = .white
-        textField.tintColor = UIColor(hexString: "fff4e1")
+        textField.tintColor = UIColor(hexString: "E4DAD8")
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
 
@@ -104,7 +104,7 @@ class LogInViewController: UIViewController {
 
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(hexString: "fff4e1")
+        view.backgroundColor = UIColor(hexString: "E4DAD8")
         return view
 
     }()
@@ -120,7 +120,7 @@ class LogInViewController: UIViewController {
         ]
         let attributeString = NSAttributedString(string: "登入", attributes: textAttributes)
         button.setAttributedTitle(attributeString, for: .normal)
-        button.backgroundColor = UIColor(hexString: "feffdf")
+        button.backgroundColor = UIColor(hexString: "E4DAD8")
         button.addTarget(self, action: #selector(loginBTNPressed), for: .touchUpInside)
 
         return button
@@ -132,17 +132,53 @@ class LogInViewController: UIViewController {
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "E4DAD8")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "註冊", attributes: textAttributes)
         button.setAttributedTitle(attributeString, for: .normal)
         button.backgroundColor = .clear
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor(hexString: "feffdf")?.cgColor
+        button.layer.borderColor = UIColor(hexString: "E4DAD8")?.cgColor
         button.addTarget(self, action: #selector(registerBTNPressed), for: .touchUpInside)
 
         return button
+    }()
+
+    let descriptionLabel: UILabel = {
+
+        let label = UILabel()
+        label.text = "登入即代表您同意"
+        label.textAlignment = .center
+        label.textColor = UIColor(hexString: "E4DAD8")
+        label.font = UIFont.systemFont(ofSize: 15)
+
+        return label
+    }()
+
+    lazy var userPolicyLabel: UILabel = {
+
+        let label = UILabel()
+        label.text = "使用者條款"
+        label.textAlignment = .center
+        label.textColor = UIColor.flatSkyBlue
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(performUserPolicyPage))
+        label.addGestureRecognizer(gesture)
+
+        return label
+    }()
+
+    let privacyPolicyLabel: UILabel = {
+
+        let label = UILabel()
+        label.text = "隱私權政策"
+        label.textAlignment = .center
+        label.textColor = UIColor.flatSkyBlue
+        label.font = UIFont.systemFont(ofSize: 15)
+
+        return label
     }()
 
     // MARK: - View Did Load
@@ -182,13 +218,28 @@ class LogInViewController: UIViewController {
         containerView.addSubview(logInButton)
         containerView.addSubview(registerBTN)
 
+        view.addSubview(descriptionLabel)
+        view.addSubview(userPolicyLabel)
+        view.addSubview(privacyPolicyLabel)
+
         setAppNameLabel()
 
         setContaionerView()
     }
 
-    deinit {
-        print("LoginView deinited")
+    @objc func performUserPolicyPage() {
+
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+
+        guard
+            let userPrivacyVC = storyboard.instantiateViewController(
+                withIdentifier: "UserPolicyViewController"
+                ) as? UserPolicyViewController
+            else { fatalError("Please check the ID for UserPolicyViewController")}
+
+        let navigationCTL = UINavigationController(rootViewController: userPrivacyVC)
+
+        self.present(navigationCTL, animated: true, completion: nil)
     }
 
     @objc func loginBTNPressed() {
@@ -285,6 +336,7 @@ class LogInViewController: UIViewController {
         containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         containerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+
 //        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
 //        containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
 
@@ -328,6 +380,32 @@ class LogInViewController: UIViewController {
         registerBTN.widthAnchor.constraint(equalToConstant: 120).isActive = true
         registerBTN.heightAnchor.constraint(equalToConstant: 45).isActive = true
 
+        descriptionLabel.anchor(
+            top: containerView.bottomAnchor,
+            leading: containerView.leadingAnchor,
+            bottom: nil,
+            trailing: containerView.trailingAnchor,
+            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
+            size: .init(width: 0, height: 15)
+        )
+
+        userPolicyLabel.anchor(
+            top: descriptionLabel.bottomAnchor,
+            leading: nil,
+            bottom: nil,
+            trailing: descriptionLabel.centerXAnchor,
+            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
+            size: .init(width: 100, height: 15)
+        )
+
+        privacyPolicyLabel.anchor(
+            top: descriptionLabel.bottomAnchor,
+            leading: descriptionLabel.centerXAnchor,
+            bottom: nil,
+            trailing: nil,
+            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
+            size: .init(width: 100, height: 15)
+        )
     }
 }
 
@@ -336,10 +414,15 @@ extension LogInViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 
         switch textField {
+
         case self.emailTextField:
+
             self.passwordTextField.becomeFirstResponder()
+
         default:
+
             self.loginBTNPressed()
+
         }
 
         return false

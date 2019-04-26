@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     let topContainterView: UIView = {
 
         let view = UIView()
+        view.backgroundColor = UIColor.flatWatermelonDark
 
         return view
     }()
@@ -32,7 +33,7 @@ class ProfileViewController: UIViewController {
         let button = UIButton(type: .custom)
         button.addTarget(self, action: #selector(singOut), for: .touchUpInside)
         button.setImage(UIImage(named: "icons8-exit-100"), for: .normal)
-        button.tintColor = UIColor(hexString: "#faefd1")
+        button.tintColor = UIColor(hexString: "#F2EDEC")
 
         let barButton = UIBarButtonItem(customView: button)
 
@@ -43,10 +44,11 @@ class ProfileViewController: UIViewController {
     lazy var profileImageView: UIImageView = {
 
         let imgView = UIImageView()
-        imgView.layer.cornerRadius = 100
+        imgView.layer.cornerRadius = 75
         imgView.layer.borderWidth = 5
-        imgView.layer.borderColor = UIColor.white.cgColor
+        imgView.layer.borderColor = UIColor(hexString: "F2EDEC")?.cgColor
         imgView.clipsToBounds = true
+        imgView.tintColor = UIColor(hexString: "F2EDEC")
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = UIImage(named: "user")
         imgView.isUserInteractionEnabled = true
@@ -64,16 +66,8 @@ class ProfileViewController: UIViewController {
     let bottomContainerView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor(hexString: "#faefd1")
+//        view.backgroundColor = UIColor(hexString: "feffdf")
         return view
-    }()
-
-    let nameLabel: UILabel = {
-
-        let label = UILabel()
-        label.text = "用戶名稱"
-
-        return label
     }()
 
     let emailLabel: UILabel = {
@@ -96,6 +90,9 @@ class ProfileViewController: UIViewController {
 
         let label = UILabel()
         label.text = CurrentUser.shared.user?.displayName
+        label.textAlignment = .center
+        label.textColor = UIColor(hexString: "F2EDEC")
+        label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
 
         return label
     }()
@@ -123,7 +120,8 @@ class ProfileViewController: UIViewController {
     let connectedAccountLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "已連結的Youtube帳號"
+        label.text = "已連結的Youtube帳號 :"
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
 
         return label
 
@@ -132,7 +130,6 @@ class ProfileViewController: UIViewController {
     let youtubeAccountLabel: UILabel = {
 
         let label = UILabel()
-        label.text = "fm334142@gmail.com"
 
         return label
 
@@ -154,16 +151,22 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(hexString: "#faefd1")
+        view.backgroundColor = UIColor(hexString: "F2EDEC")
 
         navigationItem.setRightBarButton(signOutBTN, animated: true)
 
-        navigationController?.navigationBar.barTintColor = UIColor(hexString: "#ea5959")
+        navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonDark
+
+        navigationController?.navigationBar.isTranslucent = false
+
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+
+        navigationController?.navigationBar.shadowImage = UIImage()
 
         navigationItem.title = "個人檔案"
 
         navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "F2EDEC")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 21, weight: .bold)
         ]
 
@@ -176,7 +179,6 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileImageView)
         view.addSubview(bottomContainerView)
 
-        bottomContainerView.addSubview(nameLabel)
         bottomContainerView.addSubview(emailLabel)
         bottomContainerView.addSubview(passwordLabel)
 
@@ -247,37 +249,37 @@ class ProfileViewController: UIViewController {
         )
 
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
 
-        profileImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+
+        nameContent.anchor(
+            top: profileImageView.bottomAnchor,
+            leading: nil,
+            bottom: nil,
+            trailing: nil,
+            padding: .init(top: 15, left: 0, bottom: 0, right: 10),
+            size: .init(width: 200, height: 30)
+        )
 
     }
 
     func setBottomLayout() {
 
         bottomContainerView.anchor(
-            top: profileImageView.bottomAnchor,
+            top: topContainterView.bottomAnchor,
             leading: nil,
             bottom: view.bottomAnchor,
             trailing: nil,
-            padding: .init(top: 15, left: 0, bottom: 30, right: 0),
+            padding: .init(top: 20, left: 0, bottom: 30, right: 0),
             size: .init(width: 330, height: 0)
         )
 
         bottomContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
-        nameLabel.anchor(
-            top: bottomContainerView.topAnchor,
-            leading: bottomContainerView.leadingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 40, left: 20, bottom: 0, right: 0),
-            size: .init(width: 100, height: 30)
-        )
-
         emailLabel.anchor(
-            top: nameLabel.bottomAnchor,
+            top: bottomContainerView.topAnchor,
             leading: bottomContainerView.leadingAnchor,
             bottom: nil,
             trailing: nil,
@@ -294,23 +296,14 @@ class ProfileViewController: UIViewController {
             size: .init(width: 100, height: 30)
         )
 
-        nameContent.anchor(
+        nameContent.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+        emailContent.anchor(
             top: nil,
             leading: bottomContainerView.leadingAnchor,
             bottom: nil,
             trailing: bottomContainerView.trailingAnchor,
             padding: .init(top: 0, left: 130, bottom: 0, right: 10),
-            size: .init(width: 0, height: 30)
-        )
-
-        nameContent.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor).isActive = true
-
-        emailContent.anchor(
-            top: nil,
-            leading: nameContent.leadingAnchor,
-            bottom: nil,
-            trailing: bottomContainerView.trailingAnchor,
-            padding: .init(top: 0, left: 0, bottom: 0, right: 10),
             size: .init(width: 0, height: 30)
         )
 
@@ -338,7 +331,7 @@ class ProfileViewController: UIViewController {
 
         youtubeAccountLabel.anchor(
             top: connectedAccountLabel.bottomAnchor,
-            leading: nameLabel.leadingAnchor,
+            leading: emailLabel.leadingAnchor,
             bottom: nil,
             trailing: bottomContainerView.trailingAnchor,
             padding: .init(top: 10, left: 0, bottom: 0, right: 10),
@@ -347,7 +340,7 @@ class ProfileViewController: UIViewController {
 
         youtubeConnectBTN.anchor(
             top: youtubeAccountLabel.bottomAnchor,
-            leading: nameLabel.leadingAnchor,
+            leading: emailLabel.leadingAnchor,
             bottom: nil,
             trailing: nil,
             padding: .init(top: 5, left: 0, bottom: 0, right: 0),

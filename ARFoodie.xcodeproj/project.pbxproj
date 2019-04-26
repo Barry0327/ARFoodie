@@ -20,7 +20,6 @@
 		9756357822688784009AE63B /* CrashlyticsTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756357722688784009AE63B /* CrashlyticsTestViewController.swift */; };
 		9756357A2269B677009AE63B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975635792269B677009AE63B /* FirebaseManager.swift */; };
 		9756357C2269BBBA009AE63B /* ProfileViewController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756357B2269BBBA009AE63B /* ProfileViewController+handlers.swift */; };
-		97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA1225201E900DC4B43 /* PhotoCell.swift */; };
 		97A49FA622526CB600DC4B43 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA522526CB600DC4B43 /* Extension.swift */; };
 		97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */; };
 		97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */; };
@@ -47,6 +46,7 @@
 		97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25694224C9EBD00175E42 /* Restaurant.swift */; };
 		97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */; };
 		97D2569A224CD04F00175E42 /* Portocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25699224CD04F00175E42 /* Portocol.swift */; };
+		97E610D82273097C00A8C199 /* UserPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E610D72273097C00A8C199 /* UserPolicyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +65,6 @@
 		9756357722688784009AE63B /* CrashlyticsTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsTestViewController.swift; sourceTree = "<group>"; };
 		975635792269B677009AE63B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9756357B2269BBBA009AE63B /* ProfileViewController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+handlers.swift"; sourceTree = "<group>"; };
-		97A49FA1225201E900DC4B43 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		97A49FA522526CB600DC4B43 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
 		97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailManager.swift; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		97D25694224C9EBD00175E42 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoManager.swift; sourceTree = "<group>"; };
 		97D25699224CD04F00175E42 /* Portocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portocol.swift; sourceTree = "<group>"; };
+		97E610D72273097C00A8C199 /* UserPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPolicyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,6 @@
 		97A6C8DB22620F0A002FAA90 /* Cell Controller */ = {
 			isa = PBXGroup;
 			children = (
-				97A49FA1225201E900DC4B43 /* PhotoCell.swift */,
 				97A49FAD2254DC5A00DC4B43 /* MapCell.swift */,
 				975635702266FDC0009AE63B /* CommentCell.swift */,
 				97B718E5227061D70010BF33 /* InformationCell.swift */,
@@ -208,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
+				97E610D72273097C00A8C199 /* UserPolicyViewController.swift */,
 				97A49FAF22573D4000DC4B43 /* LogInViewController.swift */,
 				970230DA225907D600BD8AF2 /* RegisterViewController.swift */,
 				97563574226835BA009AE63B /* RegisterViewController+handlers.swift */,
@@ -483,10 +483,10 @@
 				97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */,
 				97B718EA227075AB0010BF33 /* DetailViewController+handlers.swift in Sources */,
 				97563575226835BB009AE63B /* RegisterViewController+handlers.swift in Sources */,
-				97A49FA3225201E900DC4B43 /* PhotoCell.swift in Sources */,
 				97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */,
 				97B718E2226C9B150010BF33 /* ErrorHandlers.swift in Sources */,
 				9756357A2269B677009AE63B /* FirebaseManager.swift in Sources */,
+				97E610D82273097C00A8C199 /* UserPolicyViewController.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */,
 				97A6C8F222648C9E002FAA90 /* LFLivePreview.m in Sources */,
 				97B718E0226AC3690010BF33 /* CurrentUser.swift in Sources */,

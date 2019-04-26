@@ -19,7 +19,7 @@ class CreateLiveBoardcastViewController: UIViewController {
         let view = UIView()
         view.layer.cornerRadius = 20
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(hexString: "feffdf")!
+        view.backgroundColor = UIColor(hexString: "F2EDEC")!
 
         return view
     }()
@@ -83,7 +83,7 @@ class CreateLiveBoardcastViewController: UIViewController {
         let button = UIButton()
         button.layer.cornerRadius = 20
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor(hexString: "feffdf")!,
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "F2EDEC")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "確認", attributes: textAttributes)
@@ -94,10 +94,25 @@ class CreateLiveBoardcastViewController: UIViewController {
         return button
     }()
 
+    let hintLabel: UILabel = {
+
+        let label = UILabel()
+        label.text = "您的直播將公開於Youtube平台上"
+        label.adjustsFontSizeToFitWidth = true
+        label.textColor = UIColor(hexString: "#ea5959")
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textAlignment = .center
+
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.hideKeyboardWhenTappedAround()
+
+        titleTextField.delegate = self
+        descriptionTextField.delegate = self
 
         view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         view.isOpaque = true
@@ -109,6 +124,7 @@ class CreateLiveBoardcastViewController: UIViewController {
         containerView.addSubview(descriptionTextField)
         containerView.addSubview(cancelButton)
         containerView.addSubview(startButton)
+        containerView.addSubview(hintLabel)
 
         setLayout()
     }
@@ -172,7 +188,7 @@ class CreateLiveBoardcastViewController: UIViewController {
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         containerView.widthAnchor.constraint(equalToConstant: 250).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 320).isActive = true
 
         titleLabel.anchor(
             top: containerView.topAnchor,
@@ -227,5 +243,35 @@ class CreateLiveBoardcastViewController: UIViewController {
             padding: .init(top: 30, left: 0, bottom: 0, right: 20),
             size: .init(width: 90, height: 40)
         )
+
+        hintLabel.anchor(
+            top: nil,
+            leading: containerView.leadingAnchor,
+            bottom: containerView.bottomAnchor,
+            trailing: containerView.trailingAnchor,
+            padding: .init(top: 0, left: 10, bottom: 15, right: 10),
+            size: .init(width: 0, height: 15)
+        )
+    }
+}
+
+extension CreateLiveBoardcastViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        switch textField {
+
+        case self.titleTextField:
+
+            self.descriptionTextField.becomeFirstResponder()
+
+        default:
+
+            self.starBTNPressed()
+
+        }
+
+        return false
+
     }
 }

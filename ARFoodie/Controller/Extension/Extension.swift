@@ -58,3 +58,21 @@ extension CALayer {
         }
     }
 }
+
+extension UITableView {
+
+    func scrollToBottom() {
+
+        DispatchQueue.main.async { [weak self] in
+
+            guard let self = self else { return }
+
+            let indexPath = IndexPath(
+                row: self.numberOfRows(inSection: self.numberOfSections-1)-1,
+                section: self.numberOfSections-1
+            )
+
+            self.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+}

@@ -62,6 +62,8 @@ class RegisterViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
         )
         textField.textAlignment = .center
+        textField.textColor = UIColor(hexString: "E4DAD8")
+        textField.tintColor = UIColor(hexString: "E4DAD8")
 
         return textField
     }()
@@ -94,6 +96,8 @@ class RegisterViewController: UIViewController {
             string: "輸入電子郵件",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
         )
+        textField.textColor = UIColor(hexString: "E4DAD8")
+        textField.tintColor = UIColor(hexString: "E4DAD8")
 
         return textField
     }()
@@ -127,6 +131,8 @@ class RegisterViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
         )
         textField.isSecureTextEntry = true
+        textField.textColor = UIColor(hexString: "E4DAD8")
+        textField.tintColor = UIColor(hexString: "E4DAD8")
 
         return textField
     }()
@@ -160,6 +166,8 @@ class RegisterViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor(hexString: "#BBC4C2")!]
         )
         textField.isSecureTextEntry = true
+        textField.textColor = UIColor(hexString: "E4DAD8")
+        textField.tintColor = UIColor(hexString: "E4DAD8")
 
         return textField
     }()
