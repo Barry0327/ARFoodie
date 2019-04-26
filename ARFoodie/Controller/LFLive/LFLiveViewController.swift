@@ -44,6 +44,7 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
 
         let edgeInsets = UIEdgeInsets.init(top: 40, left: 40, bottom: 40, right: 40)
         button.imageEdgeInsets = edgeInsets
+        button.layer.applySketchShadow()
 
         return button
     }()
@@ -61,6 +62,7 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
 
         let edgeInsets = UIEdgeInsets.init(top: 40, left: 40, bottom: 40, right: 40)
         button.imageEdgeInsets = edgeInsets
+        button.layer.applySketchShadow()
 
         return button
     }()
