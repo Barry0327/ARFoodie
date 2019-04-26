@@ -138,7 +138,7 @@ class ProfileViewController: UIViewController {
     lazy var youtubeConnectBTN: UIButton = {
 
         let button = UIButton()
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
         button.addTarget(self, action: #selector(youtubeConnectHandler), for: .touchUpInside)
         button.contentHorizontalAlignment = .left
@@ -344,7 +344,7 @@ class ProfileViewController: UIViewController {
             bottom: nil,
             trailing: nil,
             padding: .init(top: 5, left: 0, bottom: 0, right: 0),
-            size: .init(width: 100, height: 30)
+            size: .init(width: 150, height: 30)
         )
     }
 

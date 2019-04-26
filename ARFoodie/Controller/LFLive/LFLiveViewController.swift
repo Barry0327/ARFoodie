@@ -109,31 +109,45 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
 
         if self.publishButton.isSelected {
 
-            self.publishButton.isSelected = false
+            let alert = UIAlertController(title: "停止直播", message: "確認要停止直播嗎？", preferredStyle: .alert)
 
-            self.publishButton.setTitle("開始直播", for: .normal)
+            let confirmAction = UIAlertAction.init(title: "確認", style: .default) { (_) in
 
-            IHProgressHUD.show()
+                self.publishButton.isSelected = false
 
-            self.liveStreamManager.completeBoardcast { [weak self] in
+                self.publishButton.setTitle("開始直播", for: .normal)
 
-                guard let self = self else { return }
+                IHProgressHUD.show()
 
-                self.lfView.stopPublishing()
-
-                print("LFView did stop")
-
-                IHProgressHUD.dismiss()
-
-                DispatchQueue.main.async { [weak self] in
+                self.liveStreamManager.completeBoardcast { [weak self] in
 
                     guard let self = self else { return }
 
-                    UIView.animate(withDuration: 0.6, animations: {
-                        self.liveImageView.alpha = 0
-                    })
+                    self.lfView.stopPublishing()
+
+                    print("LFView did stop")
+
+                    IHProgressHUD.dismiss()
+
+                    DispatchQueue.main.async { [weak self] in
+
+                        guard let self = self else { return }
+
+                        UIView.animate(withDuration: 0.6, animations: {
+                            self.liveImageView.alpha = 0
+                        })
+                    }
                 }
+
             }
+
+            let cancelAction = UIAlertAction.init(title: "取消", style: .cancel, handler: nil)
+
+            alert.addAction(confirmAction)
+            alert.addAction(cancelAction)
+
+            self.present(alert, animated: true, completion: nil)
+
         } else {
 
             self.publishButton.isSelected = true
