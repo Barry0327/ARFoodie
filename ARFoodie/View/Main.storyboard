@@ -88,10 +88,10 @@
             </objects>
             <point key="canvasLocation" x="5766" y="-434"/>
         </scene>
-        <!--View Controller-->
+        <!--Privacy Policy View Controller-->
         <scene sceneID="nr1-TV-x7S">
             <objects>
-                <viewController id="aAN-C0-cZ4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PrivacyPolicyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aAN-C0-cZ4" customClass="PrivacyPolicyViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zMh-ho-FaR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">隱私權政策
+                                <string key="text">隱私權政策
 生效日期：2019年4月26日
 ARFoodie（ 我們 ， 我們 或 我們的 ）操作ARFoodie移動應用程序（以下稱為 服務 ）。
 當您使用我們的服務以及與該數據相關的選擇時，本頁面會告知您有關個人數據的收集，使用和披露的政策。我們的隱私政策ARFoodie是在隱私政策網站的幫助下創建的。
@@ -168,7 +168,7 @@ Firebase是Google Inc.提供的分析服務。
 建議您定期查看本隱私政策以了解任何變更。本隱私政策的更改在此頁面上發佈時生效。
 聯繫我們
 如果您對本隱私政策有任何疑問，請聯繫我們：
-通過網站聯絡：https://www.facebook.com/ARFoodie-1557706827707014</mutableString>
+通過網站聯絡：https://www.facebook.com/ARFoodie-1557706827707014</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -176,6 +176,9 @@ Firebase是Google Inc.提供的分析服務。
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yYN-Tn-x8O"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="adQ-Fe-kbd" id="1J6-c0-5fV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LeY-Ua-i7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,7 +196,7 @@ Firebase是Google Inc.提供的分析服務。
                                 <rect key="frame" x="0.0" y="62" width="375" height="605"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">使用條款
+                                <string key="text">使用條款
 最後更新日期：2019/04/26 
 ARFoodie 使用條款協議，以下簡稱「使用者」、「一般使用者」、「您」或「您的」）及註冊會員（以下簡稱「會員」、「您」或「您的」）的共同協議。
 ARFoodie  您使用或訪問 ARFoodie 行動裝置 APP ，即視為您已知悉、並完全同意本協議的所有約定，並同意受其及相關法律之約束。 
@@ -225,7 +228,7 @@ ARFoodie 不保證、認同、擔保或承擔由任何第三方通過服務或�
 隱私權政策 
 ARFoodie 服務非常重視 ARFoodie  的會員的線上個人隱私。為了讓您瞭解我們將如何蒐集、應用及保護您所提供的個人資訊，請詳閱下列隱私權保護聲明。  個人資料之取得：  當您註冊成為本服務會員時，本服務會請您提供您的名稱、註冊帳號（即電子郵件信箱）、使服務必要之資料。 一經註冊成功後，您可利用您所設定的帳號充分使用本服務提供的各項服務。對於您的提供的個人資料，您可隨時進入個人設定修正您的資料以保持其正確性。 
 個人資料之運用：  您註冊會員時所輸入之資料，僅供本服務提供之服務、活動設計、內部作業需要之參考、統計使用。除非您同意，我們不會將這些資訊用做其他用途或與第三者分享及使用，但以下情形除外：  受警察 /檢察/司法/稅捐稽徵機關或其他有權機關基於法定程序之要求。 經您書面同意利用於其他目的。 其他符合相關個人資料保護法規情形。
-隱私權保護聲明的執行：  如果您對我們的隱私權保護聲明有任何問題，請與開發者中心連絡。  隱私權保護聲明的更新：本服務保留隨時修改本隱私權保護聲明的權利。修改後的條款將公佈於本服務網站上之相關網頁，並自公佈之日起生效，不另行通知。</mutableString>
+隱私權保護聲明的執行：  如果您對我們的隱私權保護聲明有任何問題，請與開發者中心連絡。  隱私權保護聲明的更新：本服務保留隨時修改本隱私權保護聲明的權利。修改後的條款將公佈於本服務網站上之相關網頁，並自公佈之日起生效，不另行通知。</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -317,6 +320,6 @@ ARFoodie 服務非常重視 ARFoodie  的會員的線上個人隱私。為了讓
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UyN-ne-Uvz"/>
+        <segue reference="o4s-Md-j1r"/>
     </inferredMetricsTieBreakers>
 </document>

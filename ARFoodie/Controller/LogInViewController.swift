@@ -170,13 +170,16 @@ class LogInViewController: UIViewController {
         return label
     }()
 
-    let privacyPolicyLabel: UILabel = {
+    lazy var privacyPolicyLabel: UILabel = {
 
         let label = UILabel()
         label.text = "隱私權政策"
         label.textAlignment = .center
         label.textColor = UIColor.flatSkyBlue
         label.font = UIFont.systemFont(ofSize: 15)
+        label.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(performPrivacyPolicyPage))
+        label.addGestureRecognizer(gesture)
 
         return label
     }()
@@ -236,6 +239,21 @@ class LogInViewController: UIViewController {
                 withIdentifier: "UserPolicyViewController"
                 ) as? UserPolicyViewController
             else { fatalError("Please check the ID for UserPolicyViewController")}
+
+        let navigationCTL = UINavigationController(rootViewController: userPrivacyVC)
+
+        self.present(navigationCTL, animated: true, completion: nil)
+    }
+
+    @objc func performPrivacyPolicyPage() {
+
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+
+        guard
+            let userPrivacyVC = storyboard.instantiateViewController(
+                withIdentifier: "PrivacyPolicyViewController"
+                ) as? PrivacyPolicyViewController
+            else { fatalError("Please check the ID for PrivacyPolicyViewController")}
 
         let navigationCTL = UINavigationController(rootViewController: userPrivacyVC)
 
