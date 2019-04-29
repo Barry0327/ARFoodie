@@ -37,7 +37,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         button.backgroundColor = UIColor.flatWatermelonDark
         button.translatesAutoresizingMaskIntoConstraints = false
         button.cornerRadius = 25
-        button.addTarget(self, action: #selector(reloadData), for: .touchUpInside)
+        button.addTarget(self, action: #selector(searchBTNTapped), for: .touchUpInside)
         let textAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: UIColor(hexString: "E4DAD8")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
@@ -77,7 +77,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         searchRestaurantsBTN.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
-    @objc func reloadData() {
+    @objc func searchBTNTapped() {
 
         self.searchRestaurantsBTN.startAnimation()
         self.sceneLocationView.removeAllNodes()
@@ -194,7 +194,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
 extension MainARViewController: RestaurantInfoDelegate {
 
-    func restaurantInfoManager(didFetch restaurants: [Restaurant]) {
+    func manager(_ manager: RestaurantInfoManager, didFetch restaurants: [Restaurant]) {
 
         self.restaurants = restaurants
 
@@ -257,7 +257,7 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
             let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
-            self.adjustedHeight += 5
+            self.adjustedHeight += 3
             print(adjustedHeight)
 
             let annotaionNode = LocationAnnotationNode(location: location, image: image)
@@ -275,7 +275,7 @@ extension MainARViewController: RestaurantInfoDelegate {
         }
     }
 
-    func restaurantInfoManager(didFailed with: Error) {
+    func manager(_ manager: RestaurantInfoManager, didFailed with: Error) {
 
         let alert = UIAlertController(title: "連線失敗", message: "連線有問題，請檢查網路連線", preferredStyle: .alert)
 

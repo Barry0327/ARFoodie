@@ -44,7 +44,7 @@ class RestaurantInfoManager {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
 
-                    self.delegate?.restaurantInfoManager(didFailed: response.error!)
+                    self.delegate?.manager(self, didFailed: response.error!)
 
                 }
                 return
@@ -108,7 +108,7 @@ class RestaurantInfoManager {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
 
-                    self.delegate?.restaurantInfoManager(didFetch: restaurants)
+                    self.delegate?.manager(self, didFetch: restaurants)
 
                 }
             }

@@ -10,21 +10,22 @@ import UIKit
 
 protocol RestaurantInfoDelegate: AnyObject {
 
-    func restaurantInfoManager(didFetch restaurants: [Restaurant])
+    func manager(_ manager: RestaurantInfoManager, didFetch restaurants: [Restaurant])
 
-    func restaurantInfoManager(didFailed with: Error)
+    func manager(_ manager: RestaurantInfoManager, didFailed with: Error)
 
 }
 
 protocol RestaurantDetailDelegate: AnyObject {
 
-    func restaurantDetailManager(didFetch restaurant: RestaurantDetail)
+    func manager(_ manager: RestaurantDetailManager, didFetch restaurant: RestaurantDetail)
 
-    func restaurantDetailManager(didFailed with: Error)
+    func manager(_ manager: RestaurantDetailManager, didFailed with: Error)
 
 }
 
 protocol LiveStreamManagerDelegate: AnyObject {
 
     func manager(_ manager: LiveStreamManager, didFetch broadcastURL: String)
+
 }

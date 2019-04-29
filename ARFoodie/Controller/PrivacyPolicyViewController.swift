@@ -11,6 +11,7 @@ import UIKit
 class PrivacyPolicyViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
+
     lazy var dismissBTN: UIBarButtonItem = {
 
         let button = UIButton(type: .custom)
