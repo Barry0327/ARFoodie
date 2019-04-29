@@ -17,6 +17,10 @@ import MessageUI
 
 class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     var placeID: String = ""
 
     var comments = [Comment]()
@@ -423,10 +427,12 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
             }
 
             return [report]
+
         default:
             return nil
         }
     }
+
 }
 extension DetailViewController: MFMailComposeViewControllerDelegate {
 
