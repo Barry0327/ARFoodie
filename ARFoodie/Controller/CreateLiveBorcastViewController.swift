@@ -12,6 +12,10 @@ import IHProgressHUD
 
 class CreateLiveBoardcastViewController: UIViewController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     let input: YTLiveStreaming = YTLiveStreaming()
 
     let containerView: UIView = {

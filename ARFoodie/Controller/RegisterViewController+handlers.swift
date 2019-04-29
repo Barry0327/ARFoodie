@@ -128,16 +128,22 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
             if error != nil {
                 print("Failed to save user data")
             }
+
+            self.nameTextField.text = nil
+            self.emailTextField.text = nil
+            self.passwordTextField.text = nil
+            self.confirmTextField.text = nil
+
+            IHProgressHUD.dismiss()
+
+            DispatchQueue.main.async { [weak self] in
+
+                guard let self = self else { return }
+
+                self.performSegue(withIdentifier: "FinishRegister", sender: nil)
+
+            }
         }
-
-        self.nameTextField.text = nil
-        self.emailTextField.text = nil
-        self.passwordTextField.text = nil
-        self.confirmTextField.text = nil
-
-        IHProgressHUD.dismiss()
-
-        self.performSegue(withIdentifier: "FinishRegister", sender: nil)
 
     }
 

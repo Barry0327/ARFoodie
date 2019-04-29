@@ -73,7 +73,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
         searchRestaurantsBTN.widthAnchor.constraint(equalToConstant: 180).isActive = true
         searchRestaurantsBTN.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        searchRestaurantsBTN.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70).isActive = true
+        searchRestaurantsBTN.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         searchRestaurantsBTN.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 

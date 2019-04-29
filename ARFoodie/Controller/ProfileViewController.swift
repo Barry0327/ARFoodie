@@ -245,7 +245,7 @@ class ProfileViewController: UIViewController {
             leading: view.leadingAnchor,
             bottom: nil,
             trailing: view.trailingAnchor,
-            size: .init(width: 0, height: 270)
+            size: .init(width: 0, height: view.frame.height/2.5)
         )
 
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -259,9 +259,11 @@ class ProfileViewController: UIViewController {
             leading: nil,
             bottom: nil,
             trailing: nil,
-            padding: .init(top: 15, left: 0, bottom: 0, right: 10),
+            padding: .init(top: 15, left: 0, bottom: 0, right: 0),
             size: .init(width: 200, height: 30)
         )
+
+        nameContent.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
     }
 
@@ -269,21 +271,18 @@ class ProfileViewController: UIViewController {
 
         bottomContainerView.anchor(
             top: topContainterView.bottomAnchor,
-            leading: nil,
-            bottom: view.bottomAnchor,
-            trailing: nil,
-            padding: .init(top: 20, left: 0, bottom: 30, right: 0),
-            size: .init(width: 330, height: 0)
+            leading: view.leadingAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
+            trailing: view.trailingAnchor,
+            padding: .init(top: 0, left: 20, bottom: 0, right: 20)
         )
-
-        bottomContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
         emailLabel.anchor(
             top: bottomContainerView.topAnchor,
             leading: bottomContainerView.leadingAnchor,
             bottom: nil,
             trailing: nil,
-            padding: .init(top: 10, left: 20, bottom: 0, right: 0),
+            padding: .init(top: 25, left: 20, bottom: 0, right: 0),
             size: .init(width: 100, height: 30)
         )
 
@@ -295,8 +294,6 @@ class ProfileViewController: UIViewController {
             padding: .init(top: 10, left: 20, bottom: 0, right: 0),
             size: .init(width: 100, height: 30)
         )
-
-        nameContent.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
         emailContent.anchor(
             top: nil,
