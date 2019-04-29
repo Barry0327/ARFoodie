@@ -209,6 +209,9 @@ class LogInViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
 
         view.backgroundColor = UIColor.flatWatermelonDark
+
+        let string = UIColor.hexValue(UIColor.flatWatermelonDark)()
+        print(string)
         view.addSubview(appNameLabel)
         view.addSubview(containerView)
 

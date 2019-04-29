@@ -151,8 +151,6 @@ extension ProfileViewController: GIDSignInDelegate, GIDSignInUIDelegate {
 
             self.youtubeAccountLabel.text = currentUser.profile.email
             self.youtubeConnectBTN.setTitle("解除連結", for: .normal)
-            self.youtubeConnectBTN.widthAnchor.constraint(equalToConstant: 70).isActive = true
-            self.bottomContainerView.layoutIfNeeded()
 
         } else {
 
