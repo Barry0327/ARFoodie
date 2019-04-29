@@ -19,7 +19,7 @@ class LFLiveViewController: UIViewController, LiveStreamTransitioning {
 
     var boardcast: LiveBroadcastStreamModel?
 
-    let liveStreamManager = LiveStreamManager.shared
+    let liveStreamManager = LiveStreamManager()
 
     lazy var publishButton: UIButton = {
 

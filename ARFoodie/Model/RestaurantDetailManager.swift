@@ -39,7 +39,7 @@ class RestaurantDetailManager {
             if response.error != nil {
 
                 print("Failed to fetch restaurant detail")
-                self.delegate?.restaurantDetailManager(didFailed: response.error!)
+                self.delegate?.manager(self, didFailed: response.error!)
                 return
             }
 
@@ -125,7 +125,7 @@ class RestaurantDetailManager {
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
 
-                    self.delegate?.restaurantDetailManager(didFetch: restaurant)
+                    self.delegate?.manager(self, didFetch: restaurant)
 
                 }
             }

@@ -459,7 +459,7 @@ extension DetailViewController: GMSMapViewDelegate {
 
 extension DetailViewController: RestaurantDetailDelegate {
 
-    func restaurantDetailManager(didFetch restaurant: RestaurantDetail) {
+    func manager(_ manager: RestaurantDetailManager, didFetch restaurant: RestaurantDetail) {
 
         self.restaurantDetail = restaurant
 
@@ -469,7 +469,7 @@ extension DetailViewController: RestaurantDetailDelegate {
 
     }
 
-    func restaurantDetailManager(didFailed with: Error) {
+    func manager(_ manager: RestaurantDetailManager, didFailed with: Error) {
 
         AuthenticationError.connetError.alert(message: with.localizedDescription)
 

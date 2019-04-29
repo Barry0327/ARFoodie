@@ -26,12 +26,15 @@ class LiveStreamManager: LiveStreamTransitioning {
             print("Boardcast is nil")
             return
         }
+
         self.input.startBroadcast(boardcast, delegate: self) { (streamName, streamURL, _) in
 
             guard
                 let streamName = streamName,
                 let streamURL = streamURL
                 else {
+
+                    AuthenticationError.connetError.alert(message: "連線失敗，請重試")
                     return
             }
 
@@ -40,7 +43,7 @@ class LiveStreamManager: LiveStreamTransitioning {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
 
-                self.delegate?.manager(LiveStreamManager.shared, didFetch: url)
+                self.delegate?.manager(self, didFetch: url)
             }
         }
     }
