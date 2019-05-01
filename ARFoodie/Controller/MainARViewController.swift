@@ -262,6 +262,9 @@ extension MainARViewController: RestaurantInfoDelegate {
 
             let annotaionNode = LocationAnnotationNode(location: location, image: image)
 
+            annotaionNode.continuallyAdjustNodePositionWhenWithinRange = false
+            annotaionNode.continuallyUpdatePositionAndScale = false
+
             annotaionNode.renderOnTop()
 
             self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
