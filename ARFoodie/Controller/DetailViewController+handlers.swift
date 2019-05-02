@@ -54,6 +54,12 @@ extension DetailViewController: GIDSignInDelegate, GIDSignInUIDelegate {
 
     @objc func sendButtonTapped() {
 
+        guard CurrentUser.shared.user != nil else {
+
+            AuthenticationError.connetError.alert(message: "您尚未登入，請重新登入")
+
+            return
+        }
         print("Triggered")
         self.commentTextField.endEditing(true)
         self.commentTextField.isEnabled = false

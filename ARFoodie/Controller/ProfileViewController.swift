@@ -172,7 +172,7 @@ class ProfileViewController: UIViewController {
 
         self.currentUser = CurrentUser.shared.user
         self.nameContent.text = self.currentUser?.displayName
-        self.emailContent.text = self.currentUser?.email
+        self.emailContent.text = self.currentUser?.email ?? "尚未登入"
         self.fetchProfileImage()
 
         view.addSubview(topContainterView)
@@ -202,38 +202,6 @@ class ProfileViewController: UIViewController {
 
         checkYoutubeConnectState()
 
-    }
-
-    @objc func singOut() {
-
-        if Auth.auth().currentUser != nil {
-
-            print("did sign out")
-
-            do {
-
-                try Auth.auth().signOut()
-
-                GIDSignIn.sharedInstance()?.signOut()
-
-                CurrentUser.shared.user = nil
-
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
-
-                    self.present(loginVC, animated: true, completion: nil)
-                }
-
-            } catch {
-
-                AuthenticationError.connetError.alert(message: error.localizedDescription)
-
-                print(error.localizedDescription)
-
-            }
-        } else {
-            AuthenticationError.connetError.alert(message: "您尚未登入")
-        }
     }
 
     // MARK: - Auto Layout Method

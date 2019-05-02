@@ -14,6 +14,46 @@ import YTLiveStreaming
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @objc func singOut() {
+
+        if Auth.auth().currentUser != nil {
+
+            print("did sign out")
+
+            do {
+
+                try Auth.auth().signOut()
+
+                GIDSignIn.sharedInstance()?.signOut()
+
+                CurrentUser.shared.user = nil
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
+
+                    self.present(loginVC, animated: true, completion: nil)
+                }
+
+            } catch {
+
+                AuthenticationError.connetError.alert(message: error.localizedDescription)
+
+                print(error.localizedDescription)
+
+            }
+        } else {
+
+            AuthenticationError.connetError.alert(message: "您尚未登入")
+
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+
+            if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
+
+                self.present(loginVC, animated: true, completion: nil)
+            }
+        }
+    }
+
     @objc func profileImageViewSelectHandler() {
 
         let picker = UIImagePickerController()
