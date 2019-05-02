@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import IHProgressHUD
 import ChameleonFramework
 
 class LogInViewController: UIViewController {
@@ -145,6 +143,24 @@ class LogInViewController: UIViewController {
         return button
     }()
 
+    let visitorBTN: UIButton = {
+
+        let button = UIButton()
+        button.layer.cornerRadius = 18
+        let textAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(hexString: "E4DAD8")!,
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)
+        ]
+        let attributeString = NSAttributedString(string: "訪客", attributes: textAttributes)
+        button.setAttributedTitle(attributeString, for: .normal)
+        button.backgroundColor = .clear
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor(hexString: "E4DAD8")?.cgColor
+        button.addTarget(self, action: #selector(visitorBTNPressed), for: .touchUpInside)
+
+        return button
+    }()
+
     let descriptionLabel: UILabel = {
 
         let label = UILabel()
@@ -210,8 +226,6 @@ class LogInViewController: UIViewController {
 
         view.backgroundColor = UIColor.flatWatermelonDark
 
-        let string = UIColor.hexValue(UIColor.flatWatermelonDark)()
-        print(string)
         view.addSubview(appNameLabel)
         view.addSubview(containerView)
 
@@ -223,125 +237,18 @@ class LogInViewController: UIViewController {
         containerView.addSubview(passwordSeparator)
         containerView.addSubview(logInButton)
         containerView.addSubview(registerBTN)
+        containerView.addSubview(visitorBTN)
 
         view.addSubview(descriptionLabel)
         view.addSubview(userPolicyLabel)
         view.addSubview(privacyPolicyLabel)
 
         setAppNameLabel()
-
         setContaionerView()
+        setBottomLabel()
     }
 
-    @objc func performUserPolicyPage() {
-
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-
-        guard
-            let userPrivacyVC = storyboard.instantiateViewController(
-                withIdentifier: "UserPolicyViewController"
-                ) as? UserPolicyViewController
-            else { fatalError("Please check the ID for UserPolicyViewController")}
-
-        let navigationCTL = UINavigationController(rootViewController: userPrivacyVC)
-
-        self.present(navigationCTL, animated: true, completion: nil)
-    }
-
-    @objc func performPrivacyPolicyPage() {
-
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-
-        guard
-            let userPrivacyVC = storyboard.instantiateViewController(
-                withIdentifier: "PrivacyPolicyViewController"
-                ) as? PrivacyPolicyViewController
-            else { fatalError("Please check the ID for PrivacyPolicyViewController")}
-
-        let navigationCTL = UINavigationController(rootViewController: userPrivacyVC)
-
-        self.present(navigationCTL, animated: true, completion: nil)
-    }
-
-    @objc func loginBTNPressed() {
-
-        guard
-            let email = emailTextField.text,
-            let password = passwordTextField.text,
-            email.count > 0,
-            password.count > 0
-        else {
-
-            AuthenticationError.invalidInformation.alert(message: "帳號或密碼有誤")
-            return
-        }
-
-        IHProgressHUD.show()
-
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
-
-            guard let self = self else { return }
-
-            if let error = error {
-
-                IHProgressHUD.dismiss()
-
-                let alert = UIAlertController(title: "登入失敗",
-                                              message: error.localizedDescription,
-                                              preferredStyle: .alert)
-
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-
-                self.present(alert, animated: true, completion: nil)
-
-            }
-
-            guard let userID = result?.user.uid else {
-
-                IHProgressHUD.dismiss()
-
-                return
-
-            }
-
-            let currentUserRef = Database.database().reference(withPath: "users").child(userID)
-
-            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
-
-                guard
-                    let info = snapshot.value as? [String: Any],
-                    let displayName = info["displayName"] as? String,
-                    let imgUID = info["profileImageUID"] as? String
-                    else { return }
-
-                var currentUser = User.init(authData: result!.user)
-
-                currentUser.displayName = displayName
-
-                currentUser.profileImageUID = imgUID
-
-                CurrentUser.shared.user = currentUser
-
-            })
-            IHProgressHUD.dismiss()
-
-            self.performSegue(withIdentifier: "FinishLogin", sender: self)
-
-        }
-
-    }
-
-    @objc func registerBTNPressed() {
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        if let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController {
-
-            self.present(registerVC, animated: true, completion: nil)
-
-        }
-
-    }
+    // MARK: - Set Up Auto Layout
 
     func setAppNameLabel() {
 
@@ -355,11 +262,8 @@ class LogInViewController: UIViewController {
 
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         containerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-
-//        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-//        containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
 
         emailIcon.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18).isActive = true
         emailIcon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15).isActive = true
@@ -401,6 +305,19 @@ class LogInViewController: UIViewController {
         registerBTN.widthAnchor.constraint(equalToConstant: 120).isActive = true
         registerBTN.heightAnchor.constraint(equalToConstant: 45).isActive = true
 
+        visitorBTN.anchor(
+            top: logInButton.bottomAnchor,
+            leading: nil,
+            bottom: nil,
+            trailing: nil,
+            padding: .init(top: 30, left: 0, bottom: 0, right: 0),
+            size: .init(width: 120, height: 36)
+        )
+        visitorBTN.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+
+    func setBottomLabel() {
+
         descriptionLabel.anchor(
             top: containerView.bottomAnchor,
             leading: containerView.leadingAnchor,
@@ -427,25 +344,5 @@ class LogInViewController: UIViewController {
             padding: .init(top: 5, left: 0, bottom: 0, right: 0),
             size: .init(width: 100, height: 15)
         )
-    }
-}
-
-extension LogInViewController: UITextFieldDelegate {
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
-        switch textField {
-
-        case self.emailTextField:
-
-            self.passwordTextField.becomeFirstResponder()
-
-        default:
-
-            self.loginBTNPressed()
-
-        }
-
-        return false
     }
 }
