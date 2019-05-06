@@ -200,60 +200,10 @@ extension MainARViewController: RestaurantInfoDelegate {
 
         for rest in restaurants {
 
-            let nameLabel = UILabel(frame: CGRect(x: 5, y: 5, width: 230, height: 30))
-            nameLabel.text = rest.name
-            nameLabel.textColor = .black
-            nameLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-            nameLabel.adjustsFontSizeToFitWidth = true
-
-            let rating: Double = rest.rating ?? 0
-            let userRatingsTotal: Double = rest.userRatingsTotal ?? 0
-
-            let ratingView = CosmosView(frame: CGRect(x: 5, y: 35, width: 150, height: 30))
-            ratingView.settings.updateOnTouch = false
-            ratingView.settings.starSize = 16
-            ratingView.settings.starMargin = 1
-            ratingView.settings.fillMode = .half
-            ratingView.settings.filledColor = UIColor.flatWatermelonDark
-            ratingView.settings.filledBorderColor = UIColor.flatWatermelonDark
-            ratingView.settings.emptyBorderColor = UIColor.flatWatermelonDark
-            ratingView.rating = rating
-            ratingView.text = String(format: "%.0f", userRatingsTotal)
-
-            let restaurantLocation = CLLocation.init(latitude: rest.lat, longitude: rest.lng)
-            let distance = self.userCurrentLocation?.distance(from: restaurantLocation)
-
-            let distanceLabel = UILabel(frame: CGRect(x: 160, y: 30, width: 90, height: 30))
-            distanceLabel.text = "\(String(format: "%.1f", distance!))m"
-            distanceLabel.font = UIFont.systemFont(ofSize: 14)
-            distanceLabel.textColor = UIColor(r: 79, g: 79, b: 79, a: 1)
-
-            let view = UIView()
-            view.isOpaque = false
-            view.frame = CGRect.init(x: 0, y: 0, width: 240, height: 70)
-            view.backgroundColor = UIColor(hexString: "F2EDEC")
-            view.alpha = 0.7
-            view.layer.applySketchShadow()
-            view.addSubview(nameLabel)
-            view.addSubview(ratingView)
-            view.addSubview(distanceLabel)
-
-            let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 240, height: 60), cornerRadius: 5)
-            path.move(to: CGPoint(x: 115, y: 60))
-            path.addLine(to: CGPoint(x: 125, y: 70))
-            path.addLine(to: CGPoint(x: 135, y: 60))
-            path.close()
-
-            let shapeLayer = CAShapeLayer()
-            shapeLayer.path = path.cgPath
-
-            view.layer.mask = shapeLayer
+            let view = generateViewWith(rest: rest)
 
             let image = view.asImage()
             image.accessibilityIdentifier = rest.placeID
-
-            let distanceInDouble: Double = Double(exactly: distance ?? 0) ?? 0
-            print(distanceInDouble)
 
             let coordinate = CLLocationCoordinate2D(latitude: rest.lat, longitude: rest.lng)
             let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
@@ -286,5 +236,59 @@ extension MainARViewController: RestaurantInfoDelegate {
 
         alert.addAction(action)
 
+    }
+
+    func generateViewWith(rest: Restaurant) -> UIView {
+
+        let nameLabel = UILabel(frame: CGRect(x: 5, y: 5, width: 230, height: 30))
+        nameLabel.text = rest.name
+        nameLabel.textColor = .black
+        nameLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        nameLabel.adjustsFontSizeToFitWidth = true
+
+        let rating: Double = rest.rating ?? 0
+        let userRatingsTotal: Double = rest.userRatingsTotal ?? 0
+
+        let ratingView = CosmosView(frame: CGRect(x: 5, y: 35, width: 150, height: 30))
+        ratingView.settings.updateOnTouch = false
+        ratingView.settings.starSize = 16
+        ratingView.settings.starMargin = 1
+        ratingView.settings.fillMode = .half
+        ratingView.settings.filledColor = UIColor.flatWatermelonDark
+        ratingView.settings.filledBorderColor = UIColor.flatWatermelonDark
+        ratingView.settings.emptyBorderColor = UIColor.flatWatermelonDark
+        ratingView.rating = rating
+        ratingView.text = String(format: "%.0f", userRatingsTotal)
+
+        let restaurantLocation = CLLocation.init(latitude: rest.lat, longitude: rest.lng)
+        let distance = self.userCurrentLocation?.distance(from: restaurantLocation)
+
+        let distanceLabel = UILabel(frame: CGRect(x: 160, y: 30, width: 90, height: 30))
+        distanceLabel.text = "\(String(format: "%.1f", distance!))m"
+        distanceLabel.font = UIFont.systemFont(ofSize: 14)
+        distanceLabel.textColor = UIColor(r: 79, g: 79, b: 79, a: 1)
+
+        let view = UIView()
+        view.isOpaque = false
+        view.frame = CGRect.init(x: 0, y: 0, width: 240, height: 70)
+        view.backgroundColor = UIColor(hexString: "F2EDEC")
+        view.alpha = 0.7
+        view.layer.applySketchShadow()
+        view.addSubview(nameLabel)
+        view.addSubview(ratingView)
+        view.addSubview(distanceLabel)
+
+        let path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 240, height: 60), cornerRadius: 5)
+        path.move(to: CGPoint(x: 115, y: 60))
+        path.addLine(to: CGPoint(x: 125, y: 70))
+        path.addLine(to: CGPoint(x: 135, y: 60))
+        path.close()
+
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+
+        view.layer.mask = shapeLayer
+
+        return view
     }
 }
