@@ -15,7 +15,7 @@ class LogInViewController: UIViewController {
         return .lightContent
     }
 
-    let appNameLabel: UILabel = {
+    private let appNameLabel: UILabel = {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +31,7 @@ class LogInViewController: UIViewController {
 
     }()
 
-    let containerView: UIView = {
+    private let containerView: UIView = {
 
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class LogInViewController: UIViewController {
         return view
     }()
 
-    let emailIcon: UIImageView = {
+    private let emailIcon: UIImageView = {
 
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +63,7 @@ class LogInViewController: UIViewController {
 
     }()
 
-    let emailSeparatorView: UIView = {
+    private let emailSeparatorView: UIView = {
 
         let view = UIView()
         view.backgroundColor = UIColor(hexString: "E4DAD8")
@@ -73,7 +73,7 @@ class LogInViewController: UIViewController {
 
     }()
 
-    let passwordIcon: UIImageView = {
+    private let passwordIcon: UIImageView = {
 
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
@@ -98,7 +98,7 @@ class LogInViewController: UIViewController {
         return textField
     }()
 
-    let passwordSeparator: UIView = {
+    private let passwordSeparator: UIView = {
 
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -107,7 +107,7 @@ class LogInViewController: UIViewController {
 
     }()
 
-    let logInButton: UIButton = {
+    private let logInButton: UIButton = {
 
         let button = UIButton()
         button.layer.cornerRadius = 22
@@ -124,7 +124,7 @@ class LogInViewController: UIViewController {
         return button
     }()
 
-    let registerBTN: UIButton = {
+    private let registerBTN: UIButton = {
 
         let button = UIButton()
         button.layer.cornerRadius = 22
@@ -143,7 +143,7 @@ class LogInViewController: UIViewController {
         return button
     }()
 
-    let visitorBTN: UIButton = {
+    private let visitorBTN: UIButton = {
 
         let button = UIButton()
         button.layer.cornerRadius = 18
@@ -161,7 +161,7 @@ class LogInViewController: UIViewController {
         return button
     }()
 
-    let descriptionLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
 
         let label = UILabel()
         label.text = "登入即代表您同意"

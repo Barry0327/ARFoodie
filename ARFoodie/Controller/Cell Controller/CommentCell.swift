@@ -15,17 +15,20 @@ class CommentCell: UITableViewCell {
 
         didSet {
 
-            if comment == nil {
+            guard comment != nil else {
 
                 self.commentBody.text = "尚無評論"
                 self.commentBody.textColor = .gray
-            } else {
+                return
 
-                self.nameLabel.text = comment?.senderName
-                self.commentBody.text = comment?.content
-                self.commentBody.textColor = .black
-                self.fetchUserImage()
             }
+
+            self.nameLabel.text = comment!.senderName
+            self.commentBody.text = comment!.content
+            self.commentBody.textColor = .black
+            FirebaseManager.shared.fetchProfileImage(
+                userUid: comment!.senderUid,
+                imgView: self.profileImageView)
         }
     }
 
@@ -93,36 +96,6 @@ class CommentCell: UITableViewCell {
 
         super.init(coder: aDecoder)
 
-    }
-
-    private func fetchUserImage() {
-
-        let storageRef = Storage.storage().reference().child("profileImages")
-
-        let usersRef = Database.database().reference().child("users")
-
-        let userRef = usersRef.child(self.comment!.senderUid)
-
-        userRef.observeSingleEvent(of: .value) { snapshot in
-
-            guard
-                let info = snapshot.value as? [String: Any],
-                let imgUID = info["profileImageUID"] as? String
-                else { return }
-
-            let imageRef = storageRef.child("\(imgUID).png")
-
-            let placeholder = UIImage(named: "user")
-
-            DispatchQueue.main.async { [weak self] in
-
-                guard let self = self else { return }
-
-                self.profileImageView.sd_setImage(with: imageRef, placeholderImage: placeholder)
-
-            }
-
-        }
     }
 
     private func setLayout() {

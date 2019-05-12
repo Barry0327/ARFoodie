@@ -18,9 +18,23 @@ class ProfileViewController: UIViewController {
         return .lightContent
     }
 
-    var currentUser: User?
+    let firebaseManager = FirebaseManager.shared
 
-    let topContainterView: UIView = {
+    var currentUser: User? {
+
+        didSet {
+            if currentUser != nil {
+
+                self.nameContent.text = self.currentUser?.displayName
+                self.emailContent.text = self.currentUser?.email ?? "尚未登入"
+
+                firebaseManager.fetchProfileImage(userUid: currentUser!.uid, imgView: self.profileImageView)
+
+            }
+        }
+    }
+
+    private let topContainterView: UIView = {
 
         let view = UIView()
         view.backgroundColor = UIColor.flatWatermelonDark
@@ -63,10 +77,9 @@ class ProfileViewController: UIViewController {
 
     }()
 
-    let bottomContainerView: UIView = {
+    private let bottomContainerView: UIView = {
 
         let view = UIView()
-//        view.backgroundColor = UIColor(hexString: "feffdf")
         return view
     }()
 
@@ -171,9 +184,6 @@ class ProfileViewController: UIViewController {
         ]
 
         self.currentUser = CurrentUser.shared.user
-        self.nameContent.text = self.currentUser?.displayName
-        self.emailContent.text = self.currentUser?.email ?? "尚未登入"
-        self.fetchProfileImage()
 
         view.addSubview(topContainterView)
         view.addSubview(profileImageView)
@@ -206,7 +216,7 @@ class ProfileViewController: UIViewController {
 
     // MARK: - Auto Layout Method
 
-    func setTopLayout() {
+    private func setTopLayout() {
 
         topContainterView.anchor(
             top: view.topAnchor,
@@ -235,7 +245,7 @@ class ProfileViewController: UIViewController {
 
     }
 
-    func setBottomLayout() {
+    private func setBottomLayout() {
 
         bottomContainerView.anchor(
             top: topContainterView.bottomAnchor,
@@ -311,19 +321,5 @@ class ProfileViewController: UIViewController {
             padding: .init(top: 5, left: 0, bottom: 0, right: 0),
             size: .init(width: 150, height: 30)
         )
-    }
-
-    func fetchProfileImage() {
-
-        guard let user = currentUser else { return }
-
-        let storageRef = Storage.storage().reference().child("profileImages")
-
-        let imageRef = storageRef.child("\(user.profileImageUID!).png")
-
-        let placeholder = UIImage(named: "user")
-
-        self.profileImageView.sd_setImage(with: imageRef, placeholderImage: placeholder)
-
     }
 }

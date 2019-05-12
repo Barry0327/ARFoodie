@@ -23,12 +23,12 @@ struct User {
         self.displayName = displayName
     }
 
-//    init(authData: Firebase.User) {
-//
-//        self.uid = authData.uid
-//        self.email = authData.email!
-//
-//    }
+    init(authData: Firebase.User) {
+
+        self.uid = authData.uid
+        self.email = authData.email!
+
+    }
 
     func toAnyObject() -> Any {
 

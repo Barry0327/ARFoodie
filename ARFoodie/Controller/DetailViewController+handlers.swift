@@ -27,6 +27,7 @@ extension DetailViewController: GIDSignInDelegate, GIDSignInUIDelegate {
         UIView.animate(withDuration: 0.5) {
 
             self.view.layoutIfNeeded()
+
         }
     }
 

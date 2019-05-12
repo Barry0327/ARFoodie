@@ -53,7 +53,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         .comment
     ]
 
-    lazy var tableView: UITableView = { [unowned self] in
+    lazy var tableView: UITableView = {
 
         let tableView = UITableView()
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
@@ -82,8 +82,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
     }()
 
-    lazy var sendButton: UIButton = { [unowned self] in
-
+    lazy var sendButton: UIButton = {
         let button = UIButton()
         button.setTitle("發佈", for: .normal)
         button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
@@ -92,7 +91,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         return button
     }()
 
-    lazy var dismissBTN: UIBarButtonItem = { [unowned self] in
+    lazy var dismissBTN: UIBarButtonItem = {
 
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon-cross"), for: .normal)
@@ -104,9 +103,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         return leftBarButton
     }()
 
-    lazy var createBoardcastBTN: UIBarButtonItem = { [unowned self] in
-
-//        guard let self = self else { fatalError() }
+    lazy var createBoardcastBTN: UIBarButtonItem = {
 
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 11, y: 20, width: 35, height: 35)
