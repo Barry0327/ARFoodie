@@ -93,7 +93,7 @@ extension LogInViewController {
                     let imgUID = info["profileImageUID"] as? String
                     else { return }
 
-                var currentUser = User.init(uid: result!.user.uid, email: result!.user.email!)
+                var currentUser = User.init(authData: result!.user)
 
                 currentUser.displayName = displayName
 
