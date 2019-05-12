@@ -27,7 +27,7 @@ class FirebaseManager {
 
             print("Triggerd")
 
-            var currentUser = User.init(authData: user)
+            var currentUser = User.init(uid: user.uid, email: user.email!)
 
             let usersRef = Database.database().reference(withPath: "users")
 

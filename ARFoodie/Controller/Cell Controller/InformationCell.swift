@@ -41,7 +41,7 @@ class InformationCell: UITableViewCell {
         }
     }
 
-    let imgView: UIImageView = {
+    private let imgView: UIImageView = {
 
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
@@ -55,7 +55,7 @@ class InformationCell: UITableViewCell {
 
     }()
 
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
 
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -65,7 +65,7 @@ class InformationCell: UITableViewCell {
         return label
     }()
 
-    let ratingView: CosmosView = {
+    private let ratingView: CosmosView = {
 
         let ratingView = CosmosView()
         ratingView.settings.updateOnTouch = false
@@ -92,7 +92,7 @@ class InformationCell: UITableViewCell {
 
     }()
 
-    let addressLabel: UILabel = {
+    private let addressLabel: UILabel = {
 
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15)
@@ -101,14 +101,14 @@ class InformationCell: UITableViewCell {
         return label
     }()
 
-    let isOpeningIcon: UIImageView = {
+    private let isOpeningIcon: UIImageView = {
 
         let imgView = UIImageView()
 
         return imgView
     }()
 
-    let separatorView: UIView = {
+    private let separatorView: UIView = {
 
         let view = UIView()
         view.backgroundColor = UIColor.flatWatermelonDark
@@ -136,7 +136,7 @@ class InformationCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setLayout() {
+    private func setLayout() {
 
         imgView.anchor(
             top: nil,

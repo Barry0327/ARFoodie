@@ -16,18 +16,19 @@ struct User {
     var displayName: String = ""
     var profileImageUID: String?
 
-    init(uid: String, email: String, displayName: String) {
+    init(uid: String, email: String, displayName: String = "") {
 
         self.uid = uid
         self.email = email
         self.displayName = displayName
     }
 
-    init(authData: Firebase.User) {
-
-        self.uid = authData.uid
-        self.email = authData.email!
-    }
+//    init(authData: Firebase.User) {
+//
+//        self.uid = authData.uid
+//        self.email = authData.email!
+//
+//    }
 
     func toAnyObject() -> Any {
 

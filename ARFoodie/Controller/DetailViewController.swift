@@ -53,19 +53,17 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         .comment
     ]
 
-    lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = { [unowned self] in
 
         let tableView = UITableView()
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped))
         tableView.addGestureRecognizer(gesture)
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.backgroundColor = UIColor.init(hexString: "F2EDEC")
 
         return tableView
     }()
 
-    let containerView: UIView = {
+    private let containerView: UIView = {
 
         let view = UIView()
         view.backgroundColor = UIColor.white
@@ -84,7 +82,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
     }()
 
-    lazy var sendButton: UIButton = {
+    lazy var sendButton: UIButton = { [unowned self] in
 
         let button = UIButton()
         button.setTitle("發佈", for: .normal)
@@ -94,7 +92,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         return button
     }()
 
-    lazy var dismissBTN: UIBarButtonItem = {
+    lazy var dismissBTN: UIBarButtonItem = { [unowned self] in
 
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon-cross"), for: .normal)
@@ -106,7 +104,9 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         return leftBarButton
     }()
 
-    lazy var createBoardcastBTN: UIBarButtonItem = {
+    lazy var createBoardcastBTN: UIBarButtonItem = { [unowned self] in
+
+//        guard let self = self else { fatalError() }
 
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 11, y: 20, width: 35, height: 35)
@@ -124,6 +124,9 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.delegate = self
+        tableView.dataSource = self
 
         self.commentTextField.delegate = self
 
@@ -173,7 +176,11 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
     }
 
-    func setLayout() {
+    deinit {
+        print("DetailView deinit")
+    }
+
+    private func setLayout() {
 
         containerView.anchor(
             top: nil,
@@ -214,7 +221,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         let restaurantRef = restaurantsRef.child(self.placeID)
         let commentRef = restaurantRef.child("comments")
 
-        commentRef.observe(.value) { (snapshot) in
+        commentRef.observe(.value) { [weak self] snapshot in
 
             var comments = [Comment]()
 
@@ -279,14 +286,9 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell", for: indexPath) as? MapCell else { fatalError() }
 
-            let camera = GMSCameraPosition.camera(withTarget: restaurantDetail.coordinate, zoom: 16.0)
-            cell.mapView.camera = camera
-            cell.mapView.delegate = self
+            cell.restaurantDetail = self.restaurantDetail
 
-            let marker = GMSMarker()
-            marker.position = restaurantDetail.coordinate
-            marker.title = restaurantDetail.name
-            marker.map = cell.mapView
+            cell.placeID = self.placeID
 
             return cell
 
@@ -296,34 +298,6 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 
             cell.restaurantDetail = self.restaurantDetail
 
-//            cell.nameLabel.text = restaurantDetail.name
-//
-//            cell.phoneLabel.text = restaurantDetail.phoneNumber
-//
-//            cell.addressLabel.text = restaurantDetail.address
-
-//            if restaurantDetail.photoRef != "暫無資料" {
-//
-//                cell.imgView.fetchImage(with: restaurantDetail.photoRef)
-//                print("Fetch the image")
-//
-//            }
-
-//            cell.ratingView.rating = restaurantDetail.rating ?? 0
-//
-//            cell.ratingView.text = String(format: "%.0f", restaurantDetail.userRatingsTotal ?? 0)
-
-//            if restaurantDetail.isOpening != nil {
-//
-//                if restaurantDetail.isOpening! {
-//                    cell.isOpeningIcon.image = UIImage(named: "icons8-open-sign-100")
-//                    cell.isOpeningIcon.tintColor = UIColor.flatGreenDark
-//                } else {
-//                    cell.isOpeningIcon.image = UIImage(named: "icons8-closed-sign-100")
-//                    cell.isOpeningIcon.tintColor = UIColor.flatGrayDark
-//                }
-//            }
-
             return cell
 
         case .comment:
@@ -332,37 +306,13 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 
             if self.comments.count == 0 {
 
-                cell.commentBody.text = "尚無評論"
-                cell.commentBody.textColor = .gray
+                cell.comment = nil
 
                 return cell
 
             } else {
 
-                cell.nameLabel.text = self.comments[indexPath.row].senderName
-                cell.commentBody.text = self.comments[indexPath.row].content
-                cell.commentBody.textColor = .black
-
-                let storageRef = Storage.storage().reference().child("profileImages")
-
-                let usersRef = Database.database().reference().child("users")
-
-                let userRef = usersRef.child(self.comments[indexPath.row].senderUid)
-
-                userRef.observeSingleEvent(of: .value) { (snapshot) in
-
-                    guard
-                        let info = snapshot.value as? [String: Any],
-                        let imgUID = info["profileImageUID"] as? String
-                        else { return }
-
-                    let imageRef = storageRef.child("\(imgUID).png")
-
-                    let placeholder = UIImage(named: "user")
-
-                    cell.profileImageView.sd_setImage(with: imageRef, placeholderImage: placeholder)
-
-                }
+                cell.comment = self.comments[indexPath.row]
 
                 return cell
 
@@ -434,6 +384,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
 }
+
 extension DetailViewController: MFMailComposeViewControllerDelegate {
 
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
@@ -442,24 +393,6 @@ extension DetailViewController: MFMailComposeViewControllerDelegate {
 
         controller.dismiss(animated: true, completion: nil)
 
-    }
-}
-
-extension DetailViewController: GMSMapViewDelegate {
-
-    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
-
-        guard let url = URL(
-            string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)"
-            )
-            else {
-                return false
-        }
-        UIApplication.shared.open(
-            url,
-            options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]
-        )
-        return true
     }
 }
 
