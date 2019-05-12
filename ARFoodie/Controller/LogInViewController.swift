@@ -250,7 +250,7 @@ class LogInViewController: UIViewController {
 
     // MARK: - Set Up Auto Layout
 
-    func setAppNameLabel() {
+    private func setAppNameLabel() {
 
         appNameLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
         appNameLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
@@ -258,7 +258,7 @@ class LogInViewController: UIViewController {
         appNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150).isActive = true
     }
 
-    func setContaionerView() {
+    private func setContaionerView() {
 
         containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
@@ -316,7 +316,7 @@ class LogInViewController: UIViewController {
         visitorBTN.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
-    func setBottomLabel() {
+    private func setBottomLabel() {
 
         descriptionLabel.anchor(
             top: containerView.bottomAnchor,

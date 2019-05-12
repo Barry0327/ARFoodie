@@ -85,7 +85,7 @@ extension LogInViewController {
 
             let currentUserRef = Database.database().reference(withPath: "users").child(userID)
 
-            currentUserRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            currentUserRef.observeSingleEvent(of: .value, with: { snapshot in
 
                 guard
                     let info = snapshot.value as? [String: Any],
@@ -93,7 +93,7 @@ extension LogInViewController {
                     let imgUID = info["profileImageUID"] as? String
                     else { return }
 
-                var currentUser = User.init(authData: result!.user)
+                var currentUser = User.init(uid: result!.user.uid, email: result!.user.email!)
 
                 currentUser.displayName = displayName
 

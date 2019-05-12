@@ -264,7 +264,11 @@ class RegisterViewController: UIViewController {
 
     }
 
-    func setLayout() {
+    deinit {
+        print("Register deinit")
+    }
+
+    private func setLayout() {
 
         profileImgView.anchor(
             top: nil,

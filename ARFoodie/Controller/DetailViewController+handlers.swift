@@ -83,19 +83,22 @@ extension DetailViewController: GIDSignInDelegate, GIDSignInUIDelegate {
 
         let comment = Comment.init(name: name, uid: uid, content: content)
 
-        commentRef.childByAutoId().setValue(comment.toAnyObject()) { (error, _) in
+        commentRef.childByAutoId().setValue(comment.toAnyObject()) { error, _ in
 
             if error != nil {
                 print(error!)
             } else {
 
                 print("send comment successfully")
-                self.commentTextField.text = ""
-                self.commentTextField.isEnabled = true
-                self.sendButton.isEnabled = true
+                DispatchQueue.main.async { [weak self] in
 
-                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                    self.tableView.scrollToBottom()
+                    self?.commentTextField.text = ""
+                    self?.commentTextField.isEnabled = true
+                    self?.sendButton.isEnabled = true
+                }
+
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) { [weak self] in
+                    self?.tableView.scrollToBottom()
                 }
             }
         }

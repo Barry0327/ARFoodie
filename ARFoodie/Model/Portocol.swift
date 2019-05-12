@@ -29,3 +29,8 @@ protocol LiveStreamManagerDelegate: AnyObject {
     func manager(_ manager: LiveStreamManager, didFetch broadcastURL: String)
 
 }
+
+protocol FirebaseManagerDelegate: AnyObject {
+
+    func manager(_ manager: FirebaseManager, didFetch comments: [Comment])
+}

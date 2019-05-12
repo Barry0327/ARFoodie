@@ -7,10 +7,29 @@
 //
 
 import UIKit
+import Firebase
 
 class CommentCell: UITableViewCell {
 
-    let profileImageView: UIImageView = {
+    var comment: Comment? {
+
+        didSet {
+
+            if comment == nil {
+
+                self.commentBody.text = "尚無評論"
+                self.commentBody.textColor = .gray
+            } else {
+
+                self.nameLabel.text = comment?.senderName
+                self.commentBody.text = comment?.content
+                self.commentBody.textColor = .black
+                self.fetchUserImage()
+            }
+        }
+    }
+
+    private let profileImageView: UIImageView = {
 
         let imgView = UIImageView()
         imgView.layer.cornerRadius = 25
@@ -19,14 +38,14 @@ class CommentCell: UITableViewCell {
         return imgView
     }()
 
-    let containerView: UIView = {
+    private let containerView: UIView = {
 
         let view = UIView()
 
         return view
     }()
 
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
 
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -35,7 +54,7 @@ class CommentCell: UITableViewCell {
         return label
     }()
 
-    lazy var commentBody: UILabel = {
+    private let commentBody: UILabel = {
 
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
@@ -44,7 +63,7 @@ class CommentCell: UITableViewCell {
         return label
     }()
 
-    let separatorView: UIView = {
+    private let separatorView: UIView = {
 
         let view = UIView()
         view.backgroundColor = UIColor.flatWatermelonDark
@@ -76,7 +95,37 @@ class CommentCell: UITableViewCell {
 
     }
 
-    func setLayout() {
+    private func fetchUserImage() {
+
+        let storageRef = Storage.storage().reference().child("profileImages")
+
+        let usersRef = Database.database().reference().child("users")
+
+        let userRef = usersRef.child(self.comment!.senderUid)
+
+        userRef.observeSingleEvent(of: .value) { snapshot in
+
+            guard
+                let info = snapshot.value as? [String: Any],
+                let imgUID = info["profileImageUID"] as? String
+                else { return }
+
+            let imageRef = storageRef.child("\(imgUID).png")
+
+            let placeholder = UIImage(named: "user")
+
+            DispatchQueue.main.async { [weak self] in
+
+                guard let self = self else { return }
+
+                self.profileImageView.sd_setImage(with: imageRef, placeholderImage: placeholder)
+
+            }
+
+        }
+    }
+
+    private func setLayout() {
 
         profileImageView.anchor(
             top: contentView.topAnchor,
