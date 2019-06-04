@@ -188,6 +188,12 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+
+        AuthenticationError.locationError.alert(message: error.localizedDescription)
+
+    }
+
 }
 
 // MARK: - RestaurantInfoDelegate Method
@@ -238,7 +244,7 @@ extension MainARViewController: RestaurantInfoDelegate {
 
     }
 
-    func generateViewWith(rest: Restaurant) -> UIView {
+    private func generateViewWith(rest: Restaurant) -> UIView {
 
         let nameLabel = UILabel(frame: CGRect(x: 5, y: 5, width: 230, height: 30))
         nameLabel.text = rest.name

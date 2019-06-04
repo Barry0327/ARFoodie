@@ -12,7 +12,7 @@ class UserPolicyViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
 
-    lazy var dismissBTN: UIBarButtonItem = {
+    private lazy var dismissBTN: UIBarButtonItem = {
 
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon-cross"), for: .normal)

@@ -201,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */,
+				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 				97D25693224C9E9400175E42 /* Model */,
 				97D25691224C9E7800175E42 /* Controller */,
 				97D25692224C9E8B00175E42 /* View */,
@@ -213,7 +214,6 @@
 		97D25691224C9E7800175E42 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
 				97E610D72273097C00A8C199 /* UserPolicyViewController.swift */,
 				97CF6FCC22730CEB00E63E5A /* PrivacyPolicyViewController.swift */,
 				97A49FAF22573D4000DC4B43 /* LogInViewController.swift */,
