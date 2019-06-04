@@ -172,7 +172,7 @@ class LogInViewController: UIViewController {
         return label
     }()
 
-    lazy var userPolicyLabel: UILabel = {
+    private lazy var userPolicyLabel: UILabel = {
 
         let label = UILabel()
         label.text = "使用者條款"
@@ -186,7 +186,7 @@ class LogInViewController: UIViewController {
         return label
     }()
 
-    lazy var privacyPolicyLabel: UILabel = {
+    private lazy var privacyPolicyLabel: UILabel = {
 
         let label = UILabel()
         label.text = "隱私權政策"
@@ -246,34 +246,48 @@ class LogInViewController: UIViewController {
         setAppNameLabel()
         setContaionerView()
         setBottomLabel()
+
     }
 
     // MARK: - Set Up Auto Layout
 
     private func setAppNameLabel() {
 
-        appNameLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        appNameLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        appNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        appNameLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150).isActive = true
+        let constant = view.bounds.height / 4
+
+        print(constant)
+
+        appNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: constant).isActive = true
+        appNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        appNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+        appNameLabel.heightAnchor.constraint(equalTo: appNameLabel.widthAnchor, multiplier: 1.0/5.0).isActive = true
+
     }
 
     private func setContaionerView() {
 
-        containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        containerView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        containerView.anchor(
+            top: appNameLabel.bottomAnchor,
+            leading: view.leadingAnchor,
+            bottom: nil,
+            trailing: view.trailingAnchor,
+            padding: .init(top: 30, left: 30, bottom: 0, right: 30)
+        )
 
-        emailIcon.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18).isActive = true
-        emailIcon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15).isActive = true
-        emailIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        emailIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        containerView.heightAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
 
-        emailTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        emailTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18).isActive = true
-        emailTextField.leadingAnchor.constraint(equalTo: emailIcon.trailingAnchor, constant: 10).isActive = true
-        emailTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
+        NSLayoutConstraint.activate([
+
+            emailIcon.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18),
+            emailIcon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
+            emailIcon.widthAnchor.constraint(equalToConstant: 25),
+            emailIcon.heightAnchor.constraint(equalToConstant: 25),
+            emailTextField.heightAnchor.constraint(equalToConstant: 30),
+            emailTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18),
+            emailTextField.leadingAnchor.constraint(equalTo: emailIcon.trailingAnchor, constant: 10),
+            emailTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10)
+
+            ])
 
         emailSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         emailSeparatorView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true

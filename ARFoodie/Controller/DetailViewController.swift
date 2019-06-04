@@ -249,6 +249,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
 
         return self.detailSections.count
+
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -301,7 +302,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
 
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CommentCell", for: indexPath) as? CommentCell else { fatalError() }
 
-            if self.comments.count == 0 {
+            if self.comments.isEmpty {
 
                 cell.comment = nil
 

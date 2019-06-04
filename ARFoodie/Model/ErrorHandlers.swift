@@ -15,6 +15,8 @@ enum AuthenticationError: Error {
 
     case connetError
 
+    case locationError
+
 }
 
 extension AuthenticationError: CustomStringConvertible {
@@ -26,6 +28,8 @@ extension AuthenticationError: CustomStringConvertible {
         case .invalidInformation: return "資訊錯誤"
 
         case .connetError: return "連線錯誤"
+
+        case .locationError: return "無法獲得位置資訊"
 
         }
     }
