@@ -314,7 +314,9 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = 97D25673224B1F9C00175E42;
 			productRefGroup = 97D2567D224B1F9C00175E42 /* Products */;
