@@ -1,2 +1,9 @@
 Info.plist
 GoogleService-Info.plist
+
+
+# Ignore CocoaPods installed files
+Pods/
+
+# Ignore macOS Finder user-related files
+.DS_Store

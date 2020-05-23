@@ -9,7 +9,7 @@ target 'ARFoodie' do
 
   pod 'SwiftLint'
   pod 'Alamofire', '~> 4.0'
-  pod 'ARCL', '1.1.0'
+  pod 'ARCL'
   pod 'GoogleMaps'
   pod 'YTLiveStreaming'
   pod 'Firebase/Core'
