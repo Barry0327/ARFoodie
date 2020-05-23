@@ -36,7 +36,6 @@ class RestaurantInfoManager {
             "key": apiKey
 
         ]
-
         Alamofire.request(endPointURL, method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
 
             if response.error != nil {
@@ -113,5 +112,42 @@ class RestaurantInfoManager {
                 }
             }
         }
+    }
+
+    func fetchViaDecoder(lat: String, lng: String) {
+
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "maps.googleapis.com"
+        urlComponents.path = "maps/api/place/nearbysearch/json"
+        let parameters = [
+
+            "location": "\(lat),\(lng)",
+            "rankby": "distance",
+            "types": "restaurant",
+            "language": "zh_TW",
+            "key": apiKey
+
+        ]
+        urlComponents.queryItems = convertDicToQuertItems(parameters: parameters)
+
+        let url = urlComponents.url!
+
+        let task = URLSession.shared.dataTask(with: url) { (data, resonese, error) in
+
+        }
+        task.resume()
+    }
+
+    func convertDicToQuertItems(parameters: [String: String]) -> [URLQueryItem] {
+
+        var queryItems = [URLQueryItem]()
+        for (key, value) in parameters {
+
+            let queryItem = URLQueryItem(name: key, value: value)
+            queryItems.append(queryItem)
+        }
+
+        return queryItems
     }
 }
