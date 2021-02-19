@@ -1,20 +1,15 @@
 //
-//  LogInViewController.swift
+//  SignInRootView.swift
 //  ARFoodie
 //
-//  Created by Chen Yi-Wei on 2019/4/5.
-//  Copyright © 2019 Chen Yi-Wei. All rights reserved.
+//  Created by Barry Chen on 2021/2/18.
+//  Copyright © 2021 Chen Yi-Wei. All rights reserved.
 //
 
 import UIKit
-import ChameleonFramework
 
-class LogInViewController: UIViewController {
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
+class SignInRootView: UIView {
+    // MARK: - Properties
     private let appNameLabel: UILabel = {
 
         let label = UILabel()
@@ -39,7 +34,6 @@ class LogInViewController: UIViewController {
     }()
 
     private let emailIcon: UIImageView = {
-
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "icons8-new-post-96 (1)")
@@ -112,13 +106,13 @@ class LogInViewController: UIViewController {
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.flatGreenColorDark(),
+            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonColorDark() as Any,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "登入", attributes: textAttributes)
         button.setAttributedTitle(attributeString, for: .normal)
         button.backgroundColor = UIColor(hexString: "E4DAD8")
-        button.addTarget(self, action: #selector(loginBTNPressed), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(loginBTNPressed), for: .touchUpInside)
 
         return button
     }()
@@ -137,7 +131,7 @@ class LogInViewController: UIViewController {
         button.backgroundColor = .clear
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor(hexString: "E4DAD8")?.cgColor
-        button.addTarget(self, action: #selector(registerBTNPressed), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(registerBTNPressed), for: .touchUpInside)
 
         return button
     }()
@@ -155,7 +149,7 @@ class LogInViewController: UIViewController {
         button.backgroundColor = .clear
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor(hexString: "E4DAD8")?.cgColor
-        button.addTarget(self, action: #selector(visitorBTNPressed), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(visitorBTNPressed), for: .touchUpInside)
 
         return button
     }()
@@ -171,7 +165,7 @@ class LogInViewController: UIViewController {
         return label
     }()
 
-    private lazy var userPolicyLabel: UILabel = {
+    let userPolicyLabel: UILabel = {
 
         let label = UILabel()
         label.text = "使用者條款"
@@ -179,13 +173,13 @@ class LogInViewController: UIViewController {
         label.textColor = UIColor.flatSkyBlue()
         label.font = UIFont.systemFont(ofSize: 15)
         label.isUserInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(performUserPolicyPage))
-        label.addGestureRecognizer(gesture)
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(performUserPolicyPage))
+//        label.addGestureRecognizer(gesture)
 
         return label
     }()
 
-    private lazy var privacyPolicyLabel: UILabel = {
+    let privacyPolicyLabel: UILabel = {
 
         let label = UILabel()
         label.text = "隱私權政策"
@@ -193,40 +187,26 @@ class LogInViewController: UIViewController {
         label.textColor = UIColor.flatSkyBlue()
         label.font = UIFont.systemFont(ofSize: 15)
         label.isUserInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(performPrivacyPolicyPage))
-        label.addGestureRecognizer(gesture)
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(performPrivacyPolicyPage))
+//        label.addGestureRecognizer(gesture)
 
         return label
     }()
 
-    // MARK: - View Did Load
+    // MARK: - Methods
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func constructHeirachy() {
+        backgroundColor = UIColor.flatWatermelonColorDark()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
-
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.keyboardWillShow(notifiction:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.keyboardWillHide(notificiton:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-
-        self.hideKeyboardWhenTappedAround()
-
-        view.backgroundColor = UIColor.flatWatermelonColorDark()
-
-        view.addSubview(appNameLabel)
-        view.addSubview(containerView)
+        addSubview(appNameLabel)
+        addSubview(containerView)
 
         containerView.addSubview(emailIcon)
         containerView.addSubview(emailTextField)
@@ -238,27 +218,24 @@ class LogInViewController: UIViewController {
         containerView.addSubview(registerBTN)
         containerView.addSubview(visitorBTN)
 
-        view.addSubview(descriptionLabel)
-        view.addSubview(userPolicyLabel)
-        view.addSubview(privacyPolicyLabel)
+        addSubview(descriptionLabel)
+        addSubview(userPolicyLabel)
+        addSubview(privacyPolicyLabel)
 
         setAppNameLabel()
         setContaionerView()
         setBottomLabel()
-
     }
-
-    // MARK: - Set Up Auto Layout
 
     private func setAppNameLabel() {
 
-        let constant = view.bounds.height / 4
+        let constant = bounds.height / 4
 
         print(constant)
 
-        appNameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: constant).isActive = true
-        appNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-        appNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
+        appNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
+        appNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
+        appNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
         appNameLabel.heightAnchor.constraint(equalTo: appNameLabel.widthAnchor, multiplier: 1.0/5.0).isActive = true
 
     }
@@ -267,9 +244,9 @@ class LogInViewController: UIViewController {
 
         containerView.anchor(
             top: appNameLabel.bottomAnchor,
-            leading: view.leadingAnchor,
+            leading: leadingAnchor,
             bottom: nil,
-            trailing: view.trailingAnchor,
+            trailing: trailingAnchor,
             padding: .init(top: 30, left: 30, bottom: 0, right: 30)
         )
 
@@ -326,7 +303,7 @@ class LogInViewController: UIViewController {
             padding: .init(top: 30, left: 0, bottom: 0, right: 0),
             size: .init(width: 120, height: 36)
         )
-        visitorBTN.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        visitorBTN.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
 
     private func setBottomLabel() {

@@ -135,51 +135,51 @@ class CreateLiveBoardcastViewController: UIViewController {
 
     @objc func starBTNPressed() {
 
-        guard
-            let title = self.titleTextField.text,
-            title.count > 0
-
-            else {
-
-                AuthenticationError.invalidInformation.alert(message: "請輸入直播標題")
-
-                return
-        }
-
-        IHProgressHUD.show(withStatus: "連線中")
-
-        let description = self.descriptionTextField.text
-
-        let date = Date.init()
-
-        self.input.createBroadcast(title, description: description, startTime: date) { (boardcast) in
-
-            guard let boardcast = boardcast else {
-
-                AuthenticationError.connetError.alert(message: "請確認您已啟用Youtube的直播功能")
-
-                return
-            }
-
-            print(boardcast)
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-            if let lfViewController = storyboard.instantiateViewController(withIdentifier: "LFLiveViewController") as? LFLiveViewController {
-
-                lfViewController.boardcast = boardcast
-
-                DispatchQueue.main.async { [weak self] in
-
-                    guard let self = self else { return }
-
-                    IHProgressHUD.dismiss()
-
-                    self.present(lfViewController, animated: true, completion: nil)
-
-                }
-            }
-        }
+//        guard
+//            let title = self.titleTextField.text,
+//            title.count > 0
+//
+//            else {
+//
+//                AuthenticationError.invalidInformation.alert(message: "請輸入直播標題")
+//
+//                return
+//        }
+//
+//        IHProgressHUD.show(withStatus: "連線中")
+//
+//        let description = self.descriptionTextField.text
+//
+//        let date = Date.init()
+//
+//        self.input.createBroadcast(title, description: description, startTime: date) { (boardcast) in
+//
+//            guard let boardcast = boardcast else {
+//
+//                AuthenticationError.connetError.alert(message: "請確認您已啟用Youtube的直播功能")
+//
+//                return
+//            }
+//
+//            print(boardcast)
+//
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
+//            if let lfViewController = storyboard.instantiateViewController(withIdentifier: "LFLiveViewController") as? LFLiveViewController {
+//
+//                lfViewController.boardcast = boardcast
+//
+//                DispatchQueue.main.async { [weak self] in
+//
+//                    guard let self = self else { return }
+//
+//                    IHProgressHUD.dismiss()
+//
+//                    self.present(lfViewController, animated: true, completion: nil)
+//
+//                }
+//            }
+//        }
     }
 
     @objc func cancelBTNPressed() {

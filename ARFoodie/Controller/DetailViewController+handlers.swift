@@ -10,7 +10,7 @@ import UIKit
 import GoogleSignIn
 import YTLiveStreaming
 
-extension DetailViewController: GIDSignInDelegate, GIDSignInUIDelegate {
+extension DetailViewController: GIDSignInDelegate {
 
     @objc func handleKeyboardNotifiction(notifiction: Notification) {
 
@@ -42,7 +42,7 @@ extension DetailViewController: GIDSignInDelegate, GIDSignInUIDelegate {
     @objc func createBoardcast() {
 
         GIDSignIn.sharedInstance()?.delegate = self
-        GIDSignIn.sharedInstance()?.uiDelegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.scopes = [
 
             "https://www.googleapis.com/auth/youtube",

@@ -143,7 +143,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 }
 
-extension ProfileViewController: GIDSignInDelegate, GIDSignInUIDelegate {
+extension ProfileViewController: GIDSignInDelegate {
 
     @objc func youtubeConnectHandler() {
 
@@ -157,7 +157,7 @@ extension ProfileViewController: GIDSignInDelegate, GIDSignInUIDelegate {
         } else {
 
             GIDSignIn.sharedInstance()?.delegate = self
-            GIDSignIn.sharedInstance()?.uiDelegate = self
+            GIDSignIn.sharedInstance()?.presentingViewController = self
 
             GIDSignIn.sharedInstance()?.scopes = [
 

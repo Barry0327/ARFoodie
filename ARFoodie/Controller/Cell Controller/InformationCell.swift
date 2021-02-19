@@ -32,10 +32,10 @@ class InformationCell: UITableViewCell {
 
                 if restaurantDetail!.isOpening! {
                     self.isOpeningIcon.image = UIImage(named: "icons8-open-sign-100")
-                    self.isOpeningIcon.tintColor = UIColor.flatGreenDark
+                    self.isOpeningIcon.tintColor = UIColor.flatGreenColorDark()
                 } else {
                     self.isOpeningIcon.image = UIImage(named: "icons8-closed-sign-100")
-                    self.isOpeningIcon.tintColor = UIColor.flatGrayDark
+                    self.isOpeningIcon.tintColor = UIColor.flatGreenColorDark()
                 }
             }
         }
@@ -60,7 +60,7 @@ class InformationCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor.flatWatermelonDark
+        label.textColor = UIColor.flatWatermelonColorDark()
 
         return label
     }()
@@ -72,9 +72,9 @@ class InformationCell: UITableViewCell {
         ratingView.settings.starSize = 16
         ratingView.settings.starMargin = 1
         ratingView.settings.fillMode = .half
-        ratingView.settings.filledColor = UIColor.flatWatermelonDark
-        ratingView.settings.filledBorderColor = UIColor.flatWatermelonDark
-        ratingView.settings.emptyBorderColor = UIColor.flatWatermelonDark
+        ratingView.settings.filledColor = UIColor.flatWatermelonColorDark()
+        ratingView.settings.filledBorderColor = UIColor.flatWatermelonColorDark()
+        ratingView.settings.emptyBorderColor = UIColor.flatWatermelonColorDark()
 
         return ratingView
 
@@ -83,7 +83,7 @@ class InformationCell: UITableViewCell {
     lazy var phoneLabel: UILabel = {
 
         let label = UILabel()
-        label.textColor = UIColor.flatSkyBlue
+        label.textColor = UIColor.flatSkyBlue()
         label.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(phoneLabelTapped))
         label.addGestureRecognizer(gesture)
@@ -111,7 +111,7 @@ class InformationCell: UITableViewCell {
     private let separatorView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor.flatWatermelonDark
+        view.backgroundColor = UIColor.flatWatermelonColorDark()
 
         return view
     }()

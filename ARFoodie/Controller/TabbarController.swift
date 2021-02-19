@@ -14,7 +14,7 @@ class TabbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tabBar.tintColor = UIColor.flatWatermelonDark
+        tabBar.tintColor = UIColor.flatWatermelonColorDark()
 
         if let tabBarItems = tabBar.items {
 

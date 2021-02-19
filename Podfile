@@ -8,7 +8,7 @@ target 'ARFoodie' do
   # Pods for ARFoodie
 
   pod 'SwiftLint'
-  pod 'Alamofire', '~> 4.0'
+  pod 'Alamofire', '~> 5.2'
   pod 'ARCL'
   pod 'GoogleMaps'
   pod 'YTLiveStreaming'
@@ -20,10 +20,8 @@ target 'ARFoodie' do
   pod 'FirebaseUI/Storage'
   pod 'GoogleSignIn'
   pod 'IHProgressHUD', :git => 'https://github.com/Swiftify-Corp/IHProgressHUD.git'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-  pod 'Fabric', '~> 1.9.0'
-  pod 'Crashlytics', '~> 3.12.0'
-  pod 'StatusAlert', '~> 1.1.0'
+  pod 'ChameleonFramework/Swift', '2.1.0'
+  pod 'StatusAlert'
   pod 'Cosmos', '~> 18.0'
   pod 'TransitionButton'
 

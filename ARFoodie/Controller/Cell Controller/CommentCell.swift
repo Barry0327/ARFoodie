@@ -52,7 +52,7 @@ class CommentCell: UITableViewCell {
 
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
-        label.textColor = UIColor.flatWatermelonDark
+        label.textColor = UIColor.flatWatermelonColorDark()
 
         return label
     }()
@@ -69,7 +69,7 @@ class CommentCell: UITableViewCell {
     private let separatorView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor.flatWatermelonDark
+        view.backgroundColor = UIColor.flatWatermelonColorDark()
 
         return view
     }()

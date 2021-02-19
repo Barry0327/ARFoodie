@@ -85,7 +85,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
     lazy var sendButton: UIButton = {
         let button = UIButton()
         button.setTitle("發佈", for: .normal)
-        button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
+        button.setTitleColor(UIColor.flatSkyBlue(), for: .normal)
         button.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
 
         return button
@@ -135,7 +135,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
         tableView.separatorStyle = .none
 
-        self.navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonDark
+        self.navigationController?.navigationBar.barTintColor = UIColor.flatGreenColorDark()
 
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor(hexString: "F2EDEC")!,

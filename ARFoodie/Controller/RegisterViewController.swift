@@ -204,7 +204,7 @@ class RegisterViewController: UIViewController {
         button.backgroundColor = UIColor(hexString: "fff4e1")
         button.layer.cornerRadius = 22
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonDark,
+            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonColorDark(),
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "註冊", attributes: textAttributes)
@@ -240,7 +240,7 @@ class RegisterViewController: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
 
-        view.backgroundColor = UIColor.flatWatermelonDark
+        view.backgroundColor = UIColor.flatWatermelonColorDark()
 
         view.addSubview(profileImgView)
         view.addSubview(containerView)
