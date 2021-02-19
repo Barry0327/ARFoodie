@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,6 @@
 		975635712266FDC0009AE63B /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975635702266FDC0009AE63B /* CommentCell.swift */; };
 		9756357322682003009AE63B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756357222682003009AE63B /* Comment.swift */; };
 		97563575226835BB009AE63B /* RegisterViewController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97563574226835BA009AE63B /* RegisterViewController+handlers.swift */; };
-		9756357822688784009AE63B /* CrashlyticsTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756357722688784009AE63B /* CrashlyticsTestViewController.swift */; };
 		9756357A2269B677009AE63B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975635792269B677009AE63B /* FirebaseManager.swift */; };
 		9756357C2269BBBA009AE63B /* ProfileViewController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756357B2269BBBA009AE63B /* ProfileViewController+handlers.swift */; };
 		97A49FA622526CB600DC4B43 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA522526CB600DC4B43 /* Extension.swift */; };
@@ -30,10 +29,8 @@
 		97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */; };
 		97A6C8E622636253002FAA90 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E522636253002FAA90 /* TabbarController.swift */; };
 		97A6C8E82263895F002FAA90 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E72263895F002FAA90 /* ProfileViewController.swift */; };
-		97A6C8F222648C9E002FAA90 /* LFLivePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F022648C9D002FAA90 /* LFLivePreview.m */; };
 		97A6C8F822648CEA002FAA90 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F622648CEA002FAA90 /* UIView+YYAdd.m */; };
 		97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F722648CEA002FAA90 /* UIControl+YYAdd.m */; };
-		97A6C8FB22648E17002FAA90 /* LFLiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8FA22648E17002FAA90 /* LFLiveViewController.swift */; };
 		97B718E0226AC3690010BF33 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718DF226AC3690010BF33 /* CurrentUser.swift */; };
 		97B718E2226C9B150010BF33 /* ErrorHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718E1226C9B150010BF33 /* ErrorHandlers.swift */; };
 		97B718E4226EB9C50010BF33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97B718E3226EB9C50010BF33 /* Assets.xcassets */; };
@@ -49,6 +46,8 @@
 		97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */; };
 		97D2569A224CD04F00175E42 /* Portocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25699224CD04F00175E42 /* Portocol.swift */; };
 		97E610D82273097C00A8C199 /* UserPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E610D72273097C00A8C199 /* UserPolicyViewController.swift */; };
+		A4FCB37725DE6880004A41DC /* SignInRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37625DE6880004A41DC /* SignInRootView.swift */; };
+		A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37B25DE6B03004A41DC /* NiblessView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +63,6 @@
 		975635702266FDC0009AE63B /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		9756357222682003009AE63B /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		97563574226835BA009AE63B /* RegisterViewController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegisterViewController+handlers.swift"; sourceTree = "<group>"; };
-		9756357722688784009AE63B /* CrashlyticsTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsTestViewController.swift; sourceTree = "<group>"; };
 		975635792269B677009AE63B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9756357B2269BBBA009AE63B /* ProfileViewController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+handlers.swift"; sourceTree = "<group>"; };
 		97A49FA522526CB600DC4B43 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -104,6 +102,8 @@
 		97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoManager.swift; sourceTree = "<group>"; };
 		97D25699224CD04F00175E42 /* Portocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portocol.swift; sourceTree = "<group>"; };
 		97E610D72273097C00A8C199 /* UserPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPolicyViewController.swift; sourceTree = "<group>"; };
+		A4FCB37625DE6880004A41DC /* SignInRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRootView.swift; sourceTree = "<group>"; };
+		A4FCB37B25DE6B03004A41DC /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +148,7 @@
 		97A6C8DE22632E9E002FAA90 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A4FCB37B25DE6B03004A41DC /* NiblessView.swift */,
 				97A49FA522526CB600DC4B43 /* Extension.swift */,
 				97A6C8DF22632F2D002FAA90 /* UIViewExtension.swift */,
 				97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */,
@@ -202,6 +203,7 @@
 			children = (
 				97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */,
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
+				A4FCB37525DE6819004A41DC /* Login */,
 				97D25693224C9E9400175E42 /* Model */,
 				97D25691224C9E7800175E42 /* Controller */,
 				97D25692224C9E8B00175E42 /* View */,
@@ -231,7 +233,6 @@
 				97A6C8F322648CD7002FAA90 /* Category */,
 				97A6C8DE22632E9E002FAA90 /* Extension */,
 				97A6C8DB22620F0A002FAA90 /* Cell Controller */,
-				9756357722688784009AE63B /* CrashlyticsTestViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -261,6 +262,14 @@
 				97B718E1226C9B150010BF33 /* ErrorHandlers.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A4FCB37525DE6819004A41DC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A4FCB37625DE6880004A41DC /* SignInRootView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,7 +304,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Chen Yi-Wei";
 				TargetAttributes = {
 					97D2567B224B1F9C00175E42 = {
@@ -441,6 +450,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */,
 				9756356F2266E1FF009AE63B /* User.swift in Sources */,
 				97A6C8E022632F2D002FAA90 /* UIViewExtension.swift in Sources */,
 				9738E836226576B100EA2CBC /* LiveStreamManager.swift in Sources */,
@@ -453,18 +463,16 @@
 				9756357A2269B677009AE63B /* FirebaseManager.swift in Sources */,
 				97E610D82273097C00A8C199 /* UserPolicyViewController.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */,
-				97A6C8F222648C9E002FAA90 /* LFLivePreview.m in Sources */,
 				97B718E0226AC3690010BF33 /* CurrentUser.swift in Sources */,
 				97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */,
 				97CF6FCD22730CEB00E63E5A /* PrivacyPolicyViewController.swift in Sources */,
+				A4FCB37725DE6880004A41DC /* SignInRootView.swift in Sources */,
 				97B718E6227061D80010BF33 /* InformationCell.swift in Sources */,
 				97A6C8F822648CEA002FAA90 /* UIView+YYAdd.m in Sources */,
-				97A6C8FB22648E17002FAA90 /* LFLiveViewController.swift in Sources */,
 				97A6C8E622636253002FAA90 /* TabbarController.swift in Sources */,
 				975635712266FDC0009AE63B /* CommentCell.swift in Sources */,
 				97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */,
 				97A6C8E82263895F002FAA90 /* ProfileViewController.swift in Sources */,
-				9756357822688784009AE63B /* CrashlyticsTestViewController.swift in Sources */,
 				97A49FB022573D4000DC4B43 /* LogInViewController.swift in Sources */,
 				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
@@ -523,6 +531,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -582,6 +591,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

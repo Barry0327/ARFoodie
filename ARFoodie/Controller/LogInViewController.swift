@@ -28,7 +28,6 @@ class LogInViewController: UIViewController {
         label.attributedText = attributeString
 
         return label
-
     }()
 
     private let containerView: UIView = {
@@ -113,7 +112,7 @@ class LogInViewController: UIViewController {
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonDark,
+            NSAttributedString.Key.foregroundColor: UIColor.flatGreenColorDark(),
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "登入", attributes: textAttributes)
@@ -177,7 +176,7 @@ class LogInViewController: UIViewController {
         let label = UILabel()
         label.text = "使用者條款"
         label.textAlignment = .center
-        label.textColor = UIColor.flatSkyBlue
+        label.textColor = UIColor.flatSkyBlue()
         label.font = UIFont.systemFont(ofSize: 15)
         label.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(performUserPolicyPage))
@@ -191,7 +190,7 @@ class LogInViewController: UIViewController {
         let label = UILabel()
         label.text = "隱私權政策"
         label.textAlignment = .center
-        label.textColor = UIColor.flatSkyBlue
+        label.textColor = UIColor.flatSkyBlue()
         label.font = UIFont.systemFont(ofSize: 15)
         label.isUserInteractionEnabled = true
         let gesture = UITapGestureRecognizer(target: self, action: #selector(performPrivacyPolicyPage))
@@ -224,7 +223,7 @@ class LogInViewController: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
 
-        view.backgroundColor = UIColor.flatWatermelonDark
+        view.backgroundColor = UIColor.flatWatermelonColorDark()
 
         view.addSubview(appNameLabel)
         view.addSubview(containerView)

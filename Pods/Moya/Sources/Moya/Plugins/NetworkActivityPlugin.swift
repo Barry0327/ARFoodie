@@ -1,5 +1,4 @@
 import Foundation
-import Result
 
 /// Network activity change notification type.
 public enum NetworkActivityChangeType {
@@ -12,6 +11,7 @@ public final class NetworkActivityPlugin: PluginType {
     public typealias NetworkActivityClosure = (_ change: NetworkActivityChangeType, _ target: TargetType) -> Void
     let networkActivityClosure: NetworkActivityClosure
 
+    /// Initializes a NetworkActivityPlugin.
     public init(networkActivityClosure: @escaping NetworkActivityClosure) {
         self.networkActivityClosure = networkActivityClosure
     }

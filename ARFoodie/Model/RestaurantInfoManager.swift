@@ -9,6 +9,14 @@
 import Foundation
 import Alamofire
 
+struct ResturantParameters: Codable {
+    let location: String
+    let rankby: String
+    let types: String
+    let language: String
+    let key: String
+}
+
 class RestaurantInfoManager {
 
     weak var delegate: RestaurantInfoDelegate?
@@ -27,30 +35,20 @@ class RestaurantInfoManager {
 
         let endPointURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
-        let parameters: Parameters = [
+        let parameters = ResturantParameters(
+            location: "\(lat),\(lng)",
+            rankby: "distance",
+            types: "restaurant",
+            language: "zh_TW",
+            key: apiKey
+        )
 
-            "location": "\(lat),\(lng)",
-            "rankby": "distance",
-            "types": "restaurant",
-            "language": "zh_TW",
-            "key": apiKey
+        AF.request(endPointURL, method: .get, parameters: parameters, encoder: JSONParameterEncoder.default).responseJSON { [weak self] (response) in
+            guard let self = self else { return }
 
-        ]
-        Alamofire.request(endPointURL, method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
-
-            if response.error != nil {
-
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-
-                    self.delegate?.manager(self, didFailed: response.error!)
-
-                }
-                return
-            }
-            if response.result.isSuccess {
-
-                guard let json = response.result.value as? [String: Any] else {
+            switch response.result {
+            case .success(let data):
+                guard let json = data as? [String: Any] else {
                     print("Failed paring 1")
                     return
                 }
@@ -104,11 +102,12 @@ class RestaurantInfoManager {
 
                 }
 
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
+                self.delegate?.manager(self, didFetch: restaurants)
 
-                    self.delegate?.manager(self, didFetch: restaurants)
-
+            case .failure(let afError):
+                print(afError.localizedDescription)
+                if let error = afError.underlyingError {
+                    self.delegate?.manager(self, didFailed: error)
                 }
             }
         }

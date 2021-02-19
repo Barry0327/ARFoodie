@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
     private let topContainterView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor.flatWatermelonDark
+        view.backgroundColor = UIColor.flatTealColorDark()
 
         return view
     }()
@@ -122,7 +122,7 @@ class ProfileViewController: UIViewController {
 
         let button = UIButton()
         button.setTitle("變更密碼", for: .normal)
-        button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
+        button.setTitleColor(UIColor.flatSkyBlue(), for: .normal)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.contentHorizontalAlignment = .left
         button.addTarget(self, action: #selector(changePasswordTapped), for: .touchUpInside)
@@ -152,7 +152,7 @@ class ProfileViewController: UIViewController {
 
         let button = UIButton()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        button.setTitleColor(UIColor.flatSkyBlue, for: .normal)
+        button.setTitleColor(UIColor.flatSkyBlue(), for: .normal)
         button.addTarget(self, action: #selector(youtubeConnectHandler), for: .touchUpInside)
         button.contentHorizontalAlignment = .left
 
@@ -168,7 +168,7 @@ class ProfileViewController: UIViewController {
 
         navigationItem.setRightBarButton(signOutBTN, animated: true)
 
-        navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonDark
+        navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonColorDark()
 
         navigationController?.navigationBar.isTranslucent = false
 

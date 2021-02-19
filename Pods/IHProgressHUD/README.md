@@ -1,10 +1,5 @@
 # IHProgressHUD
 
-![Pod Version](https://img.shields.io/cocoapods/v/IHProgressHUD.svg?style=flat)
-![Pod Platform](https://img.shields.io/cocoapods/p/IHProgressHUD.svg?style=flat)
-![Pod License](https://img.shields.io/cocoapods/l/IHProgressHUD.svg?style=flat)
-[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-green.svg?style=flat)](https://cocoapods.org)
-
 `IHProgressHUD` is a clean and easy-to-use HUD meant to display the progress of an ongoing task on iOS and tvOS. `IHProgressHUD` is based on [SVProgressHUD](https://github.com/SVProgressHUD/SVProgressHUD) and ported to Swift with the [help of Swiftify](https://medium.com/swiftify/converting-svprogresshud-to-swift-using-swiftify-27be1817b7f6),
 with improvements like added thread safety and not using complier flag for use in iOS App Extension. 
 
@@ -40,19 +35,24 @@ Second, install `IHProgressHUD` into your project:
 pod install
 ```
 
-### Carthage
+### From SwiftPM
 
-Currently not available but would be available shortly.
+Under your project from the `File` menu, go to `Swift Packages` and select `Add Package Dependency`
 
-### Manually
+Enter the address of the repository for the package you wish to add.
+- https://github.com/Swiftify-Corp/IHProgressHUD.git
 
-* Drag the `IHProgressHUD/IHProgressHUD` folder into your project.
-* Take care that `IHProgressHUD.bundle` is added to `Targets->Build Phases->Copy Bundle Resources`.
-* Add the **QuartzCore** framework to your project.
+After you hit `Next`, you’ll see another form. From here you’re able to specify which `version`, `branch`, or `commit hash` you’d like to add as a dependency.
+
+After you click `Next`, Xcode will fetch the dependency. In this final window, make sure the package you want to add is checked and the target you wish to add it to is selected from the dropdown.
+
+After you click Finish, you’ll see that the added package is now listed in the navigator under a new section titled `Swift Package Dependencies`.
+
+#### To Remove the package
+
+If you need to remove a SwiftPM package from your project, you can select the project at the top of the navigator, then look for the tab titled `Swift Packages`. (It’s next to `Build Settings`). 
 
 ## Usage
-
-(see sample Xcode project in `/Demo`)
 
 `IHProgressHUD` is created as a singleton (i.e. it doesn't need to be explicitly allocated and instantiated; you directly call `IHProgressHUD.method()`). It can be accessed from even the background thread.
 
@@ -224,5 +224,5 @@ review the guidelines written by [Nicolas Gallagher](https://github.com/necolas)
 
 ## Credits
 
-`IHProgressHUD` is brought to you by [Md Ibrahim Hassan ](mdibrahimhassan@gmail.com)
-If you're using `IHProgressHUD` in your project, attribution would be very appreciated. This project is converted with the help of [Swiftify](https://objectivec2swift.com/). The conversion process can be found [here](https://medium.com/swiftify/converting-svprogresshud-to-swift-using-swiftify-27be1817b7f6).
+`IHProgressHUD` is brought to you by [Md Ibrahim Hassan](https://github.com/Ibrahimhass) and [contributors to the project](https://github.com/Swiftify-Corp/IHProgressHUD/graphs/contributors).
+If you're using `IHProgressHUD` in your project, attribution would be very appreciated. This project is converted with the help of [Swiftify](https://swiftify.com/). The conversion process can be found [here](https://medium.com/swiftify/converting-svprogresshud-to-swift-using-swiftify-27be1817b7f6).

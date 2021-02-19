@@ -10,6 +10,12 @@ import Foundation
 import Alamofire
 import MapKit
 
+struct PlaceParameters: Codable {
+    let placeid: String
+    let key: String
+    let language: String
+}
+
 class RestaurantDetailManager {
 
     weak var delegate: RestaurantDetailDelegate?
@@ -28,13 +34,10 @@ class RestaurantDetailManager {
 
         let endPointURL = "https://maps.googleapis.com/maps/api/place/details/json"
 
-        let parameters: Parameters = [
-            "placeid": placeID,
-            "key": apiKey,
-            "language": "zh_TW"
-        ]
+        let parameters = PlaceParameters(placeid: placeID, key: apiKey, language: "zh_TW")
 
-        Alamofire.request(endPointURL, method: .get, parameters: parameters).responseJSON { (response) in
+
+        AF.request(endPointURL, method: .get, parameters: parameters, encoder: JSONParameterEncoder.default).responseJSON { (response) in
 
             if response.error != nil {
 
@@ -43,9 +46,9 @@ class RestaurantDetailManager {
                 return
             }
 
-            if response.result.isSuccess {
-
-                guard let json = response.result.value as? [String: Any] else {
+            switch response.result {
+            case .success(let data):
+                guard let json = data as? [String: Any] else {
                     print("Failed parsing 1")
                     return
                 }
@@ -62,9 +65,9 @@ class RestaurantDetailManager {
                     let address = result["formatted_address"] as? String,
                     let name = result["name"] as? String,
                     let geometry = result["geometry"] as? [String: Any]
-                    else {
-                        print("Failed parsing 3")
-                        return
+                else {
+                    print("Failed parsing 3")
+                    return
                 }
                 var photoRef = "暫無資料"
                 var phoneNumber = "暫無資料"
@@ -85,7 +88,7 @@ class RestaurantDetailManager {
 
                 guard
                     let location = geometry["location"] as? [String: Double]
-                    else {
+                else {
                     print("Failed parsing 4")
                     return
                 }
@@ -93,9 +96,9 @@ class RestaurantDetailManager {
                 guard
                     let lat = location["lat"],
                     let lng = location["lng"]
-                    else {
-                        print("Failed parsing 5")
-                        return
+                else {
+                    print("Failed parsing 5")
+                    return
                 }
 
                 let coordinate = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
@@ -129,6 +132,9 @@ class RestaurantDetailManager {
                     self.delegate?.manager(self, didFetch: restaurant)
 
                 }
+            case .failure(let error):
+                print(error.errorDescription ?? "")
+                self.delegate?.manager(self, didFailed: response.error!)
             }
         }
     }

@@ -26,6 +26,8 @@
 #import "GMSPolygon.h"
 #import "GMSPolygonLayer.h"
 #import "GMSPolyline.h"
+#import "GMSStrokeStyle.h"
+#import "GMSStyleSpan.h"
 #import "GMSSyncTileLayer.h"
 #import "GMSTileLayer.h"
 #import "GMSURLTileLayer.h"
@@ -38,3 +40,4 @@
 #import "GMSPanoramaService.h"
 #import "GMSPanoramaSource.h"
 #import "GMSPanoramaView.h"
+#import "GMSAccessibilityLabels.h"

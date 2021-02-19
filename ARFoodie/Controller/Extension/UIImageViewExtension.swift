@@ -10,6 +10,13 @@ import UIKit
 import Alamofire
 import Firebase
 
+struct PlaceImageParameters: Codable {
+    let photoreference: String
+    let key: String
+    let maxheight: Int
+    let maxwidth: Int
+}
+
 extension UIImageView {
 
     func fetchImage(with ref: String) {
@@ -31,13 +38,8 @@ extension UIImageView {
 
         let endPointURL = "https://maps.googleapis.com/maps/api/place/photo"
 
-        let parameters: Parameters = [
 
-            "photoreference": ref,
-            "key": apiKey,
-            "maxheight": 100,
-            "maxwidth": 80
-        ]
+        let parameters = PlaceImageParameters(photoreference: ref, key: apiKey, maxheight: 100, maxwidth: 80)
 
         let imageCache = NSCache<NSString, UIImage>()
 
@@ -47,36 +49,19 @@ extension UIImageView {
             return
         }
 
-        Alamofire.request(endPointURL, method: .get, parameters: parameters).responseData { (response) in
+        AF.request(endPointURL, parameters: parameters, encoder: JSONParameterEncoder.default).responseData { [weak self] (response) in
+            switch response.result {
+            case .success(let data):
+                guard let self = self else { return }
 
-            if response.error != nil {
-                print("Image request failed")
-                return
+                let image = UIImage(data: data)
+
+                imageCache.setObject(image!, forKey: ref as NSString)
+
+                self.image = image
+            case .failure(let error):
+                print(error.localizedDescription)
             }
-
-            if response.result.isSuccess {
-
-                if let data = response.result.value {
-
-                    DispatchQueue.main.async { [weak self] in
-
-                        guard let self = self else {
-                            return
-                        }
-
-                        let image = UIImage(data: data)
-
-                        imageCache.setObject(image!, forKey: ref as NSString)
-
-                        self.image = image
-
-                        print(response.result.debugDescription)
-                    }
-                } else {
-                    print("Failed to get image data")
-                }
-            }
-
         }
     }
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "FIRInstanceIDTokenOperation.h"
+#import "Firebase/InstanceID/FIRInstanceIDTokenOperation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithAuthorizedEntity:(nullable NSString *)authorizedEntity
                                    scope:(nullable NSString *)scope
                       checkinPreferences:(FIRInstanceIDCheckinPreferences *)checkinPreferences
-                                 keyPair:(nullable FIRInstanceIDKeyPair *)keyPair
+                              instanceID:(nullable NSString *)instanceID
                                   action:(FIRInstanceIDTokenAction)action;
 
 @end

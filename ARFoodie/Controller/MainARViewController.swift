@@ -34,7 +34,7 @@ class MainARViewController: UIViewController, CLLocationManagerDelegate {
 
         let button = TransitionButton()
 
-        button.backgroundColor = UIColor.flatWatermelonDark
+        button.backgroundColor = UIColor.flatWatermelonColorDark()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.cornerRadius = 25
         button.addTarget(self, action: #selector(searchBTNTapped), for: .touchUpInside)
@@ -260,9 +260,9 @@ extension MainARViewController: RestaurantInfoDelegate {
         ratingView.settings.starSize = 16
         ratingView.settings.starMargin = 1
         ratingView.settings.fillMode = .half
-        ratingView.settings.filledColor = UIColor.flatWatermelonDark
-        ratingView.settings.filledBorderColor = UIColor.flatWatermelonDark
-        ratingView.settings.emptyBorderColor = UIColor.flatWatermelonDark
+        ratingView.settings.filledColor = UIColor.flatWatermelonColorDark()
+        ratingView.settings.filledBorderColor = UIColor.flatWatermelonColorDark()
+        ratingView.settings.emptyBorderColor = UIColor.flatWatermelonColorDark()
         ratingView.rating = rating
         ratingView.text = String(format: "%.0f", userRatingsTotal)
 

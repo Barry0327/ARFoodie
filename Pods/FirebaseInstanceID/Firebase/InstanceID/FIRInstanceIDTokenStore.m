@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-#import "FIRInstanceIDTokenStore.h"
+#import "Firebase/InstanceID/FIRInstanceIDTokenStore.h"
 
-#import "FIRInstanceIDAuthKeyChain.h"
-#import "FIRInstanceIDConstants.h"
-#import "FIRInstanceIDLogger.h"
-#import "FIRInstanceIDTokenInfo.h"
-#import "FIRInstanceIDUtilities.h"
+#import "Firebase/InstanceID/FIRInstanceIDAuthKeyChain.h"
+#import "Firebase/InstanceID/FIRInstanceIDConstants.h"
+#import "Firebase/InstanceID/FIRInstanceIDLogger.h"
+#import "Firebase/InstanceID/FIRInstanceIDTokenInfo.h"
+#import "Firebase/InstanceID/FIRInstanceIDUtilities.h"
 
 static NSString *const kFIRInstanceIDTokenKeychainId = @"com.google.iid-tokens";
 
@@ -86,8 +86,13 @@ static NSString *const kFIRInstanceIDTokenKeychainId = @"com.google.iid-tokens";
   // NOTE: Passing in nil to unarchiveObjectWithData will result in an iOS error logged
   // in the console on iOS 10 and below. Avoid by checking item.data's existence.
   if (item) {
+    // TODO(chliangGoogle: Use the new API and secureCoding protocol.
     @try {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
       tokenInfo = [NSKeyedUnarchiver unarchiveObjectWithData:item];
+#pragma clang diagnostic pop
+
     } @catch (NSException *exception) {
       FIRInstanceIDLoggerDebug(kFIRInstanceIDMessageCodeTokenStoreExceptionUnarchivingTokenInfo,
                                @"Unable to parse token info from Keychain item; item was in an "
@@ -107,15 +112,30 @@ static NSString *const kFIRInstanceIDTokenKeychainId = @"com.google.iid-tokens";
               handler:(void (^)(NSError *))handler {  // Keep the cachetime up-to-date.
   tokenInfo.cacheTime = [NSDate date];
   // Always write to the Keychain, so that the cacheTime is up-to-date.
-  NSData *tokenInfoData = [NSKeyedArchiver archivedDataWithRootObject:tokenInfo];
+  NSData *tokenInfoData;
+  // TODO(chliangGoogle: Use the new API and secureCoding protocol.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+  tokenInfoData = [NSKeyedArchiver archivedDataWithRootObject:tokenInfo];
+#pragma clang diagnostic pop
   NSString *account = FIRInstanceIDAppIdentifier();
   NSString *service = [[self class] serviceKeyForAuthorizedEntity:tokenInfo.authorizedEntity
                                                             scope:tokenInfo.scope];
-  [self.keychain setData:tokenInfoData
-              forService:service
-           accessibility:NULL
-                 account:account
-                 handler:handler];
+  [self.keychain setData:tokenInfoData forService:service account:account handler:handler];
+}
+
+- (void)saveTokenInfoInCacheOnly:(FIRInstanceIDTokenInfo *)tokenInfo {
+  tokenInfo.cacheTime = [NSDate date];
+  // Always write to the Keychain, so that the cacheTime is up-to-date.
+  NSData *tokenInfoData;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+  tokenInfoData = [NSKeyedArchiver archivedDataWithRootObject:tokenInfo];
+#pragma clang diagnostic pop
+  NSString *account = FIRInstanceIDAppIdentifier();
+  NSString *service = [[self class] serviceKeyForAuthorizedEntity:tokenInfo.authorizedEntity
+                                                            scope:tokenInfo.scope];
+  [self.keychain setDataInCache:tokenInfoData forService:service account:account];
 }
 
 #pragma mark - Delete
