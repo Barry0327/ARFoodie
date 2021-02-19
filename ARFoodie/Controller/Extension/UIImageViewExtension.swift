@@ -49,7 +49,7 @@ extension UIImageView {
             return
         }
 
-        AF.request(endPointURL, parameters: parameters, encoder: JSONParameterEncoder.default).responseData { [weak self] (response) in
+        AF.request(endPointURL, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default).responseData { [weak self] (response) in
             switch response.result {
             case .success(let data):
                 guard let self = self else { return }

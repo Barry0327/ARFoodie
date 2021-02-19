@@ -11,7 +11,6 @@ import UIKit
 class SignInRootView: UIView {
     // MARK: - Properties
     private let appNameLabel: UILabel = {
-
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -21,15 +20,12 @@ class SignInRootView: UIView {
         ]
         let attributeString = NSAttributedString(string: "ARFoodie", attributes: textAttributes)
         label.attributedText = attributeString
-
         return label
     }()
 
-    private let containerView: UIView = {
-
+    private let inputContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-
         return view
     }()
 
@@ -38,12 +34,10 @@ class SignInRootView: UIView {
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "icons8-new-post-96 (1)")
         imgView.tintColor = UIColor(hexString: "E4DAD8")
-
         return imgView
     }()
 
     let emailTextField: UITextField = {
-
         let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "輸入電子郵件",
@@ -53,31 +47,25 @@ class SignInRootView: UIView {
         textField.tintColor = UIColor(hexString: "E4DAD8")
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
-
     }()
 
     private let emailSeparatorView: UIView = {
-
         let view = UIView()
         view.backgroundColor = UIColor(hexString: "E4DAD8")
         view.translatesAutoresizingMaskIntoConstraints = false
-
         return view
 
     }()
 
     private let passwordIcon: UIImageView = {
-
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "icons8-lock-filled-480")
         imgView.tintColor = UIColor(hexString: "E4DAD8")
-
         return imgView
     }()
 
     let passwordTextField: UITextField = {
-
         let textField = UITextField()
         textField.attributedPlaceholder = NSAttributedString(
             string: "輸入密碼",
@@ -87,38 +75,33 @@ class SignInRootView: UIView {
         textField.tintColor = UIColor(hexString: "E4DAD8")
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
-
         return textField
     }()
 
     private let passwordSeparator: UIView = {
-
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(hexString: "E4DAD8")
         return view
-
     }()
 
-    private let logInButton: UIButton = {
-
+    private let signInButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonColorDark() as Any,
+            NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonDark() as Any,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "登入", attributes: textAttributes)
         button.setAttributedTitle(attributeString, for: .normal)
         button.backgroundColor = UIColor(hexString: "E4DAD8")
+        button.translatesAutoresizingMaskIntoConstraints = false
 //        button.addTarget(self, action: #selector(loginBTNPressed), for: .touchUpInside)
-
         return button
     }()
 
-    private let registerBTN: UIButton = {
-
+    private let registerButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -131,13 +114,12 @@ class SignInRootView: UIView {
         button.backgroundColor = .clear
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor(hexString: "E4DAD8")?.cgColor
+        button.translatesAutoresizingMaskIntoConstraints = false
 //        button.addTarget(self, action: #selector(registerBTNPressed), for: .touchUpInside)
-
         return button
     }()
 
-    private let visitorBTN: UIButton = {
-
+    private let visitorButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 18
         let textAttributes: [NSAttributedString.Key: Any] = [
@@ -149,33 +131,31 @@ class SignInRootView: UIView {
         button.backgroundColor = .clear
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor(hexString: "E4DAD8")?.cgColor
+        button.translatesAutoresizingMaskIntoConstraints = false
 //        button.addTarget(self, action: #selector(visitorBTNPressed), for: .touchUpInside)
-
         return button
     }()
 
     private let descriptionLabel: UILabel = {
-
         let label = UILabel()
         label.text = "登入即代表您同意"
         label.textAlignment = .center
         label.textColor = UIColor(hexString: "E4DAD8")
         label.font = UIFont.systemFont(ofSize: 15)
-
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let userPolicyLabel: UILabel = {
-
         let label = UILabel()
         label.text = "使用者條款"
         label.textAlignment = .center
         label.textColor = UIColor.flatSkyBlue()
         label.font = UIFont.systemFont(ofSize: 15)
         label.isUserInteractionEnabled = true
+        label.translatesAutoresizingMaskIntoConstraints = false
 //        let gesture = UITapGestureRecognizer(target: self, action: #selector(performUserPolicyPage))
 //        label.addGestureRecognizer(gesture)
-
         return label
     }()
 
@@ -187,15 +167,17 @@ class SignInRootView: UIView {
         label.textColor = UIColor.flatSkyBlue()
         label.font = UIFont.systemFont(ofSize: 15)
         label.isUserInteractionEnabled = true
+        label.translatesAutoresizingMaskIntoConstraints = false
 //        let gesture = UITapGestureRecognizer(target: self, action: #selector(performPrivacyPolicyPage))
 //        label.addGestureRecognizer(gesture)
-
         return label
     }()
 
     // MARK: - Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
+        constructHeirachy()
+        activateConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -203,136 +185,253 @@ class SignInRootView: UIView {
     }
     
     func constructHeirachy() {
-        backgroundColor = UIColor.flatWatermelonColorDark()
+        backgroundColor = UIColor.flatWatermelonDark()
 
         addSubview(appNameLabel)
-        addSubview(containerView)
+        addSubview(inputContainerView)
 
-        containerView.addSubview(emailIcon)
-        containerView.addSubview(emailTextField)
-        containerView.addSubview(emailSeparatorView)
-        containerView.addSubview(passwordIcon)
-        containerView.addSubview(passwordTextField)
-        containerView.addSubview(passwordSeparator)
-        containerView.addSubview(logInButton)
-        containerView.addSubview(registerBTN)
-        containerView.addSubview(visitorBTN)
+        inputContainerView.addSubview(emailIcon)
+        inputContainerView.addSubview(emailTextField)
+        inputContainerView.addSubview(emailSeparatorView)
+        inputContainerView.addSubview(passwordIcon)
+        inputContainerView.addSubview(passwordTextField)
+        inputContainerView.addSubview(passwordSeparator)
+        inputContainerView.addSubview(signInButton)
+        inputContainerView.addSubview(registerButton)
+        inputContainerView.addSubview(visitorButton)
 
         addSubview(descriptionLabel)
         addSubview(userPolicyLabel)
         addSubview(privacyPolicyLabel)
-
-        setAppNameLabel()
-        setContaionerView()
-        setBottomLabel()
     }
 
-    private func setAppNameLabel() {
-
-        let constant = bounds.height / 4
-
-        print(constant)
-
-        appNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
-        appNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
-        appNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
-        appNameLabel.heightAnchor.constraint(equalTo: appNameLabel.widthAnchor, multiplier: 1.0/5.0).isActive = true
-
+    func activateConstraints() {
+        activateConstraintsAppNameLabel()
+        activateConstraintsInputContainerView()
+        activateConstraintsEmailIcon()
+        activateConstraintsEmailTextField()
+        activateConstraintsEmailSeparatorView()
+        activateConstraintsPasswordIcon()
+        activateConstraintsPasswordTextField()
+        activateConstraintsPasswordSeparator()
+        activateConstraintsSignInButton()
+        activateConstraintsRegisterButton()
+        activateConstraintsDescriptionLabel()
+        activateConstraintsUserPolicyLabel()
+        activateConstraintsPrivacyPolicyLabel()
     }
 
-    private func setContaionerView() {
+}
+// MARK: - Layout constraints
+extension SignInRootView {
+    func activateConstraintsAppNameLabel() {
+        let topConstant = bounds.height / 4
 
-        containerView.anchor(
-            top: appNameLabel.bottomAnchor,
-            leading: leadingAnchor,
-            bottom: nil,
-            trailing: trailingAnchor,
-            padding: .init(top: 30, left: 30, bottom: 0, right: 30)
-        )
-
-        containerView.heightAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
+        let top = appNameLabel.topAnchor
+            .constraint(equalTo: topAnchor, constant: topConstant)
+        let leading = appNameLabel.leadingAnchor
+            .constraint(equalTo: leadingAnchor, constant: 30)
+        let trailing = appNameLabel.trailingAnchor
+            .constraint(equalTo: trailingAnchor, constant: -30)
+        let height = appNameLabel.heightAnchor.constraint(equalTo: appNameLabel.widthAnchor, multiplier: 1.0/5.0)
 
         NSLayoutConstraint.activate([
-
-            emailIcon.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18),
-            emailIcon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
-            emailIcon.widthAnchor.constraint(equalToConstant: 25),
-            emailIcon.heightAnchor.constraint(equalToConstant: 25),
-            emailTextField.heightAnchor.constraint(equalToConstant: 30),
-            emailTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 18),
-            emailTextField.leadingAnchor.constraint(equalTo: emailIcon.trailingAnchor, constant: 10),
-            emailTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10)
-
-            ])
-
-        emailSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        emailSeparatorView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
-        emailSeparatorView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-        emailSeparatorView.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 3).isActive = true
-
-        passwordIcon.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15).isActive = true
-        passwordIcon.topAnchor.constraint(equalTo: emailSeparatorView.bottomAnchor, constant: 28).isActive = true
-        passwordIcon.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        passwordIcon.heightAnchor.constraint(equalToConstant: 25).isActive = true
-
-        passwordTextField.topAnchor.constraint(equalTo: emailSeparatorView.bottomAnchor, constant: 29).isActive = true
-        passwordTextField.leadingAnchor.constraint(equalTo: passwordIcon.trailingAnchor, constant: 10).isActive = true
-        passwordTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        passwordTextField.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-
-        passwordSeparator.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 3).isActive = true
-        passwordSeparator.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        passwordSeparator.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
-        passwordSeparator.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-
-        logInButton.topAnchor.constraint(equalTo: passwordSeparator.bottomAnchor, constant: 40).isActive = true
-        logInButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10).isActive = true
-        logInButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        logInButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-
-        registerBTN.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10).isActive = true
-        registerBTN.topAnchor.constraint(equalTo: passwordSeparator.bottomAnchor, constant: 40).isActive = true
-        registerBTN.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        registerBTN.heightAnchor.constraint(equalToConstant: 45).isActive = true
-
-        visitorBTN.anchor(
-            top: logInButton.bottomAnchor,
-            leading: nil,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 30, left: 0, bottom: 0, right: 0),
-            size: .init(width: 120, height: 36)
-        )
-        visitorBTN.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            top, leading, trailing, height
+        ])
     }
 
-    private func setBottomLabel() {
+    func activateConstraintsInputContainerView() {
+        let top = inputContainerView.topAnchor
+            .constraint(equalTo: appNameLabel.bottomAnchor, constant: 30)
+        let leading = inputContainerView.leadingAnchor
+            .constraint(equalTo: leadingAnchor, constant: 30)
+        let trailing = inputContainerView.trailingAnchor
+            .constraint(equalTo: trailingAnchor, constant: 30)
+        let height = inputContainerView.heightAnchor
+            .constraint(equalTo: inputContainerView.widthAnchor)
 
-        descriptionLabel.anchor(
-            top: containerView.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
-            size: .init(width: 0, height: 15)
-        )
+        NSLayoutConstraint.activate([
+            top, leading, trailing, height
+        ])
+    }
 
-        userPolicyLabel.anchor(
-            top: descriptionLabel.bottomAnchor,
-            leading: nil,
-            bottom: nil,
-            trailing: descriptionLabel.centerXAnchor,
-            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
-            size: .init(width: 100, height: 15)
-        )
+    func activateConstraintsEmailIcon() {
+        let top = emailIcon.topAnchor
+            .constraint(equalTo: inputContainerView.topAnchor, constant: 18)
+        let leading = emailIcon.leadingAnchor
+            .constraint(equalTo: inputContainerView.leadingAnchor, constant: 15)
+        let width = emailIcon.widthAnchor
+            .constraint(equalToConstant: 25)
+        let height = emailIcon.heightAnchor
+            .constraint(equalToConstant: 25)
 
-        privacyPolicyLabel.anchor(
-            top: descriptionLabel.bottomAnchor,
-            leading: descriptionLabel.centerXAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
-            size: .init(width: 100, height: 15)
-        )
+        NSLayoutConstraint.activate([
+            top, leading, width, height
+        ])
+    }
+
+    func activateConstraintsEmailTextField() {
+        let height = emailTextField.heightAnchor
+            .constraint(equalToConstant: 30)
+        let top = emailTextField.topAnchor
+            .constraint(equalTo: inputContainerView.topAnchor, constant: 18)
+        let leading = emailTextField.leadingAnchor
+            .constraint(equalTo: emailIcon.trailingAnchor, constant: 10)
+        let trailing = emailTextField.trailingAnchor
+            .constraint(equalTo: inputContainerView.trailingAnchor, constant: -10)
+
+        NSLayoutConstraint.activate([
+            height, top, leading, trailing
+        ])
+    }
+
+    func activateConstraintsEmailSeparatorView() {
+        let height = emailSeparatorView.heightAnchor
+            .constraint(equalToConstant: 1)
+        let leading = emailSeparatorView.leadingAnchor
+            .constraint(equalTo: inputContainerView.leadingAnchor, constant: 10)
+        let trailing = emailSeparatorView.trailingAnchor
+            .constraint(equalTo: inputContainerView.trailingAnchor, constant: -10)
+        let top = emailSeparatorView.topAnchor
+            .constraint(equalTo: emailTextField.bottomAnchor, constant: 3)
+
+        NSLayoutConstraint.activate([
+            height, leading, trailing, top
+        ])
+    }
+
+    func activateConstraintsPasswordIcon() {
+        let top = passwordIcon.topAnchor
+            .constraint(equalTo: emailSeparatorView.bottomAnchor, constant: 28)
+        let leading = passwordIcon.leadingAnchor
+            .constraint(equalTo: inputContainerView.leadingAnchor, constant: 15)
+        let width = passwordIcon.widthAnchor
+            .constraint(equalToConstant: 25)
+        let height = passwordIcon.heightAnchor
+            .constraint(equalToConstant: 25)
+
+        NSLayoutConstraint.activate([
+            top, leading, width, height
+        ])
+    }
+
+    func activateConstraintsPasswordTextField() {
+        let top = passwordTextField.topAnchor
+            .constraint(equalTo: emailSeparatorView.bottomAnchor, constant: 29)
+        let leading = passwordTextField.leadingAnchor
+            .constraint(equalTo: passwordIcon.trailingAnchor, constant: 10)
+        let trailing = passwordTextField.trailingAnchor
+            .constraint(equalTo: inputContainerView.trailingAnchor, constant: -10)
+        let height = passwordTextField.heightAnchor
+            .constraint(equalToConstant: 30)
+
+        NSLayoutConstraint.activate([
+            top, leading, trailing, height
+        ])
+    }
+
+    func activateConstraintsPasswordSeparator() {
+        let top = passwordSeparator.topAnchor
+            .constraint(equalTo: passwordTextField.bottomAnchor, constant: 3)
+        let leading = passwordSeparator.leadingAnchor
+            .constraint(equalTo: inputContainerView.leadingAnchor, constant: 10)
+        let trailing = passwordSeparator.trailingAnchor
+            .constraint(equalTo: inputContainerView.trailingAnchor, constant: -10)
+        let height = passwordSeparator.heightAnchor
+            .constraint(equalToConstant: 1)
+
+        NSLayoutConstraint.activate([
+            top, leading, trailing, height
+        ])
+    }
+
+    func activateConstraintsSignInButton() {
+        let top = signInButton.topAnchor
+            .constraint(equalTo: passwordSeparator.bottomAnchor, constant: 40)
+        let leading = signInButton.leadingAnchor
+            .constraint(equalTo: inputContainerView.leadingAnchor, constant: 10)
+        let width = signInButton.widthAnchor
+            .constraint(equalToConstant: 120)
+        let height = signInButton.heightAnchor
+            .constraint(equalToConstant: 45)
+
+        NSLayoutConstraint.activate([
+            top, leading, width, height
+        ])
+    }
+
+    func activateConstraintsRegisterButton() {
+        let top = registerButton.topAnchor
+            .constraint(equalTo: passwordSeparator.bottomAnchor, constant: 40)
+        let trailing = registerButton.trailingAnchor
+            .constraint(equalTo: inputContainerView.trailingAnchor, constant: -10)
+        let width = registerButton.widthAnchor
+            .constraint(equalToConstant: 120)
+        let height = registerButton.heightAnchor
+            .constraint(equalToConstant: 45)
+
+        NSLayoutConstraint.activate([
+            top, trailing, width, height
+        ])
+    }
+
+    func activateConstraintsVisitorButton() {
+        let top = visitorButton.topAnchor
+            .constraint(equalTo: signInButton.bottomAnchor, constant: 30)
+        let centerX = visitorButton.centerXAnchor
+            .constraint(equalTo: centerXAnchor)
+        let width = visitorButton.widthAnchor
+            .constraint(equalToConstant: 120)
+        let height = visitorButton.heightAnchor
+            .constraint(equalToConstant: 36)
+
+        NSLayoutConstraint.activate([
+            top, centerX, width, height
+        ])
+    }
+
+    func activateConstraintsDescriptionLabel() {
+        let top = descriptionLabel.topAnchor
+            .constraint(equalTo: inputContainerView.bottomAnchor, constant: 5)
+        let leading = descriptionLabel.leadingAnchor
+            .constraint(equalTo: inputContainerView.leadingAnchor)
+        let trailing = descriptionLabel.trailingAnchor
+            .constraint(equalTo: inputContainerView.trailingAnchor)
+        let height = descriptionLabel.heightAnchor
+            .constraint(equalToConstant: 15)
+
+        NSLayoutConstraint.activate([
+            top, leading, trailing, height
+        ])
+    }
+
+    func activateConstraintsUserPolicyLabel() {
+        let top = userPolicyLabel.topAnchor
+            .constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5)
+        let trailing = userPolicyLabel.trailingAnchor
+            .constraint(equalTo: descriptionLabel.centerXAnchor)
+        let width = userPolicyLabel.widthAnchor
+            .constraint(equalToConstant: 100)
+        let height = userPolicyLabel.heightAnchor
+            .constraint(equalToConstant: 15)
+
+        NSLayoutConstraint.activate([
+            top, trailing, width, height
+        ])
+    }
+
+    func activateConstraintsPrivacyPolicyLabel() {
+        let top = privacyPolicyLabel.topAnchor
+            .constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5)
+        let leading = privacyPolicyLabel.leadingAnchor
+            .constraint(equalTo: descriptionLabel.centerXAnchor)
+        let width = privacyPolicyLabel.widthAnchor
+            .constraint(equalToConstant: 100)
+        let height = privacyPolicyLabel.heightAnchor
+            .constraint(equalToConstant: 15)
+
+        NSLayoutConstraint.activate([
+            top, leading, width, height
+        ])
     }
 }
