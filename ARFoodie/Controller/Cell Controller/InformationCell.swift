@@ -32,10 +32,10 @@ class InformationCell: UITableViewCell {
 
                 if restaurantDetail!.isOpening! {
                     self.isOpeningIcon.image = UIImage(named: "icons8-open-sign-100")
-                    self.isOpeningIcon.tintColor = UIColor.flatGreenColorDark()
+                    self.isOpeningIcon.tintColor = UIColor.flatGreenDark()
                 } else {
                     self.isOpeningIcon.image = UIImage(named: "icons8-closed-sign-100")
-                    self.isOpeningIcon.tintColor = UIColor.flatGreenColorDark()
+                    self.isOpeningIcon.tintColor = UIColor.flatGreenDark()
                 }
             }
         }
@@ -60,7 +60,7 @@ class InformationCell: UITableViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.adjustsFontSizeToFitWidth = true
-        label.textColor = UIColor.flatWatermelonColorDark()
+        label.textColor = UIColor.flatWatermelonDark()
 
         return label
     }()
@@ -72,9 +72,9 @@ class InformationCell: UITableViewCell {
         ratingView.settings.starSize = 16
         ratingView.settings.starMargin = 1
         ratingView.settings.fillMode = .half
-        ratingView.settings.filledColor = UIColor.flatWatermelonColorDark()
-        ratingView.settings.filledBorderColor = UIColor.flatWatermelonColorDark()
-        ratingView.settings.emptyBorderColor = UIColor.flatWatermelonColorDark()
+        ratingView.settings.filledColor = UIColor.flatWatermelonDark()
+        ratingView.settings.filledBorderColor = UIColor.flatWatermelonDark()
+        ratingView.settings.emptyBorderColor = UIColor.flatWatermelonDark()
 
         return ratingView
 
@@ -111,7 +111,7 @@ class InformationCell: UITableViewCell {
     private let separatorView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor.flatWatermelonColorDark()
+        view.backgroundColor = UIColor.flatWatermelonDark()
 
         return view
     }()

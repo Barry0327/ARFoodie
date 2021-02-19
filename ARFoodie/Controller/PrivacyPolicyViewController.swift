@@ -27,7 +27,7 @@ class PrivacyPolicyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonColorDark()
+        self.navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonDark()
 
         self.navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor(hexString: "F2EDEC")!,

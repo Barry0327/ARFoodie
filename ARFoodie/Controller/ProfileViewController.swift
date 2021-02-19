@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
     private let topContainterView: UIView = {
 
         let view = UIView()
-        view.backgroundColor = UIColor.flatTealColorDark()
+        view.backgroundColor = UIColor.flatTealDark()
 
         return view
     }()
@@ -168,7 +168,7 @@ class ProfileViewController: UIViewController {
 
         navigationItem.setRightBarButton(signOutBTN, animated: true)
 
-        navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonColorDark()
+        navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonDark()
 
         navigationController?.navigationBar.isTranslucent = false
 

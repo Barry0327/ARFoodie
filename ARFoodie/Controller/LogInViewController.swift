@@ -112,7 +112,7 @@ class LogInViewController: UIViewController {
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
         let textAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.flatGreenColorDark(),
+            NSAttributedString.Key.foregroundColor: UIColor.flatGreenDark(),
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
         ]
         let attributeString = NSAttributedString(string: "登入", attributes: textAttributes)
@@ -223,7 +223,7 @@ class LogInViewController: UIViewController {
 
         self.hideKeyboardWhenTappedAround()
 
-        view.backgroundColor = UIColor.flatWatermelonColorDark()
+        view.backgroundColor = UIColor.flatWatermelonDark()
 
         view.addSubview(appNameLabel)
         view.addSubview(containerView)

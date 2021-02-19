@@ -135,7 +135,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
 
         tableView.separatorStyle = .none
 
-        self.navigationController?.navigationBar.barTintColor = UIColor.flatGreenColorDark()
+        self.navigationController?.navigationBar.barTintColor = UIColor.flatGreenDark()
 
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor(hexString: "F2EDEC")!,
