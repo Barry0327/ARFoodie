@@ -9,7 +9,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Cosmos (18.0.1)
+  - Cosmos (23.0.0)
   - Firebase/Auth (7.6.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 7.6.0)
@@ -148,8 +148,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - ARCL
-  - ChameleonFramework/Swift (= 2.1.0)
-  - Cosmos (~> 18.0)
+  - ChameleonFramework/Swift (from `https://github.com/wowansm/Chameleon.git`, branch `swift5`)
+  - Cosmos (~> 23.0.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -169,7 +169,6 @@ SPEC REPOS:
     - Alamofire
     - AppAuth
     - ARCL
-    - ChameleonFramework
     - Cosmos
     - Firebase
     - FirebaseAnalytics
@@ -202,10 +201,16 @@ SPEC REPOS:
     - YTLiveStreaming
 
 EXTERNAL SOURCES:
+  ChameleonFramework:
+    :branch: swift5
+    :git: https://github.com/wowansm/Chameleon.git
   IHProgressHUD:
     :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
 
 CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 96d52c36a45847fff60bcff7a58fec1e4bd7390b
+    :git: https://github.com/wowansm/Chameleon.git
   IHProgressHUD:
     :commit: 84b65368d4c106e785c89ed5a75ba90111633d43
     :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
@@ -215,7 +220,7 @@ SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   ARCL: db48b6927d6f3f49f29568295ed91c94ab8d4aab
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   Firebase: e1e089d9aac215a52442583f818ab61de3c4581b
   FirebaseAnalytics: 9f8f4feab1f3fddf4e4515f8f022fe6aa9e51043
   FirebaseAuth: 0a1df88dc32569db509e6269c3e4bf2a168e8ae8
@@ -247,6 +252,6 @@ SPEC CHECKSUMS:
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YTLiveStreaming: 339210f132c7b5aa40a985d9c69492b49b41e8a1
 
-PODFILE CHECKSUM: e17c17cab6536172c19c69d72a68136757e5e9f1
+PODFILE CHECKSUM: 6ff2e3c1139d83abaf144ccb371b3ed2538a6369
 
 COCOAPODS: 1.10.0

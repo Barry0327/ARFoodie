@@ -20,9 +20,9 @@ target 'ARFoodie' do
   pod 'FirebaseUI/Storage'
   pod 'GoogleSignIn'
   pod 'IHProgressHUD', :git => 'https://github.com/Swiftify-Corp/IHProgressHUD.git'
-  pod 'ChameleonFramework/Swift', '2.1.0'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'  
   pod 'StatusAlert'
-  pod 'Cosmos', '~> 18.0'
+  pod 'Cosmos', '~> 23.0.0'
   pod 'TransitionButton'
 
 end
