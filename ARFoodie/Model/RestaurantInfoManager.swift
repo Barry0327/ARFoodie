@@ -43,7 +43,7 @@ class RestaurantInfoManager {
             key: apiKey
         )
 
-        AF.request(endPointURL, method: .get, parameters: parameters, encoder: JSONParameterEncoder.default).responseJSON { [weak self] (response) in
+        AF.request(endPointURL, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default).responseJSON { [weak self] (response) in
             guard let self = self else { return }
 
             switch response.result {

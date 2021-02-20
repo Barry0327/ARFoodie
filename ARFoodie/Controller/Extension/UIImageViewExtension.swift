@@ -38,7 +38,6 @@ extension UIImageView {
 
         let endPointURL = "https://maps.googleapis.com/maps/api/place/photo"
 
-
         let parameters = PlaceImageParameters(photoreference: ref, key: apiKey, maxheight: 100, maxwidth: 80)
 
         let imageCache = NSCache<NSString, UIImage>()

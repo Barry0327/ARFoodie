@@ -36,7 +36,6 @@ class RestaurantDetailManager {
 
         let parameters = PlaceParameters(placeid: placeID, key: apiKey, language: "zh_TW")
 
-
         AF.request(endPointURL, method: .get, parameters: parameters, encoder: JSONParameterEncoder.default).responseJSON { (response) in
 
             if response.error != nil {
