@@ -29,7 +29,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
                 CurrentUser.shared.user = nil
 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
+                if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? SignInViewController {
 
                     self.present(loginVC, animated: true, completion: nil)
                 }
@@ -47,7 +47,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-            if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
+            if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? SignInViewController {
 
                 self.present(loginVC, animated: true, completion: nil)
             }

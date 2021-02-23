@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class SignInRootView: UIView {
+class SignInRootView: NiblessView {
     // MARK: - Properties
+    let viewModel: SignInViewModel
+    var isHierarchyReady: Bool = false
+
+    let disposeBag: DisposeBag = DisposeBag()
+
     private let appNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -146,42 +153,96 @@ class SignInRootView: UIView {
         return label
     }()
 
-    let userPolicyLabel: UILabel = {
-        let label = UILabel()
-        label.text = "使用者條款"
-        label.textAlignment = .center
-        label.textColor = UIColor.flatSkyBlue()
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.isUserInteractionEnabled = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-//        let gesture = UITapGestureRecognizer(target: self, action: #selector(performUserPolicyPage))
-//        label.addGestureRecognizer(gesture)
-        return label
+    let userPolicyButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("使用者條款", for: .normal)
+        button.setTitleColor(.flatSkyBlue(), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
 
-    let privacyPolicyLabel: UILabel = {
-
-        let label = UILabel()
-        label.text = "隱私權政策"
-        label.textAlignment = .center
-        label.textColor = UIColor.flatSkyBlue()
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.isUserInteractionEnabled = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-//        let gesture = UITapGestureRecognizer(target: self, action: #selector(performPrivacyPolicyPage))
-//        label.addGestureRecognizer(gesture)
-        return label
+    let privacyPolicyButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("隱私權政策", for: .normal)
+        button.setTitleColor(.flatSkyBlue(), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+//        label.text = "隱私權政策"
+//        label.textAlignment = .center
+//        label.textColor = UIColor.flatSkyBlue()
+//        label.font = UIFont.systemFont(ofSize: 15)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
 
     // MARK: - Methods
-    override init(frame: CGRect) {
+    init(frame: CGRect = .zero,
+         viewModel: SignInViewModel) {
+        self.viewModel = viewModel
         super.init(frame: frame)
-        constructHeirachy()
-        activateConstraints()
+        bindTextFieldToViewModel()
+        setUpControls()
+        emailTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] in
+                self.passwordTextField.becomeFirstResponder()
+            })
+            .disposed(by: disposeBag)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func bindTextFieldToViewModel() {
+        bindEmailField()
+        bindPasswordField()
+    }
+
+    func bindEmailField() {
+        emailTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.email)
+            .disposed(by: disposeBag)
+    }
+
+    func bindPasswordField() {
+        passwordTextField.rx.text
+            .orEmpty
+            .bind(to: viewModel.password)
+            .disposed(by: disposeBag)
+    }
+
+    func setUpControls() {
+        signInButton.addTarget(viewModel,
+                               action: #selector(SignInViewModel.signIn),
+                               for: .touchUpInside)
+
+        privacyPolicyButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.viewModel.signInView.accept(.userPrivacy)
+            })
+            .disposed(by: disposeBag)
+
+        userPolicyButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.viewModel.signInView.accept(.userPolicy)
+            })
+            .disposed(by: disposeBag)
+
+        registerButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.viewModel.signInView.accept(.register)
+            })
+            .disposed(by: disposeBag)
+
+        visitorButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                self.viewModel.signInView.accept(.main)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        guard isHierarchyReady == false else { return }
+        constructHeirachy()
+        activateConstraints()
     }
 
     func constructHeirachy() {
@@ -201,8 +262,8 @@ class SignInRootView: UIView {
         inputContainerView.addSubview(visitorButton)
 
         addSubview(descriptionLabel)
-        addSubview(userPolicyLabel)
-        addSubview(privacyPolicyLabel)
+        addSubview(userPolicyButton)
+        addSubview(privacyPolicyButton)
     }
 
     func activateConstraints() {
@@ -219,6 +280,7 @@ class SignInRootView: UIView {
         activateConstraintsDescriptionLabel()
         activateConstraintsUserPolicyLabel()
         activateConstraintsPrivacyPolicyLabel()
+        activateConstraintsVisitorButton()
     }
 
 }
@@ -246,7 +308,7 @@ extension SignInRootView {
         let leading = inputContainerView.leadingAnchor
             .constraint(equalTo: leadingAnchor, constant: 30)
         let trailing = inputContainerView.trailingAnchor
-            .constraint(equalTo: trailingAnchor, constant: 30)
+            .constraint(equalTo: trailingAnchor, constant: -30)
         let height = inputContainerView.heightAnchor
             .constraint(equalTo: inputContainerView.widthAnchor)
 
@@ -406,13 +468,13 @@ extension SignInRootView {
     }
 
     func activateConstraintsUserPolicyLabel() {
-        let top = userPolicyLabel.topAnchor
+        let top = userPolicyButton.topAnchor
             .constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5)
-        let trailing = userPolicyLabel.trailingAnchor
+        let trailing = userPolicyButton.trailingAnchor
             .constraint(equalTo: descriptionLabel.centerXAnchor)
-        let width = userPolicyLabel.widthAnchor
+        let width = userPolicyButton.widthAnchor
             .constraint(equalToConstant: 100)
-        let height = userPolicyLabel.heightAnchor
+        let height = userPolicyButton.heightAnchor
             .constraint(equalToConstant: 15)
 
         NSLayoutConstraint.activate([
@@ -421,13 +483,13 @@ extension SignInRootView {
     }
 
     func activateConstraintsPrivacyPolicyLabel() {
-        let top = privacyPolicyLabel.topAnchor
+        let top = privacyPolicyButton.topAnchor
             .constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5)
-        let leading = privacyPolicyLabel.leadingAnchor
+        let leading = privacyPolicyButton.leadingAnchor
             .constraint(equalTo: descriptionLabel.centerXAnchor)
-        let width = privacyPolicyLabel.widthAnchor
+        let width = privacyPolicyButton.widthAnchor
             .constraint(equalToConstant: 100)
-        let height = privacyPolicyLabel.heightAnchor
+        let height = privacyPolicyButton.heightAnchor
             .constraint(equalToConstant: 15)
 
         NSLayoutConstraint.activate([

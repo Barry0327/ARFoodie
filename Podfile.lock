@@ -133,6 +133,12 @@ PODS:
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
+  - RxCocoa (6.1.0):
+    - RxRelay (= 6.1.0)
+    - RxSwift (= 6.1.0)
+  - RxRelay (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxSwift (6.1.0)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
@@ -159,6 +165,8 @@ DEPENDENCIES:
   - GoogleMaps
   - GoogleSignIn
   - IHProgressHUD (from `https://github.com/Swiftify-Corp/IHProgressHUD.git`)
+  - RxCocoa (= 6.1.0)
+  - RxSwift (= 6.1.0)
   - StatusAlert
   - SwiftLint
   - TransitionButton
@@ -193,6 +201,9 @@ SPEC REPOS:
     - Moya
     - nanopb
     - PromisesObjC
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SDWebImage
     - StatusAlert
     - SwiftLint
@@ -245,6 +256,9 @@ SPEC CHECKSUMS:
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   StatusAlert: a18ec3c33d36a06d4479c1f2b15ffac67aaf7ab1
   SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
@@ -252,6 +266,6 @@ SPEC CHECKSUMS:
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YTLiveStreaming: 339210f132c7b5aa40a985d9c69492b49b41e8a1
 
-PODFILE CHECKSUM: 6ff2e3c1139d83abaf144ccb371b3ed2538a6369
+PODFILE CHECKSUM: 028ffe139c56476fc82880699b01229654790ed4
 
 COCOAPODS: 1.10.0

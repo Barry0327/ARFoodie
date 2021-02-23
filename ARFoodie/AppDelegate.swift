@@ -50,13 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             }
         } else {
-
-            if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
-
-                self.window?.rootViewController = loginVC
-
-            }
-
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.makeKeyAndVisible()
+            let signInViewController = SignInViewController.init(viewModel: SignInViewModel())
+            window?.rootViewController = signInViewController
         }
 
         return true

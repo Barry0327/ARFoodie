@@ -23,7 +23,7 @@
 		97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */; };
 		97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */; };
 		97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAD2254DC5A00DC4B43 /* MapCell.swift */; };
-		97A49FB022573D4000DC4B43 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAF22573D4000DC4B43 /* LogInViewController.swift */; };
+		97A49FB022573D4000DC4B43 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAF22573D4000DC4B43 /* SignInViewController.swift */; };
 		97A6C8E022632F2D002FAA90 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8DF22632F2D002FAA90 /* UIViewExtension.swift */; };
 		97A6C8E222632F86002FAA90 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */; };
 		97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */; };
@@ -37,7 +37,6 @@
 		97B718E6227061D80010BF33 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718E5227061D70010BF33 /* InformationCell.swift */; };
 		97B718E822706B5C0010BF33 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718E722706B5C0010BF33 /* DetailViewController.swift */; };
 		97B718EA227075AB0010BF33 /* DetailViewController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718E9227075AB0010BF33 /* DetailViewController+handlers.swift */; };
-		97CF46C7227AA1740011D5F8 /* LogInViewController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF46C6227AA1740011D5F8 /* LogInViewController+handlers.swift */; };
 		97CF6FCD22730CEB00E63E5A /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF6FCC22730CEB00E63E5A /* PrivacyPolicyViewController.swift */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
 		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
@@ -46,6 +45,10 @@
 		97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */; };
 		97D2569A224CD04F00175E42 /* Portocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25699224CD04F00175E42 /* Portocol.swift */; };
 		97E610D82273097C00A8C199 /* UserPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E610D72273097C00A8C199 /* UserPolicyViewController.swift */; };
+		A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A426D73325E4DDCC0082D577 /* SignInViewModel.swift */; };
+		A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */; };
+		A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7925E4F64C00124731 /* ErrorMessage.swift */; };
+		A4D57B7D25E4FEA300124731 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7C25E4FEA300124731 /* SignInView.swift */; };
 		A4FCB37725DE6880004A41DC /* SignInRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37625DE6880004A41DC /* SignInRootView.swift */; };
 		A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37B25DE6B03004A41DC /* NiblessView.swift */; };
 /* End PBXBuildFile section */
@@ -68,7 +71,7 @@
 		97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
 		97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailManager.swift; sourceTree = "<group>"; };
 		97A49FAD2254DC5A00DC4B43 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
-		97A49FAF22573D4000DC4B43 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		97A49FAF22573D4000DC4B43 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		97A6C8DF22632F2D002FAA90 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -90,7 +93,6 @@
 		97B718E9227075AB0010BF33 /* DetailViewController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+handlers.swift"; sourceTree = "<group>"; };
 		97CF46C42277F93D0011D5F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARFoodie.entitlements; sourceTree = "<group>"; };
-		97CF46C6227AA1740011D5F8 /* LogInViewController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogInViewController+handlers.swift"; sourceTree = "<group>"; };
 		97CF6FCC22730CEB00E63E5A /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,10 @@
 		97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoManager.swift; sourceTree = "<group>"; };
 		97D25699224CD04F00175E42 /* Portocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portocol.swift; sourceTree = "<group>"; };
 		97E610D72273097C00A8C199 /* UserPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPolicyViewController.swift; sourceTree = "<group>"; };
+		A426D73325E4DDCC0082D577 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLessViewController.swift; sourceTree = "<group>"; };
+		A4D57B7925E4F64C00124731 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		A4D57B7C25E4FEA300124731 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		A4FCB37625DE6880004A41DC /* SignInRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRootView.swift; sourceTree = "<group>"; };
 		A4FCB37B25DE6B03004A41DC /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
 		C4415E4B149929D69AC38771 /* Pods_ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +151,7 @@
 				97A6C8DF22632F2D002FAA90 /* UIViewExtension.swift */,
 				97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */,
 				97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */,
+				A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -195,7 +202,7 @@
 			children = (
 				97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */,
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
-				A4FCB37525DE6819004A41DC /* Login */,
+				A4FCB37525DE6819004A41DC /* Signin */,
 				97D25693224C9E9400175E42 /* Model */,
 				97D25691224C9E7800175E42 /* Controller */,
 				97D25692224C9E8B00175E42 /* View */,
@@ -210,8 +217,6 @@
 			children = (
 				97E610D72273097C00A8C199 /* UserPolicyViewController.swift */,
 				97CF6FCC22730CEB00E63E5A /* PrivacyPolicyViewController.swift */,
-				97A49FAF22573D4000DC4B43 /* LogInViewController.swift */,
-				97CF46C6227AA1740011D5F8 /* LogInViewController+handlers.swift */,
 				970230DA225907D600BD8AF2 /* RegisterViewController.swift */,
 				97563574226835BA009AE63B /* RegisterViewController+handlers.swift */,
 				97A6C8E522636253002FAA90 /* TabbarController.swift */,
@@ -252,16 +257,20 @@
 				975635792269B677009AE63B /* FirebaseManager.swift */,
 				97D25699224CD04F00175E42 /* Portocol.swift */,
 				97B718E1226C9B150010BF33 /* ErrorHandlers.swift */,
+				A4D57B7925E4F64C00124731 /* ErrorMessage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A4FCB37525DE6819004A41DC /* Login */ = {
+		A4FCB37525DE6819004A41DC /* Signin */ = {
 			isa = PBXGroup;
 			children = (
 				A4FCB37625DE6880004A41DC /* SignInRootView.swift */,
+				97A49FAF22573D4000DC4B43 /* SignInViewController.swift */,
+				A426D73325E4DDCC0082D577 /* SignInViewModel.swift */,
+				A4D57B7C25E4FEA300124731 /* SignInView.swift */,
 			);
-			path = Login;
+			path = Signin;
 			sourceTree = "<group>";
 		};
 		F3184D7BC93FA58E18C2329B /* Frameworks */ = {
@@ -443,6 +452,7 @@
 				97B718E2226C9B150010BF33 /* ErrorHandlers.swift in Sources */,
 				9756357A2269B677009AE63B /* FirebaseManager.swift in Sources */,
 				97E610D82273097C00A8C199 /* UserPolicyViewController.swift in Sources */,
+				A4D57B7D25E4FEA300124731 /* SignInView.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */,
 				97B718E0226AC3690010BF33 /* CurrentUser.swift in Sources */,
 				97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */,
@@ -454,18 +464,20 @@
 				975635712266FDC0009AE63B /* CommentCell.swift in Sources */,
 				97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */,
 				97A6C8E82263895F002FAA90 /* ProfileViewController.swift in Sources */,
-				97A49FB022573D4000DC4B43 /* LogInViewController.swift in Sources */,
+				97A49FB022573D4000DC4B43 /* SignInViewController.swift in Sources */,
 				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
-				97CF46C7227AA1740011D5F8 /* LogInViewController+handlers.swift in Sources */,
 				97B718E822706B5C0010BF33 /* DetailViewController.swift in Sources */,
 				970230DB225907D600BD8AF2 /* RegisterViewController.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
 				9738E8382265817F00EA2CBC /* CreateLiveBorcastViewController.swift in Sources */,
 				9756357C2269BBBA009AE63B /* ProfileViewController+handlers.swift in Sources */,
 				97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */,
+				A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */,
+				A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
 				97A6C8E222632F86002FAA90 /* UIImageViewExtension.swift in Sources */,
+				A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */,
 				97A49FA622526CB600DC4B43 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
