@@ -80,6 +80,13 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
         }
 
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = ""
+        changeRequest?.photoURL
+        changeRequest?.commitChanges { (error) in
+          // ...
+        }
+
         guard let user = self.currentUser else {
 
             print("No user!")

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IHProgressHUD
 import Firebase
 
 class RegisterViewController: UIViewController {
@@ -214,7 +215,15 @@ class RegisterViewController: UIViewController {
         return button
     }()
 
-    // MARK: - View Did Load
+    private var rootView: SignUpRootView {
+        view as! SignUpRootView
+    }
+
+    // MARK: - View Life Cycle
+    override func loadView() {
+        super.loadView()
+        view = SignUpRootView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -241,184 +250,179 @@ class RegisterViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
 
         view.backgroundColor = UIColor.flatWatermelonDark()
-
-        view.addSubview(profileImgView)
-        view.addSubview(containerView)
-
-        containerView.addSubview(nameLabel)
-        containerView.addSubview(nameTextField)
-        containerView.addSubview(nameSeparator)
-        containerView.addSubview(emailLabel)
-        containerView.addSubview(emailTextField)
-        containerView.addSubview(emailSeparator)
-        containerView.addSubview(passwordLabel)
-        containerView.addSubview(passwordTextField)
-        containerView.addSubview(passwordSeparator)
-        containerView.addSubview(confirmLabel)
-        containerView.addSubview(confirmTextField)
-        containerView.addSubview(confirmSeparator)
-        containerView.addSubview(cancelButton)
-        containerView.addSubview(registerButton)
-
-        setLayout()
-
     }
 
     deinit {
         print("Register deinit")
     }
+}
 
-    private func setLayout() {
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-        profileImgView.anchor(
-            top: nil,
-            leading: nil,
-            bottom: nil,
-            trailing: nil,
-            padding: .zero,
-            size: CGSize(width: 125, height: 125)
-        )
+    @objc func profileImageViewSelectHandler() {
 
-        profileImgView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImgView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -200).isActive = true
+        let picker = UIImagePickerController()
 
-        containerView.anchor(
-            top: nil,
-            leading: view.leadingAnchor,
-            bottom: nil,
-            trailing: view.trailingAnchor,
-            padding: .init(top: 0, left: 40, bottom: 0, right: 40),
-            size: .init(width: 0, height: 400)
-        )
+        picker.delegate = self
+        picker.allowsEditing = true
 
-        containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 70).isActive = true
+        self.present(picker, animated: true, completion: nil)
 
-        nameLabel.anchor(
-            top: containerView.topAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 10, left: 10, bottom: 0, right: 0),
-            size: .init(width: 100, height: 20)
-        )
+    }
 
-        nameTextField.anchor(
-            top: nameLabel.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 15, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 20)
-        )
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
 
-        nameSeparator.anchor(
-            top: nameTextField.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 5, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 1)
-        )
+        var selectImage: UIImage?
 
-        emailLabel.anchor(
-            top: nameSeparator.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 15, left: 10, bottom: 0, right: 0),
-            size: .init(width: 100, height: 20)
-        )
+        if let editedImage = info[.editedImage] as? UIImage {
+            selectImage = editedImage
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            selectImage = originalImage
+        }
 
-        emailTextField.anchor(
-            top: emailLabel.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 15, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 20)
-        )
+        self.profileImgView.image = selectImage
+        self.dismiss(animated: true, completion: nil)
+    }
 
-        emailSeparator.anchor(
-            top: emailTextField.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 5, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 1)
-        )
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("Did cancel picker view")
+        self.dismiss(animated: true, completion: nil)
+    }
 
-        passwordLabel.anchor(
-            top: emailSeparator.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 15, left: 10, bottom: 0, right: 0),
-            size: .init(width: 100, height: 20)
-        )
+    @objc func registerPressed() {
 
-        passwordTextField.anchor(
-            top: passwordLabel.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 15, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 20)
-        )
+        guard
+            let email = emailTextField.text,
+            let password = passwordTextField.text,
+            emailTextField.text != "",
+            passwordTextField.text != "",
+            password.count >= 6
+            else {
 
-        passwordSeparator.anchor(
-            top: passwordTextField.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 5, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 1)
-        )
+                return AuthenticationError.invalidInformation.alert(message: "請確認email及密碼資訊是否正確(密碼必須大於6個字元)")
+        }
 
-        confirmLabel.anchor(
-            top: passwordSeparator.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 15, left: 10, bottom: 0, right: 0),
-            size: .init(width: 100, height: 20)
-        )
+        guard passwordTextField.text == confirmTextField.text else {
 
-        confirmTextField.anchor(
-            top: confirmLabel.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 15, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 20)
-        )
+            return AuthenticationError.invalidInformation.alert(message: "請再次確認密碼是否正確")
 
-        confirmSeparator.anchor(
-            top: confirmTextField.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 5, left: 10, bottom: 0, right: 10),
-            size: .init(width: 0, height: 1)
-        )
+        }
 
-        cancelButton.anchor(
-            top: confirmSeparator.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: nil,
-            trailing: nil,
-            padding: .init(top: 30, left: 10, bottom: 0, right: 0),
-            size: .init(width: 120, height: 45)
-        )
+        IHProgressHUD.show(withStatus: "連線中...")
 
-        registerButton.anchor(
-            top: confirmSeparator.bottomAnchor,
-            leading: nil,
-            bottom: nil,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 30, left: 0, bottom: 0, right: 10),
-            size: .init(width: 120, height: 45)
-        )
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
 
+            if error != nil {
+
+                IHProgressHUD.dismiss()
+
+                AuthenticationError.invalidInformation.alert(message: error!.localizedDescription)
+
+                return
+            }
+
+            guard let user = result?.user else {
+
+                IHProgressHUD.dismiss()
+
+                return
+
+            }
+
+            let storageRef = Storage.storage().reference().child("profileImages")
+
+            let imgName = NSUUID.init().uuidString
+
+            let imageRef = storageRef.child("\(imgName).png")
+
+            let data = self.profileImgView.image?.pngData()
+
+            if let uploadData = data {
+
+                imageRef.putData(uploadData, metadata: nil, completion: { (_, error) in
+
+                    if error != nil {
+
+                        IHProgressHUD.dismiss()
+
+                        print(error!.localizedDescription)
+                    }
+
+                    let displayName = self.nameTextField.text ?? ""
+
+                    var user = User.init(uid: user.uid, email: email, displayName: displayName)
+
+                    user.profileImageUID = imgName
+
+                    let value = user.toAnyObject()
+
+                    CurrentUser.shared.user = user
+
+                    self.registerUserIntoDatabase(uid: user.uid, value: value)
+
+                })
+            }
+        }
+
+    }
+
+    private func registerUserIntoDatabase(uid: String, value: Any) {
+
+        let userRef = Database.database().reference(withPath: "users")
+
+        userRef.child(uid).setValue(value) { (error, _) in
+
+            if error != nil {
+                print("Failed to save user data")
+            }
+
+            self.nameTextField.text = nil
+            self.emailTextField.text = nil
+            self.passwordTextField.text = nil
+            self.confirmTextField.text = nil
+
+            IHProgressHUD.dismiss()
+
+            DispatchQueue.main.async { [weak self] in
+
+                guard let self = self else { return }
+
+                self.performSegue(withIdentifier: "FinishRegister", sender: nil)
+
+            }
+        }
+
+    }
+
+    @objc func cancelBTNPressed() {
+
+        self.dismiss(animated: true, completion: nil)
+
+    }
+}
+
+extension RegisterViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
+        switch textField {
+
+        case self.nameTextField:
+
+            self.emailTextField.becomeFirstResponder()
+
+        case self.emailTextField:
+
+            self.passwordTextField.becomeFirstResponder()
+
+        case self.passwordTextField:
+
+            self.confirmTextField.becomeFirstResponder()
+
+        default:
+            self.registerPressed()
+        }
+
+        return false
     }
 }

@@ -21,7 +21,7 @@ class SignInViewModel {
 
     @objc
     func signIn() {
-        signInActivityIndicatorAnimating.accept(false)
+        signInActivityIndicatorAnimating.accept(true)
         Auth.auth().signIn(
             withEmail: email.value,
             password: password.value) { [weak self] result, error in
@@ -41,7 +41,6 @@ class SignInViewModel {
             let currentUserRef = Database.database().reference(withPath: "users").child(userID)
 
             currentUserRef.observeSingleEvent(of: .value, with: { snapshot in
-
                 guard
                     let info = snapshot.value as? [String: Any],
                     let displayName = info["displayName"] as? String,
@@ -49,13 +48,9 @@ class SignInViewModel {
                     else { return }
 
                 var currentUser = User.init(authData: result!.user)
-
                 currentUser.displayName = displayName
-
                 currentUser.profileImageUID = imgUID
-
                 CurrentUser.shared.user = currentUser
-
             })
             self.signInView.accept(.main)
         }

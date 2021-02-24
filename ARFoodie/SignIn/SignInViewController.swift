@@ -65,7 +65,6 @@ extension SignInViewController {
 
     func bindToViewModel() {
         viewModel.signInActivityIndicatorAnimating
-            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { animate in
                 switch animate {

@@ -182,11 +182,6 @@ class SignInRootView: NiblessView {
         super.init(frame: frame)
         bindTextFieldToViewModel()
         setUpControls()
-        emailTextField.rx.controlEvent(.editingDidEndOnExit)
-            .subscribe(onNext: { [unowned self] in
-                self.passwordTextField.becomeFirstResponder()
-            })
-            .disposed(by: disposeBag)
     }
 
     func bindTextFieldToViewModel() {
@@ -212,6 +207,12 @@ class SignInRootView: NiblessView {
         signInButton.addTarget(viewModel,
                                action: #selector(SignInViewModel.signIn),
                                for: .touchUpInside)
+
+        emailTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] in
+                self.passwordTextField.becomeFirstResponder()
+            })
+            .disposed(by: disposeBag)
 
         privacyPolicyButton.rx.tap
             .subscribe(onNext: { [unowned self] in
