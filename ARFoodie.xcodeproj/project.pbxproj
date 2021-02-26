@@ -207,7 +207,7 @@
 				A40CE67A25E6491800F8BB27 /* Helper */,
 				97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */,
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
-				A427783025E63DB7003F36FB /* Register */,
+				A427783025E63DB7003F36FB /* SignUp */,
 				A4FCB37525DE6819004A41DC /* SignIn */,
 				97D25693224C9E9400175E42 /* Model */,
 				97D25691224C9E7800175E42 /* Controller */,
@@ -223,7 +223,6 @@
 			children = (
 				97E610D72273097C00A8C199 /* UserPolicyViewController.swift */,
 				97CF6FCC22730CEB00E63E5A /* PrivacyPolicyViewController.swift */,
-				970230DA225907D600BD8AF2 /* RegisterViewController.swift */,
 				97A6C8E522636253002FAA90 /* TabbarController.swift */,
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
 				97B718E722706B5C0010BF33 /* DetailViewController.swift */,
@@ -275,13 +274,14 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		A427783025E63DB7003F36FB /* Register */ = {
+		A427783025E63DB7003F36FB /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
 				A427783125E63DE4003F36FB /* SignUpRootView.swift */,
 				A40CE67625E647FF00F8BB27 /* SignUpInputField.swift */,
+				970230DA225907D600BD8AF2 /* RegisterViewController.swift */,
 			);
-			path = Register;
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		A4FCB37525DE6819004A41DC /* SignIn */ = {

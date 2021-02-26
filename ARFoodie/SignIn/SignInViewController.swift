@@ -73,6 +73,7 @@ extension SignInViewController {
                 }
             })
             .disposed(by: disposeBag)
+
         viewModel.errorMessage
             .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [unowned self] error in
@@ -83,6 +84,7 @@ extension SignInViewController {
                 self.present(alert, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
+
         viewModel.signInView
             .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [unowned self] view in
