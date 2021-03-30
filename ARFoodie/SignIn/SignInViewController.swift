@@ -15,7 +15,7 @@ import RxSwift
 class SignInViewController: NiblessViewController {
     let viewModel: SignInViewModel
     let disposeBag: DisposeBag = DisposeBag()
-
+    let mainStoryboard: UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
 //    var rootView: SignInRootView {
 //        return view as! SignInRootView
 //    }
@@ -41,7 +41,7 @@ extension SignInViewController {
 //        rootView.passwordTextField.delegate = self
         observerKeyboard()
         hideKeyboardWhenTappedAround()
-        bindToViewModel()
+        observerViewModel()
         view.backgroundColor = UIColor.flatWatermelonDark()
     }
 }
@@ -63,7 +63,7 @@ extension SignInViewController {
         )
     }
 
-    func bindToViewModel() {
+    func observerViewModel() {
         viewModel.signInActivityIndicatorAnimating
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { animate in
@@ -88,24 +88,33 @@ extension SignInViewController {
         viewModel.signInView
             .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [unowned self] view in
-                switch view {
-                case .main:
-                    self.performSegue(withIdentifier: "FinishLogin", sender: self)
-                case .register:
-                    self.performRegisterViewController()
-                case .userPolicy:
-                    self.performUserPolicyPage()
-                case .userPrivacy:
-                    self.performPrivacyPolicyPage()
-                }
+                self.navigate(with: view)
             })
             .disposed(by: disposeBag)
     }
 
-    func performUserPolicyPage() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+    func navigate(with signInView: SignInView) {
+        switch signInView {
+        case .main:
+            performSegue(withIdentifier: "FinishLogin", sender: self)
+        case .register:
+            presentRegister()
+        case .userPolicy:
+            presentUserPolicy()
+        case .userPrivacy:
+            presentPrivacyPolicy()
+        }
+    }
+
+    private func presentMain() {
+        guard let mainVC = mainStoryboard.instantiateViewController(ofType: MainARViewController.self) else {
+            return
+        }
+    }
+
+    func presentUserPolicy() {
         guard
-            let userPrivacyVC = storyboard.instantiateViewController(
+            let userPrivacyVC = mainStoryboard.instantiateViewController(
                 withIdentifier: "UserPolicyViewController"
                 ) as? UserPolicyViewController
             else { fatalError("Please check the ID for UserPolicyViewController")}
@@ -113,10 +122,9 @@ extension SignInViewController {
         self.present(navigationCTL, animated: true, completion: nil)
     }
 
-    func performPrivacyPolicyPage() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+    func presentPrivacyPolicy() {
         guard
-            let userPrivacyVC = storyboard.instantiateViewController(
+            let userPrivacyVC = mainStoryboard.instantiateViewController(
                 withIdentifier: "PrivacyPolicyViewController"
                 ) as? PrivacyPolicyViewController
             else { fatalError("Please check the ID for PrivacyPolicyViewController")}
@@ -125,9 +133,8 @@ extension SignInViewController {
         self.present(navigationCTL, animated: true, completion: nil)
     }
 
-    func performRegisterViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let registerVC = storyboard.instantiateViewController(withIdentifier: "RegisterViewController") as? RegisterViewController {
+    func presentRegister() {
+        if let registerVC = mainStoryboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
             self.present(registerVC, animated: true, completion: nil)
         }
     }

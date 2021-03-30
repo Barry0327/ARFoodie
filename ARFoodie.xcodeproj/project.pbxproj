@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8695DE74E92AF46811ADE33E /* Pods_ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4415E4B149929D69AC38771 /* Pods_ARFoodie.framework */; };
-		970230DB225907D600BD8AF2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970230DA225907D600BD8AF2 /* RegisterViewController.swift */; };
+		970230DB225907D600BD8AF2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970230DA225907D600BD8AF2 /* SignUpViewController.swift */; };
 		97187ABB2251D4F30096E52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97187ABA2251D4F30096E52D /* Main.storyboard */; };
 		9738E836226576B100EA2CBC /* LiveStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9738E835226576B100EA2CBC /* LiveStreamManager.swift */; };
 		9738E8382265817F00EA2CBC /* CreateLiveBorcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */; };
@@ -51,6 +51,7 @@
 		A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */; };
 		A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7925E4F64C00124731 /* ErrorMessage.swift */; };
 		A4D57B7D25E4FEA300124731 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7C25E4FEA300124731 /* SignInView.swift */; };
+		A4FB7BE72612C23400E82166 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB7BE62612C23400E82166 /* UIStoryboardExtension.swift */; };
 		A4FCB37725DE6880004A41DC /* SignInRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37625DE6880004A41DC /* SignInRootView.swift */; };
 		A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37B25DE6B03004A41DC /* NiblessView.swift */; };
 /* End PBXBuildFile section */
@@ -58,7 +59,7 @@
 /* Begin PBXFileReference section */
 		245F319C565724C46ACB8FE7 /* Pods-ARFoodie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.release.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.release.xcconfig"; sourceTree = "<group>"; };
 		7EEF7A053DC58A11FEB39980 /* Pods-ARFoodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.debug.xcconfig"; sourceTree = "<group>"; };
-		970230DA225907D600BD8AF2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		970230DA225907D600BD8AF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		97187ABA2251D4F30096E52D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9738E835226576B100EA2CBC /* LiveStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamManager.swift; sourceTree = "<group>"; };
 		9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLiveBorcastViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLessViewController.swift; sourceTree = "<group>"; };
 		A4D57B7925E4F64C00124731 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		A4D57B7C25E4FEA300124731 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		A4FB7BE62612C23400E82166 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 		A4FCB37625DE6880004A41DC /* SignInRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRootView.swift; sourceTree = "<group>"; };
 		A4FCB37B25DE6B03004A41DC /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
 		C4415E4B149929D69AC38771 /* Pods_ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +158,7 @@
 				97A6C8E122632F86002FAA90 /* UIImageViewExtension.swift */,
 				97A6C8E322632FE0002FAA90 /* UIViewControllerExtension.swift */,
 				A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */,
+				A4FB7BE62612C23400E82166 /* UIStoryboardExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -279,7 +282,7 @@
 			children = (
 				A427783125E63DE4003F36FB /* SignUpRootView.swift */,
 				A40CE67625E647FF00F8BB27 /* SignUpInputField.swift */,
-				970230DA225907D600BD8AF2 /* RegisterViewController.swift */,
+				970230DA225907D600BD8AF2 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -491,11 +494,12 @@
 				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
 				97B718E822706B5C0010BF33 /* DetailViewController.swift in Sources */,
-				970230DB225907D600BD8AF2 /* RegisterViewController.swift in Sources */,
+				970230DB225907D600BD8AF2 /* SignUpViewController.swift in Sources */,
 				A427783225E63DE4003F36FB /* SignUpRootView.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
 				9738E8382265817F00EA2CBC /* CreateLiveBorcastViewController.swift in Sources */,
 				9756357C2269BBBA009AE63B /* ProfileViewController+handlers.swift in Sources */,
+				A4FB7BE72612C23400E82166 /* UIStoryboardExtension.swift in Sources */,
 				97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */,
 				A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */,
 				A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */,

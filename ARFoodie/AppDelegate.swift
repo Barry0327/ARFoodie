@@ -43,11 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
         if Auth.auth().currentUser != nil {
-
-            if let mainTabbarC = storyboard.instantiateViewController(withIdentifier: "TabbarController") as? TabbarController {
-
+            if let mainTabbarC = storyboard.instantiateViewController(ofType: TabbarController.self) {
                 self.window?.rootViewController = mainTabbarC
-
             }
         } else {
             window = UIWindow(frame: UIScreen.main.bounds)

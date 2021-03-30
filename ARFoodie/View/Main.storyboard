@@ -259,10 +259,10 @@ ARFoodie 服務非常重視 ARFoodie  的會員的線上個人隱私。為了讓
             </objects>
             <point key="canvasLocation" x="2913" y="-1441"/>
         </scene>
-        <!--Register View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="xMq-KC-Z9L">
             <objects>
-                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gUn-h1-jQw" customClass="RegisterViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gUn-h1-jQw" customClass="SignUpViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VaW-r8-izw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
