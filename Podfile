@@ -26,5 +26,6 @@ target 'ARFoodie' do
   pod 'TransitionButton'
   pod 'RxSwift', '6.1.0'
   pod 'RxCocoa', '6.1.0'
+  pod 'LookinServer', :configurations => ['Debug']
 
 end

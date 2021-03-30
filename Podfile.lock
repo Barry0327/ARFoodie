@@ -123,6 +123,7 @@ PODS:
   - IHProgressHUD (0.1.5)
   - KeychainAccess (4.2.1)
   - leveldb-library (1.22)
+  - LookinServer (1.0.0)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -165,6 +166,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GoogleSignIn
   - IHProgressHUD (from `https://github.com/Swiftify-Corp/IHProgressHUD.git`)
+  - LookinServer
   - RxCocoa (= 6.1.0)
   - RxSwift (= 6.1.0)
   - StatusAlert
@@ -198,6 +200,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - KeychainAccess
     - leveldb-library
+    - LookinServer
     - Moya
     - nanopb
     - PromisesObjC
@@ -253,6 +256,7 @@ SPEC CHECKSUMS:
   IHProgressHUD: 554f1e4cb088cf82c238dc1c607f5fadfd81ab89
   KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -266,6 +270,6 @@ SPEC CHECKSUMS:
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YTLiveStreaming: 339210f132c7b5aa40a985d9c69492b49b41e8a1
 
-PODFILE CHECKSUM: 028ffe139c56476fc82880699b01229654790ed4
+PODFILE CHECKSUM: c332992f3953c590f49b1a5840e6f36584842587
 
 COCOAPODS: 1.10.0
