@@ -12,14 +12,18 @@ import RxCocoa
 
 final class SignInRootView: NiblessView {
     // MARK: - Properties
-    let viewModel: SignInViewModel
-    var isHierarchyReady: Bool = false
+    private let viewModel: SignInViewModel
+    private var hierarchyNotReady: Bool = true
 
-    let disposeBag: DisposeBag = DisposeBag()
+    private let disposeBag: DisposeBag = DisposeBag()
+
+    private let scrollView: UIScrollView = UIScrollView()
+    private let contentView: UIView = UIView {
+        $0.backgroundColor = UIColor.flatWatermelonDark()
+    }
 
     private let appNameLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         let textAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: UIColor(hexString: "E4DAD8")!,
@@ -30,15 +34,10 @@ final class SignInRootView: NiblessView {
         return label
     }()
 
-    private let inputContainerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private let inputContainerView: UIView = UIView()
 
     private let emailIcon: UIImageView = {
         let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "icons8-new-post-96 (1)")
         imgView.tintColor = UIColor(hexString: "E4DAD8")
         return imgView
@@ -52,21 +51,17 @@ final class SignInRootView: NiblessView {
         )
         textField.textColor = UIColor(hexString: "E4DAD8")
         textField.tintColor = UIColor(hexString: "E4DAD8")
-        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
 
     private let emailSeparatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(hexString: "E4DAD8")
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
-
     }()
 
     private let passwordIcon: UIImageView = {
         let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.image = #imageLiteral(resourceName: "icons8-lock-filled-480")
         imgView.tintColor = UIColor(hexString: "E4DAD8")
         return imgView
@@ -81,13 +76,11 @@ final class SignInRootView: NiblessView {
         textField.textColor = .white
         textField.tintColor = UIColor(hexString: "E4DAD8")
         textField.isSecureTextEntry = true
-        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
 
     private let passwordSeparator: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(hexString: "E4DAD8")
         return view
     }()
@@ -95,7 +88,6 @@ final class SignInRootView: NiblessView {
     private let signInButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 22
-        button.translatesAutoresizingMaskIntoConstraints = false
         let textAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.flatWatermelonDark() as Any,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .bold)
@@ -103,11 +95,10 @@ final class SignInRootView: NiblessView {
         let attributeString = NSAttributedString(string: "登入", attributes: textAttributes)
         button.setAttributedTitle(attributeString, for: .normal)
         button.backgroundColor = UIColor(hexString: "E4DAD8")
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
-    private let registerButton: UIButton = {
+    private let signUpButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 22
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -120,7 +111,6 @@ final class SignInRootView: NiblessView {
         button.backgroundColor = .clear
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor(hexString: "E4DAD8")?.cgColor
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
@@ -136,7 +126,6 @@ final class SignInRootView: NiblessView {
         button.backgroundColor = .clear
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor(hexString: "E4DAD8")?.cgColor
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
@@ -146,7 +135,6 @@ final class SignInRootView: NiblessView {
         label.textAlignment = .center
         label.textColor = UIColor(hexString: "E4DAD8")
         label.font = UIFont.systemFont(ofSize: 15)
-        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
@@ -155,7 +143,6 @@ final class SignInRootView: NiblessView {
         button.setTitle("使用者條款", for: .normal)
         button.setTitleColor(.flatSkyBlue(), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
@@ -164,7 +151,6 @@ final class SignInRootView: NiblessView {
         button.setTitle("隱私權政策", for: .normal)
         button.setTitleColor(.flatSkyBlue(), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
@@ -185,14 +171,30 @@ final class SignInRootView: NiblessView {
     private func bindEmailField() {
         emailTextField.rx.text
             .orEmpty
-            .bind(to: viewModel.email)
+            .subscribe(onNext: { [unowned self] in
+                self.viewModel.email = $0
+            })
+            .disposed(by: disposeBag)
+
+        emailTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] in
+                self.passwordTextField.becomeFirstResponder()
+            })
             .disposed(by: disposeBag)
     }
 
     private func bindPasswordField() {
         passwordTextField.rx.text
             .orEmpty
-            .bind(to: viewModel.password)
+            .subscribe(onNext: { [unowned self] in
+                self.viewModel.password = $0
+            })
+            .disposed(by: disposeBag)
+
+        passwordTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [unowned self] in
+                self.viewModel.signIn()
+            })
             .disposed(by: disposeBag)
     }
 
@@ -200,12 +202,6 @@ final class SignInRootView: NiblessView {
         signInButton.addTarget(viewModel,
                                action: #selector(SignInViewModel.signIn),
                                for: .touchUpInside)
-
-        emailTextField.rx.controlEvent(.editingDidEndOnExit)
-            .subscribe(onNext: { [unowned self] in
-                self.passwordTextField.becomeFirstResponder()
-            })
-            .disposed(by: disposeBag)
 
         privacyPolicyButton.rx.tap
             .map { SignInView.userPrivacy }
@@ -217,7 +213,7 @@ final class SignInRootView: NiblessView {
             .bind(to: viewModel.signInView)
             .disposed(by: disposeBag)
 
-        registerButton.rx.tap
+        signUpButton.rx.tap
             .map { SignInView.register }
             .bind(to: viewModel.signInView)
             .disposed(by: disposeBag)
@@ -230,16 +226,14 @@ final class SignInRootView: NiblessView {
 
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        guard isHierarchyReady == false else { return }
+        guard hierarchyNotReady == true else { return }
         constructHeirachy()
         activateConstraints()
+        hierarchyNotReady = false
     }
 
     private func constructHeirachy() {
-        backgroundColor = UIColor.flatWatermelonDark()
-
-        addSubview(appNameLabel)
-        addSubview(inputContainerView)
+        addSubview(scrollView)
 
         inputContainerView.addSubview(emailIcon)
         inputContainerView.addSubview(emailTextField)
@@ -248,15 +242,21 @@ final class SignInRootView: NiblessView {
         inputContainerView.addSubview(passwordTextField)
         inputContainerView.addSubview(passwordSeparator)
         inputContainerView.addSubview(signInButton)
-        inputContainerView.addSubview(registerButton)
+        inputContainerView.addSubview(signUpButton)
         inputContainerView.addSubview(visitorButton)
 
-        addSubview(descriptionLabel)
-        addSubview(userPolicyButton)
-        addSubview(privacyPolicyButton)
+        contentView.addSubview(appNameLabel)
+        contentView.addSubview(inputContainerView)
+        contentView.addSubview(descriptionLabel)
+        contentView.addSubview(userPolicyButton)
+        contentView.addSubview(privacyPolicyButton)
+
+        scrollView.addSubview(contentView)
     }
 
     private func activateConstraints() {
+        activateConstraintsScrollView()
+        activateConstraintsContentView()
         activateConstraintsAppNameLabel()
         activateConstraintsInputContainerView()
         activateConstraintsEmailIcon()
@@ -266,25 +266,76 @@ final class SignInRootView: NiblessView {
         activateConstraintsPasswordTextField()
         activateConstraintsPasswordSeparator()
         activateConstraintsSignInButton()
-        activateConstraintsRegisterButton()
+        activateConstraintsSignUpButton()
         activateConstraintsDescriptionLabel()
-        activateConstraintsUserPolicyLabel()
-        activateConstraintsPrivacyPolicyLabel()
+        activateConstraintsUserPolicyButton()
+        activateConstraintsPrivacyPolicyButton()
         activateConstraintsVisitorButton()
     }
 
+    func resetScrollViewContentInset() {
+        let scrollViewHeight: CGFloat = scrollView.bounds.height
+        let contentViewHeight: CGFloat = 466.0
+
+        var insets = UIEdgeInsets.zero
+        insets.top = scrollViewHeight / 2
+        insets.top -= contentViewHeight / 2
+        insets.bottom = scrollViewHeight / 2
+        insets.bottom -= contentViewHeight / 2
+
+        scrollView.contentInset = insets
+    }
+
+    func moveContent(forKeyboardFrame keyboardFrame: CGRect) {
+        var insets = scrollView.contentInset
+        insets.bottom = keyboardFrame.height
+        scrollView.contentInset = insets
+    }
 }
 // MARK: - Layout constraints
 extension SignInRootView {
-    private func activateConstraintsAppNameLabel() {
-        let topConstant = bounds.height / 4
+    private func activateConstraintsScrollView() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        let top = scrollView.topAnchor
+            .constraint(equalTo: safeAreaLayoutGuide.topAnchor)
+        let leading = scrollView.leadingAnchor
+            .constraint(equalTo: leadingAnchor)
+        let trailing = scrollView.trailingAnchor
+            .constraint(equalTo: trailingAnchor)
+        let bottom = scrollView.bottomAnchor
+            .constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
 
+        NSLayoutConstraint.activate([
+            top, leading, trailing, bottom
+        ])
+    }
+
+    private func activateConstraintsContentView() {
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        let top = contentView.topAnchor
+            .constraint(equalTo: scrollView.topAnchor)
+        let leading = contentView.leadingAnchor
+            .constraint(equalTo: scrollView.leadingAnchor)
+        let trailing = contentView.trailingAnchor
+            .constraint(equalTo: scrollView.trailingAnchor)
+        let bottom = contentView.bottomAnchor
+            .constraint(equalTo: scrollView.bottomAnchor)
+        let width = contentView.widthAnchor
+            .constraint(equalTo: scrollView.widthAnchor)
+
+        NSLayoutConstraint.activate([
+            top, leading, trailing, bottom, width
+        ])
+    }
+
+    private func activateConstraintsAppNameLabel() {
+        appNameLabel.translatesAutoresizingMaskIntoConstraints = false
         let top = appNameLabel.topAnchor
-            .constraint(equalTo: topAnchor, constant: topConstant)
+            .constraint(equalTo: contentView.topAnchor)
         let leading = appNameLabel.leadingAnchor
-            .constraint(equalTo: leadingAnchor, constant: 30)
+            .constraint(equalTo: contentView.leadingAnchor, constant: 30)
         let trailing = appNameLabel.trailingAnchor
-            .constraint(equalTo: trailingAnchor, constant: -30)
+            .constraint(equalTo: contentView.trailingAnchor, constant: -30)
         let height = appNameLabel.heightAnchor.constraint(equalTo: appNameLabel.widthAnchor, multiplier: 1.0/5.0)
 
         NSLayoutConstraint.activate([
@@ -293,12 +344,13 @@ extension SignInRootView {
     }
 
     private func activateConstraintsInputContainerView() {
+        inputContainerView.translatesAutoresizingMaskIntoConstraints = false
         let top = inputContainerView.topAnchor
             .constraint(equalTo: appNameLabel.bottomAnchor, constant: 30)
         let leading = inputContainerView.leadingAnchor
-            .constraint(equalTo: leadingAnchor, constant: 30)
+            .constraint(equalTo: contentView.leadingAnchor, constant: 30)
         let trailing = inputContainerView.trailingAnchor
-            .constraint(equalTo: trailingAnchor, constant: -30)
+            .constraint(equalTo: contentView.trailingAnchor, constant: -30)
         let height = inputContainerView.heightAnchor
             .constraint(equalTo: inputContainerView.widthAnchor)
 
@@ -308,6 +360,7 @@ extension SignInRootView {
     }
 
     private func activateConstraintsEmailIcon() {
+        emailIcon.translatesAutoresizingMaskIntoConstraints = false
         let top = emailIcon.topAnchor
             .constraint(equalTo: inputContainerView.topAnchor, constant: 18)
         let leading = emailIcon.leadingAnchor
@@ -323,6 +376,7 @@ extension SignInRootView {
     }
 
     private func activateConstraintsEmailTextField() {
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
         let height = emailTextField.heightAnchor
             .constraint(equalToConstant: 30)
         let top = emailTextField.topAnchor
@@ -338,6 +392,7 @@ extension SignInRootView {
     }
 
     private func activateConstraintsEmailSeparatorView() {
+        emailSeparatorView.translatesAutoresizingMaskIntoConstraints = false
         let height = emailSeparatorView.heightAnchor
             .constraint(equalToConstant: 1)
         let leading = emailSeparatorView.leadingAnchor
@@ -353,6 +408,7 @@ extension SignInRootView {
     }
 
     private func activateConstraintsPasswordIcon() {
+        passwordIcon.translatesAutoresizingMaskIntoConstraints = false
         let top = passwordIcon.topAnchor
             .constraint(equalTo: emailSeparatorView.bottomAnchor, constant: 28)
         let leading = passwordIcon.leadingAnchor
@@ -368,6 +424,7 @@ extension SignInRootView {
     }
 
     private func activateConstraintsPasswordTextField() {
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         let top = passwordTextField.topAnchor
             .constraint(equalTo: emailSeparatorView.bottomAnchor, constant: 29)
         let leading = passwordTextField.leadingAnchor
@@ -383,6 +440,7 @@ extension SignInRootView {
     }
 
     private func activateConstraintsPasswordSeparator() {
+        passwordSeparator.translatesAutoresizingMaskIntoConstraints = false
         let top = passwordSeparator.topAnchor
             .constraint(equalTo: passwordTextField.bottomAnchor, constant: 3)
         let leading = passwordSeparator.leadingAnchor
@@ -398,6 +456,7 @@ extension SignInRootView {
     }
 
     private func activateConstraintsSignInButton() {
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
         let top = signInButton.topAnchor
             .constraint(equalTo: passwordSeparator.bottomAnchor, constant: 40)
         let leading = signInButton.leadingAnchor
@@ -412,14 +471,15 @@ extension SignInRootView {
         ])
     }
 
-    private func activateConstraintsRegisterButton() {
-        let top = registerButton.topAnchor
+    private func activateConstraintsSignUpButton() {
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        let top = signUpButton.topAnchor
             .constraint(equalTo: passwordSeparator.bottomAnchor, constant: 40)
-        let trailing = registerButton.trailingAnchor
+        let trailing = signUpButton.trailingAnchor
             .constraint(equalTo: inputContainerView.trailingAnchor, constant: -10)
-        let width = registerButton.widthAnchor
+        let width = signUpButton.widthAnchor
             .constraint(equalToConstant: 120)
-        let height = registerButton.heightAnchor
+        let height = signUpButton.heightAnchor
             .constraint(equalToConstant: 45)
 
         NSLayoutConstraint.activate([
@@ -428,6 +488,7 @@ extension SignInRootView {
     }
 
     private func activateConstraintsVisitorButton() {
+        visitorButton.translatesAutoresizingMaskIntoConstraints = false
         let top = visitorButton.topAnchor
             .constraint(equalTo: signInButton.bottomAnchor, constant: 30)
         let centerX = visitorButton.centerXAnchor
@@ -443,6 +504,7 @@ extension SignInRootView {
     }
 
     private func activateConstraintsDescriptionLabel() {
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         let top = descriptionLabel.topAnchor
             .constraint(equalTo: inputContainerView.bottomAnchor, constant: 5)
         let leading = descriptionLabel.leadingAnchor
@@ -457,7 +519,8 @@ extension SignInRootView {
         ])
     }
 
-    private func activateConstraintsUserPolicyLabel() {
+    private func activateConstraintsUserPolicyButton() {
+        userPolicyButton.translatesAutoresizingMaskIntoConstraints = false
         let top = userPolicyButton.topAnchor
             .constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5)
         let trailing = userPolicyButton.trailingAnchor
@@ -472,7 +535,8 @@ extension SignInRootView {
         ])
     }
 
-    private func activateConstraintsPrivacyPolicyLabel() {
+    private func activateConstraintsPrivacyPolicyButton() {
+        privacyPolicyButton.translatesAutoresizingMaskIntoConstraints = false
         let top = privacyPolicyButton.topAnchor
             .constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5)
         let leading = privacyPolicyButton.leadingAnchor
@@ -481,9 +545,11 @@ extension SignInRootView {
             .constraint(equalToConstant: 100)
         let height = privacyPolicyButton.heightAnchor
             .constraint(equalToConstant: 15)
+        let bottom = privacyPolicyButton.bottomAnchor
+            .constraint(equalTo: contentView.bottomAnchor)
 
         NSLayoutConstraint.activate([
-            top, leading, width, height
+            top, leading, width, height, bottom
         ])
     }
 }

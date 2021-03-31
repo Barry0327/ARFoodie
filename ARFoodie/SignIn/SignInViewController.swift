@@ -16,9 +16,13 @@ class SignInViewController: NiblessViewController {
     let viewModel: SignInViewModel
     let disposeBag: DisposeBag = DisposeBag()
     let mainStoryboard: UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
-//    var rootView: SignInRootView {
-//        return view as! SignInRootView
-//    }
+    private var didLayoutSubviews: Bool = false
+
+    // swiftlint:disable force_cast
+    var rootView: SignInRootView {
+        return view as! SignInRootView
+    }
+    // swiftlint:enable force_cast
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -39,10 +43,25 @@ extension SignInViewController {
         super.viewDidLoad()
 //        rootView.emailTextField.delegate = self
 //        rootView.passwordTextField.delegate = self
-        observerKeyboard()
         hideKeyboardWhenTappedAround()
         observerViewModel()
         view.backgroundColor = UIColor.flatWatermelonDark()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addKeyboardObservers()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObservers()
+    }
+
+    override func viewDidLayoutSubviews() {
+        guard didLayoutSubviews == false else { return }
+        rootView.resetScrollViewContentInset()
+        didLayoutSubviews = true
     }
 }
 // MARK: - Methods
@@ -98,7 +117,7 @@ extension SignInViewController {
         case .main:
             performSegue(withIdentifier: "FinishLogin", sender: self)
         case .register:
-            presentRegister()
+            presentSingUp()
         case .userPolicy:
             presentUserPolicy()
         case .userPrivacy:
@@ -114,9 +133,7 @@ extension SignInViewController {
 
     func presentUserPolicy() {
         guard
-            let userPrivacyVC = mainStoryboard.instantiateViewController(
-                withIdentifier: "UserPolicyViewController"
-                ) as? UserPolicyViewController
+            let userPrivacyVC = mainStoryboard.instantiateViewController(ofType: UserPolicyViewController.self)
             else { fatalError("Please check the ID for UserPolicyViewController")}
         let navigationCTL = UINavigationController(rootViewController: userPrivacyVC)
         self.present(navigationCTL, animated: true, completion: nil)
@@ -124,19 +141,16 @@ extension SignInViewController {
 
     func presentPrivacyPolicy() {
         guard
-            let userPrivacyVC = mainStoryboard.instantiateViewController(
-                withIdentifier: "PrivacyPolicyViewController"
-                ) as? PrivacyPolicyViewController
+            let userPrivacyVC = mainStoryboard.instantiateViewController(ofType: PrivacyPolicyViewController.self)
             else { fatalError("Please check the ID for PrivacyPolicyViewController")}
 
         let navigationCTL = UINavigationController(rootViewController: userPrivacyVC)
         self.present(navigationCTL, animated: true, completion: nil)
     }
 
-    func presentRegister() {
-        if let registerVC = mainStoryboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
-            self.present(registerVC, animated: true, completion: nil)
-        }
+    func presentSingUp() {
+        let signUpVC = SignUpViewController()
+        present(signUpVC, animated: true, completion: nil)
     }
 }
 // MARK: - TextFieldDelegate
@@ -150,4 +164,29 @@ extension SignInViewController: UITextFieldDelegate {
 //        }
 //        return false
 //    }
+}
+extension SignInViewController {
+    func addKeyboardObservers() {
+      let notificationCenter = NotificationCenter.default
+      notificationCenter.addObserver(self, selector: #selector(handleContentUnderKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+      notificationCenter.addObserver(self, selector: #selector(handleContentUnderKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+
+    func removeObservers() {
+      let notificationCenter = NotificationCenter.default
+      notificationCenter.removeObserver(self)
+    }
+
+    @objc
+    func handleContentUnderKeyboard(notification: Notification) {
+        if let userInfo = notification.userInfo,
+           let keyboardEndFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let convertedKeyboardFrame = view.convert(keyboardEndFrame.cgRectValue, from: view.window)
+            if notification.name == UIResponder.keyboardWillHideNotification {
+                rootView.resetScrollViewContentInset()
+            } else {
+                rootView.moveContent(forKeyboardFrame: convertedKeyboardFrame)
+            }
+        }
+    }
 }

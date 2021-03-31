@@ -12,9 +12,10 @@ import RxRelay
 import Firebase
 
 class SignInViewModel {
-    let email: BehaviorRelay<String> = BehaviorRelay.init(value: "")
-    let password: BehaviorRelay<String> = BehaviorRelay.init(value: "")
+    var email: String = ""
+    var password: String = ""
 
+    // MARK: - Output
     let signInActivityIndicatorAnimating: PublishRelay<Bool> = PublishRelay.init()
     let errorMessage: PublishRelay<ErrorMessage> = PublishRelay.init()
     let signInView: PublishRelay<SignInView> = PublishRelay.init()
@@ -23,8 +24,8 @@ class SignInViewModel {
     func signIn() {
         signInActivityIndicatorAnimating.accept(true)
         Auth.auth().signIn(
-            withEmail: email.value,
-            password: password.value) { [weak self] result, error in
+            withEmail: email,
+            password: password) { [weak self] result, error in
             guard let self = self else { return }
             self.signInActivityIndicatorAnimating.accept(false)
 

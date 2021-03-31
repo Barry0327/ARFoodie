@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let apiKey: String = {
-
         if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
             return key
         }
@@ -25,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     let clientID: String = {
-
         if let key = Bundle.main.object(forInfoDictionaryKey: "CLIENT_ID") as? String {
             return key
         }
