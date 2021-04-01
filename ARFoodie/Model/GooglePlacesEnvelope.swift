@@ -30,8 +30,8 @@ struct GooglePlacesEnvelope<Content: Decodable>: Decodable {
     }
 
     init(from decoder: Decoder) throws {
-        guard let ci = decoder.userInfo[.contentIdentifier],
-              let contentIdentifier = ci as? String,
+        guard let contentID = decoder.userInfo[.contentIdentifier],
+              let contentIdentifier = contentID as? String,
               let key = CodingKeys(stringValue: contentIdentifier)
         else {
             throw GooglePlacesServiceError.invalidDecoderConfiguration

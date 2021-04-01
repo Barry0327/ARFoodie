@@ -49,8 +49,9 @@
 		A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A426D73325E4DDCC0082D577 /* SignInViewModel.swift */; };
 		A427783225E63DE4003F36FB /* SignUpRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427783125E63DE4003F36FB /* SignUpRootView.swift */; };
 		A495F3F126157180001CD738 /* GooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F3F026157180001CD738 /* GooglePlaceService.swift */; };
-		A495F3F526157CE0001CD738 /* nearby_places.json in Resources */ = {isa = PBXBuildFile; fileRef = A495F3F426157CE0001CD738 /* nearby_places.json */; };
 		A495F3F82615A849001CD738 /* GooglePlacesEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */; };
+		A495F40B2615BE31001CD738 /* DecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F40A2615BE31001CD738 /* DecodeTests.swift */; };
+		A495F4122615BE78001CD738 /* nearby_places.json in Resources */ = {isa = PBXBuildFile; fileRef = A495F3F426157CE0001CD738 /* nearby_places.json */; };
 		A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */; };
 		A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7925E4F64C00124731 /* ErrorMessage.swift */; };
 		A4D57B7D25E4FEA300124731 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7C25E4FEA300124731 /* SignInView.swift */; };
@@ -58,10 +59,24 @@
 		A4FB7BE72612C23400E82166 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB7BE62612C23400E82166 /* UIStoryboardExtension.swift */; };
 		A4FCB37725DE6880004A41DC /* SignInRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37625DE6880004A41DC /* SignInRootView.swift */; };
 		A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37B25DE6B03004A41DC /* NiblessView.swift */; };
+		ABAEE9BFF68F4CEB369EDC63 /* Pods_ARFoodieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7EB6D82139D7A894BF81B /* Pods_ARFoodieTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A495F4032615BDBD001CD738 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97D25674224B1F9C00175E42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97D2567B224B1F9C00175E42;
+			remoteInfo = ARFoodie;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		197446721368A7D4C5261BDC /* Pods-ARFoodieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieTests.release.xcconfig"; path = "Target Support Files/Pods-ARFoodieTests/Pods-ARFoodieTests.release.xcconfig"; sourceTree = "<group>"; };
 		245F319C565724C46ACB8FE7 /* Pods-ARFoodie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.release.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.release.xcconfig"; sourceTree = "<group>"; };
+		54A7EB6D82139D7A894BF81B /* Pods_ARFoodieTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78A59CFE4C8FDB91A773B61A /* Pods-ARFoodieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieTests.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodieTests/Pods-ARFoodieTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7EEF7A053DC58A11FEB39980 /* Pods-ARFoodie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.debug.xcconfig"; sourceTree = "<group>"; };
 		970230DA225907D600BD8AF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		97187ABA2251D4F30096E52D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +131,9 @@
 		A495F3F026157180001CD738 /* GooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
 		A495F3F426157CE0001CD738 /* nearby_places.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nearby_places.json; sourceTree = "<group>"; };
 		A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesEnvelope.swift; sourceTree = "<group>"; };
+		A495F3FE2615BDBD001CD738 /* ARFoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A495F4022615BDBD001CD738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A495F40A2615BE31001CD738 /* DecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeTests.swift; sourceTree = "<group>"; };
 		A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLessViewController.swift; sourceTree = "<group>"; };
 		A4D57B7925E4F64C00124731 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		A4D57B7C25E4FEA300124731 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -135,6 +153,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A495F3FB2615BDBD001CD738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABAEE9BFF68F4CEB369EDC63 /* Pods_ARFoodieTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -143,6 +169,8 @@
 			children = (
 				7EEF7A053DC58A11FEB39980 /* Pods-ARFoodie.debug.xcconfig */,
 				245F319C565724C46ACB8FE7 /* Pods-ARFoodie.release.xcconfig */,
+				78A59CFE4C8FDB91A773B61A /* Pods-ARFoodieTests.debug.xcconfig */,
+				197446721368A7D4C5261BDC /* Pods-ARFoodieTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -199,6 +227,7 @@
 			children = (
 				97D2567E224B1F9C00175E42 /* ARFoodie */,
 				97B718E3226EB9C50010BF33 /* Assets.xcassets */,
+				A495F3FF2615BDBD001CD738 /* ARFoodieTests */,
 				97D2567D224B1F9C00175E42 /* Products */,
 				4A247BB393FA43DF454E13D3 /* Pods */,
 				F3184D7BC93FA58E18C2329B /* Frameworks */,
@@ -209,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				97D2567C224B1F9C00175E42 /* ARFoodie.app */,
+				A495F3FE2615BDBD001CD738 /* ARFoodieTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -316,6 +346,15 @@
 			path = "API Cache";
 			sourceTree = "<group>";
 		};
+		A495F3FF2615BDBD001CD738 /* ARFoodieTests */ = {
+			isa = PBXGroup;
+			children = (
+				A495F40A2615BE31001CD738 /* DecodeTests.swift */,
+				A495F4022615BDBD001CD738 /* Info.plist */,
+			);
+			path = ARFoodieTests;
+			sourceTree = "<group>";
+		};
 		A4FCB37525DE6819004A41DC /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				C4415E4B149929D69AC38771 /* Pods_ARFoodie.framework */,
+				54A7EB6D82139D7A894BF81B /* Pods_ARFoodieTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -359,13 +399,33 @@
 			productReference = 97D2567C224B1F9C00175E42 /* ARFoodie.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A495F3FD2615BDBD001CD738 /* ARFoodieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A495F4052615BDBD001CD738 /* Build configuration list for PBXNativeTarget "ARFoodieTests" */;
+			buildPhases = (
+				9DD50846B23778D195FCDB31 /* [CP] Check Pods Manifest.lock */,
+				A495F3FA2615BDBD001CD738 /* Sources */,
+				A495F3FB2615BDBD001CD738 /* Frameworks */,
+				A495F3FC2615BDBD001CD738 /* Resources */,
+				3B57CCB9E4B64099E92B512B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A495F4042615BDBD001CD738 /* PBXTargetDependency */,
+			);
+			name = ARFoodieTests;
+			productName = ARFoodieTests;
+			productReference = A495F3FE2615BDBD001CD738 /* ARFoodieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		97D25674224B1F9C00175E42 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Chen Yi-Wei";
 				TargetAttributes = {
@@ -377,6 +437,10 @@
 								enabled = 0;
 							};
 						};
+					};
+					A495F3FD2615BDBD001CD738 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 97D2567B224B1F9C00175E42;
 					};
 				};
 			};
@@ -395,6 +459,7 @@
 			projectRoot = "";
 			targets = (
 				97D2567B224B1F9C00175E42 /* ARFoodie */,
+				A495F3FD2615BDBD001CD738 /* ARFoodieTests */,
 			);
 		};
 /* End PBXProject section */
@@ -407,14 +472,38 @@
 				97187ABB2251D4F30096E52D /* Main.storyboard in Resources */,
 				9756356B2265D6EF009AE63B /* GoogleService-Info.plist in Resources */,
 				97B718E4226EB9C50010BF33 /* Assets.xcassets in Resources */,
-				A495F3F526157CE0001CD738 /* nearby_places.json in Resources */,
 				97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A495F3FC2615BDBD001CD738 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A495F4122615BE78001CD738 /* nearby_places.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3B57CCB9E4B64099E92B512B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARFoodieTests/Pods-ARFoodieTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARFoodieTests/Pods-ARFoodieTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARFoodieTests/Pods-ARFoodieTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		97D25698224CBB6C00175E42 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -431,6 +520,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		9DD50846B23778D195FCDB31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARFoodieTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		B0CFFA5AD86EC7A404EDB010 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -540,10 +651,27 @@
 				A495F3F82615A849001CD738 /* GooglePlacesEnvelope.swift in Sources */,
 				A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */,
 				97A49FA622526CB600DC4B43 /* Extension.swift in Sources */,
+				A468426F261481440061C278 /* MainViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A495F3FA2615BDBD001CD738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A495F40B2615BE31001CD738 /* DecodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A495F4042615BDBD001CD738 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97D2567B224B1F9C00175E42 /* ARFoodie */;
+			targetProxy = A495F4032615BDBD001CD738 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */ = {
@@ -743,6 +871,54 @@
 			};
 			name = Release;
 		};
+		A495F4062615BDBD001CD738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78A59CFE4C8FDB91A773B61A /* Pods-ARFoodieTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3QMHS4SB9;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ARFoodieTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BarryChen.ARFoodie.ARFoodieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARFoodie.app/ARFoodie";
+			};
+			name = Debug;
+		};
+		A495F4072615BDBD001CD738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 197446721368A7D4C5261BDC /* Pods-ARFoodieTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V3QMHS4SB9;
+				INFOPLIST_FILE = ARFoodieTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.BarryChen.ARFoodie.ARFoodieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARFoodie.app/ARFoodie";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -760,6 +936,15 @@
 			buildConfigurations = (
 				97D2568F224B1F9E00175E42 /* Debug */,
 				97D25690224B1F9E00175E42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A495F4052615BDBD001CD738 /* Build configuration list for PBXNativeTarget "ARFoodieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A495F4062615BDBD001CD738 /* Debug */,
+				A495F4072615BDBD001CD738 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

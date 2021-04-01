@@ -17,7 +17,7 @@ struct Restaurant {
     let userRatingsTotal: Double?
 
     private enum CodingKeys: String, CodingKey {
-        case geometry, name, placdID, rating, userRatingsTotal
+        case geometry, name, placeID = "place_id", rating, userRatingsTotal = "user_ratings_total"
     }
 
     private enum Location: String, CodingKey {
@@ -33,10 +33,10 @@ struct Restaurant {
 extension Restaurant: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        placeID = try container.decode(String.self, forKey: .placdID)
+        placeID = try container.decode(String.self, forKey: .placeID)
         name = try container.decode(String.self, forKey: .name)
-        rating = try container.decode(Double.self, forKey: .rating)
-        userRatingsTotal = try container.decode(Double.self, forKey: .userRatingsTotal)
+        rating = try container.decodeIfPresent(Double.self, forKey: .rating)
+        userRatingsTotal = try container.decodeIfPresent(Double.self, forKey: .userRatingsTotal)
 
         let locationContainer = try container.nestedContainer(keyedBy: Location.self, forKey: .geometry)
         let latLngContainer = try locationContainer.nestedContainer(keyedBy: LatAndLng.self, forKey: .location)
