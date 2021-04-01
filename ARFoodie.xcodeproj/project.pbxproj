@@ -51,7 +51,8 @@
 		A495F3F126157180001CD738 /* GooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F3F026157180001CD738 /* GooglePlaceService.swift */; };
 		A495F3F82615A849001CD738 /* GooglePlacesEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */; };
 		A495F40B2615BE31001CD738 /* DecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F40A2615BE31001CD738 /* DecodeTests.swift */; };
-		A495F4122615BE78001CD738 /* nearby_places.json in Resources */ = {isa = PBXBuildFile; fileRef = A495F3F426157CE0001CD738 /* nearby_places.json */; };
+		A495F4122615BE78001CD738 /* place_detail.json in Resources */ = {isa = PBXBuildFile; fileRef = A495F3F426157CE0001CD738 /* place_detail.json */; };
+		A495F4482615C835001CD738 /* nearby_places.json in Resources */ = {isa = PBXBuildFile; fileRef = A495F4432615C689001CD738 /* nearby_places.json */; };
 		A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */; };
 		A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7925E4F64C00124731 /* ErrorMessage.swift */; };
 		A4D57B7D25E4FEA300124731 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7C25E4FEA300124731 /* SignInView.swift */; };
@@ -129,11 +130,12 @@
 		A426D73325E4DDCC0082D577 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		A427783125E63DE4003F36FB /* SignUpRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRootView.swift; sourceTree = "<group>"; };
 		A495F3F026157180001CD738 /* GooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
-		A495F3F426157CE0001CD738 /* nearby_places.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nearby_places.json; sourceTree = "<group>"; };
+		A495F3F426157CE0001CD738 /* place_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = place_detail.json; sourceTree = "<group>"; };
 		A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesEnvelope.swift; sourceTree = "<group>"; };
 		A495F3FE2615BDBD001CD738 /* ARFoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A495F4022615BDBD001CD738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A495F40A2615BE31001CD738 /* DecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeTests.swift; sourceTree = "<group>"; };
+		A495F4432615C689001CD738 /* nearby_places.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nearby_places.json; sourceTree = "<group>"; };
 		A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLessViewController.swift; sourceTree = "<group>"; };
 		A4D57B7925E4F64C00124731 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		A4D57B7C25E4FEA300124731 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -341,7 +343,8 @@
 		A495F3F326157C9F001CD738 /* API Cache */ = {
 			isa = PBXGroup;
 			children = (
-				A495F3F426157CE0001CD738 /* nearby_places.json */,
+				A495F4432615C689001CD738 /* nearby_places.json */,
+				A495F3F426157CE0001CD738 /* place_detail.json */,
 			);
 			path = "API Cache";
 			sourceTree = "<group>";
@@ -480,7 +483,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A495F4122615BE78001CD738 /* nearby_places.json in Resources */,
+				A495F4482615C835001CD738 /* nearby_places.json in Resources */,
+				A495F4122615BE78001CD738 /* place_detail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

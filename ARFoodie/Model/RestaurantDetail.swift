@@ -12,7 +12,7 @@ import MapKit
 struct RestaurantDetail {
     let name: String
     let address: String
-    let phoneNumber: String
+    let phoneNumber: String?
     let photo: Photo?
     let coordinate: CLLocationCoordinate2D
     let isOpening: Bool?
@@ -22,7 +22,8 @@ struct RestaurantDetail {
     struct Photo: Codable {
         let reference: String
 
-        private enum CodingKeys: String ,CodingKey {
+        // swiftlint:disable nesting
+        private enum CodingKeys: String, CodingKey {
             case reference = "photo_reference"
         }
     }
@@ -50,7 +51,7 @@ struct RestaurantDetail {
         case lat, lng
     }
 
-    private enum OpeningHoursKeys: String ,CodingKey {
+    private enum OpeningHoursKeys: String, CodingKey {
         case openNow = "open_now"
     }
 }
@@ -60,7 +61,7 @@ extension RestaurantDetail: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
         address = try container.decode(String.self, forKey: .address)
-        phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
+        phoneNumber = try container.decodeIfPresent(String.self, forKey: .phoneNumber)
         rating = try container.decodeIfPresent(Double.self, forKey: .rating)
         userRatingsTotal = try container.decodeIfPresent(Double.self, forKey: .userRaingsTotal)
 

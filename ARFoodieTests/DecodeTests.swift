@@ -44,4 +44,17 @@ class DecodeTests: XCTestCase {
 
         XCTAssertFalse(envelope.content.isEmpty)
     }
+
+    func test_decode_restaurantDetail() throws {
+        guard let data = cachedFileData(name: "place_detail") else {
+            XCTFail("File not found")
+            return
+        }
+
+        let decoder = JSONDecoder()
+        decoder.userInfo[.contentIdentifier] = "result"
+
+        let envelope = try decoder.decode(GooglePlacesEnvelope<RestaurantDetail>.self, from: data)
+        XCTAssertEqual("皇星魚翅餐廳", envelope.content.name)
+    }
 }
