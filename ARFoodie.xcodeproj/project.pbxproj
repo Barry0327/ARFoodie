@@ -48,6 +48,9 @@
 		A40CE67C25E6493E00F8BB27 /* Declarative.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40CE67B25E6493E00F8BB27 /* Declarative.swift */; };
 		A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A426D73325E4DDCC0082D577 /* SignInViewModel.swift */; };
 		A427783225E63DE4003F36FB /* SignUpRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427783125E63DE4003F36FB /* SignUpRootView.swift */; };
+		A495F3F126157180001CD738 /* GooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F3F026157180001CD738 /* GooglePlaceService.swift */; };
+		A495F3F526157CE0001CD738 /* nearby_places.json in Resources */ = {isa = PBXBuildFile; fileRef = A495F3F426157CE0001CD738 /* nearby_places.json */; };
+		A495F3F82615A849001CD738 /* GooglePlacesEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */; };
 		A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */; };
 		A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7925E4F64C00124731 /* ErrorMessage.swift */; };
 		A4D57B7D25E4FEA300124731 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7C25E4FEA300124731 /* SignInView.swift */; };
@@ -110,6 +113,9 @@
 		A40CE67B25E6493E00F8BB27 /* Declarative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declarative.swift; sourceTree = "<group>"; };
 		A426D73325E4DDCC0082D577 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		A427783125E63DE4003F36FB /* SignUpRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRootView.swift; sourceTree = "<group>"; };
+		A495F3F026157180001CD738 /* GooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
+		A495F3F426157CE0001CD738 /* nearby_places.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nearby_places.json; sourceTree = "<group>"; };
+		A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesEnvelope.swift; sourceTree = "<group>"; };
 		A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLessViewController.swift; sourceTree = "<group>"; };
 		A4D57B7925E4F64C00124731 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		A4D57B7C25E4FEA300124731 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -210,6 +216,8 @@
 		97D2567E224B1F9C00175E42 /* ARFoodie */ = {
 			isa = PBXGroup;
 			children = (
+				A495F3F326157C9F001CD738 /* API Cache */,
+				A468426D261481060061C278 /* Main */,
 				A40CE67A25E6491800F8BB27 /* Utilitis */,
 				97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */,
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
@@ -267,6 +275,8 @@
 				97D25699224CD04F00175E42 /* Portocol.swift */,
 				97B718E1226C9B150010BF33 /* ErrorHandlers.swift */,
 				A4D57B7925E4F64C00124731 /* ErrorMessage.swift */,
+				A495F3F026157180001CD738 /* GooglePlaceService.swift */,
+				A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -288,6 +298,22 @@
 				970230DA225907D600BD8AF2 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		A468426D261481060061C278 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A468426E261481440061C278 /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		A495F3F326157C9F001CD738 /* API Cache */ = {
+			isa = PBXGroup;
+			children = (
+				A495F3F426157CE0001CD738 /* nearby_places.json */,
+			);
+			path = "API Cache";
 			sourceTree = "<group>";
 		};
 		A4FCB37525DE6819004A41DC /* SignIn */ = {
@@ -381,6 +407,7 @@
 				97187ABB2251D4F30096E52D /* Main.storyboard in Resources */,
 				9756356B2265D6EF009AE63B /* GoogleService-Info.plist in Resources */,
 				97B718E4226EB9C50010BF33 /* Assets.xcassets in Resources */,
+				A495F3F526157CE0001CD738 /* nearby_places.json in Resources */,
 				97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +523,7 @@
 				97A6C8E82263895F002FAA90 /* ProfileViewController.swift in Sources */,
 				97A49FB022573D4000DC4B43 /* SignInViewController.swift in Sources */,
 				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
+				A495F3F126157180001CD738 /* GooglePlaceService.swift in Sources */,
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
 				97B718E822706B5C0010BF33 /* DetailViewController.swift in Sources */,
 				970230DB225907D600BD8AF2 /* SignUpViewController.swift in Sources */,
@@ -509,6 +537,7 @@
 				A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
 				97A6C8E222632F86002FAA90 /* UIImageViewExtension.swift in Sources */,
+				A495F3F82615A849001CD738 /* GooglePlacesEnvelope.swift in Sources */,
 				A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */,
 				97A49FA622526CB600DC4B43 /* Extension.swift in Sources */,
 			);

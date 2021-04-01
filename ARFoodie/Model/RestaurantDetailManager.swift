@@ -21,7 +21,6 @@ class RestaurantDetailManager {
     weak var delegate: RestaurantDetailDelegate?
 
     let apiKey: String = {
-
         if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
             return key
         }
@@ -122,7 +121,7 @@ class RestaurantDetailManager {
                     userRatingTotal = userRatingTotalNumber
                 }
 
-                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photoRef: photoRef, coordinate: coordinate, isOpening: isOpening, rating: rating, userRatingsTotal: userRatingTotal)
+                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photo: photoRef, coordinate: coordinate, isOpening: isOpening, rating: rating, userRatingsTotal: userRatingTotal)
 
                 DispatchQueue.main.async { [weak self] in
 

@@ -22,7 +22,6 @@ class RestaurantInfoManager {
     weak var delegate: RestaurantInfoDelegate?
 
     let apiKey: String = {
-
         if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
             return key
         }
@@ -139,14 +138,11 @@ class RestaurantInfoManager {
     }
 
     func convertDicToQuertItems(parameters: [String: String]) -> [URLQueryItem] {
-
         var queryItems = [URLQueryItem]()
         for (key, value) in parameters {
-
             let queryItem = URLQueryItem(name: key, value: value)
             queryItems.append(queryItem)
         }
-
         return queryItems
     }
 }

@@ -8,8 +8,7 @@
 
 import Foundation
 
-struct Restaurant: Codable {
-
+struct Restaurant {
     let placeID: String
     let name: String
     let lat: Double
@@ -17,34 +16,29 @@ struct Restaurant: Codable {
     let rating: Double?
     let userRatingsTotal: Double?
 
-    enum RootKey: String, CodingKey {
-        case results
-    }
-
-    enum RestaurantKey: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case geometry, name, placdID, rating, userRatingsTotal
     }
 
-    enum Location: String, CodingKey {
+    private enum Location: String, CodingKey {
         case location
     }
 
-    enum LatAndLng: String, CodingKey {
+    private enum LatAndLng: String, CodingKey {
         case lat, lng
     }
 
 }
 
-extension Restaurant {
+extension Restaurant: Decodable {
     init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        placeID = try container.decode(String.self, forKey: .placdID)
+        name = try container.decode(String.self, forKey: .name)
+        rating = try container.decode(Double.self, forKey: .rating)
+        userRatingsTotal = try container.decode(Double.self, forKey: .userRatingsTotal)
 
-        let value = try decoder.container(keyedBy: RootKey.self)
-        let resultsContainer = try value.nestedContainer(keyedBy: RestaurantKey.self, forKey: .results)
-        placeID = try resultsContainer.decode(String.self, forKey: .placdID)
-        name = try resultsContainer.decode(String.self, forKey: .name)
-        rating = try resultsContainer.decode(Double.self, forKey: .rating)
-        userRatingsTotal = try resultsContainer.decode(Double.self, forKey: .userRatingsTotal)
-        let locationContainer = try resultsContainer.nestedContainer(keyedBy: Location.self, forKey: .geometry)
+        let locationContainer = try container.nestedContainer(keyedBy: Location.self, forKey: .geometry)
         let latLngContainer = try locationContainer.nestedContainer(keyedBy: LatAndLng.self, forKey: .location)
         lng = try latLngContainer.decode(Double.self, forKey: .lng)
         lat = try latLngContainer.decode(Double.self, forKey: .lat)
