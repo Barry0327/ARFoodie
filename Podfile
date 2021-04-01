@@ -6,7 +6,6 @@ target 'ARFoodie' do
   use_frameworks!
 
   # Pods for ARFoodie
-
   pod 'SwiftLint'
   pod 'Alamofire', '~> 5.2'
   pod 'ARCL'
@@ -27,5 +26,11 @@ target 'ARFoodie' do
   pod 'RxSwift', '6.1.0'
   pod 'RxCocoa', '6.1.0'
   pod 'LookinServer', :configurations => ['Debug']
+
+  target 'ARFoodieTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'RxBlocking'
+  end
 
 end

@@ -134,6 +134,8 @@ PODS:
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
+  - RxBlocking (6.1.0):
+    - RxSwift (= 6.1.0)
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
     - RxSwift (= 6.1.0)
@@ -167,6 +169,7 @@ DEPENDENCIES:
   - GoogleSignIn
   - IHProgressHUD (from `https://github.com/Swiftify-Corp/IHProgressHUD.git`)
   - LookinServer
+  - RxBlocking
   - RxCocoa (= 6.1.0)
   - RxSwift (= 6.1.0)
   - StatusAlert
@@ -204,6 +207,7 @@ SPEC REPOS:
     - Moya
     - nanopb
     - PromisesObjC
+    - RxBlocking
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -260,6 +264,7 @@ SPEC CHECKSUMS:
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  RxBlocking: 602095fba0bce7b16b56ccec89edf780c248b7d9
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
@@ -270,6 +275,6 @@ SPEC CHECKSUMS:
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
   YTLiveStreaming: 339210f132c7b5aa40a985d9c69492b49b41e8a1
 
-PODFILE CHECKSUM: c332992f3953c590f49b1a5840e6f36584842587
+PODFILE CHECKSUM: 228d0b56f74dbae3c0b29b3eb8d051bfce8fe6e6
 
 COCOAPODS: 1.10.0
