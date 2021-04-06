@@ -38,18 +38,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         GIDSignIn.sharedInstance()?.clientID = clientID
 
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
-        if Auth.auth().currentUser != nil {
-            if let mainTabbarC = storyboard.instantiateViewController(ofType: TabbarController.self) {
-                self.window?.rootViewController = mainTabbarC
-            }
-        } else {
-            window = UIWindow(frame: UIScreen.main.bounds)
-            window?.makeKeyAndVisible()
-            let signInViewController = SignInViewController.init(viewModel: SignInViewModel())
-            window?.rootViewController = signInViewController
-        }
+//        if Auth.auth().currentUser != nil {
+//            if let mainTabbarC = storyboard.instantiateViewController(ofType: TabbarController.self) {
+//                self.window?.rootViewController = mainTabbarC
+//            }
+//        } else {
+//            window = UIWindow(frame: UIScreen.main.bounds)
+//            window?.makeKeyAndVisible()
+//            let signInViewController = SignInViewController.init(viewModel: SignInViewModel())
+//            window?.rootViewController = signInViewController
+//        }
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let viewModel = MainViewModel(placesService: GooglePlacesService())
+        let mainViewController = MainARViewController(viewModel: viewModel)
+        window?.rootViewController = mainViewController
+        window?.makeKeyAndVisible()
 
         return true
     }

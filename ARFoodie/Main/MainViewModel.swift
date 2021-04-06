@@ -53,6 +53,7 @@ final class MainViewModel: NSObject {
                 case .failure(let error):
                     self.error.accept(error)
                 }
+                self.searchButtonAnimating.accept(false)
             }
             .disposed(by: bag)
     }

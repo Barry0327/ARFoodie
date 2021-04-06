@@ -21,11 +21,8 @@ class InformationCell: UITableViewCell {
             self.ratingView.rating = restaurantDetail?.rating ?? 0
             self.ratingView.text = String(restaurantDetail?.userRatingsTotal ?? 0)
 
-            if restaurantDetail?.photo != "暫無資料" {
-
-                self.imgView.fetchImage(with: restaurantDetail!.photoReference)
-                print("Fetch the image")
-
+            if let reference = restaurantDetail?.photo?.reference {
+                imgView.fetchImage(with: reference)
             }
 
             if restaurantDetail?.isOpening != nil {

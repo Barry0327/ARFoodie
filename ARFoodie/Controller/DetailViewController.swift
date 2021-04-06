@@ -33,7 +33,7 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         name: "暫無資料",
         address: "暫無資料",
         phoneNumber: "暫無資料",
-        photoRef: "暫無資料",
+        photo: nil,
         coordinate: CLLocationCoordinate2D.init(),
         isOpening: nil,
         rating: 0,
