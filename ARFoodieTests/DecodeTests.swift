@@ -56,5 +56,6 @@ class DecodeTests: XCTestCase {
 
         let envelope = try decoder.decode(GooglePlacesEnvelope<RestaurantDetail>.self, from: data)
         XCTAssertEqual("皇星魚翅餐廳", envelope.content.name)
+        XCTAssertEqual(5, envelope.content.reviews.count)
     }
 }

@@ -37,7 +37,8 @@ class DetailViewController: UIViewController, UINavigationControllerDelegate {
         coordinate: CLLocationCoordinate2D.init(),
         isOpening: nil,
         rating: 0,
-        userRatingsTotal: 0
+        userRatingsTotal: 0,
+        reviews: []
     )
 
     enum DetailSection {

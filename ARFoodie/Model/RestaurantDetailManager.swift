@@ -121,7 +121,7 @@ class RestaurantDetailManager {
                     userRatingTotal = userRatingTotalNumber
                 }
 
-                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photo: nil, coordinate: coordinate, isOpening: isOpening, rating: rating, userRatingsTotal: userRatingTotal)
+                let restaurant = RestaurantDetail.init(name: name, address: address, phoneNumber: phoneNumber, photo: nil, coordinate: coordinate, isOpening: isOpening, rating: rating, userRatingsTotal: userRatingTotal, reviews: [])
 
                 DispatchQueue.main.async { [weak self] in
 

@@ -18,6 +18,7 @@ struct RestaurantDetail {
     let isOpening: Bool?
     let rating: Double?
     let userRatingsTotal: Double?
+    let reviews: [Review]
 
     struct Photo: Codable {
         let reference: String
@@ -25,6 +26,22 @@ struct RestaurantDetail {
         // swiftlint:disable nesting
         private enum CodingKeys: String, CodingKey {
             case reference = "photo_reference"
+        }
+    }
+
+    struct Review: Codable {
+        let authorName: String
+        let authorPhotoURLString: String?
+        let rating: Double
+        let relativeTimeDescription: String
+        let text: String
+
+        private enum CodingKeys: String, CodingKey {
+            case authorName = "author_name"
+            case authorPhotoURLString = "profile_photo_url"
+            case rating
+            case relativeTimeDescription = "relative_time_description"
+            case text
         }
     }
 
@@ -37,6 +54,7 @@ struct RestaurantDetail {
         case openingHours = "opening_hours"
         case rating
         case userRaingsTotal = "user_ratings_total"
+        case reviews
     }
 
     private enum PhotosKeys: String, CodingKey {
@@ -79,5 +97,7 @@ extension RestaurantDetail: Decodable {
         } else {
             isOpening = nil
         }
+
+        reviews = try container.decode([Review].self, forKey: .reviews)
     }
 }
