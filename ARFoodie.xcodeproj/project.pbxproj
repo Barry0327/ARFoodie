@@ -49,6 +49,7 @@
 		A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A426D73325E4DDCC0082D577 /* SignInViewModel.swift */; };
 		A427783225E63DE4003F36FB /* SignUpRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427783125E63DE4003F36FB /* SignUpRootView.swift */; };
 		A468426F261481440061C278 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468426E261481440061C278 /* MainViewModel.swift */; };
+		A48D4EC1261C33EC00EDB570 /* RestaurantPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */; };
 		A495F3F126157180001CD738 /* GooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F3F026157180001CD738 /* GooglePlaceService.swift */; };
 		A495F3F82615A849001CD738 /* GooglePlacesEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */; };
 		A495F40B2615BE31001CD738 /* DecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F40A2615BE31001CD738 /* DecodeTests.swift */; };
@@ -132,6 +133,7 @@
 		A426D73325E4DDCC0082D577 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		A427783125E63DE4003F36FB /* SignUpRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRootView.swift; sourceTree = "<group>"; };
 		A468426E261481440061C278 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPinView.swift; sourceTree = "<group>"; };
 		A495F3F026157180001CD738 /* GooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
 		A495F3F426157CE0001CD738 /* place_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = place_detail.json; sourceTree = "<group>"; };
 		A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesEnvelope.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				A468426E261481440061C278 /* MainViewModel.swift */,
+				A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				97B718E2226C9B150010BF33 /* ErrorHandlers.swift in Sources */,
 				9756357A2269B677009AE63B /* FirebaseManager.swift in Sources */,
 				97E610D82273097C00A8C199 /* UserPolicyViewController.swift in Sources */,
+				A48D4EC1261C33EC00EDB570 /* RestaurantPinView.swift in Sources */,
 				A4D57B7D25E4FEA300124731 /* SignInView.swift in Sources */,
 				A40CE67C25E6493E00F8BB27 /* Declarative.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewControllerExtension.swift in Sources */,

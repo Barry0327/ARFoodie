@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Restaurant {
     let placeID: String
@@ -15,6 +16,10 @@ struct Restaurant {
     let lng: Double
     let rating: Double?
     let userRatingsTotal: Double?
+
+    var location: CLLocation {
+        return CLLocation(latitude: lat, longitude: lng)
+    }
 
     private enum CodingKeys: String, CodingKey {
         case geometry, name, placeID = "place_id", rating, userRatingsTotal = "user_ratings_total"
