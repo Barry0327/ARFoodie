@@ -7,27 +7,22 @@
 //
 
 import UIKit
-
+// MARK: - Hide keyboard
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-
-    @objc func keyboardWillShow(notifiction: Notification) {
-        guard
-            let keybroadFrame = notifiction.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-
-        let keyboardHeight = keybroadFrame.cgRectValue.height
-        if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= keyboardHeight - 60
-        }
-    }
-
-    @objc func keyboardWillHide(notificiton: Notification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
+}
+// MARK: - Error message
+extension UIViewController {
+    public func present(errorMessage: ErrorMessage) {
+      let errorAlertController = UIAlertController(title: errorMessage.title,
+                                                   message: errorMessage.message,
+                                                   preferredStyle: .alert)
+      let okAction = UIAlertAction(title: "OK", style: .default)
+      errorAlertController.addAction(okAction)
+      present(errorAlertController, animated: true, completion: nil)
     }
 }

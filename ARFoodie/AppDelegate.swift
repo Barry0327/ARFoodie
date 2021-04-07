@@ -8,7 +8,6 @@
 
 import UIKit
 import GoogleMaps
-import Firebase
 import GoogleSignIn
 
 @UIApplicationMain
@@ -33,23 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         GMSServices.provideAPIKey(apiKey)
-
-        FirebaseApp.configure()
-
-        GIDSignIn.sharedInstance()?.clientID = clientID
-
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-//        if Auth.auth().currentUser != nil {
-//            if let mainTabbarC = storyboard.instantiateViewController(ofType: TabbarController.self) {
-//                self.window?.rootViewController = mainTabbarC
-//            }
-//        } else {
-//            window = UIWindow(frame: UIScreen.main.bounds)
-//            window?.makeKeyAndVisible()
-//            let signInViewController = SignInViewController.init(viewModel: SignInViewModel())
-//            window?.rootViewController = signInViewController
-//        }
 
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewModel = MainViewModel(placesService: GooglePlacesService())

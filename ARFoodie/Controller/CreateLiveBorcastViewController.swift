@@ -113,7 +113,7 @@ class CreateLiveBoardcastViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
 
         titleTextField.delegate = self
         descriptionTextField.delegate = self

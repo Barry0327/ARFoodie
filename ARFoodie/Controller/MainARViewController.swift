@@ -102,10 +102,10 @@ final class MainARViewController: NiblessViewController, CLLocationManagerDelega
             })
             .disposed(by: bag)
 
-        viewModel.error
+        viewModel.errorMessage
             .subscribe(on: MainScheduler.instance)
             .subscribe(onNext: { [unowned self] in
-                self.presentAlert(with: $0)
+                self.present(errorMessage: $0)
             })
             .disposed(by: bag)
 
@@ -153,11 +153,9 @@ final class MainARViewController: NiblessViewController, CLLocationManagerDelega
     }
 
     private func presentDetailViewController(with placeID: String) {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        guard let detailViewController = storyboard.instantiateViewController(ofType: DetailViewController.self) else {
-            fatalError("Please check the ID for DetailTableViewController")
-        }
-        detailViewController.placeID = placeID
+        let viewModel = DetailViewModel(placeID: placeID, placesService: GooglePlacesService())
+        let detailViewController = DetailViewController(viewModel: viewModel)
+
         let navigationController = UINavigationController(rootViewController: detailViewController)
         present(navigationController, animated: true, completion: nil)
     }
@@ -182,12 +180,5 @@ final class MainARViewController: NiblessViewController, CLLocationManagerDelega
 
             self.sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotaionNode)
         }
-    }
-
-    private func presentAlert(with error: Error) {
-        let alert = UIAlertController(title: nil, message: error.localizedDescription, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel)
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
     }
 }

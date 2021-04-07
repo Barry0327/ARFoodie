@@ -66,22 +66,6 @@ extension SignInViewController {
 }
 // MARK: - Methods
 extension SignInViewController {
-    func observerKeyboard() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.keyboardWillShow(notifiction:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.keyboardWillHide(notificiton:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-    }
-
     func observerViewModel() {
         viewModel.signInActivityIndicatorAnimating
             .observe(on: MainScheduler.instance)

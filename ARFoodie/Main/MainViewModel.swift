@@ -20,7 +20,7 @@ final class MainViewModel: NSObject {
     let searchButtonAnimating: BehaviorRelay<Bool> = .init(value: false)
     let restaurants: BehaviorRelay<[Restaurant]> = .init(value: [])
     let selectedPlaceID: PublishRelay<String> = .init()
-    let error: PublishRelay<Error> = .init()
+    let errorMessage: PublishRelay<ErrorMessage> = .init()
 
     init(placesService: PlacesService) {
         self.placesService = placesService
@@ -51,7 +51,8 @@ final class MainViewModel: NSObject {
                 case .success(let restaurants):
                     self.restaurants.accept(restaurants)
                 case .failure(let error):
-                    self.error.accept(error)
+                    let message = ErrorMessage(title: "連線錯誤", message: error.localizedDescription)
+                    self.errorMessage.accept(message)
                 }
                 self.searchButtonAnimating.accept(false)
             }
@@ -78,6 +79,7 @@ extension MainViewModel: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        self.error.accept(error)
+        let message = ErrorMessage(title: "定位失敗", message: error.localizedDescription)
+        errorMessage.accept(message)
     }
 }

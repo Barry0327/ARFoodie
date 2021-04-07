@@ -235,20 +235,6 @@ class SignUpViewController: UIViewController {
         self.passwordTextField.delegate = self
         self.confirmTextField.delegate = self
 
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.keyboardWillShow(notifiction:)),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(self.keyboardWillHide(notificiton:)),
-            name: UIResponder.keyboardWillHideNotification,
-            object: nil
-        )
-
         self.hideKeyboardWhenTappedAround()
 
         view.backgroundColor = UIColor.flatWatermelonDark()
