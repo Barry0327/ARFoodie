@@ -26,6 +26,7 @@ target 'ARFoodie' do
   pod 'RxSwift', '6.1.0'
   pod 'RxCocoa', '6.1.0'
   pod 'LookinServer', :configurations => ['Debug']
+  pod 'Kingfisher', '~> 6.0'
 
   target 'ARFoodieTests' do
     inherit! :search_paths
