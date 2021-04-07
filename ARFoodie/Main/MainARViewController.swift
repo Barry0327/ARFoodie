@@ -10,6 +10,7 @@ import UIKit
 import ARKit
 import TransitionButton
 import RxSwift
+import RxCocoa
 
 final class MainARViewController: NiblessViewController, CLLocationManagerDelegate {
 

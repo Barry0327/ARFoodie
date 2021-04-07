@@ -10,6 +10,7 @@ import UIKit
 import GoogleMaps
 import ChameleonFramework
 import RxSwift
+import RxCocoa
 import IHProgressHUD
 
 class DetailViewController: NiblessViewController, UINavigationControllerDelegate {

@@ -8,48 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		8695DE74E92AF46811ADE33E /* Pods_ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4415E4B149929D69AC38771 /* Pods_ARFoodie.framework */; };
-		970230DB225907D600BD8AF2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970230DA225907D600BD8AF2 /* SignUpViewController.swift */; };
 		97187ABB2251D4F30096E52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97187ABA2251D4F30096E52D /* Main.storyboard */; };
-		9738E836226576B100EA2CBC /* LiveStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9738E835226576B100EA2CBC /* LiveStreamManager.swift */; };
-		9738E8382265817F00EA2CBC /* CreateLiveBorcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */; };
 		9756356B2265D6EF009AE63B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9756356A2265D6EF009AE63B /* GoogleService-Info.plist */; };
-		9756356F2266E1FF009AE63B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756356E2266E1FF009AE63B /* User.swift */; };
 		975635712266FDC0009AE63B /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975635702266FDC0009AE63B /* ReviewTableViewCell.swift */; };
-		9756357322682003009AE63B /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756357222682003009AE63B /* Comment.swift */; };
-		9756357A2269B677009AE63B /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975635792269B677009AE63B /* FirebaseManager.swift */; };
-		9756357C2269BBBA009AE63B /* ProfileViewController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9756357B2269BBBA009AE63B /* ProfileViewController+handlers.swift */; };
 		97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */; };
-		97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */; };
 		97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAD2254DC5A00DC4B43 /* MapCell.swift */; };
-		97A49FB022573D4000DC4B43 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FAF22573D4000DC4B43 /* SignInViewController.swift */; };
 		97A6C8E022632F2D002FAA90 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8DF22632F2D002FAA90 /* UIView+.swift */; };
 		97A6C8E422632FE0002FAA90 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E322632FE0002FAA90 /* UIViewController+.swift */; };
-		97A6C8E622636253002FAA90 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E522636253002FAA90 /* TabbarController.swift */; };
-		97A6C8E82263895F002FAA90 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E72263895F002FAA90 /* ProfileViewController.swift */; };
-		97A6C8F822648CEA002FAA90 /* UIView+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F622648CEA002FAA90 /* UIView+YYAdd.m */; };
 		97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F722648CEA002FAA90 /* UIControl+YYAdd.m */; };
-		97B718E0226AC3690010BF33 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718DF226AC3690010BF33 /* CurrentUser.swift */; };
-		97B718E2226C9B150010BF33 /* ErrorHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718E1226C9B150010BF33 /* ErrorHandlers.swift */; };
 		97B718E4226EB9C50010BF33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97B718E3226EB9C50010BF33 /* Assets.xcassets */; };
 		97B718E6227061D80010BF33 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718E5227061D70010BF33 /* InformationCell.swift */; };
 		97B718E822706B5C0010BF33 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B718E722706B5C0010BF33 /* DetailViewController.swift */; };
-		97CF6FCD22730CEB00E63E5A /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CF6FCC22730CEB00E63E5A /* PrivacyPolicyViewController.swift */; };
 		97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D2567F224B1F9C00175E42 /* AppDelegate.swift */; };
-		97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
 		97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */; };
 		97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25694224C9EBD00175E42 /* Restaurant.swift */; };
-		97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */; };
-		97D2569A224CD04F00175E42 /* Portocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25699224CD04F00175E42 /* Portocol.swift */; };
-		97E610D82273097C00A8C199 /* UserPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E610D72273097C00A8C199 /* UserPolicyViewController.swift */; };
-		A40CE67725E647FF00F8BB27 /* SignUpInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40CE67625E647FF00F8BB27 /* SignUpInputField.swift */; };
 		A40CE67C25E6493E00F8BB27 /* Declarative.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40CE67B25E6493E00F8BB27 /* Declarative.swift */; };
-		A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A426D73325E4DDCC0082D577 /* SignInViewModel.swift */; };
-		A427783225E63DE4003F36FB /* SignUpRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427783125E63DE4003F36FB /* SignUpRootView.swift */; };
 		A45D2857261DACD0006FB358 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2856261DACD0006FB358 /* Secrets.swift */; };
 		A45D285B261DB66D006FB358 /* SCNNode+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D285A261DB66D006FB358 /* SCNNode+.swift */; };
 		A45D285F261DB724006FB358 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D285E261DB724006FB358 /* CALayer+.swift */; };
 		A45D2865261DB798006FB358 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2864261DB798006FB358 /* UIColor+.swift */; };
 		A45D2869261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2868261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift */; };
+		A45D287F261DBC0A006FB358 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
 		A468426F261481440061C278 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468426E261481440061C278 /* MainViewModel.swift */; };
 		A48D4EC1261C33EC00EDB570 /* RestaurantPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */; };
 		A48D4EC7261C66EB00EDB570 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */; };
@@ -61,10 +40,8 @@
 		A495F44C2615D018001CD738 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F44B2615D018001CD738 /* PlacesService.swift */; };
 		A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */; };
 		A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7925E4F64C00124731 /* ErrorMessage.swift */; };
-		A4D57B7D25E4FEA300124731 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7C25E4FEA300124731 /* SignInView.swift */; };
 		A4E1A973261331C000C1EC5C /* UIViewCotroller+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1A972261331C000C1EC5C /* UIViewCotroller+Rx.swift */; };
 		A4FB7BE72612C23400E82166 /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB7BE62612C23400E82166 /* UIStoryboard+.swift */; };
-		A4FCB37725DE6880004A41DC /* SignInRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37625DE6880004A41DC /* SignInRootView.swift */; };
 		A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37B25DE6B03004A41DC /* NiblessView.swift */; };
 		ABAEE9BFF68F4CEB369EDC63 /* Pods_ARFoodieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A7EB6D82139D7A894BF81B /* Pods_ARFoodieTests.framework */; };
 /* End PBXBuildFile section */
@@ -193,9 +170,6 @@
 		97A6C8DB22620F0A002FAA90 /* Cell Controller */ = {
 			isa = PBXGroup;
 			children = (
-				97A49FAD2254DC5A00DC4B43 /* MapCell.swift */,
-				975635702266FDC0009AE63B /* ReviewTableViewCell.swift */,
-				97B718E5227061D70010BF33 /* InformationCell.swift */,
 			);
 			path = "Cell Controller";
 			sourceTree = "<group>";
@@ -267,13 +241,11 @@
 				A40CE67A25E6491800F8BB27 /* Utilitis */,
 				97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */,
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
-				A427783025E63DB7003F36FB /* SignUp */,
-				A4FCB37525DE6819004A41DC /* SignIn */,
 				97D25693224C9E9400175E42 /* Model */,
-				97D25691224C9E7800175E42 /* Controller */,
 				97D25692224C9E8B00175E42 /* View */,
 				9756356A2265D6EF009AE63B /* GoogleService-Info.plist */,
 				97D2568B224B1F9E00175E42 /* Info.plist */,
+				A45D2873261DB861006FB358 /* Legacy */,
 			);
 			path = ARFoodie;
 			sourceTree = "<group>";
@@ -284,8 +256,6 @@
 				97E610D72273097C00A8C199 /* UserPolicyViewController.swift */,
 				97CF6FCC22730CEB00E63E5A /* PrivacyPolicyViewController.swift */,
 				97A6C8E522636253002FAA90 /* TabbarController.swift */,
-				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
-				97B718E722706B5C0010BF33 /* DetailViewController.swift */,
 				97B718E9227075AB0010BF33 /* DetailViewController+handlers.swift */,
 				9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */,
 				97A6C8E72263895F002FAA90 /* ProfileViewController.swift */,
@@ -309,17 +279,8 @@
 		97D25693224C9E9400175E42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9756356E2266E1FF009AE63B /* User.swift */,
-				97B718DF226AC3690010BF33 /* CurrentUser.swift */,
-				9756357222682003009AE63B /* Comment.swift */,
 				97D25694224C9EBD00175E42 /* Restaurant.swift */,
 				97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */,
-				97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */,
-				97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */,
-				9738E835226576B100EA2CBC /* LiveStreamManager.swift */,
-				975635792269B677009AE63B /* FirebaseManager.swift */,
-				97D25699224CD04F00175E42 /* Portocol.swift */,
-				97B718E1226C9B150010BF33 /* ErrorHandlers.swift */,
 				A4D57B7925E4F64C00124731 /* ErrorMessage.swift */,
 				A495F3F026157180001CD738 /* GooglePlaceService.swift */,
 				A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */,
@@ -350,9 +311,37 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		A45D2873261DB861006FB358 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				A45D2874261DB8A8006FB358 /* Model */,
+				A4FCB37525DE6819004A41DC /* SignIn */,
+				A427783025E63DB7003F36FB /* SignUp */,
+				97D25691224C9E7800175E42 /* Controller */,
+			);
+			path = Legacy;
+			sourceTree = "<group>";
+		};
+		A45D2874261DB8A8006FB358 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				97B718E1226C9B150010BF33 /* ErrorHandlers.swift */,
+				97D25699224CD04F00175E42 /* Portocol.swift */,
+				97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */,
+				97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */,
+				9738E835226576B100EA2CBC /* LiveStreamManager.swift */,
+				975635792269B677009AE63B /* FirebaseManager.swift */,
+				9756357222682003009AE63B /* Comment.swift */,
+				9756356E2266E1FF009AE63B /* User.swift */,
+				97B718DF226AC3690010BF33 /* CurrentUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A468426D261481060061C278 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
 				A468426E261481440061C278 /* MainViewModel.swift */,
 				A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */,
 			);
@@ -363,6 +352,10 @@
 			isa = PBXGroup;
 			children = (
 				A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */,
+				97B718E722706B5C0010BF33 /* DetailViewController.swift */,
+				97A49FAD2254DC5A00DC4B43 /* MapCell.swift */,
+				975635702266FDC0009AE63B /* ReviewTableViewCell.swift */,
+				97B718E5227061D70010BF33 /* InformationCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -638,51 +631,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */,
-				9756356F2266E1FF009AE63B /* User.swift in Sources */,
 				97A6C8E022632F2D002FAA90 /* UIView+.swift in Sources */,
-				9738E836226576B100EA2CBC /* LiveStreamManager.swift in Sources */,
-				9756357322682003009AE63B /* Comment.swift in Sources */,
 				97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */,
 				A4E1A973261331C000C1EC5C /* UIViewCotroller+Rx.swift in Sources */,
-				A40CE67725E647FF00F8BB27 /* SignUpInputField.swift in Sources */,
+				A45D287F261DBC0A006FB358 /* MainARViewController.swift in Sources */,
 				A45D2865261DB798006FB358 /* UIColor+.swift in Sources */,
 				97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */,
-				97B718E2226C9B150010BF33 /* ErrorHandlers.swift in Sources */,
-				9756357A2269B677009AE63B /* FirebaseManager.swift in Sources */,
-				97E610D82273097C00A8C199 /* UserPolicyViewController.swift in Sources */,
 				A45D2869261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift in Sources */,
 				A48D4EC1261C33EC00EDB570 /* RestaurantPinView.swift in Sources */,
 				A45D285F261DB724006FB358 /* CALayer+.swift in Sources */,
-				A4D57B7D25E4FEA300124731 /* SignInView.swift in Sources */,
 				A40CE67C25E6493E00F8BB27 /* Declarative.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewController+.swift in Sources */,
-				97B718E0226AC3690010BF33 /* CurrentUser.swift in Sources */,
 				97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */,
-				97CF6FCD22730CEB00E63E5A /* PrivacyPolicyViewController.swift in Sources */,
-				A4FCB37725DE6880004A41DC /* SignInRootView.swift in Sources */,
 				97B718E6227061D80010BF33 /* InformationCell.swift in Sources */,
-				97A6C8F822648CEA002FAA90 /* UIView+YYAdd.m in Sources */,
-				97A6C8E622636253002FAA90 /* TabbarController.swift in Sources */,
 				975635712266FDC0009AE63B /* ReviewTableViewCell.swift in Sources */,
-				97D25697224CB2FE00175E42 /* RestaurantInfoManager.swift in Sources */,
-				97A6C8E82263895F002FAA90 /* ProfileViewController.swift in Sources */,
 				A45D285B261DB66D006FB358 /* SCNNode+.swift in Sources */,
-				97A49FB022573D4000DC4B43 /* SignInViewController.swift in Sources */,
-				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
 				A495F3F126157180001CD738 /* GooglePlaceService.swift in Sources */,
 				A48D4EC7261C66EB00EDB570 /* DetailViewModel.swift in Sources */,
 				A45D2857261DACD0006FB358 /* Secrets.swift in Sources */,
-				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
 				97B718E822706B5C0010BF33 /* DetailViewController.swift in Sources */,
-				970230DB225907D600BD8AF2 /* SignUpViewController.swift in Sources */,
-				A427783225E63DE4003F36FB /* SignUpRootView.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
-				9738E8382265817F00EA2CBC /* CreateLiveBorcastViewController.swift in Sources */,
-				9756357C2269BBBA009AE63B /* ProfileViewController+handlers.swift in Sources */,
 				A4FB7BE72612C23400E82166 /* UIStoryboard+.swift in Sources */,
-				97A49FAC225358AC00DC4B43 /* RestaurantDetailManager.swift in Sources */,
 				A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */,
-				A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
 				A495F3F82615A849001CD738 /* GooglePlacesEnvelope.swift in Sources */,
 				A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */,
@@ -867,7 +837,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BarryChen.ARFoodie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ARFoodie/Controller/LFLive/ARFoodie-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -901,7 +871,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BarryChen.ARFoodie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "ARFoodie/Controller/LFLive/ARFoodie-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
