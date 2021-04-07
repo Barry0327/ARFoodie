@@ -16,13 +16,19 @@ enum GooglePlacesServiceError: Error {
     case invalidDecoderConfiguration
 }
 
-final class GooglePlacesService {
+final class GooglePlacesService: PlacesService {
     private struct ResturantParameters: Codable {
         let location: String
         let rankby: String
         let types: String
         let language: String
         let key: String
+    }
+
+    struct RestaurantDetailParameters: Codable {
+        let placeid: String
+        let key: String
+        let language: String
     }
 
     private let apiKey: String = {
@@ -50,11 +56,39 @@ final class GooglePlacesService {
         )
 
         let decoder = JSONDecoder()
-        decoder.userInfo[.contentIdentifier] = "result"
+        decoder.userInfo[.contentIdentifier] = "results"
 
         return Single<[Restaurant]>.create { (single) -> Disposable in
             let request = AF.request(endPointURL, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default)
             request.responseDecodable(of: GooglePlacesEnvelope<[Restaurant]>.self, decoder: decoder) { (response) in
+                switch response.result {
+                case .success(let envelope):
+                    single(.success(envelope.content))
+                case .failure(let error):
+                    single(.failure(error))
+                }
+            }
+            return Disposables.create {
+                request.cancel()
+            }
+        }
+    }
+
+    func restaurantDetail(placeID: String) -> Single<RestaurantDetail> {
+        let endPointURL = "https://maps.googleapis.com/maps/api/place/details/json"
+
+        let parameters = RestaurantDetailParameters(
+            placeid: placeID,
+            key: apiKey,
+            language: "zh_TW"
+        )
+
+        let decoder = JSONDecoder()
+        decoder.userInfo[.contentIdentifier] = "result"
+
+        return Single<RestaurantDetail>.create { (single) -> Disposable in
+            let request = AF.request(endPointURL, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default)
+            request.responseDecodable(of: GooglePlacesEnvelope<RestaurantDetail>.self, decoder: decoder) { (response) in
                 switch response.result {
                 case .success(let envelope):
                     single(.success(envelope.content))
