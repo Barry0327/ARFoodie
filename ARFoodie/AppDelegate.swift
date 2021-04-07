@@ -15,23 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let apiKey: String = {
-        if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
-            return key
-        }
-        return ""
-    }()
-
-    let clientID: String = {
-        if let key = Bundle.main.object(forInfoDictionaryKey: "CLIENT_ID") as? String {
-            return key
-        }
-        return ""
-    }()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        GMSServices.provideAPIKey(apiKey)
+        GMSServices.provideAPIKey(Secrets.apiKey)
 
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewModel = MainViewModel(placesService: GooglePlacesService())

@@ -31,12 +31,7 @@ final class GooglePlacesService: PlacesService {
         let language: String
     }
 
-    private let apiKey: String = {
-        if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
-            return key
-        }
-        return ""
-    }()
+    private let apiKey: String = Secrets.apiKey
 
     private var urlComponents: URLComponents {
         let url = "https://maps.googleapis.com"
