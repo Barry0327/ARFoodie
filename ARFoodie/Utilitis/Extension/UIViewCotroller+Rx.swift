@@ -12,7 +12,7 @@ import IHProgressHUD
 
 extension Reactive where Base: UIViewController {
     public var isActivityIndicatorAnimating: Binder<Bool> {
-        return Binder.init(self.base, scheduler: MainScheduler.instance) { (viewController, isAnimating) in
+        return Binder.init(self.base, scheduler: MainScheduler.instance) { (_, isAnimating) in
             switch isAnimating {
             case true: IHProgressHUD.show()
             case false: IHProgressHUD.dismiss()
