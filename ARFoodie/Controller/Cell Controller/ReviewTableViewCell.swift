@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Cosmos
 
 class ReviewTableViewCell: UITableViewCell {
     private let profileImageView: UIImageView = {
@@ -17,13 +18,6 @@ class ReviewTableViewCell: UITableViewCell {
         return imgView
     }()
 
-    private let containerView: UIView = {
-
-        let view = UIView()
-
-        return view
-    }()
-
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
@@ -31,16 +25,29 @@ class ReviewTableViewCell: UITableViewCell {
         return label
     }()
 
-    private let commentBody: UILabel = {
+    private let ratingView: CosmosView = {
+        let ratingView = CosmosView()
+        ratingView.settings.updateOnTouch = false
+        ratingView.settings.starSize = 16
+        ratingView.settings.starMargin = 1
+        ratingView.settings.fillMode = .half
+        ratingView.settings.filledColor = UIColor.flatWatermelonDark()
+        ratingView.settings.filledBorderColor = UIColor.flatWatermelonDark()
+        ratingView.settings.emptyBorderColor = UIColor.flatWatermelonDark()
+        return ratingView
+    }()
+
+    private let contentLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 10
+        label.numberOfLines = 0
+        label.textColor = .black
         return label
     }()
 
     private let relativeTimeDescriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18)
+        label.font = .systemFont(ofSize: 12)
         label.textColor = .lightGray
         return label
     }()
@@ -65,17 +72,17 @@ class ReviewTableViewCell: UITableViewCell {
 
     func config(with review: RestaurantDetail.Review) {
         nameLabel.text = review.authorName
-        commentBody.text = review.text
+        contentLabel.text = review.text
         relativeTimeDescriptionLabel.text = review.relativeTimeDescription
     }
 
     private func constructViewHierarchy() {
         contentView.addSubview(profileImageView)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(ratingView)
+        contentView.addSubview(contentLabel)
+        contentView.addSubview(relativeTimeDescriptionLabel)
         contentView.addSubview(separatorView)
-
-        containerView.addSubview(nameLabel)
-        containerView.addSubview(commentBody)
-        contentView.addSubview(containerView)
     }
 
     private func setLayout() {
@@ -88,14 +95,6 @@ class ReviewTableViewCell: UITableViewCell {
             size: .init(width: 50, height: 50)
         )
 
-        containerView.anchor(
-            top: contentView.topAnchor,
-            leading: profileImageView.trailingAnchor,
-            bottom: contentView.bottomAnchor,
-            trailing: contentView.trailingAnchor,
-            padding: .init(top: 10, left: 10, bottom: 10, right: 10)
-        )
-
         nameLabel.anchor(
             top: contentView.topAnchor,
             leading: profileImageView.trailingAnchor,
@@ -105,20 +104,28 @@ class ReviewTableViewCell: UITableViewCell {
             size: .init(width: 100, height: 20)
         )
 
-        commentBody.anchor(
+        ratingView.anchor(
+            top: nameLabel.topAnchor,
+            leading: nil,
+            bottom: nil,
+            trailing: contentView.trailingAnchor,
+            padding: .init(top: 0, left: 0, bottom: 0, right: 10)
+        )
+
+        contentLabel.anchor(
             top: nameLabel.bottomAnchor,
             leading: nameLabel.leadingAnchor,
             bottom: nil,
             trailing: contentView.trailingAnchor,
-            padding: .init(top: 10, left: 10, bottom: 0, right: -10)
+            padding: .init(top: 10, left: 0, bottom: 0, right: 10)
         )
 
         relativeTimeDescriptionLabel.anchor(
-            top: commentBody.bottomAnchor,
+            top: contentLabel.bottomAnchor,
             leading: nil,
             bottom: separatorView.topAnchor,
             trailing: contentView.trailingAnchor,
-            padding: .init(top: 10, left: 0, bottom: 10, right: -10)
+            padding: .init(top: 10, left: 0, bottom: 10, right: 10)
         )
 
         separatorView.anchor(

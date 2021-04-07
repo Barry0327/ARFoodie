@@ -10,66 +10,47 @@ import Foundation
 import MapKit
 import GoogleMaps
 
-class MapCell: UITableViewCell, GMSMapViewDelegate {
+class MapCell: UITableViewCell {
 
-    private let mapView = GMSMapView()
-
-    var placeID: String = ""
-
-    var restaurantDetail: RestaurantDetail? {
-
-        didSet {
-            let camera = GMSCameraPosition.camera(withTarget: restaurantDetail!.coordinate, zoom: 16.0)
-            self.mapView.camera = camera
-            let marker = GMSMarker()
-            marker.position = restaurantDetail!.coordinate
-            marker.title = restaurantDetail!.name
-            marker.map = self.mapView
-        }
-    }
+    let mapView = GMSMapView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         contentView.addSubview(mapView)
-
-        self.mapView.delegate = self
-
-        setMapView()
+        activateConstraintsMapView()
 
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
-
     }
 
     required init?(coder aDecoder: NSCoder) {
-
         super.init(coder: aDecoder)
     }
 
-    private func setMapView() {
-
+    private func activateConstraintsMapView() {
         mapView.translatesAutoresizingMaskIntoConstraints = false
+        let top = mapView.topAnchor
+            .constraint(equalTo: contentView.topAnchor)
+        let bottom = mapView.bottomAnchor
+            .constraint(equalTo: contentView.bottomAnchor)
+        let trailing = mapView.trailingAnchor
+            .constraint(equalTo: contentView.trailingAnchor)
+        let leading = mapView.leadingAnchor
+            .constraint(equalTo: contentView.leadingAnchor)
 
-        mapView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        mapView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        mapView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            top, bottom, trailing, leading
+        ])
     }
 
-    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+    func config(with detail: RestaurantDetail) {
+        let camera = GMSCameraPosition.camera(withTarget: detail.coordinate, zoom: 16.0)
+        mapView.camera = camera
 
-        guard let url = URL(
-            string: "https://www.google.com/maps/search/?api=1&query=restaurant&query_place_id=\(placeID)"
-            )
-            else {
-                return false
-        }
-        UIApplication.shared.open(
-            url,
-            options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]
-        )
-        return true
+        let marker = GMSMarker()
+        marker.position = detail.coordinate
+        marker.title = detail.name
+        marker.map = mapView
     }
 }
