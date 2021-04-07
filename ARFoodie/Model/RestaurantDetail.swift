@@ -20,6 +20,10 @@ struct RestaurantDetail {
     let userRatingsTotal: Double?
     let reviews: [Review]
 
+    static func empty() -> RestaurantDetail {
+        return .init(name: "", address: "", phoneNumber: nil, photo: nil, coordinate: .init(latitude: 125, longitude: 125), isOpening: nil, rating: nil, userRatingsTotal: nil, reviews: [])
+    }
+
     struct Photo: Codable {
         let reference: String
 

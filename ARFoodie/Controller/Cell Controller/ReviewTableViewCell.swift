@@ -1,5 +1,5 @@
 //
-//  CommentCell.swift
+//  ReviewTableViewCell.swift
 //  ARFoodie
 //
 //  Created by Chen Yi-Wei on 2019/4/17.
@@ -9,35 +9,11 @@
 import UIKit
 import Firebase
 
-class CommentCell: UITableViewCell {
-
-    var comment: Comment? {
-
-        didSet {
-
-            guard comment != nil else {
-
-                self.commentBody.text = "尚無評論"
-                self.commentBody.textColor = .gray
-                return
-
-            }
-
-            self.nameLabel.text = comment!.senderName
-            self.commentBody.text = comment!.content
-            self.commentBody.textColor = .black
-            FirebaseManager.shared.fetchProfileImage(
-                userUid: comment!.senderUid,
-                imgView: self.profileImageView)
-        }
-    }
-
+class ReviewTableViewCell: UITableViewCell {
     private let profileImageView: UIImageView = {
-
         let imgView = UIImageView()
         imgView.layer.cornerRadius = 25
         imgView.clipsToBounds = true
-
         return imgView
     }()
 
@@ -49,57 +25,60 @@ class CommentCell: UITableViewCell {
     }()
 
     private let nameLabel: UILabel = {
-
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         label.textColor = UIColor.flatWatermelonDark()
-
         return label
     }()
 
     private let commentBody: UILabel = {
-
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 10
+        return label
+    }()
 
+    private let relativeTimeDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 18)
+        label.textColor = .lightGray
         return label
     }()
 
     private let separatorView: UIView = {
-
         let view = UIView()
         view.backgroundColor = UIColor.flatWatermelonDark()
-
         return view
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
+        selectionStyle = .none
         contentView.backgroundColor = UIColor(hexString: "F2EDEC")
+        constructViewHierarchy()
+        setLayout()
+    }
 
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    func config(with review: RestaurantDetail.Review) {
+        nameLabel.text = review.authorName
+        commentBody.text = review.text
+        relativeTimeDescriptionLabel.text = review.relativeTimeDescription
+    }
+
+    private func constructViewHierarchy() {
         contentView.addSubview(profileImageView)
-        contentView.addSubview(containerView)
         contentView.addSubview(separatorView)
 
         containerView.addSubview(nameLabel)
         containerView.addSubview(commentBody)
-
-        selectionStyle = .none
-
-        setLayout()
-
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-
-        super.init(coder: aDecoder)
-
+        contentView.addSubview(containerView)
     }
 
     private func setLayout() {
-
         profileImageView.anchor(
             top: contentView.topAnchor,
             leading: contentView.leadingAnchor,
@@ -118,20 +97,28 @@ class CommentCell: UITableViewCell {
         )
 
         nameLabel.anchor(
-            top: containerView.topAnchor,
-            leading: containerView.leadingAnchor,
+            top: contentView.topAnchor,
+            leading: profileImageView.trailingAnchor,
             bottom: nil,
             trailing: nil,
-            padding: .init(top: 0, left: 10, bottom: 0, right: 0),
+            padding: .init(top: 10, left: 10, bottom: 0, right: 0),
             size: .init(width: 100, height: 20)
         )
 
         commentBody.anchor(
             top: nameLabel.bottomAnchor,
-            leading: containerView.leadingAnchor,
-            bottom: containerView.bottomAnchor,
-            trailing: containerView.trailingAnchor,
-            padding: .init(top: 10, left: 10, bottom: 10, right: 10)
+            leading: nameLabel.leadingAnchor,
+            bottom: nil,
+            trailing: contentView.trailingAnchor,
+            padding: .init(top: 10, left: 10, bottom: 0, right: -10)
+        )
+
+        relativeTimeDescriptionLabel.anchor(
+            top: commentBody.bottomAnchor,
+            leading: nil,
+            bottom: separatorView.topAnchor,
+            trailing: contentView.trailingAnchor,
+            padding: .init(top: 10, left: 0, bottom: 10, right: -10)
         )
 
         separatorView.anchor(
@@ -142,6 +129,5 @@ class CommentCell: UITableViewCell {
             padding: .init(top: 0, left: 10, bottom: 1, right: 10),
             size: .init(width: 0, height: 1)
         )
-
     }
 }
