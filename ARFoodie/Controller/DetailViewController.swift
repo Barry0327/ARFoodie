@@ -78,7 +78,7 @@ class DetailViewController: NiblessViewController, UINavigationControllerDelegat
     }
 
     private func configNavigationBar() {
-        navigationController?.navigationBar.barTintColor = UIColor.flatGreenDark()
+        navigationController?.navigationBar.barTintColor = UIColor.flatWatermelonDark()
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor(hexString: "F2EDEC")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 21, weight: .bold)

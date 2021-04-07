@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Cosmos
+import Kingfisher
 
 class ReviewTableViewCell: UITableViewCell {
     private let profileImageView: UIImageView = {
@@ -71,8 +72,14 @@ class ReviewTableViewCell: UITableViewCell {
     }
 
     func config(with review: RestaurantDetail.Review) {
+        let url = URL(string: review.authorPhotoURLString ?? "")
+        profileImageView.kf.setImage(
+            with: url,
+            placeholder: UIImage(named: "user-small")
+        )
         nameLabel.text = review.authorName
         contentLabel.text = review.text
+        ratingView.rating = review.rating
         relativeTimeDescriptionLabel.text = review.relativeTimeDescription
     }
 

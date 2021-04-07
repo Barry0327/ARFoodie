@@ -9,17 +9,17 @@
 import UIKit
 import Cosmos
 import ChameleonFramework
+import Kingfisher
 
 class InformationCell: UITableViewCell {
     // MARK: - Properties
     private let placeImageView: UIImageView = {
         let imgView = UIImageView()
-        imgView.contentMode = .scaleAspectFit
         imgView.layer.cornerRadius = 5
         imgView.clipsToBounds = true
         imgView.tintColor = .gray
         imgView.image = UIImage(named: "icon-placeholder")
-        imgView.contentMode = .scaleAspectFit
+        imgView.contentMode = .center
         return imgView
     }()
 
@@ -160,8 +160,8 @@ class InformationCell: UITableViewCell {
         ratingView.rating = detail.rating ?? 0
         ratingView.text = String(detail.userRatingsTotal ?? 0)
 
-        if let reference = detail.photo?.reference {
-            placeImageView.fetchImage(with: reference)
+        if let imageURL = detail.photo?.url {
+            placeImageView.kf.setImage(with: imageURL)
         }
 
         if let isOpening = detail.isOpening {

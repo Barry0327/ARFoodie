@@ -27,6 +27,20 @@ struct RestaurantDetail {
     struct Photo: Codable {
         let reference: String
 
+        var url: URL? {
+            var components = URLComponents()
+            components.scheme = "https"
+            components.host = "maps.googleapis.com"
+            components.path = "/maps/api/place/photo"
+            let queryItems: [URLQueryItem] = [
+                URLQueryItem(name: "key", value: Secrets.apiKey),
+                URLQueryItem(name: "photoreference", value: reference),
+                URLQueryItem(name: "maxwidth", value: "100"),
+                URLQueryItem(name: "maxheight", value: "80")
+            ]
+            components.queryItems = queryItems
+            return components.url
+        }
         // swiftlint:disable nesting
         private enum CodingKeys: String, CodingKey {
             case reference = "photo_reference"
@@ -102,6 +116,6 @@ extension RestaurantDetail: Decodable {
             isOpening = nil
         }
 
-        reviews = try container.decode([Review].self, forKey: .reviews)
+        reviews = try container.decodeIfPresent([Review].self, forKey: .reviews) ?? []
     }
 }

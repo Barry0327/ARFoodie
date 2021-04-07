@@ -47,6 +47,7 @@
 		A40CE67C25E6493E00F8BB27 /* Declarative.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40CE67B25E6493E00F8BB27 /* Declarative.swift */; };
 		A426D73425E4DDCC0082D577 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A426D73325E4DDCC0082D577 /* SignInViewModel.swift */; };
 		A427783225E63DE4003F36FB /* SignUpRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A427783125E63DE4003F36FB /* SignUpRootView.swift */; };
+		A45D2857261DACD0006FB358 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2856261DACD0006FB358 /* Secrets.swift */; };
 		A468426F261481440061C278 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468426E261481440061C278 /* MainViewModel.swift */; };
 		A48D4EC1261C33EC00EDB570 /* RestaurantPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */; };
 		A48D4EC7261C66EB00EDB570 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */; };
@@ -132,6 +133,7 @@
 		A40CE67B25E6493E00F8BB27 /* Declarative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declarative.swift; sourceTree = "<group>"; };
 		A426D73325E4DDCC0082D577 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		A427783125E63DE4003F36FB /* SignUpRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRootView.swift; sourceTree = "<group>"; };
+		A45D2856261DACD0006FB358 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		A468426E261481440061C278 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPinView.swift; sourceTree = "<group>"; };
 		A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				A495F3F026157180001CD738 /* GooglePlaceService.swift */,
 				A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */,
 				A495F44B2615D018001CD738 /* PlacesService.swift */,
+				A45D2856261DACD0006FB358 /* Secrets.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				97D2569A224CD04F00175E42 /* Portocol.swift in Sources */,
 				A495F3F126157180001CD738 /* GooglePlaceService.swift in Sources */,
 				A48D4EC7261C66EB00EDB570 /* DetailViewModel.swift in Sources */,
+				A45D2857261DACD0006FB358 /* Secrets.swift in Sources */,
 				97D25682224B1F9C00175E42 /* MainARViewController.swift in Sources */,
 				97B718E822706B5C0010BF33 /* DetailViewController.swift in Sources */,
 				970230DB225907D600BD8AF2 /* SignUpViewController.swift in Sources */,
