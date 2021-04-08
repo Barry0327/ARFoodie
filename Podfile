@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '12.0'
+platform :ios, '14.0'
 
 target 'ARFoodie' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -10,14 +10,6 @@ target 'ARFoodie' do
   pod 'Alamofire', '~> 5.2'
   pod 'ARCL'
   pod 'GoogleMaps'
-  pod 'YTLiveStreaming'
-  pod 'Firebase/Core'
-  pod 'Firebase/Storage'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/Database'
-  pod 'Firebase/Auth'
-  pod 'FirebaseUI/Storage'
-  pod 'GoogleSignIn'
   pod 'IHProgressHUD', :git => 'https://github.com/Swiftify-Corp/IHProgressHUD.git'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'  
   pod 'StatusAlert'
