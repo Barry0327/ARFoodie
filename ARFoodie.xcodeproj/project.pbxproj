@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8695DE74E92AF46811ADE33E /* Pods_ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4415E4B149929D69AC38771 /* Pods_ARFoodie.framework */; };
-		97187ABB2251D4F30096E52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97187ABA2251D4F30096E52D /* Main.storyboard */; };
 		9756356B2265D6EF009AE63B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9756356A2265D6EF009AE63B /* GoogleService-Info.plist */; };
 		975635712266FDC0009AE63B /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975635702266FDC0009AE63B /* ReviewTableViewCell.swift */; };
 		97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */; };
@@ -273,7 +272,6 @@
 		97D25692224C9E8B00175E42 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				97187ABA2251D4F30096E52D /* Main.storyboard */,
 				97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -317,6 +315,7 @@
 		A45D2873261DB861006FB358 /* Legacy */ = {
 			isa = PBXGroup;
 			children = (
+				97187ABA2251D4F30096E52D /* Main.storyboard */,
 				A45D2874261DB8A8006FB358 /* Model */,
 				A4FCB37525DE6819004A41DC /* SignIn */,
 				A427783025E63DB7003F36FB /* SignUp */,
@@ -495,7 +494,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97187ABB2251D4F30096E52D /* Main.storyboard in Resources */,
 				9756356B2265D6EF009AE63B /* GoogleService-Info.plist in Resources */,
 				97B718E4226EB9C50010BF33 /* Assets.xcassets in Resources */,
 				97D2568A224B1F9E00175E42 /* LaunchScreen.storyboard in Resources */,
