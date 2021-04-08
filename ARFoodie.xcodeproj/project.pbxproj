@@ -29,6 +29,7 @@
 		A45D2865261DB798006FB358 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2864261DB798006FB358 /* UIColor+.swift */; };
 		A45D2869261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2868261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift */; };
 		A45D287F261DBC0A006FB358 /* MainARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D25681224B1F9C00175E42 /* MainARViewController.swift */; };
+		A45D292A261DC0B6006FB358 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2929261DC0B6006FB358 /* String+.swift */; };
 		A468426F261481440061C278 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468426E261481440061C278 /* MainViewModel.swift */; };
 		A48D4EC1261C33EC00EDB570 /* RestaurantPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */; };
 		A48D4EC7261C66EB00EDB570 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */; };
@@ -115,6 +116,7 @@
 		A45D285E261DB724006FB358 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		A45D2864261DB798006FB358 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		A45D2868261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+statusBarStyle.swift"; sourceTree = "<group>"; };
+		A45D2929261DC0B6006FB358 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		A468426E261481440061C278 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPinView.swift; sourceTree = "<group>"; };
 		A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				A45D285E261DB724006FB358 /* CALayer+.swift */,
 				A45D2864261DB798006FB358 /* UIColor+.swift */,
 				A45D2868261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift */,
+				A45D2929261DC0B6006FB358 /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
 				A495F3F82615A849001CD738 /* GooglePlacesEnvelope.swift in Sources */,
+				A45D292A261DC0B6006FB358 /* String+.swift in Sources */,
 				A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */,
 				A495F44C2615D018001CD738 /* PlacesService.swift in Sources */,
 				A468426F261481440061C278 /* MainViewModel.swift in Sources */,

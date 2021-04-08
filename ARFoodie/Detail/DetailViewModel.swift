@@ -54,7 +54,7 @@ class DetailViewModel {
     @objc
     func selectPhoneNumber() {
         guard
-            let phoneNumber = restaurantDetail.value.phoneNumber,
+            let phoneNumber = restaurantDetail.value.phoneNumber?.digits,
             let phoneNumberURL = URL(string: "tel://\(phoneNumber)")
         else {
             let message = ErrorMessage(title: "格式錯誤", message: "電話號碼格式不正確")
