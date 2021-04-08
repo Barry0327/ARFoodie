@@ -16,7 +16,7 @@ final class MainARViewController: NiblessViewController, CLLocationManagerDelega
 
     private let viewModel: MainViewModel
     private let bag: DisposeBag = DisposeBag()
-    private var adjustedHeight: Double = 5
+    private var adjustedHeight: Double = 0
 
     private let sceneLocationView: SceneLocationView = SceneLocationView()
 
@@ -127,7 +127,7 @@ final class MainARViewController: NiblessViewController, CLLocationManagerDelega
     @objc
     private func searchButtonTapped() {
         sceneLocationView.removeAllNodes()
-        adjustedHeight = 5
+        adjustedHeight = 0
         viewModel.searchRestaurants()
     }
 
@@ -169,7 +169,7 @@ final class MainARViewController: NiblessViewController, CLLocationManagerDelega
             image.accessibilityIdentifier = restaurant.placeID
 
             let coordinate = CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lng)
-            let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
+            let location = CLLocation(coordinate: coordinate, altitude: 0)
             // To prevent view stack too close
             self.adjustedHeight += 3
             print(adjustedHeight)
