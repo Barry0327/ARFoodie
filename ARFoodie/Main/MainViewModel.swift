@@ -7,40 +7,52 @@
 //
 
 import Foundation
-import CoreLocation
+import CoreLocation.CLLocation
 import RxRelay
 import RxSwift
 
-final class MainViewModel: NSObject {
-    let locationManager = CLLocationManager()
-    let placesService: PlacesService
+final class MainViewModel {
+    private let placesService: PlacesService
+    private let locationService: LocationService
 
-    let bag: DisposeBag = DisposeBag()
-    var currentLocation: CLLocation?
+    private let bag: DisposeBag = DisposeBag()
+    var currentLocation: CLLocation? {
+        locationService.currentLocation
+    }
     let searchButtonAnimating: BehaviorRelay<Bool> = .init(value: false)
     let restaurants: BehaviorRelay<[Restaurant]> = .init(value: [])
     let selectedPlaceID: PublishRelay<String> = .init()
     let errorMessage: PublishRelay<ErrorMessage> = .init()
 
-    init(placesService: PlacesService) {
+    init(placesService: PlacesService,
+         locationService: LocationService) {
         self.placesService = placesService
+        self.locationService = locationService
+        observerLocatoinService()
+    }
+
+    func observerLocatoinService() {
+        locationService.coordinate.asObservable()
+            .subscribe(onNext: { [unowned self] in
+                self.searchPlaces(with: $0)
+            })
+            .disposed(by: bag)
+
+        locationService.locationError.asObservable()
+            .subscribe(onNext: { [unowned self] in
+                let message = ErrorMessage(title: "定位失敗", message: $0.localizedDescription)
+                errorMessage.accept(message)
+            })
+            .disposed(by: bag)
     }
 
     func searchRestaurants() {
         searchButtonAnimating.accept(true)
-        startReceivingLocationChanges()
+        getCurrentLocation()
     }
 
-    func startReceivingLocationChanges() {
-        self.locationManager.requestWhenInUseAuthorization()
-        let authorizationStatus = locationManager.authorizationStatus
-        if authorizationStatus != .authorizedWhenInUse && !CLLocationManager.locationServicesEnabled() {
-            return
-        }
-
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
+    func getCurrentLocation() {
+        locationService.getCurrentLocation()
     }
 
     func searchPlaces(with coordinate: Coordinate) {
@@ -57,29 +69,5 @@ final class MainViewModel: NSObject {
                 self.searchButtonAnimating.accept(false)
             }
             .disposed(by: bag)
-    }
-}
-// MARK: - Location manager delegate
-extension MainViewModel: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        guard let location = locations.last,
-              location.horizontalAccuracy > 0
-        else { return }
-
-        currentLocation = location
-        self.locationManager.delegate = nil
-        self.locationManager.stopUpdatingLocation()
-
-        let latitude = String(location.coordinate.latitude)
-        let longtitude = String(location.coordinate.longitude)
-        let coordinate: Coordinate = (latitude, longtitude)
-
-        searchPlaces(with: coordinate)
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        let message = ErrorMessage(title: "定位失敗", message: error.localizedDescription)
-        errorMessage.accept(message)
     }
 }

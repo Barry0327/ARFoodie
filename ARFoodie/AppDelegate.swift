@@ -19,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(Secrets.apiKey)
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let viewModel = MainViewModel(placesService: GooglePlacesService())
+        let viewModel = MainViewModel(
+            placesService: GooglePlacesService(),
+            locationService: LocationManager()
+        )
         let mainViewController = MainARViewController(viewModel: viewModel)
         window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()

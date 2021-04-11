@@ -8,7 +8,7 @@
 
 import UIKit
 import Cosmos
-import CoreLocation
+import CoreLocation.CLLocation
 
 class RestaurantPinView: NiblessView {
 

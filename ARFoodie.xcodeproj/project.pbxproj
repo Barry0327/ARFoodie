@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1DDF82E3BA79B726A31B1FA1 /* Pods_ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3CDE3F15A53E18AFB69FADA /* Pods_ARFoodie.framework */; };
+		971CB442262164B900411A63 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CB441262164B900411A63 /* LocationService.swift */; };
+		971CB446262166CE00411A63 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971CB445262166CE00411A63 /* LocationManager.swift */; };
 		9756356B2265D6EF009AE63B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9756356A2265D6EF009AE63B /* GoogleService-Info.plist */; };
 		975635712266FDC0009AE63B /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975635702266FDC0009AE63B /* ReviewTableViewCell.swift */; };
 		97A49FAA2253569D00DC4B43 /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */; };
@@ -63,6 +65,8 @@
 		7376DCA8093BEF37F621D925 /* Pods-ARFoodieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieTests.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodieTests/Pods-ARFoodieTests.debug.xcconfig"; sourceTree = "<group>"; };
 		970230DA225907D600BD8AF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		97187ABA2251D4F30096E52D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		971CB441262164B900411A63 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		971CB445262166CE00411A63 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		9738E835226576B100EA2CBC /* LiveStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamManager.swift; sourceTree = "<group>"; };
 		9738E8372265817F00EA2CBC /* CreateLiveBorcastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLiveBorcastViewController.swift; sourceTree = "<group>"; };
 		9756356A2265D6EF009AE63B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -346,6 +350,8 @@
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
 				A468426E261481440061C278 /* MainViewModel.swift */,
 				A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */,
+				971CB441262164B900411A63 /* LocationService.swift */,
+				971CB445262166CE00411A63 /* LocationManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -638,6 +644,7 @@
 				A45D287F261DBC0A006FB358 /* MainARViewController.swift in Sources */,
 				A45D2865261DB798006FB358 /* UIColor+.swift in Sources */,
 				97A49FAE2254DC5A00DC4B43 /* MapCell.swift in Sources */,
+				971CB446262166CE00411A63 /* LocationManager.swift in Sources */,
 				A45D2869261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift in Sources */,
 				A48D4EC1261C33EC00EDB570 /* RestaurantPinView.swift in Sources */,
 				A45D285F261DB724006FB358 /* CALayer+.swift in Sources */,
@@ -653,6 +660,7 @@
 				97B718E822706B5C0010BF33 /* DetailViewController.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
 				A4FB7BE72612C23400E82166 /* UIStoryboard+.swift in Sources */,
+				971CB442262164B900411A63 /* LocationService.swift in Sources */,
 				A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
 				A495F3F82615A849001CD738 /* GooglePlacesEnvelope.swift in Sources */,
