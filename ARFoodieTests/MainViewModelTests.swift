@@ -29,8 +29,9 @@ extension TestError: LocalizedError {
 }
 
 class TestPlaceService: PlacesService {
+    let restaurants: PublishSubject<[Restaurant]> = .init()
+    let restaurnatDetail: PublishSubject<RestaurantDetail> = .init()
 
-    var restaurants: PublishSubject<[Restaurant]> = .init()
     static var lastMethodCall: String?
 
     func nearbyRestaurants(coordinate: Coordinate) -> Single<[Restaurant]> {
@@ -40,25 +41,7 @@ class TestPlaceService: PlacesService {
 
     func restaurantDetail(placeID: String) -> Single<RestaurantDetail> {
         TestPlaceService.lastMethodCall = #function
-        return Single<RestaurantDetail>.create { (single) -> Disposable in
-            DispatchQueue.global().asyncAfter(deadline: .now() + 1.5) {
-                guard let data = cachedFileData(name: "place_detail") else {
-                    single(.failure(TestError.fileNotFound))
-                    return
-                }
-
-                let decoder = JSONDecoder()
-                decoder.userInfo[.contentIdentifier] = "result"
-
-                let envelope = try? decoder.decode(GooglePlacesEnvelope<RestaurantDetail>.self, from: data)
-                guard let detail = envelope?.content else {
-                    single(.failure(TestError.decodeFailed))
-                    return
-                }
-                single(.success(detail))
-            }
-            return Disposables.create()
-        }
+        return restaurnatDetail.asSingle()
     }
 }
 

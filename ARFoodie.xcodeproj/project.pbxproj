@@ -34,6 +34,7 @@
 		A45D292A261DC0B6006FB358 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2929261DC0B6006FB358 /* String+.swift */; };
 		A468426F261481440061C278 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A468426E261481440061C278 /* MainViewModel.swift */; };
 		A46E57A52623E2BE003FCA83 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E57A42623E2BE003FCA83 /* MainViewModelTests.swift */; };
+		A46E5805262438D3003FCA83 /* DetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46E5804262438D3003FCA83 /* DetailViewModelTest.swift */; };
 		A48D4EC1261C33EC00EDB570 /* RestaurantPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */; };
 		A48D4EC7261C66EB00EDB570 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */; };
 		A495F3F126157180001CD738 /* GooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A495F3F026157180001CD738 /* GooglePlaceService.swift */; };
@@ -123,6 +124,7 @@
 		A45D2929261DC0B6006FB358 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		A468426E261481440061C278 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A46E57A42623E2BE003FCA83 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		A46E5804262438D3003FCA83 /* DetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTest.swift; sourceTree = "<group>"; };
 		A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPinView.swift; sourceTree = "<group>"; };
 		A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		A495F3F026157180001CD738 /* GooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				A495F40A2615BE31001CD738 /* DecodeTests.swift */,
 				A495F4022615BDBD001CD738 /* Info.plist */,
 				A46E57A42623E2BE003FCA83 /* MainViewModelTests.swift */,
+				A46E5804262438D3003FCA83 /* DetailViewModelTest.swift */,
 			);
 			path = ARFoodieTests;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46E5805262438D3003FCA83 /* DetailViewModelTest.swift in Sources */,
 				A495F40B2615BE31001CD738 /* DecodeTests.swift in Sources */,
 				A46E57A52623E2BE003FCA83 /* MainViewModelTests.swift in Sources */,
 			);
