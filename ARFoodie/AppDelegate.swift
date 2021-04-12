@@ -13,8 +13,11 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let testing = NSClassFromString("XCTest") != nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        guard testing == false else { return true }
 
         GMSServices.provideAPIKey(Secrets.apiKey)
 

@@ -9,9 +9,9 @@
 import XCTest
 @testable import ARFoodie
 
-class DecodeTests: XCTestCase {
-    private func cachedFileData(name: String, ext: String = "json") -> Data? {
-        let bundle = Bundle(for: type(of: self))
+extension XCTestCase {
+    func cachedFileData(name: String, ext: String = "json") -> Data? {
+        let bundle = Bundle.init(for: type(of: self))
         guard let path = bundle.path(forResource: name, ofType: ext) else {
             print("File not found.")
             return nil
@@ -22,6 +22,22 @@ class DecodeTests: XCTestCase {
         }
         return data
     }
+}
+
+func cachedFileData(name: String, ext: String = "json") -> Data? {
+    let bundle = Bundle.init(for: type(of: XCTestCase()))
+    guard let path = bundle.path(forResource: name, ofType: ext) else {
+        print("File not found.")
+        return nil
+    }
+    guard let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe) else {
+        print("Create data error.")
+        return nil
+    }
+    return data
+}
+
+class DecodeTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
