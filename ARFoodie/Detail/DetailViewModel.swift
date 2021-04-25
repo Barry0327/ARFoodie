@@ -14,7 +14,7 @@ class DetailViewModel {
     enum DetailSection {
         case information, map, review
     }
-
+    // MARK: Properties
     let placeID: String
     let placesService: PlacesService
 
@@ -29,7 +29,7 @@ class DetailViewModel {
     let activityIndicatorAnimating: BehaviorRelay<Bool> = .init(value: true)
     let selectedPhoneNumberURL: PublishRelay<URL> = .init()
     let errorMessage: PublishRelay<ErrorMessage> = .init()
-
+    // MARK: Methods
     init(placeID: String, placesService: PlacesService) {
         self.placeID = placeID
         self.placesService = placesService
@@ -38,6 +38,7 @@ class DetailViewModel {
     func fetchRestaurtantDetail() {
         placesService.restaurantDetail(placeID: placeID)
             .subscribe { [unowned self] (result) in
+                defer { self.activityIndicatorAnimating.accept(false) }
                 switch result {
                 case .success(let restaurantDetail):
                     self.restaurantDetail.accept(restaurantDetail)
@@ -46,7 +47,6 @@ class DetailViewModel {
                     let message = ErrorMessage(title: "連線失敗", message: error.localizedDescription)
                     self.errorMessage.accept(message)
                 }
-                self.activityIndicatorAnimating.accept(false)
             }
             .disposed(by: bag)
     }

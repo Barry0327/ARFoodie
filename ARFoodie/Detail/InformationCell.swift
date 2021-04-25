@@ -85,7 +85,7 @@ class InformationCell: UITableViewCell {
         contentView.addSubview(addressLabel)
         contentView.addSubview(separatorView)
     }
-
+    // MARK: Constriants
     private func setLayout() {
         placeImageView.anchor(
             top: nil,

@@ -11,6 +11,7 @@ import Cosmos
 import Kingfisher
 
 class ReviewTableViewCell: UITableViewCell {
+    // MARK: Properties
     private let profileImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.layer.cornerRadius = 25
@@ -57,7 +58,7 @@ class ReviewTableViewCell: UITableViewCell {
         view.backgroundColor = UIColor.flatWatermelonDark()
         return view
     }()
-
+    // MARK: Methods
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -90,7 +91,7 @@ class ReviewTableViewCell: UITableViewCell {
         contentView.addSubview(relativeTimeDescriptionLabel)
         contentView.addSubview(separatorView)
     }
-
+    // MARK: Constraints
     private func setLayout() {
         profileImageView.anchor(
             top: contentView.topAnchor,

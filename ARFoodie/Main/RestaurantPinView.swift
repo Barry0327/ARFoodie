@@ -11,7 +11,7 @@ import Cosmos
 import CoreLocation.CLLocation
 
 class RestaurantPinView: NiblessView {
-
+    // MARK: Properties
     let nameLabel: UILabel = UILabel {
         $0.frame = CGRect(x: 5, y: 5, width: 230, height: 30)
         $0.textColor = .black
@@ -35,7 +35,7 @@ class RestaurantPinView: NiblessView {
         $0.font = UIFont.systemFont(ofSize: 14)
         $0.textColor = UIColor(r: 79, g: 79, b: 79, a: 1)
     }
-
+    // MARK: Methods
     init(restaurant: Restaurant, currentLocation: CLLocation?) {
         super.init(frame: CGRect(x: 0, y: 0, width: 240, height: 70))
         nameLabel.text = restaurant.name

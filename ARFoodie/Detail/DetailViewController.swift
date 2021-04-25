@@ -14,7 +14,7 @@ import RxCocoa
 import IHProgressHUD
 
 class DetailViewController: NiblessViewController, UINavigationControllerDelegate {
-
+    // MARK: Properties
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
