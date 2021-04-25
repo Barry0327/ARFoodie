@@ -12,6 +12,7 @@ import RxRelay
 import RxSwift
 
 final class MainViewModel {
+    // MARK: Properties
     private let placesService: PlacesService
     private let locationService: LocationService
 
@@ -23,7 +24,7 @@ final class MainViewModel {
     let restaurants: BehaviorRelay<[Restaurant]> = .init(value: [])
     let selectedPlaceID: PublishRelay<String> = .init()
     let errorMessage: PublishRelay<ErrorMessage> = .init()
-
+    // MARK: Methods
     init(placesService: PlacesService,
          locationService: LocationService) {
         self.placesService = placesService
@@ -59,14 +60,15 @@ final class MainViewModel {
         placesService.nearbyRestaurants(coordinate: coordinate)
             .subscribe(on: MainScheduler.instance)
             .subscribe { [unowned self] in
+                defer { self.searchButtonAnimating.accept(false) }
                 switch $0 {
-                case .success(let restaurants):
+                case .success(var restaurants):
+                    restaurants.removeLast(5)
                     self.restaurants.accept(restaurants)
                 case .failure(let error):
                     let message = ErrorMessage(title: "連線錯誤", message: error.localizedDescription)
                     self.errorMessage.accept(message)
                 }
-                self.searchButtonAnimating.accept(false)
             }
             .disposed(by: bag)
     }

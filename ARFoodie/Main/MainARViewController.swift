@@ -13,7 +13,7 @@ import RxSwift
 import RxCocoa
 
 final class MainARViewController: NiblessViewController, CLLocationManagerDelegate {
-
+    // MARK: Properties
     private let viewModel: MainViewModel
     private let bag: DisposeBag = DisposeBag()
     private var adjustedHeight: Double = 0
@@ -158,6 +158,7 @@ final class MainARViewController: NiblessViewController, CLLocationManagerDelega
         let detailViewController = DetailViewController(viewModel: viewModel)
 
         let navigationController = UINavigationController(rootViewController: detailViewController)
+        navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)
     }
 
@@ -171,7 +172,7 @@ final class MainARViewController: NiblessViewController, CLLocationManagerDelega
             let coordinate = CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lng)
             let location = CLLocation(coordinate: coordinate, altitude: 0)
             // To prevent view stack too close
-            self.adjustedHeight += 3
+            self.adjustedHeight += 5
             print(adjustedHeight)
 
             let annotaionNode = LocationAnnotationNode(location: location, image: image)
