@@ -30,11 +30,13 @@ class DetailViewController: NiblessViewController, UINavigationControllerDelegat
     lazy var dismissBTN: UIBarButtonItem = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "icon-cross"), for: .normal)
-        button.frame = CGRect(x: 11, y: 20, width: 19, height: 19)
+        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         button.tintColor = UIColor.init(hexString: "F2EDEC")
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         let leftBarButton = UIBarButtonItem(customView: button)
         return leftBarButton
+        let barButton = UIBarButtonItem(customView: button)
+        return barButton
     }()
 
     // MARK: - View life cycle
@@ -84,7 +86,7 @@ class DetailViewController: NiblessViewController, UINavigationControllerDelegat
             NSAttributedString.Key.foregroundColor: UIColor(hexString: "F2EDEC")!,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 21, weight: .bold)
         ]
-        navigationItem.setLeftBarButton(dismissBTN, animated: true)
+        navigationItem.setRightBarButton(dismissBTN, animated: true)
     }
 
     func observerViewModel() {
@@ -170,7 +172,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         let section = viewModel.detailSections[indexPath.section]
         switch section {
         case .information:
-            return 120
+            return 125
         case .map:
             return 200
         case .review:

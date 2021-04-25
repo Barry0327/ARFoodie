@@ -130,8 +130,8 @@ class InformationCell: UITableViewCell {
             leading: nameLabel.leadingAnchor,
             bottom: nil,
             trailing: nil,
-            padding: .init(top: 5, left: 0, bottom: 0, right: 0),
-            size: .init(width: 150, height: 15)
+            padding: .init(top: 10, left: 0, bottom: 0, right: 0),
+            size: .init(width: 0, height: 15)
         )
 
         addressLabel.anchor(
