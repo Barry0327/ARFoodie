@@ -170,10 +170,9 @@ final class MainARViewController: NiblessViewController, CLLocationManagerDelega
             image.accessibilityIdentifier = restaurant.placeID
 
             let coordinate = CLLocationCoordinate2D(latitude: restaurant.lat, longitude: restaurant.lng)
-            let location = CLLocation(coordinate: coordinate, altitude: 0)
+            let location = CLLocation(coordinate: coordinate, altitude: adjustedHeight)
             // To prevent view stack too close
-            self.adjustedHeight += 5
-            print(adjustedHeight)
+            self.adjustedHeight += 3
 
             let annotaionNode = LocationAnnotationNode(location: location, image: image)
             annotaionNode.continuallyAdjustNodePositionWhenWithinRange = false
