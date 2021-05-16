@@ -1,0 +1,386 @@
+{
+  "html_attributions": [],
+  "result": {
+    "address_components": [
+      {
+        "long_name": "2樓",
+        "short_name": "2樓",
+        "types": [
+          "premise"
+        ]
+      },
+      {
+        "long_name": "32",
+        "short_name": "32",
+        "types": [
+          "street_number"
+        ]
+      },
+      {
+        "long_name": "光復北路",
+        "short_name": "光復北路",
+        "types": [
+          "route"
+        ]
+      },
+      {
+        "long_name": "復勢里",
+        "short_name": "復勢里",
+        "types": [
+          "administrative_area_level_4",
+          "political"
+        ]
+      },
+      {
+        "long_name": "松山區",
+        "short_name": "松山區",
+        "types": [
+          "administrative_area_level_3",
+          "political"
+        ]
+      },
+      {
+        "long_name": "台北市",
+        "short_name": "台北市",
+        "types": [
+          "administrative_area_level_1",
+          "political"
+        ]
+      },
+      {
+        "long_name": "台灣",
+        "short_name": "TW",
+        "types": [
+          "country",
+          "political"
+        ]
+      },
+      {
+        "long_name": "105",
+        "short_name": "105",
+        "types": [
+          "postal_code"
+        ]
+      }
+    ],
+    "adr_address": "<span class=\"postal-code\">105</span><span class=\"country-name\">台灣</span><span class=\"region\">台北市</span><span class=\"locality\">松山區</span><span class=\"street-address\">復勢里光復北路32號</span>2樓",
+    "business_status": "OPERATIONAL",
+    "formatted_address": "105台灣台北市松山區光復北路32號2樓",
+    "formatted_phone_number": "02 2577 3880",
+    "geometry": {
+      "location": {
+        "lat": 25.049324,
+        "lng": 121.557643
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 25.0506729802915,
+          "lng": 121.5589919802915
+        },
+        "southwest": {
+          "lat": 25.0479750197085,
+          "lng": 121.5562940197085
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+    "international_phone_number": "+886 2 2577 3880",
+    "name": "皇星魚翅餐廳",
+    "opening_hours": {
+      "open_now": true,
+      "periods": [
+        {
+          "close": {
+            "day": 0,
+            "time": "1400"
+          },
+          "open": {
+            "day": 0,
+            "time": "1130"
+          }
+        },
+        {
+          "close": {
+            "day": 0,
+            "time": "2030"
+          },
+          "open": {
+            "day": 0,
+            "time": "1800"
+          }
+        },
+        {
+          "close": {
+            "day": 1,
+            "time": "1400"
+          },
+          "open": {
+            "day": 1,
+            "time": "1130"
+          }
+        },
+        {
+          "close": {
+            "day": 2,
+            "time": "1400"
+          },
+          "open": {
+            "day": 2,
+            "time": "1130"
+          }
+        },
+        {
+          "close": {
+            "day": 2,
+            "time": "2100"
+          },
+          "open": {
+            "day": 2,
+            "time": "1730"
+          }
+        },
+        {
+          "close": {
+            "day": 3,
+            "time": "1400"
+          },
+          "open": {
+            "day": 3,
+            "time": "1130"
+          }
+        },
+        {
+          "close": {
+            "day": 3,
+            "time": "2100"
+          },
+          "open": {
+            "day": 3,
+            "time": "1730"
+          }
+        },
+        {
+          "close": {
+            "day": 4,
+            "time": "1400"
+          },
+          "open": {
+            "day": 4,
+            "time": "1130"
+          }
+        },
+        {
+          "close": {
+            "day": 4,
+            "time": "2100"
+          },
+          "open": {
+            "day": 4,
+            "time": "1730"
+          }
+        },
+        {
+          "close": {
+            "day": 5,
+            "time": "1400"
+          },
+          "open": {
+            "day": 5,
+            "time": "1130"
+          }
+        },
+        {
+          "close": {
+            "day": 5,
+            "time": "2100"
+          },
+          "open": {
+            "day": 5,
+            "time": "1730"
+          }
+        },
+        {
+          "close": {
+            "day": 6,
+            "time": "1400"
+          },
+          "open": {
+            "day": 6,
+            "time": "1130"
+          }
+        },
+        {
+          "close": {
+            "day": 6,
+            "time": "2100"
+          },
+          "open": {
+            "day": 6,
+            "time": "1730"
+          }
+        }
+      ],
+      "weekday_text": [
+        "星期一: 11:30 – 14:00",
+        "星期二: 11:30 – 14:00, 17:30 – 21:00",
+        "星期三: 11:30 – 14:00, 17:30 – 21:00",
+        "星期四: 11:30 – 14:00, 17:30 – 21:00",
+        "星期五: 11:30 – 14:00, 17:30 – 21:00",
+        "星期六: 11:30 – 14:00, 17:30 – 21:00",
+        "星期日: 11:30 – 14:00, 18:00 – 20:30"
+      ]
+    },
+    "photos": [
+      {
+        "height": 1108,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/116973335429721170843\">Julie Lo</a>"
+        ],
+        "photo_reference": "ATtYBwKzuLmay-yvWMh2-CAfD2X3p9SByxSr6Cdhtdu_npTFgRYWogm0kqt1KwCiKOs3L6icMnAKN8_yhW-4BoPRsj2cVVLTdHatm0tp4fEV05jWkpXNR18RQbERyTF2Nusb1rbTAxoton2WxjBnynigbyICIXkT_k3fq1Hfq5SY04LZ8VWG",
+        "width": 1477
+      },
+      {
+        "height": 3968,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/115397421267104876421\">chao</a>"
+        ],
+        "photo_reference": "ATtYBwIlijJwDk-0zIi2hOyE37-lQCW56tyjCDT65tzZL1qppI5ZJUK1eSAKRiQCWFXF0eGjch81GwDL3Rlrblrix-f-p7ELy0SSNEZFUY5EF70d8ZeOftIkykQQHy9V-3u3rVPYdfzrLR8mZwPfQJkLHvW8lGbpFQlgDoAH1e2ZhvvQJUuX",
+        "width": 2976
+      },
+      {
+        "height": 3968,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/115397421267104876421\">chao</a>"
+        ],
+        "photo_reference": "ATtYBwJa116j4huusCW_YlkKdpoS5bixDkGypfGtX2FpqcXln9dJHJMWDcSe4K0LkNCj-IoIU5m3c_LVvms3vWWm-dRH70unIYwYrGOyJ05MZHH1WwiFrdFp43jxG9JArqHgZqVwlxHqkwEpUljA79t9Bj-FoZ843RIs_r-gPqFanpIkshmr",
+        "width": 2976
+      },
+      {
+        "height": 3968,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/115397421267104876421\">chao</a>"
+        ],
+        "photo_reference": "ATtYBwL2XPUtAJNyFxysfS0sECM-tLvsGhudS3L1BQDvX1AeDkTSx9lD4ad0O-7wMCE-0Wgvb0tVGE1IGRCCuYRndppRVGIRbQa4WIq2aBgsY44fHSjfOKeiPlHYFOmS7vFx5v7cz2jmk9ndw0oHdtR1i76oIf0C8z-Dd2GPRCpx4sD0Q-XO",
+        "width": 2976
+      },
+      {
+        "height": 3968,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/115397421267104876421\">chao</a>"
+        ],
+        "photo_reference": "ATtYBwIUubJS1fQ75sL7xvtInNKvJW9k0u5MARqr9Mj7kXGR-PzuQPDMtPRj6rm3mnY-T01sQy8M1w4fxE2gbXc5pIBOkVrUPk-grGpan_guYAq9Qq-hD9G_osXY8J26Ih2LdVPv8J34edUwmegSWMp2JKHBC2krvzx-6eWwh2PNjfuWT1Nd",
+        "width": 2976
+      },
+      {
+        "height": 1108,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/116973335429721170843\">Julie Lo</a>"
+        ],
+        "photo_reference": "ATtYBwKHfa4qN5_7WLNi3oDBElKvBLj6gECTOUYOpVV3tfTzv_ewV2_F74eALF_QmzTvqcv0vKQw7IKyXQcePw4KVs021mdqfpcMhW2WyPijsYjojL3MU3h5YvMFKYPlbr-9GUFmWirUPC0IATC9cw_E9oeKksNzpH2NfN0ibKPrWV0JJtVS",
+        "width": 1477
+      },
+      {
+        "height": 3968,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/115397421267104876421\">chao</a>"
+        ],
+        "photo_reference": "ATtYBwLWcnssm1SKbY46AUxakuRIYPlZNQRY7_WHe0F7ox1U8h7xG-EAZD2jXbaEtKhsaTFYHYcJLPRr_NUQHXfm55WewIOjBjJ5pM77aGMSioUgU-7u--LJdVFZR5Bkp1TRpDu876Qe3JknY46W7hKC1rQD_dAzkKztie375VdTL7yTyYnV",
+        "width": 2976
+      },
+      {
+        "height": 3968,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/115397421267104876421\">chao</a>"
+        ],
+        "photo_reference": "ATtYBwL219AEq2-edTjCfoofCmCOe4NeIkce_ufXUetsUX3jOOwioetLbA-0YNTN0L53WDuAyvFHu2u-hikkCcqSsAPzjUULF5jWV2jZixnXx9qHtgZbBstKmqFPFL1qMFIl8-zeFDY-rIxof4E8OhkBgXAMp79UZSVfuEf6DMjf4HXThWiu",
+        "width": 2976
+      },
+      {
+        "height": 1108,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/116973335429721170843\">Julie Lo</a>"
+        ],
+        "photo_reference": "ATtYBwJv4gSr_hq23yWAqapvL1L7Qs-404Xs-rL9OQZNfzKRxfjfbvIJjeyRgrxs-bG20Ri4eCqCPlEiRm5iTb95WYPFSBdX14nOaYooqcfiJQm843I28EuwoZdL7YTQVNjnsCzhZ2-hs5erwBr2qgALH6ITkB_OAp8PMiX--oYJxwH17-HS",
+        "width": 1477
+      },
+      {
+        "height": 2976,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/115397421267104876421\">chao</a>"
+        ],
+        "photo_reference": "ATtYBwKTEJqL06ggZAJ5ZUrlfyHwsqoRmRZJR2J7wxtUMNQM7obhTpFF--lKnOqPkhegIK1OclG890Y3CzuciBTgROiMI3w-BNrbTW-vAC34tZ59niUwgZ_raZkz9C1H2Zm80zE_4dJtCfwi9G7u6lE76kxpBIhYALprMrMfevzPc2UnBkvW",
+        "width": 3968
+      }
+    ],
+    "place_id": "ChIJSVzYguqrQjQRwNXUh2zx5BQ",
+    "plus_code": {
+      "compound_code": "2HX5+P3 台灣台北市松山區",
+      "global_code": "7QQ32HX5+P3"
+    },
+    "rating": 4.7,
+    "reference": "ChIJSVzYguqrQjQRwNXUh2zx5BQ",
+    "reviews": [
+      {
+        "author_name": "chao",
+        "author_url": "https://www.google.com/maps/contrib/115397421267104876421/reviews",
+        "language": "zh-Hant",
+        "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GiyMM3LSowk3myTVF_5B5NnWfi_xKLettrr4o3HtN4=s128-c0x00000000-cc-rp-mo",
+        "rating": 5,
+        "relative_time_description": "1 個月前",
+        "text": "1- 老店，但是保持的很乾淨。光顧該店近20年了。\n2- 陳姓夫婦老闆和女兒非常和氣，真材實料，烹飪用心！\n3- 口味都很好，依次為魚翅、皇豪鮑、燕窩（冷或熱）、龍蝦（可選擇蔥蒜或起司焗烤烹調）。\n4- 套餐還包括二選一（牛排或豬排，都可口，牛小排有細筋，豬排嫩），以及可口但不油膩的肉燥飯。\n5- 飯前小菜（自製毛豆和干絲）以及飯後甜點椰沙包、咖啡/茶，不錯。\n6- 魚翅真空包裝帶回家熱來吃也很！\n\n老饕及親朋好友聚餐高CP值的好地方！！",
+        "time": 1614426928
+      },
+      {
+        "author_name": "許維哲",
+        "author_url": "https://www.google.com/maps/contrib/112986097128188338731/reviews",
+        "language": "zh-Hant",
+        "profile_photo_url": "https://lh4.googleusercontent.com/-Hxt9VTL9M9w/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclDM83G5dM9CI6DiAKqAie_36FodA/s128-c0x00000000-cc-rp-mo/photo.jpg",
+        "rating": 4,
+        "relative_time_description": "5 個月前",
+        "text": "東西好吃，但價格偏高",
+        "time": 1602246763
+      },
+      {
+        "author_name": "Scott Chueh",
+        "author_url": "https://www.google.com/maps/contrib/110400041448515800579/reviews",
+        "language": "zh-Hant",
+        "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GhKAeWlu5PKO53M_Q59B9dioY6Ihwxn1Xmey5-NYg=s128-c0x00000000-cc-rp-mo-ba4",
+        "rating": 4,
+        "relative_time_description": "3 年前",
+        "text": "原本的店名為京翅坊，是間家族經營的餐廳，廚房由兒子掌廚、女兒及父親則負責外場。有名的是魚翅，其CP值頗高，無需以破3、5000的價位也可以享用高膠原蛋白的魚翅。提供多套套餐組合可供參考選擇。如魚翅搭配龍蝦或鮑魚的套餐，用餐都附上無限續碗好吃的肉燥飯及牛小排或豬排二選一還有飯後的咖啡或紅茶。是個不用擔心會吃不飽的魚翅餐廳。店家還有集點活動，滿千換一點。忘了要集滿幾點才能有份免費的魚翅餐。店家也有販售真空包裝的魚翅供外帶，加熱後，在家也可以簡單的享用魚翅。中午有供應商業套餐，價位不會讓人覺得遙不可及。最後這邊的CP值有多高呢？不用破千即可享用魚翅有多一點預算則可以以1千多元吃排翅。沒錯，吃魚翅不再是有錢人的專利。你我也可以輕鬆吃魚翅輕鬆攝取膠原蛋白。",
+        "time": 1519932951
+      },
+      {
+        "author_name": "歆岡陳",
+        "author_url": "https://www.google.com/maps/contrib/113162384760037338116/reviews",
+        "language": "zh-Hant",
+        "profile_photo_url": "https://lh6.googleusercontent.com/-B81mbJtfRP0/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucl7s_SgQn_nRwPkRzE4sq_Ft7W3sQ/s128-c0x00000000-cc-rp-mo-ba4/photo.jpg",
+        "rating": 5,
+        "relative_time_description": "1 年前",
+        "text": "服務很好東西好吃回頭率很高",
+        "time": 1579414777
+      },
+      {
+        "author_name": "李維修",
+        "author_url": "https://www.google.com/maps/contrib/102752847640540177383/reviews",
+        "language": "zh-Hant",
+        "profile_photo_url": "https://lh3.googleusercontent.com/a-/AOh14GgDlK1bFSoTCBqAt5aHFldp4BWV_zpvRKZimzRX=s128-c0x00000000-cc-rp-mo-ba2",
+        "rating": 5,
+        "relative_time_description": "3 年前",
+        "text": "好吃實在",
+        "time": 1522056710
+      }
+    ],
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "url": "https://maps.google.com/?cid=1505593623886222784",
+    "user_ratings_total": 9,
+    "utc_offset": 480,
+    "vicinity": "松山區光復北路32號2樓"
+  },
+  "status": "OK"
+}

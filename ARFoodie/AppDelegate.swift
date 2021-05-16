@@ -8,63 +8,33 @@
 
 import UIKit
 import GoogleMaps
-import Firebase
-import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    let apiKey: String = {
-
-        if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
-            return key
-        }
-        return ""
-    }()
-
-    let clientID: String = {
-
-        if let key = Bundle.main.object(forInfoDictionaryKey: "CLIENT_ID") as? String {
-            return key
-        }
-        return ""
-    }()
+    let testing = NSClassFromString("XCTest") != nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        GMSServices.provideAPIKey(apiKey)
+        guard testing == false else { return true }
 
-        FirebaseApp.configure()
+        GMSServices.provideAPIKey(Secrets.apiKey)
 
-        GIDSignIn.sharedInstance()?.clientID = clientID
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-
-        if Auth.auth().currentUser != nil {
-
-            if let mainTabbarC = storyboard.instantiateViewController(withIdentifier: "TabbarController") as? TabbarController {
-
-                self.window?.rootViewController = mainTabbarC
-
-            }
-        } else {
-
-            if let loginVC = storyboard.instantiateViewController(withIdentifier: "LogInViewController") as? LogInViewController {
-
-                self.window?.rootViewController = loginVC
-
-            }
-
-        }
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let viewModel = MainViewModel(
+            placesService: GooglePlacesService(),
+            locationService: LocationManager()
+        )
+        let mainViewController = MainARViewController(viewModel: viewModel)
+        window?.rootViewController = mainViewController
+        window?.makeKeyAndVisible()
 
         return true
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-
-        return GIDSignIn.sharedInstance().handle(url)
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

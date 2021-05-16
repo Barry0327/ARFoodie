@@ -1,28 +1,37 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '12.0'
+platform :ios, '14.0'
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+    end
+  end
+end
 
 target 'ARFoodie' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for ARFoodie
-
   pod 'SwiftLint'
   pod 'Alamofire', '~> 5.2'
   pod 'ARCL'
   pod 'GoogleMaps'
-  pod 'YTLiveStreaming'
-  pod 'Firebase/Core'
-  pod 'Firebase/Storage'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/Database'
-  pod 'Firebase/Auth'
-  pod 'FirebaseUI/Storage'
-  pod 'GoogleSignIn'
   pod 'IHProgressHUD', :git => 'https://github.com/Swiftify-Corp/IHProgressHUD.git'
-  pod 'ChameleonFramework/Swift', '2.1.0'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'  
   pod 'StatusAlert'
-  pod 'Cosmos', '~> 18.0'
+  pod 'Cosmos', '~> 23.0.0'
   pod 'TransitionButton'
+  pod 'RxSwift', '6.1.0'
+  pod 'RxCocoa', '6.1.0'
+  pod 'LookinServer', :configurations => ['Debug']
+  pod 'Kingfisher', '~> 6.0'
+
+  target 'ARFoodieTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'RxBlocking'
+  end
 
 end

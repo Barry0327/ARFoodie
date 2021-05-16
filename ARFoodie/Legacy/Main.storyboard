@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="rK8-sN-yww">
+            <objects>
+                <viewController storyboardIdentifier="MainARViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="v8y-Eg-qkZ" customClass="MainARViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Usy-xA-vGZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="00L-yX-6my"/>
+                        <color key="backgroundColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="0.66176155821917804" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Out-Yy-BBc"/>
+                    <navigationItem key="navigationItem" id="YrU-Lj-v4Z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ug-NS-530" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4718" y="-1596"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="yvk-6e-kJp">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TBy-px-cfD" customClass="DetailViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pih-0I-h7Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cYl-p5-7M6"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xIj-8d-war" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5527" y="-1592"/>
+        </scene>
+        <!--Create Live Boardcast View Controller-->
+        <scene sceneID="DKl-a0-7Kf">
+            <objects>
+                <viewController storyboardIdentifier="CreateLiveBoardcastViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O0u-3K-9O3" customClass="CreateLiveBoardcastViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4r7-aJ-r9e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ykL-RD-EsR"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k2X-So-FAd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6372" y="-1596"/>
+        </scene>
+        <!--Live View Controller-->
+        <scene sceneID="3Np-jc-CUk">
+            <objects>
+                <viewController storyboardIdentifier="LFLiveViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Gja-Ml-uyn" customClass="LFLiveViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cr6-W1-LHk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ODi-zO-aBK"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ing-tN-OdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7212" y="-1596"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="SPN-VH-c4Y">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GpT-Y4-R86" customClass="ProfileViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B89-Gz-9Xy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="xo1-tA-Ftb"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="s7z-45-EAl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugG-cD-RXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5766" y="-434"/>
+        </scene>
+        <!--Privacy Policy View Controller-->
+        <scene sceneID="nr1-TV-x7S">
+            <objects>
+                <viewController storyboardIdentifier="PrivacyPolicyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aAN-C0-cZ4" customClass="PrivacyPolicyViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zMh-ho-FaR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="adQ-Fe-kbd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">隱私權政策
+生效日期：2019年4月26日
+ARFoodie（ 我們 ， 我們 或 我們的 ）操作ARFoodie移動應用程序（以下稱為 服務 ）。
+當您使用我們的服務以及與該數據相關的選擇時，本頁面會告知您有關個人數據的收集，使用和披露的政策。我們的隱私政策ARFoodie是在隱私政策網站的幫助下創建的。
+我們使用您的數據來提供和改進服務。使用本服務即表示您同意按照本政策收集和使用信息。除非本隱私政策另有規定，否則本隱私政策中使用的術語與我們的條款和條件具有相同的含義。
+信息收集和使用
+我們為各種目的收集了幾種不同類型的信息，以便為您提供和改進我們的服務。
+收集的數據類型
+個人資料
+在使用我們的服務時，我們可能會要求您向我們提供可用於聯繫或識別您的某些個人身份信息（ 個人數據 ）。個人身份信息可能包括但不限於：
+電子郵件地址
+名字和姓氏
+Cookie和使用數據
+使用數據
+當您使用移動設備訪問服務時，我們可能會自動收集某些信息，包括但不限於您使用的移動設備類型，移動設備唯一ID，移動設備的IP地址，移動操作系統，您使用的移動互聯網瀏覽器的類型，唯一的設備標識符和其他診斷數據（ 使用數據 ）。
+跟踪和Cookie數據
+我們使用cookie和類似的跟踪技術來跟踪我們服務上的活動並保留某些信息。
+Cookie是包含少量數據的文件，可能包含匿名唯一標識符。 Cookie會從網站發送到您的瀏覽器並存儲在您的設備上。還使用的跟踪技術是信標，標籤和腳本，用於收集和跟踪信息以及改進和分析我們的服務。
+您可以指示您的瀏覽器拒絕所有cookie或指示何時發送cookie。但是，如果您不接受cookie，您可能無法使用我們服務的某些部分。您可以在 瀏覽器Cookie指南 中了解有關如何管理Cookie的更多信息。
+我們使用的Cookie示例：
+會話Cookie。我們使用Session Cookies來運營我們的服務。
+偏好Cookie。我們使用首選項Cookie來記住您的偏好和各種設置。
+安全Cookies。出於安全考慮，我們使用安全Cookie。
+使用數據
+ARFoodie將收集的數據用於各種目的：
+提供和維護服務
+通知您有關我們服務的更改
+允許您在選擇時參與我們服務的互動功能
+為客戶提供關懷和支持
+提供分析或有價值的信息，以便我們改進服務
+監控服務的使用情況
+檢測，預防和解決技術問題
+數據傳輸
+您的信息（包括個人數據）可能會被轉移到您所在州，省，國家或其他政府管轄範圍之外的計算機上，並且這些計算機的數據保護法可能與您所在司法管轄區的數據保護法不同。
+如果您位於台灣以外並選擇向我們提供信息，請注意我們將數據（包括個人數據）傳輸到台灣並在那里處理。
+您同意本隱私政策，然後提交此類信息即表示您同意該轉讓。
+Find Mend將採取合理必要的所有步驟，以確保您的數據得到安全處理並符合本隱私政策，並且不會向組織或國家/地區傳輸您的個人數據，除非有適當的控制措施，包括您的安全性數據和其他個人信息。
+披露數據
+法律要求
+ARFoodie可能會真誠地披露您的個人數據，並認為此類行為是必要的：
+履行法律義務
+保護和捍衛ARFoodie的權利或財產
+防止或調查與服務相關的可能的不當行為
+保護服務或公眾用戶的人身安全
+防止法律責任
+數據安全
+數據的安全性對我們很重要，但請記住，沒有通過Internet傳輸的方法或電子存儲方法是100％安全的。雖然我們努力使用商業上可接受的方式來保護您的個人數據，但我們無法保證其絕對的安全性。
+服務供應商
+我們可能僱用第三方公司和個人來促進我們的服務（ 服務提供商 ），代表我們提供服務，執行服務相關服務或協助我們分析我們的服務使用方式。
+這些第三方只能代表我們訪問您的個人數據以執行這些任務，並且有義務不發送CD片
+Analytics（分析）
+我們可能會使用第三方服務提供商來監控和分析我們服務的使用。
+Firebase
+Firebase是Google Inc.提供的分析服務。
+您可以通過移動設備設置選擇退出某些Firebase功能，例如您的設備廣告設置，或遵循Google在其隱私權政策中提供的說明：https：//policies.google.com/privacy？hl = zh-CN
+我們還建議您查看Google保護數據的政策：https：//support.google.com/analytics/answer/6004245。有關Firebase收集的信息類型的詳細信息，請訪問Google隱私和條款網頁：https：//policies.google.com/privacy？hl = zh-CN
+鏈接到其他網站
+我們的服務可能包含指向非我們運營的其他網站的鏈接。如果您點擊第三方鏈接，您將被定向到該第三方的網站。我們強烈建議您查看您訪問的每個站點的隱私政策。
+我們無法控制任何第三方網站或服務的內容，隱私政策或做法，也不承擔任何責任。
+兒童的隱私
+我們的服務不適用於18歲以下的任何人（ 兒童 ）。
+我們不會有意收集18歲以下的任何人的個人身份信息。如果您是父母或監護人並且您知道您的孩子已向我們提供了個人數據，請與我們聯繫。如果我們發現我們從兒童處收集了個人數據而未經父母同意，我們會採取措施從我們的服務器中刪除該信息。
+本隱私政策的變更
+我們可能會不時更新我們的隱私政策。我們將通過在此頁面上發布新的隱私政策來通知您任何更改。
+在更改生效之前，我們將通過電子郵件和/或關於我們服務的明顯通知通知您，並更新本隱私政策頂部的 生效日期 。
+建議您定期查看本隱私政策以了解任何變更。本隱私政策的更改在此頁面上發佈時生效。
+聯繫我們
+如果您對本隱私政策有任何疑問，請聯繫我們：
+通過網站聯絡：https://www.facebook.com/ARFoodie-1557706827707014</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yYN-Tn-x8O"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="adQ-Fe-kbd" id="1J6-c0-5fV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LeY-Ua-i7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952.79999999999995" y="-1438.8305847076463"/>
+        </scene>
+        <!--User Policy View Controller-->
+        <scene sceneID="814-o3-Gn8">
+            <objects>
+                <viewController storyboardIdentifier="UserPolicyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PAM-dS-E0n" customClass="UserPolicyViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8ef-sW-2qS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uJ2-CM-0nt">
+                                <rect key="frame" x="0.0" y="62" width="375" height="605"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">使用條款
+最後更新日期：2019/04/26 
+ARFoodie 使用條款協議，以下簡稱「使用者」、「一般使用者」、「您」或「您的」）及註冊會員（以下簡稱「會員」、「您」或「您的」）的共同協議。
+ARFoodie  您使用或訪問 ARFoodie 行動裝置 APP ，即視為您已知悉、並完全同意本協議的所有約定，並同意受其及相關法律之約束。 
+您應當定期查閱本協議之最新版本。ARFoodie 可自行決定隨時修改或更正本協議及相關服務條款和政策，且您同意接受上述修改或更正的約束。  
+如您是未滿十三歲之未成年人，則您必須在使用本服務前，將本協議及其後之修改變更請您的父母或監護人閱讀，並得到其同意，才可以註冊或使用本服務。當您使用本服務時，則視為您的父母或監護人已經閱讀、了解並同意本協議之內容及其後之修改變更。  
+如果您不同意本協議的任何部分，請停止使用本服務。  
+第一條：服務說明  
+ARFoodie  提供線上對話及一般使用者互動相關之服務，ARFoodie 行動裝置 APP。會員透過免費註冊進行即時聊天。一般使用者可透過 ARFoodie 所提供之服務，進行網路語音通訊與即時聊天。
+使用本服務應自備符合需求之相關數位硬體設備、網路環境及其他必備之條件。 我們目前提供免費下載行動裝置 APP 的服務，但您需自行承擔電信或網路供應商的正常費率和費用，如簡訊費用和數據傳輸費用等。 會員及一般使用者就本服務係取得有限制範圍的使用授權，我們保留依據權利人指示而通知 ARFoodie 將您的音訊檔案刪除之權利。 
+第二條：註冊及會員資料  
+於申請註冊成為本服務會員時，您應當填寫正確而詳實的個人資料。若您已填寫過會員資料，也請隨時更新過時或已變更之個人資料。  本服務的會員帳號和密碼由您自行設定。設定完畢後，您負有妥善保管和保密的義務。本服務將以您所設定的會員帳號和密碼來認證您的身份，您必須為經由這個會員帳號和密碼所進行的所有行為負責。為維護您的權益，請勿將帳號提供予他人使用。
+依本服務註冊表之提示提供您本人正確、最新及完整的資料，維持並更新您個人資料，確保其為正確、最新及完整。若有資料填寫不實的情形，ARFoodie 有權暫停或終止您的帳號，並拒絕您使用本服務之全部或一部。 
+若有需要由 ARFoodie 協助處理客戶服務事項時，ARFoodie 可能會核對您的個人資料，若與註冊時所登錄之資料不符合者，ARFoodie 將無法對您提供相關服務。 一旦註冊成為會員，您將有屬於自己的一個帳號和密碼。如果您未保管好自己的帳號和密碼而對您、ARFoodie 或第三方造成損害，您將負全部責任。另外，每個會員都要對其帳戶中的所有活動和事件負責。 如果您發現或懷疑您的會員帳號和密碼被其他人冒用，請立即通知本服務。
+ARFoodie 僅會將您所提供的個人資料並不會洩漏給任何第三方服務，但以下情形除外： 受警察 /檢察/司法/稅捐稽徵機關或其他有權機關基於法定程序之要求。 經您書面同意利用於其他目的。 其他符合相關個人資料保護法規情形。 您有查閱、修正您個人會員資料的相關權力。 您可以請求刪除相關個人會員資料，不過相關依賴會員資料的服務將無法順利提供。 為了您使用本服務之便利，若您登入使用本服務，本服務將維持您的帳號登入的狀態，您可以隨時於本服務中選擇登出您的帳號，或者聯繫開發人員。 
+第三條：本服務之使用  
+您於 ARFoodie 完成註冊程序並由本產品完成相關設定後，即可開始使用本服務。 
+本服務有權增加、變更或取消本服務中相關系統或功能之全部或一部之權利且無須通知您；且有關現有或將來之各項服務均受本協議之規範。 您如加入本公司其他活動，而另訂有相關使用規範或約定時，您應同時遵守各該服務之使用及相關規定。 如果本服務需有或內含可下載軟體，該軟體可能會在提供新版或新功能時，在您的裝置上自動更新。部分情況下可以讓您調整您的自動更新設定。
+第四條：使用者表達的言論  ARFoodie 所提供的服務一般使用者主動傳播訊息觀點、言論，這些內容並不代表 ARFoodie  的立場，應由發表者本人自負其責。
+本產品對於會員及一般使用者的言論不負責任，亦不擔保會員及一般使用者署名之真實性。會員及一般使用者須注意遵守相關法律，不得有毀謗、散布不實言論、散布猥褻資訊、侵害他人智慧財產權、隱私權、不符合網路禮儀或令一般人不舒服之言論或資訊，或其他違反法律之行為，亦不得有冒用他人名義、身分等行為。
+經檢舉查知言論符合上述事項者，本公司可逕自刪除相關言論及影音內容。必要時，本公司得依法令及主管機關之要求，提供本服務之會員及一般使用者相關資訊，且無須另行通知。  
+第五條：不得公開傳輸、公開播放、文字及聲音等內容，前述所稱其他 ARFoodie 服務。
+第六條：您提供予 ARFoodie 之所有內容，不包含任何違法、有害、威脅、辱罵、騷擾、侵權、損害名譽、粗鄙、色情、侵犯、猥褻、毀謗、侵犯他人隱私、仇恨、或在種族、族群或其他方面可引起異議之影片、圖像、文字及聲音等內容。 
+第七條：禁止事項  會員及一般使用者不得直接或間接利用本服務，從事下列行為：  不得對於本產品其他會員或使用者發送垃圾電子郵件或其他廣告訊息。 不得企圖入侵本產品伺服器、資料庫、破解本服務安全機制。
+第八條：服務之暫停與變更於下述情形，得經事前或事後公告，暫停相關服務：  本服務系統更新、維護或其他施工所必要之情形。 本服務所使用之電信服務提供者無法提供連線服務時。 因天災、暴動、罷工或其他不可抗力因素，致本服務暫時無法提供服務者。 
+第九條：免責聲明  
+您已同意，使用本服務由您自行承擔風險。在法律允許的最大限度內，ARFoodie 免予承擔所有有關本網站或與其連結的網站內容的準確性或完整性的保證、條件、條款和陳述，並且不承擔下列責任：  錯誤或內容失實。 您訪問或使用本服務引起任何性質的人身傷害或人身損害。 未經授權訪問或使用有安全措施的伺服器和/或儲存在伺服器上的任何個人資訊和/或財務資訊。
+我們服務的中斷或停止傳輸。 和/或第三方可能通過我們的服務傳輸的任何軟體錯誤、病毒、木馬或類似性質的程式。 任何內容中的錯誤或疏忽，或由於使用發佈、郵件傳送、傳輸或通過服務的其他方式獲得的內容，導致的任何形式的損失或損害。
+ARFoodie 不保證、認同、擔保或承擔由任何第三方通過服務或任何超連結服務或橫幅功能或其他廣告發佈或提供的產品或服務的責任，並且對於您與第三方提供商就商品或服務的交易，ARFoodie 不作為一方當事人，也不負責任何監控責任。就如同任何通過媒體或在其他情況下購買產品或服務，您應當盡到自己最佳的判斷和合理的謹慎。
+隱私權政策 
+ARFoodie 服務非常重視 ARFoodie  的會員的線上個人隱私。為了讓您瞭解我們將如何蒐集、應用及保護您所提供的個人資訊，請詳閱下列隱私權保護聲明。  個人資料之取得：  當您註冊成為本服務會員時，本服務會請您提供您的名稱、註冊帳號（即電子郵件信箱）、使服務必要之資料。 一經註冊成功後，您可利用您所設定的帳號充分使用本服務提供的各項服務。對於您的提供的個人資料，您可隨時進入個人設定修正您的資料以保持其正確性。 
+個人資料之運用：  您註冊會員時所輸入之資料，僅供本服務提供之服務、活動設計、內部作業需要之參考、統計使用。除非您同意，我們不會將這些資訊用做其他用途或與第三者分享及使用，但以下情形除外：  受警察 /檢察/司法/稅捐稽徵機關或其他有權機關基於法定程序之要求。 經您書面同意利用於其他目的。 其他符合相關個人資料保護法規情形。
+隱私權保護聲明的執行：  如果您對我們的隱私權保護聲明有任何問題，請與開發者中心連絡。  隱私權保護聲明的更新：本服務保留隨時修改本隱私權保護聲明的權利。修改後的條款將公佈於本服務網站上之相關網頁，並自公佈之日起生效，不另行通知。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4Es-e7-y7A"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="uJ2-CM-0nt" id="Edz-VL-xka"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUJ-NI-VOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1783" y="-1442"/>
+        </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="6qQ-hR-Bpi">
+            <objects>
+                <viewController storyboardIdentifier="LogInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DEY-cE-4Pq" customClass="SignInViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SMf-P1-DIw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lUQ-RJ-wTs"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <segue destination="HNQ-Gw-oMe" kind="show" identifier="FinishLogin" id="o4s-Md-j1r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A34-oX-G1k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2913" y="-1441"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="xMq-KC-Z9L">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gUn-h1-jQw" customClass="SignUpViewController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VaW-r8-izw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Yfi-T4-COq"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <segue destination="HNQ-Gw-oMe" kind="show" identifier="FinishRegister" id="UyN-ne-Uvz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M0S-gv-lnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2913" y="-617"/>
+        </scene>
+        <!--Tabbar Controller-->
+        <scene sceneID="coM-03-yrI">
+            <objects>
+                <tabBarController storyboardIdentifier="TabbarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HNQ-Gw-oMe" customClass="TabbarController" customModule="ARFoodie" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2gv-Bc-aCp">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="v8y-Eg-qkZ" kind="relationship" relationship="viewControllers" id="Obr-Tz-9MN"/>
+                        <segue destination="4cv-BL-uCN" kind="relationship" relationship="viewControllers" id="Hoh-xd-TjE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ObW-gO-T1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3834" y="-1073"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="jNy-cg-JXk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4cv-BL-uCN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="IuG-ic-9ID"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b7j-35-DSK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GpT-Y4-R86" kind="relationship" relationship="rootViewController" id="5VJ-N2-ZUR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JCQ-Eq-oGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4884" y="-434"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="o4s-Md-j1r"/>
+    </inferredMetricsTieBreakers>
+</document>

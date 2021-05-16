@@ -1,252 +1,94 @@
 PODS:
-  - Alamofire (5.4.1)
-  - AppAuth (1.4.0):
-    - AppAuth/Core (= 1.4.0)
-    - AppAuth/ExternalUserAgent (= 1.4.0)
-  - AppAuth/Core (1.4.0)
-  - AppAuth/ExternalUserAgent (1.4.0)
+  - Alamofire (5.4.2)
   - ARCL (1.3.0)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Cosmos (18.0.1)
-  - Firebase/Auth (7.6.0):
-    - Firebase/CoreOnly
-    - FirebaseAuth (~> 7.6.0)
-  - Firebase/Core (7.6.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 7.6.0)
-  - Firebase/CoreOnly (7.6.0):
-    - FirebaseCore (= 7.6.0)
-  - Firebase/Database (7.6.0):
-    - Firebase/CoreOnly
-    - FirebaseDatabase (~> 7.6.0)
-  - Firebase/Messaging (7.6.0):
-    - Firebase/CoreOnly
-    - FirebaseMessaging (~> 7.6.0)
-  - Firebase/Storage (7.6.0):
-    - Firebase/CoreOnly
-    - FirebaseStorage (~> 7.6.0)
-  - FirebaseAnalytics (7.6.0):
-    - FirebaseCore (~> 7.0)
-    - FirebaseInstallations (~> 7.0)
-    - GoogleAppMeasurement (= 7.6.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
-    - GoogleUtilities/MethodSwizzler (~> 7.0)
-    - GoogleUtilities/Network (~> 7.0)
-    - "GoogleUtilities/NSData+zlib (~> 7.0)"
-    - nanopb (~> 2.30907.0)
-  - FirebaseAuth (7.6.0):
-    - FirebaseCore (~> 7.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
-    - GoogleUtilities/Environment (~> 7.0)
-    - GTMSessionFetcher/Core (~> 1.4)
-  - FirebaseCore (7.6.0):
-    - FirebaseCoreDiagnostics (~> 7.4)
-    - GoogleUtilities/Environment (~> 7.0)
-    - GoogleUtilities/Logger (~> 7.0)
-  - FirebaseCoreDiagnostics (7.6.0):
-    - GoogleDataTransport (~> 8.0)
-    - GoogleUtilities/Environment (~> 7.0)
-    - GoogleUtilities/Logger (~> 7.0)
-    - nanopb (~> 2.30907.0)
-  - FirebaseDatabase (7.6.0):
-    - FirebaseCore (~> 7.0)
-    - leveldb-library (~> 1.22)
-  - FirebaseInstallations (7.6.0):
-    - FirebaseCore (~> 7.0)
-    - GoogleUtilities/Environment (~> 7.0)
-    - GoogleUtilities/UserDefaults (~> 7.0)
-    - PromisesObjC (~> 1.2)
-  - FirebaseInstanceID (7.6.0):
-    - FirebaseCore (~> 7.0)
-    - FirebaseInstallations (~> 7.0)
-    - GoogleUtilities/Environment (~> 7.0)
-    - GoogleUtilities/UserDefaults (~> 7.0)
-  - FirebaseMessaging (7.6.0):
-    - FirebaseCore (~> 7.0)
-    - FirebaseInstanceID (~> 7.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
-    - GoogleUtilities/Environment (~> 7.0)
-    - GoogleUtilities/Reachability (~> 7.0)
-    - GoogleUtilities/UserDefaults (~> 7.0)
-  - FirebaseStorage (7.6.0):
-    - FirebaseCore (~> 7.0)
-    - GTMSessionFetcher/Core (~> 1.4)
-  - FirebaseUI/Storage (10.0.2):
-    - Firebase/Storage
-    - SDWebImage (~> 5.6)
-  - GoogleAppMeasurement (7.6.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
-    - GoogleUtilities/MethodSwizzler (~> 7.0)
-    - GoogleUtilities/Network (~> 7.0)
-    - "GoogleUtilities/NSData+zlib (~> 7.0)"
-    - nanopb (~> 2.30907.0)
-  - GoogleDataTransport (8.2.0):
-    - nanopb (~> 2.30907.0)
-  - GoogleMaps (4.1.0):
-    - GoogleMaps/Maps (= 4.1.0)
-  - GoogleMaps/Base (4.1.0)
-  - GoogleMaps/Maps (4.1.0):
+  - Cosmos (23.0.0)
+  - GoogleMaps (4.2.0):
+    - GoogleMaps/Maps (= 4.2.0)
+  - GoogleMaps/Base (4.2.0)
+  - GoogleMaps/Maps (4.2.0):
     - GoogleMaps/Base
-  - GoogleSignIn (5.0.2):
-    - AppAuth (~> 1.2)
-    - GTMAppAuth (~> 1.0)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleUtilities/AppDelegateSwizzler (7.2.2):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.2.2):
-    - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (7.2.2):
-    - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.2.2):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (7.2.2):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.2.2)"
-  - GoogleUtilities/Reachability (7.2.2):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (7.2.2):
-    - GoogleUtilities/Logger
-  - GTMAppAuth (1.1.0):
-    - AppAuth/Core (~> 1.4)
-    - GTMSessionFetcher (~> 1.4)
-  - GTMSessionFetcher (1.5.0):
-    - GTMSessionFetcher/Full (= 1.5.0)
-  - GTMSessionFetcher/Core (1.5.0)
-  - GTMSessionFetcher/Full (1.5.0):
-    - GTMSessionFetcher/Core (= 1.5.0)
   - IHProgressHUD (0.1.5)
-  - KeychainAccess (4.2.1)
-  - leveldb-library (1.22)
-  - Moya (14.0.0):
-    - Moya/Core (= 14.0.0)
-  - Moya/Core (14.0.0):
-    - Alamofire (~> 5.0)
-  - nanopb (2.30907.0):
-    - nanopb/decode (= 2.30907.0)
-    - nanopb/encode (= 2.30907.0)
-  - nanopb/decode (2.30907.0)
-  - nanopb/encode (2.30907.0)
-  - PromisesObjC (1.2.12)
-  - SDWebImage (5.10.4):
-    - SDWebImage/Core (= 5.10.4)
-  - SDWebImage/Core (5.10.4)
+  - Kingfisher (6.2.1)
+  - LookinServer (1.0.0)
+  - RxBlocking (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxCocoa (6.1.0):
+    - RxRelay (= 6.1.0)
+    - RxSwift (= 6.1.0)
+  - RxRelay (6.1.0):
+    - RxSwift (= 6.1.0)
+  - RxSwift (6.1.0)
   - StatusAlert (1.1.1)
-  - SwiftLint (0.42.0)
-  - SwiftyJSON (5.0.0)
+  - SwiftLint (0.43.1)
   - TransitionButton (0.5.3)
-  - YTLiveStreaming (0.2.19):
-    - KeychainAccess
-    - Moya (= 14.0)
-    - SwiftyJSON
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - ARCL
-  - ChameleonFramework/Swift (= 2.1.0)
-  - Cosmos (~> 18.0)
-  - Firebase/Auth
-  - Firebase/Core
-  - Firebase/Database
-  - Firebase/Messaging
-  - Firebase/Storage
-  - FirebaseUI/Storage
+  - ChameleonFramework/Swift (from `https://github.com/wowansm/Chameleon.git`, branch `swift5`)
+  - Cosmos (~> 23.0.0)
   - GoogleMaps
-  - GoogleSignIn
   - IHProgressHUD (from `https://github.com/Swiftify-Corp/IHProgressHUD.git`)
+  - Kingfisher (~> 6.0)
+  - LookinServer
+  - RxBlocking
+  - RxCocoa (= 6.1.0)
+  - RxSwift (= 6.1.0)
   - StatusAlert
   - SwiftLint
   - TransitionButton
-  - YTLiveStreaming
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - AppAuth
     - ARCL
-    - ChameleonFramework
     - Cosmos
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseAuth
-    - FirebaseCore
-    - FirebaseCoreDiagnostics
-    - FirebaseDatabase
-    - FirebaseInstallations
-    - FirebaseInstanceID
-    - FirebaseMessaging
-    - FirebaseStorage
-    - FirebaseUI
-    - GoogleAppMeasurement
-    - GoogleDataTransport
     - GoogleMaps
-    - GoogleSignIn
-    - GoogleUtilities
-    - GTMAppAuth
-    - GTMSessionFetcher
-    - KeychainAccess
-    - leveldb-library
-    - Moya
-    - nanopb
-    - PromisesObjC
-    - SDWebImage
+    - Kingfisher
+    - LookinServer
+    - RxBlocking
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - StatusAlert
     - SwiftLint
-    - SwiftyJSON
     - TransitionButton
-    - YTLiveStreaming
 
 EXTERNAL SOURCES:
+  ChameleonFramework:
+    :branch: swift5
+    :git: https://github.com/wowansm/Chameleon.git
   IHProgressHUD:
     :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
 
 CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: 96d52c36a45847fff60bcff7a58fec1e4bd7390b
+    :git: https://github.com/wowansm/Chameleon.git
   IHProgressHUD:
     :commit: 84b65368d4c106e785c89ed5a75ba90111633d43
     :git: https://github.com/Swiftify-Corp/IHProgressHUD.git
 
 SPEC CHECKSUMS:
-  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
-  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
   ARCL: db48b6927d6f3f49f29568295ed91c94ab8d4aab
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Cosmos: 7dfaa3f52584ca5f94ab74b5c2e264019cc9f7f5
-  Firebase: e1e089d9aac215a52442583f818ab61de3c4581b
-  FirebaseAnalytics: 9f8f4feab1f3fddf4e4515f8f022fe6aa9e51043
-  FirebaseAuth: 0a1df88dc32569db509e6269c3e4bf2a168e8ae8
-  FirebaseCore: 0a43b7f1c5b36f3358cd703011ca4c7e0df55870
-  FirebaseCoreDiagnostics: ee1184d51da3293335b83355aad20f537acc24cf
-  FirebaseDatabase: 21842227253dafe61482065148fd044ba7983a41
-  FirebaseInstallations: 6e4e77396559bc2ae0504823837ed737b1c7e47f
-  FirebaseInstanceID: cf243611700eddc916b093353adbd4da822cfa63
-  FirebaseMessaging: 4b9b2850fcfcaac2820097ee3703ba6cfff3df84
-  FirebaseStorage: 47890c9607e58b3046f072538c8c1ca4db2b0940
-  FirebaseUI: 59db3d833773f985550897d54ceb811ba37fb9a5
-  GoogleAppMeasurement: c542a2feaac9ab98fd074e8f1a02c3585bbfbd47
-  GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
-  GoogleMaps: 008e2c80e38605b56b560e8deb73d4194ff30bef
-  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
-  GoogleUtilities: 31c5b01f978a70c6cff2afc6272b3f1921614b43
-  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
-  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  GoogleMaps: eb03e327edfd70b06de1e6e321653f73712df7ad
   IHProgressHUD: 554f1e4cb088cf82c238dc1c607f5fadfd81ab89
-  KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
-  leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
-  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
-  nanopb: 59221d7f958fb711001e6a449489542d92ae113e
-  PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
+  RxBlocking: 602095fba0bce7b16b56ccec89edf780c248b7d9
+  RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
+  RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
+  RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   StatusAlert: a18ec3c33d36a06d4479c1f2b15ffac67aaf7ab1
-  SwiftLint: 4fa9579c63416865179bc416f0a92d55f009600d
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
-  YTLiveStreaming: 339210f132c7b5aa40a985d9c69492b49b41e8a1
 
-PODFILE CHECKSUM: e17c17cab6536172c19c69d72a68136757e5e9f1
+PODFILE CHECKSUM: 874829317ba2211c8247d4d563aae71c3f0b85d7
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
