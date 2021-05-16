@@ -1,6 +1,0 @@
-framework module Pods_ARFoodie {
-  umbrella header "Pods-ARFoodie-umbrella.h"
-
-  export *
-  module * { export * }
-}
