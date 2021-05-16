@@ -33,8 +33,6 @@ class DetailViewController: NiblessViewController, UINavigationControllerDelegat
         button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         button.tintColor = UIColor.init(hexString: "F2EDEC")
         button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
-        let leftBarButton = UIBarButtonItem(customView: button)
-        return leftBarButton
         let barButton = UIBarButtonItem(customView: button)
         return barButton
     }()
