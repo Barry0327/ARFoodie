@@ -15,11 +15,4 @@ struct Secrets {
         }
         return ""
     }()
-
-    static let clientID: String = {
-        if let key = Bundle.main.object(forInfoDictionaryKey: "CLIENT_ID") as? String {
-            return key
-        }
-        return ""
-    }()
 }
