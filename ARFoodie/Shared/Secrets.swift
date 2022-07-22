@@ -9,10 +9,7 @@
 import Foundation
 
 struct Secrets {
-    static let apiKey: String = {
-        if let key = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as? String {
-            return key
-        }
-        return ""
-    }()
+    static var apiKey: String {
+        <#API key#>
+    }
 }
