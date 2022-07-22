@@ -46,7 +46,6 @@
 		A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */; };
 		A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7925E4F64C00124731 /* ErrorMessage.swift */; };
 		A4E1A973261331C000C1EC5C /* UIViewCotroller+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4E1A972261331C000C1EC5C /* UIViewCotroller+Rx.swift */; };
-		A4FB7BE72612C23400E82166 /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FB7BE62612C23400E82166 /* UIStoryboard+.swift */; };
 		A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37B25DE6B03004A41DC /* NiblessView.swift */; };
 /* End PBXBuildFile section */
 
@@ -139,7 +138,6 @@
 		A4D57B7925E4F64C00124731 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		A4D57B7C25E4FEA300124731 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		A4E1A972261331C000C1EC5C /* UIViewCotroller+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewCotroller+Rx.swift"; sourceTree = "<group>"; };
-		A4FB7BE62612C23400E82166 /* UIStoryboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+.swift"; sourceTree = "<group>"; };
 		A4FCB37625DE6880004A41DC /* SignInRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRootView.swift; sourceTree = "<group>"; };
 		A4FCB37B25DE6B03004A41DC /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
 		F23898DC8E97CE9A5F66D672 /* Pods-ARFoodie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodie.release.xcconfig"; path = "Target Support Files/Pods-ARFoodie/Pods-ARFoodie.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +174,63 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		97686B0A288AFD5000B0A5BE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				971CB441262164B900411A63 /* LocationService.swift */,
+				971CB445262166CE00411A63 /* LocationManager.swift */,
+				97D25694224C9EBD00175E42 /* Restaurant.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		97686B0B288AFE2C00B0A5BE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */,
+				A495F44B2615D018001CD738 /* PlacesService.swift */,
+				A495F3F026157180001CD738 /* GooglePlaceService.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		97686B0C288AFF0D00B0A5BE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				97A6C8DE22632E9E002FAA90 /* Extension */,
+				A45D2856261DACD0006FB358 /* Secrets.swift */,
+				A4D57B7925E4F64C00124731 /* ErrorMessage.swift */,
+				A40CE67B25E6493E00F8BB27 /* Declarative.swift */,
+				A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */,
+				A4FCB37B25DE6B03004A41DC /* NiblessView.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		97686B0D288B007A00B0A5BE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A468426E261481440061C278 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		97686B0E288B00CD00B0A5BE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		97686B10288B01DC00B0A5BE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		97A6C8DB22620F0A002FAA90 /* Cell Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +243,6 @@
 			children = (
 				97A6C8DF22632F2D002FAA90 /* UIView+.swift */,
 				97A6C8E322632FE0002FAA90 /* UIViewController+.swift */,
-				A4FB7BE62612C23400E82166 /* UIStoryboard+.swift */,
 				A4E1A972261331C000C1EC5C /* UIViewCotroller+Rx.swift */,
 				A45D285A261DB66D006FB358 /* SCNNode+.swift */,
 				A45D285E261DB724006FB358 /* CALayer+.swift */,
@@ -245,13 +299,12 @@
 		97D2567E224B1F9C00175E42 /* ARFoodie */ = {
 			isa = PBXGroup;
 			children = (
+				97686B0C288AFF0D00B0A5BE /* Shared */,
 				A495F3F326157C9F001CD738 /* API Cache */,
 				A468426D261481060061C278 /* Main */,
 				A48D4EC5261C66CC00EDB570 /* Detail */,
-				A40CE67A25E6491800F8BB27 /* Utilitis */,
 				97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */,
 				97D2567F224B1F9C00175E42 /* AppDelegate.swift */,
-				97D25693224C9E9400175E42 /* Model */,
 				97D25692224C9E8B00175E42 /* View */,
 				9756356A2265D6EF009AE63B /* GoogleService-Info.plist */,
 				97D2568B224B1F9E00175E42 /* Info.plist */,
@@ -283,31 +336,6 @@
 				97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		97D25693224C9E9400175E42 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				97D25694224C9EBD00175E42 /* Restaurant.swift */,
-				97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */,
-				A4D57B7925E4F64C00124731 /* ErrorMessage.swift */,
-				A495F3F026157180001CD738 /* GooglePlaceService.swift */,
-				A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */,
-				A495F44B2615D018001CD738 /* PlacesService.swift */,
-				A45D2856261DACD0006FB358 /* Secrets.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		A40CE67A25E6491800F8BB27 /* Utilitis */ = {
-			isa = PBXGroup;
-			children = (
-				97A6C8DE22632E9E002FAA90 /* Extension */,
-				A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */,
-				A4FCB37B25DE6B03004A41DC /* NiblessView.swift */,
-				A40CE67B25E6493E00F8BB27 /* Declarative.swift */,
-			);
-			path = Utilitis;
 			sourceTree = "<group>";
 		};
 		A427783025E63DB7003F36FB /* SignUp */ = {
@@ -351,11 +379,11 @@
 		A468426D261481060061C278 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				97686B0A288AFD5000B0A5BE /* Domain */,
+				97686B0B288AFE2C00B0A5BE /* API */,
+				97686B0D288B007A00B0A5BE /* ViewModel */,
 				97D25681224B1F9C00175E42 /* MainARViewController.swift */,
-				A468426E261481440061C278 /* MainViewModel.swift */,
 				A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */,
-				971CB441262164B900411A63 /* LocationService.swift */,
-				971CB445262166CE00411A63 /* LocationManager.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -363,7 +391,8 @@
 		A48D4EC5261C66CC00EDB570 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */,
+				97686B0E288B00CD00B0A5BE /* Domain */,
+				97686B10288B01DC00B0A5BE /* ViewModel */,
 				97B718E722706B5C0010BF33 /* DetailViewController.swift */,
 				97A49FAD2254DC5A00DC4B43 /* MapCell.swift */,
 				975635702266FDC0009AE63B /* ReviewTableViewCell.swift */,
@@ -665,7 +694,6 @@
 				A45D2857261DACD0006FB358 /* Secrets.swift in Sources */,
 				97B718E822706B5C0010BF33 /* DetailViewController.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
-				A4FB7BE72612C23400E82166 /* UIStoryboard+.swift in Sources */,
 				971CB442262164B900411A63 /* LocationService.swift in Sources */,
 				A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */,
 				97D25695224C9EBD00175E42 /* Restaurant.swift in Sources */,
@@ -834,6 +862,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
@@ -855,6 +884,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BarryChen.ARFoodie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -868,6 +898,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
@@ -889,6 +920,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BarryChen.ARFoodie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
