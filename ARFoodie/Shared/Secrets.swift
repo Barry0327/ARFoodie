@@ -9,7 +9,13 @@
 import Foundation
 
 struct Secrets {
-    static var apiKey: String {
-        <#API key#>
-    }
+    static let apiKey: String = {
+        guard
+            let filePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist"),
+            let plist = NSDictionary(contentsOfFile: filePath),
+            let apiKey = plist.object(forKey: "API_KEY") as? String
+        else { return "" }
+
+        return apiKey
+    }()
 }
