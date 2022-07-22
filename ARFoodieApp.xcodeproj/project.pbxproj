@@ -101,7 +101,7 @@
 		97CF46C42277F93D0011D5F8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ARFoodie.entitlements; sourceTree = "<group>"; };
 		97CF6FCC22730CEB00E63E5A /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
-		97D2567C224B1F9C00175E42 /* ARFoodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97D2567C224B1F9C00175E42 /* ARFoodieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARFoodieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D2567F224B1F9C00175E42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97D25681224B1F9C00175E42 /* MainARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainARViewController.swift; sourceTree = "<group>"; };
 		97D25689224B1F9E00175E42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		A495F3F026157180001CD738 /* GooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
 		A495F3F426157CE0001CD738 /* place_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = place_detail.json; sourceTree = "<group>"; };
 		A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesEnvelope.swift; sourceTree = "<group>"; };
-		A495F3FE2615BDBD001CD738 /* ARFoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A495F3FE2615BDBD001CD738 /* ARFoodieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A495F4022615BDBD001CD738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A495F40A2615BE31001CD738 /* DecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeTests.swift; sourceTree = "<group>"; };
 		A495F4432615C689001CD738 /* nearby_places.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nearby_places.json; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		97D25673224B1F9C00175E42 = {
 			isa = PBXGroup;
 			children = (
-				97D2567E224B1F9C00175E42 /* ARFoodie */,
+				97D2567E224B1F9C00175E42 /* ARFoodieApp */,
 				97B718E3226EB9C50010BF33 /* Assets.xcassets */,
 				A495F3FF2615BDBD001CD738 /* ARFoodieTests */,
 				97D2567D224B1F9C00175E42 /* Products */,
@@ -290,13 +290,13 @@
 		97D2567D224B1F9C00175E42 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97D2567C224B1F9C00175E42 /* ARFoodie.app */,
-				A495F3FE2615BDBD001CD738 /* ARFoodieTests.xctest */,
+				97D2567C224B1F9C00175E42 /* ARFoodieApp.app */,
+				A495F3FE2615BDBD001CD738 /* ARFoodieAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		97D2567E224B1F9C00175E42 /* ARFoodie */ = {
+		97D2567E224B1F9C00175E42 /* ARFoodieApp */ = {
 			isa = PBXGroup;
 			children = (
 				97686B0C288AFF0D00B0A5BE /* Shared */,
@@ -310,7 +310,7 @@
 				97D2568B224B1F9E00175E42 /* Info.plist */,
 				A45D2873261DB861006FB358 /* Legacy */,
 			);
-			path = ARFoodie;
+			path = ARFoodieApp;
 			sourceTree = "<group>";
 		};
 		97D25691224C9E7800175E42 /* Controller */ = {
@@ -444,9 +444,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		97D2567B224B1F9C00175E42 /* ARFoodie */ = {
+		97D2567B224B1F9C00175E42 /* ARFoodieApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97D2568E224B1F9E00175E42 /* Build configuration list for PBXNativeTarget "ARFoodie" */;
+			buildConfigurationList = 97D2568E224B1F9E00175E42 /* Build configuration list for PBXNativeTarget "ARFoodieApp" */;
 			buildPhases = (
 				AA01B610310D48B64223730C /* [CP] Check Pods Manifest.lock */,
 				97D25678224B1F9C00175E42 /* Sources */,
@@ -460,14 +460,14 @@
 			);
 			dependencies = (
 			);
-			name = ARFoodie;
+			name = ARFoodieApp;
 			productName = ARFoodie;
-			productReference = 97D2567C224B1F9C00175E42 /* ARFoodie.app */;
+			productReference = 97D2567C224B1F9C00175E42 /* ARFoodieApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A495F3FD2615BDBD001CD738 /* ARFoodieTests */ = {
+		A495F3FD2615BDBD001CD738 /* ARFoodieAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A495F4052615BDBD001CD738 /* Build configuration list for PBXNativeTarget "ARFoodieTests" */;
+			buildConfigurationList = A495F4052615BDBD001CD738 /* Build configuration list for PBXNativeTarget "ARFoodieAppTests" */;
 			buildPhases = (
 				83BF545EFC0FE65A6656B0C4 /* [CP] Check Pods Manifest.lock */,
 				A495F3FA2615BDBD001CD738 /* Sources */,
@@ -480,9 +480,9 @@
 			dependencies = (
 				A495F4042615BDBD001CD738 /* PBXTargetDependency */,
 			);
-			name = ARFoodieTests;
+			name = ARFoodieAppTests;
 			productName = ARFoodieTests;
-			productReference = A495F3FE2615BDBD001CD738 /* ARFoodieTests.xctest */;
+			productReference = A495F3FE2615BDBD001CD738 /* ARFoodieAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -510,7 +510,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 97D25677224B1F9C00175E42 /* Build configuration list for PBXProject "ARFoodie" */;
+			buildConfigurationList = 97D25677224B1F9C00175E42 /* Build configuration list for PBXProject "ARFoodieApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -524,8 +524,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				97D2567B224B1F9C00175E42 /* ARFoodie */,
-				A495F3FD2615BDBD001CD738 /* ARFoodieTests */,
+				97D2567B224B1F9C00175E42 /* ARFoodieApp */,
+				A495F3FD2615BDBD001CD738 /* ARFoodieAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -720,7 +720,7 @@
 /* Begin PBXTargetDependency section */
 		A495F4042615BDBD001CD738 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 97D2567B224B1F9C00175E42 /* ARFoodie */;
+			target = 97D2567B224B1F9C00175E42 /* ARFoodieApp */;
 			targetProxy = A495F4032615BDBD001CD738 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -877,7 +877,7 @@
 					"PB_ENABLE_MALLOC=1",
 					"DISABLE_PUSH_NOTIFICATIONS=1",
 				);
-				INFOPLIST_FILE = ARFoodie/Info.plist;
+				INFOPLIST_FILE = ARFoodieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -913,7 +913,7 @@
 					"PB_ENABLE_MALLOC=1",
 					"DISABLE_PUSH_NOTIFICATIONS=1",
 				);
-				INFOPLIST_FILE = ARFoodie/Info.plist;
+				INFOPLIST_FILE = ARFoodieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -949,7 +949,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARFoodie.app/ARFoodie";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARFoodieApp.app/ARFoodieApp";
 			};
 			name = Debug;
 		};
@@ -971,14 +971,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARFoodie.app/ARFoodie";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARFoodieApp.app/ARFoodieApp";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		97D25677224B1F9C00175E42 /* Build configuration list for PBXProject "ARFoodie" */ = {
+		97D25677224B1F9C00175E42 /* Build configuration list for PBXProject "ARFoodieApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97D2568C224B1F9E00175E42 /* Debug */,
@@ -987,7 +987,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97D2568E224B1F9E00175E42 /* Build configuration list for PBXNativeTarget "ARFoodie" */ = {
+		97D2568E224B1F9E00175E42 /* Build configuration list for PBXNativeTarget "ARFoodieApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97D2568F224B1F9E00175E42 /* Debug */,
@@ -996,7 +996,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A495F4052615BDBD001CD738 /* Build configuration list for PBXNativeTarget "ARFoodieTests" */ = {
+		A495F4052615BDBD001CD738 /* Build configuration list for PBXNativeTarget "ARFoodieAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A495F4062615BDBD001CD738 /* Debug */,

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97D2567B224B1F9C00175E42"
-               BuildableName = "ARFoodie.app"
-               BlueprintName = "ARFoodie"
-               ReferencedContainer = "container:ARFoodie.xcodeproj">
+               BuildableName = "ARFoodieApp.app"
+               BlueprintName = "ARFoodieApp"
+               ReferencedContainer = "container:ARFoodieApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A495F3FD2615BDBD001CD738"
-               BuildableName = "ARFoodieTests.xctest"
-               BlueprintName = "ARFoodieTests"
-               ReferencedContainer = "container:ARFoodie.xcodeproj">
+               BuildableName = "ARFoodieAppTests.xctest"
+               BlueprintName = "ARFoodieAppTests"
+               ReferencedContainer = "container:ARFoodieApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97D2567B224B1F9C00175E42"
-            BuildableName = "ARFoodie.app"
-            BlueprintName = "ARFoodie"
-            ReferencedContainer = "container:ARFoodie.xcodeproj">
+            BuildableName = "ARFoodieApp.app"
+            BlueprintName = "ARFoodieApp"
+            ReferencedContainer = "container:ARFoodieApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -73,9 +73,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97D2567B224B1F9C00175E42"
-            BuildableName = "ARFoodie.app"
-            BlueprintName = "ARFoodie"
-            ReferencedContainer = "container:ARFoodie.xcodeproj">
+            BuildableName = "ARFoodieApp.app"
+            BlueprintName = "ARFoodieApp"
+            ReferencedContainer = "container:ARFoodieApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
