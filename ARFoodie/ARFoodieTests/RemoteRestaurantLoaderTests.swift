@@ -55,6 +55,9 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         let sut = RemoteRestaurantLoader(url: url, client: client)
 
+        trackMemoryLeak(sut, file: file, line: line)
+        trackMemoryLeak(client, file: file, line: line)
+
         return (sut, client)
     }
 
@@ -67,6 +70,12 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
         func get(url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
             receivedURLs.append(url)
+        }
+    }
+
+    private func trackMemoryLeak(_ instance: AnyObject, file: StaticString, line: UInt) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, file: file, line: line)
         }
     }
 }
