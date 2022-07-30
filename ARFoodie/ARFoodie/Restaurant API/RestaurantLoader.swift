@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol RestaurantLoader {
-    public func load(completion: @escaping (Result<[Restaurant], Error>) -> Void)
+    func load(completion: @escaping (Result<[Restaurant], Error>) -> Void)
 }

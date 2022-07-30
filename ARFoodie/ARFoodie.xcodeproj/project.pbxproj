@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		974C64F128956EAC009634FB /* ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974C64E828956EAB009634FB /* ARFoodie.framework */; };
-		974C64F628956EAC009634FB /* ARFoodieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C64F528956EAC009634FB /* ARFoodieTests.swift */; };
 		974C64F728956EAC009634FB /* ARFoodie.h in Headers */ = {isa = PBXBuildFile; fileRef = 974C64EB28956EAB009634FB /* ARFoodie.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		974C650228957D6C009634FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650128957D6C009634FB /* Restaurant.swift */; };
 		974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6506289581A6009634FB /* RestaurantLoader.swift */; };
+		974C650928958602009634FB /* RemoteRestaurantLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650828958602009634FB /* RemoteRestaurantLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +28,9 @@
 		974C64E828956EAB009634FB /* ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974C64EB28956EAB009634FB /* ARFoodie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARFoodie.h; sourceTree = "<group>"; };
 		974C64F028956EAC009634FB /* ARFoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		974C64F528956EAC009634FB /* ARFoodieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFoodieTests.swift; sourceTree = "<group>"; };
 		974C650128957D6C009634FB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		974C6506289581A6009634FB /* RestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoader.swift; sourceTree = "<group>"; };
+		974C650828958602009634FB /* RemoteRestaurantLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRestaurantLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 		974C64F428956EAC009634FB /* ARFoodieTests */ = {
 			isa = PBXGroup;
 			children = (
-				974C64F528956EAC009634FB /* ARFoodieTests.swift */,
+				974C650828958602009634FB /* RemoteRestaurantLoaderTests.swift */,
 			);
 			path = ARFoodieTests;
 			sourceTree = "<group>";
@@ -170,6 +170,7 @@
 					};
 					974C64EF28956EAC009634FB = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -223,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				974C64F628956EAC009634FB /* ARFoodieTests.swift in Sources */,
+				974C650928958602009634FB /* RemoteRestaurantLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,14 +421,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.YiWeiChen.ARFoodieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -436,10 +444,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.YiWeiChen.ARFoodieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
