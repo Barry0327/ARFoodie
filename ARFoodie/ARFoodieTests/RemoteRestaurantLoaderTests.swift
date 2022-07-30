@@ -22,7 +22,7 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
         sut.load()
 
-        XCTAssertEqual(client.receivedURLs, [url])
+        XCTAssertEqual(client.requestedURLs, [url])
     }
 
     // MARK: - Helpers
@@ -42,14 +42,14 @@ class RemoteRestaurantLoaderTests: XCTestCase {
     }
 
     class HTTPClientSpy: HTTPClient {
-        private(set) var receivedURLs: [URL] = []
+        private(set) var requestedURLs: [URL] = []
 
         var requestCallCount: Int {
-            receivedURLs.count
+            requestedURLs.count
         }
 
         func get(url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
-            receivedURLs.append(url)
+            requestedURLs.append(url)
         }
     }
 
