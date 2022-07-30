@@ -9,13 +9,6 @@ import XCTest
 import ARFoodie
 
 class RemoteRestaurantLoaderTests: XCTestCase {
-
-    func test_init_dosetNotRequestDataFromURL() {
-        let (_, client) = makeSUT()
-
-        XCTAssertEqual(client.requestCallCount, 0)
-    }
-
     func test_load_requestDataFromURL() {
         let url = URL(string: "https://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
@@ -53,10 +46,6 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
     class HTTPClientSpy: HTTPClient {
         private(set) var requestedURLs: [URL] = []
-
-        var requestCallCount: Int {
-            requestedURLs.count
-        }
 
         func get(url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
             requestedURLs.append(url)
