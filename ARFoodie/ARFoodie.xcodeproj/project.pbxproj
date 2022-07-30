@@ -11,6 +11,7 @@
 		974C64F628956EAC009634FB /* ARFoodieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C64F528956EAC009634FB /* ARFoodieTests.swift */; };
 		974C64F728956EAC009634FB /* ARFoodie.h in Headers */ = {isa = PBXBuildFile; fileRef = 974C64EB28956EAB009634FB /* ARFoodie.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		974C650228957D6C009634FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650128957D6C009634FB /* Restaurant.swift */; };
+		974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6506289581A6009634FB /* RestaurantLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		974C64F028956EAC009634FB /* ARFoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		974C64F528956EAC009634FB /* ARFoodieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFoodieTests.swift; sourceTree = "<group>"; };
 		974C650128957D6C009634FB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		974C6506289581A6009634FB /* RestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				974C650028957D34009634FB /* Restaurant Feature */,
+				974C650428958110009634FB /* Restaurant API */,
 				974C64EB28956EAB009634FB /* ARFoodie.h */,
 			);
 			path = ARFoodie;
@@ -91,6 +94,14 @@
 				974C650128957D6C009634FB /* Restaurant.swift */,
 			);
 			path = "Restaurant Feature";
+			sourceTree = "<group>";
+		};
+		974C650428958110009634FB /* Restaurant API */ = {
+			isa = PBXGroup;
+			children = (
+				974C6506289581A6009634FB /* RestaurantLoader.swift */,
+			);
+			path = "Restaurant API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				974C650228957D6C009634FB /* Restaurant.swift in Sources */,
+				974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
