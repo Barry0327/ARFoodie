@@ -31,21 +31,31 @@ class RemoteRestaurantLoader {
 class RemoteRestaurantLoaderTests: XCTestCase {
 
     func test_init_dosetNotRequestDataFromURL() {
-        let anyURL = URL(string: "https://any.com")!
-        let client = HTTPClientSpy()
-        let _ = RemoteRestaurantLoader(url: anyURL, client: client)
+        let (_, client) = makeSUT()
 
         XCTAssertEqual(client.requestCallCount, 0)
     }
 
     func test_load_requestDataFromURL() {
         let url = URL(string: "https://a-given-url.com")!
-        let client = HTTPClientSpy()
-        let sut = RemoteRestaurantLoader(url: url, client: client)
+        let (sut, client) = makeSUT(url: url)
 
         sut.load()
 
         XCTAssertEqual(client.receivedURLs, [url])
+    }
+
+    // MARK: - Helpers
+
+    private func makeSUT(
+        url: URL = URL(string: "https://any.com")!,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) -> (sut: RemoteRestaurantLoader, clientSpy: HTTPClientSpy) {
+        let client = HTTPClientSpy()
+        let sut = RemoteRestaurantLoader(url: url, client: client)
+
+        return (sut, client)
     }
 
     class HTTPClientSpy: HTTPClient {
