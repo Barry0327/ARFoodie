@@ -12,6 +12,8 @@
 		974C650228957D6C009634FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650128957D6C009634FB /* Restaurant.swift */; };
 		974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6506289581A6009634FB /* RestaurantLoader.swift */; };
 		974C650928958602009634FB /* RemoteRestaurantLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650828958602009634FB /* RemoteRestaurantLoaderTests.swift */; };
+		974C650B28958F75009634FB /* RemoteRestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650A28958F75009634FB /* RemoteRestaurantLoader.swift */; };
+		974C650D28958FA2009634FB /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650C28958FA2009634FB /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,8 @@
 		974C650128957D6C009634FB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		974C6506289581A6009634FB /* RestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoader.swift; sourceTree = "<group>"; };
 		974C650828958602009634FB /* RemoteRestaurantLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRestaurantLoaderTests.swift; sourceTree = "<group>"; };
+		974C650A28958F75009634FB /* RemoteRestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRestaurantLoader.swift; sourceTree = SOURCE_ROOT; };
+		974C650C28958FA2009634FB /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				974C6506289581A6009634FB /* RestaurantLoader.swift */,
+				974C650A28958F75009634FB /* RemoteRestaurantLoader.swift */,
+				974C650C28958FA2009634FB /* HTTPClient.swift */,
 			);
 			path = "Restaurant API";
 			sourceTree = "<group>";
@@ -215,7 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974C650B28958F75009634FB /* RemoteRestaurantLoader.swift in Sources */,
 				974C650228957D6C009634FB /* Restaurant.swift in Sources */,
+				974C650D28958FA2009634FB /* HTTPClient.swift in Sources */,
 				974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

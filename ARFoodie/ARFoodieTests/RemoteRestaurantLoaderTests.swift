@@ -6,27 +6,7 @@
 //
 
 import XCTest
-
-
-protocol HTTPClient {
-    typealias Result = Swift.Result<(HTTPURLResponse, Data), Error>
-
-    func get(url: URL, completion: @escaping (Result) -> Void)
-}
-
-class RemoteRestaurantLoader {
-    let url: URL
-    let client: HTTPClient
-
-    init(url: URL, client: HTTPClient) {
-        self.url = url
-        self.client = client
-    }
-
-    func load() {
-        client.get(url: url, completion: { _ in })
-    }
-}
+import ARFoodie
 
 class RemoteRestaurantLoaderTests: XCTestCase {
 
