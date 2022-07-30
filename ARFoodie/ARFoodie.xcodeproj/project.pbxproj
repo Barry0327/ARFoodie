@@ -10,6 +10,7 @@
 		974C64F128956EAC009634FB /* ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974C64E828956EAB009634FB /* ARFoodie.framework */; };
 		974C64F628956EAC009634FB /* ARFoodieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C64F528956EAC009634FB /* ARFoodieTests.swift */; };
 		974C64F728956EAC009634FB /* ARFoodie.h in Headers */ = {isa = PBXBuildFile; fileRef = 974C64EB28956EAB009634FB /* ARFoodie.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		974C650228957D6C009634FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650128957D6C009634FB /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		974C64EB28956EAB009634FB /* ARFoodie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARFoodie.h; sourceTree = "<group>"; };
 		974C64F028956EAC009634FB /* ARFoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		974C64F528956EAC009634FB /* ARFoodieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFoodieTests.swift; sourceTree = "<group>"; };
+		974C650128957D6C009634FB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 		974C64EA28956EAB009634FB /* ARFoodie */ = {
 			isa = PBXGroup;
 			children = (
+				974C650028957D34009634FB /* Restaurant Feature */,
 				974C64EB28956EAB009634FB /* ARFoodie.h */,
 			);
 			path = ARFoodie;
@@ -80,6 +83,14 @@
 				974C64F528956EAC009634FB /* ARFoodieTests.swift */,
 			);
 			path = ARFoodieTests;
+			sourceTree = "<group>";
+		};
+		974C650028957D34009634FB /* Restaurant Feature */ = {
+			isa = PBXGroup;
+			children = (
+				974C650128957D6C009634FB /* Restaurant.swift */,
+			);
+			path = "Restaurant Feature";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +155,7 @@
 				TargetAttributes = {
 					974C64E728956EAB009634FB = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 					974C64EF28956EAC009634FB = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -191,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				974C650228957D6C009634FB /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +348,7 @@
 		974C64FB28956EAC009634FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -356,6 +370,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -363,6 +378,7 @@
 		974C64FC28956EAC009634FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -391,6 +407,7 @@
 		974C64FE28956EAC009634FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
@@ -406,6 +423,7 @@
 		974C64FF28956EAC009634FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
