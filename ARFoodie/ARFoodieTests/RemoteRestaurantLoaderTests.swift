@@ -53,11 +53,13 @@ class RemoteRestaurantLoaderTests: XCTestCase {
     func test_load_deliversErrorOn2XXHTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
 
-        expect(sut, toCompleteWithResult: .failure(.invalidData), when: {
-            let response = response(statusCode: 200)
-            let data = "invalidJSON".data(using: .utf8)!
-            client.completeWithResult(.success((data, response)))
-        })
+        valid2XXStatusCodes().enumerated().forEach { (index, statusCode) in
+            expect(sut, toCompleteWithResult: .failure(.invalidData), when: {
+                let response = response(statusCode: statusCode)
+                let data = "invalidJSON".data(using: .utf8)!
+                client.completeWithResult(.success((data, response)), at: index)
+            })
+        }
     }
 
     // MARK: - Helpers
@@ -113,6 +115,10 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
     private func anyURL() -> URL {
         URL(string: "https://any.com")!
+    }
+
+    private func valid2XXStatusCodes() -> [Int] {
+        [200, 201, 250, 299]
     }
 
     private func response(statusCode: Int) -> HTTPURLResponse {
