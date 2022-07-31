@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Restaurant {
+public struct Restaurant: Equatable {
     public let id: String
     public let name: String
     public let latitude: Double

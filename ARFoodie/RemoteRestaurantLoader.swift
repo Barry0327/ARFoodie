@@ -8,6 +8,8 @@
 import Foundation
 
 public class RemoteRestaurantLoader {
+    public typealias Result = Swift.Result<[Restaurant], Error>
+
     private let url: URL
     private let client: HTTPClient
 
@@ -16,7 +18,13 @@ public class RemoteRestaurantLoader {
         self.client = client
     }
 
-    public func load() {
-        client.get(url: url, completion: { _ in })
+    public enum Error: Swift.Error {
+        case connectionError
+    }
+
+    public func load(completion: @escaping (Result) -> Void) {
+        client.get(url: url) { result in
+            completion(.failure(.connectionError))
+        }
     }
 }

@@ -13,7 +13,7 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         let url = URL(string: "https://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
 
-        sut.load()
+        sut.load() { _ in }
 
         XCTAssertEqual(client.requestedURLs, [url])
     }
@@ -22,10 +22,21 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         let url = URL(string: "https://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
 
-        sut.load()
-        sut.load()
+        sut.load() { _ in }
+        sut.load() { _ in }
 
         XCTAssertEqual(client.requestedURLs, [url, url])
+    }
+
+    func test_load_deliverErrorOnClientError() {
+        let (sut, client) = makeSUT()
+        let error = anyError()
+
+        var capturedResult: [RemoteRestaurantLoader.Result] = []
+        sut.load() { result in capturedResult.append(result) }
+        client.completeWithResult(.failure(error))
+
+        XCTAssertEqual(capturedResult, [.failure(.connectionError)])
     }
 
     // MARK: - Helpers
@@ -45,11 +56,23 @@ class RemoteRestaurantLoaderTests: XCTestCase {
     }
 
     class HTTPClientSpy: HTTPClient {
-        private(set) var requestedURLs: [URL] = []
+        private var messages: [(url: URL, completion: (HTTPClient.Result) -> Void)] = []
+
+        var requestedURLs: [URL] {
+            messages.map { $0.url }
+        }
 
         func get(url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
-            requestedURLs.append(url)
+            messages.append((url, completion))
         }
+
+        func completeWithResult(_ result: HTTPClient.Result, at index: Int = 0) {
+            messages[index].completion(result)
+        }
+    }
+
+    private func anyError() -> NSError {
+        .init(domain: "Test", code: 0)
     }
 
     private func trackMemoryLeak(_ instance: AnyObject, file: StaticString, line: UInt) {
