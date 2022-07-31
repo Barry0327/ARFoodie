@@ -30,13 +30,10 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
-        let error = anyError()
 
-        var capturedResult: [RemoteRestaurantLoader.Result] = []
-        sut.load() { result in capturedResult.append(result) }
-        client.completeWithResult(.failure(error))
-
-        XCTAssertEqual(capturedResult, [.failure(.connectionError)])
+        expect(sut, toCompleteWithResult: .failure(.connectionError), when: {
+            client.completeWithResult(.failure(anyError()))
+        })
     }
 
     func test_load_deliversErrorOnNone2XXHTTPResponse() {
@@ -52,15 +49,11 @@ class RemoteRestaurantLoaderTests: XCTestCase {
                 headerFields: nil
             )!
 
-            var capturedResult: [RemoteRestaurantLoader.Result] = []
-            sut.load() { result in capturedResult.append(result) }
-            client.completeWithResult(.success((Data(), response)), at: index)
-
-            XCTAssertEqual(capturedResult, [.failure(.invalidData)])
+            expect(sut, toCompleteWithResult: .failure(.invalidData), when: {
+                client.completeWithResult(.success((Data(), response)), at: index)
+            })
         }
     }
-
-
 
     // MARK: - Helpers
 
@@ -76,6 +69,21 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         trackMemoryLeak(client, file: file, line: line)
 
         return (sut, client)
+    }
+
+    private func expect(
+        _ sut: RemoteRestaurantLoader,
+        toCompleteWithResult result: RemoteRestaurantLoader.Result,
+        when action: () -> Void,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) {
+        var capturedResult: [RemoteRestaurantLoader.Result] = []
+        sut.load() { result in capturedResult.append(result) }
+
+        action()
+
+        XCTAssertEqual(capturedResult, [result], file: file, line: line)
     }
 
     class HTTPClientSpy: HTTPClient {
