@@ -42,17 +42,22 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         let samples = [199, 300, 301, 410, 500]
 
         samples.enumerated().forEach { (index, statusCode) in
-            let response = HTTPURLResponse(
-                url: anyURL(),
-                statusCode: statusCode,
-                httpVersion: nil,
-                headerFields: nil
-            )!
+            let response = response(statusCode: statusCode)
 
             expect(sut, toCompleteWithResult: .failure(.invalidData), when: {
                 client.completeWithResult(.success((Data(), response)), at: index)
             })
         }
+    }
+
+    func test_load_deliversErrorOn2XXHTTPResponseWithInvalidJSON() {
+        let (sut, client) = makeSUT()
+
+        expect(sut, toCompleteWithResult: .failure(.invalidData), when: {
+            let response = response(statusCode: 200)
+            let data = "invalidJSON".data(using: .utf8)!
+            client.completeWithResult(.success((data, response)))
+        })
     }
 
     // MARK: - Helpers
@@ -108,6 +113,15 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
     private func anyURL() -> URL {
         URL(string: "https://any.com")!
+    }
+
+    private func response(statusCode: Int) -> HTTPURLResponse {
+        .init(
+            url: anyURL(),
+            statusCode: statusCode,
+            httpVersion: nil,
+            headerFields: nil
+        )!
     }
 
     private func trackMemoryLeak(_ instance: AnyObject, file: StaticString, line: UInt) {
