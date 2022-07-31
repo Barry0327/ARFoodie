@@ -20,11 +20,17 @@ public class RemoteRestaurantLoader {
 
     public enum Error: Swift.Error {
         case connectionError
+        case invalidData
     }
 
     public func load(completion: @escaping (Result) -> Void) {
         client.get(url: url) { result in
-            completion(.failure(.connectionError))
+            switch result {
+            case .failure:
+                completion(.failure(.connectionError))
+            default:
+                completion(.failure(.invalidData))
+            }
         }
     }
 }

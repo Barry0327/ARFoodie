@@ -28,7 +28,7 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         XCTAssertEqual(client.requestedURLs, [url, url])
     }
 
-    func test_load_deliverErrorOnClientError() {
+    func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
         let error = anyError()
 
@@ -38,6 +38,29 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
         XCTAssertEqual(capturedResult, [.failure(.connectionError)])
     }
+
+    func test_load_deliversErrorOnNone2XXHTTPResponse() {
+        let (sut, client) = makeSUT()
+
+        let samples = [199, 300, 301, 410, 500]
+
+        samples.enumerated().forEach { (index, statusCode) in
+            let response = HTTPURLResponse(
+                url: anyURL(),
+                statusCode: statusCode,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+
+            var capturedResult: [RemoteRestaurantLoader.Result] = []
+            sut.load() { result in capturedResult.append(result) }
+            client.completeWithResult(.success((Data(), response)), at: index)
+
+            XCTAssertEqual(capturedResult, [.failure(.invalidData)])
+        }
+    }
+
+
 
     // MARK: - Helpers
 
@@ -73,6 +96,10 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
     private func anyError() -> NSError {
         .init(domain: "Test", code: 0)
+    }
+
+    private func anyURL() -> URL {
+        URL(string: "https://any.com")!
     }
 
     private func trackMemoryLeak(_ instance: AnyObject, file: StaticString, line: UInt) {
