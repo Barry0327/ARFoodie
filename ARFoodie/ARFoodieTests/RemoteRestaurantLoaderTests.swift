@@ -70,13 +70,7 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         samples.enumerated().forEach { (index, statusCode) in
             expect(sut, toCompleteWithResult: .success([]), when: {
                 let response = response(statusCode: 200)
-                let data = """
-                {
-                    "html_attributions": [],
-                    "results": [],
-                    "status": "OK"
-                }
-                """.data(using: .utf8)!
+                let data = makeItemsJSON([])
                 client.completeWithResult(.success((data, response)), at: index)
             })
         }
@@ -86,16 +80,13 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         let item1 = makeRestaurant(name: "first", latitude: 22, longitude: 33, rating: 4.5, userRatingsTotal: 123)
         let item2 = makeRestaurant(name: "second", latitude: 11, longitude: 123)
-        let itemsJSON = [
-            "results": [item1.json, item2.json]
-        ]
 
         let samples = [200, 201, 250, 299]
 
         samples.enumerated().forEach { (index, statusCode) in
             expect(sut, toCompleteWithResult: .success([item1.model, item2.model]), when: {
                 let response = response(statusCode: 200)
-                let data = try! JSONSerialization.data(withJSONObject: itemsJSON)
+                let data = makeItemsJSON([item1.json, item2.json])
                 client.completeWithResult(.success((data, response)), at: index)
             })
         }
@@ -154,6 +145,14 @@ class RemoteRestaurantLoaderTests: XCTestCase {
             "user_ratings_total": restaurant.userRatingsTotal
         ].compactMapValues { $0 }
         return (restaurant, json)
+    }
+
+    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
+        let json = [
+            "results": items
+        ]
+        let data = try! JSONSerialization.data(withJSONObject: json)
+        return data
     }
 
     class HTTPClientSpy: HTTPClient {
