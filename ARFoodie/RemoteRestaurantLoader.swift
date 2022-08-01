@@ -23,13 +23,25 @@ public class RemoteRestaurantLoader {
         case invalidData
     }
 
+    private var validStatusCodes: [Int] = .init(200...299)
+
     public func load(completion: @escaping (Result) -> Void) {
-        client.get(url: url) { result in
+        client.get(url: url) { [weak self] result in
+            guard let self = self else { return }
             switch result {
+            case let .success((data, response)):
+                guard self.validStatusCodes.contains(response.statusCode) else {
+                    completion(.failure(.invalidData))
+                    return
+                }
+                if let _ = try? JSONSerialization.jsonObject(with: data) {
+                    completion(.success([]))
+                }
+                else {
+                    completion(.failure(.invalidData))
+                }
             case .failure:
                 completion(.failure(.connectionError))
-            default:
-                completion(.failure(.invalidData))
             }
         }
     }

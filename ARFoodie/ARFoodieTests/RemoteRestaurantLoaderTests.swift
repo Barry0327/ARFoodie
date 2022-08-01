@@ -62,6 +62,26 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         }
     }
 
+    func test_load_deliversNoItemsOn2XXHTTPResponseWithEmptyJSONList() {
+        let (sut, client) = makeSUT()
+
+        let samples = [200, 201, 250, 299]
+
+        samples.enumerated().forEach { (index, statusCode) in
+            expect(sut, toCompleteWithResult: .success([]), when: {
+                let response = response(statusCode: 200)
+                let data = """
+                {
+                    "html_attributions": [],
+                    "results": [],
+                    "status": "OK"
+                }
+                """.data(using: .utf8)!
+                client.completeWithResult(.success((data, response)), at: index)
+            })
+        }
+    }
+
     // MARK: - Helpers
 
     private func makeSUT(
