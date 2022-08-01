@@ -82,6 +82,25 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         }
     }
 
+    func test_load_deliversItemsOn2XXHTTPResponseWithJSONItems() {
+        let (sut, client) = makeSUT()
+        let item1 = makeRestaurant(name: "first", latitude: 22, longitude: 33, rating: 4.5, userRatingsTotal: 123)
+        let item2 = makeRestaurant(name: "second", latitude: 11, longitude: 123)
+        let itemsJSON = [
+            "results": [item1.json, item2.json]
+        ]
+
+        let samples = [200, 201, 250, 299]
+
+        samples.enumerated().forEach { (index, statusCode) in
+            expect(sut, toCompleteWithResult: .success([item1.model, item2.model]), when: {
+                let response = response(statusCode: 200)
+                let data = try! JSONSerialization.data(withJSONObject: itemsJSON)
+                client.completeWithResult(.success((data, response)), at: index)
+            })
+        }
+    }
+
     // MARK: - Helpers
 
     private func makeSUT(
@@ -111,6 +130,30 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         action()
 
         XCTAssertEqual(capturedResult, [result], file: file, line: line)
+    }
+
+    private func makeRestaurant(
+        name: String,
+        latitude: Double,
+        longitude: Double,
+        rating: Double? = nil,
+        userRatingsTotal: Double? = nil
+    ) -> (model: Restaurant, json: [String: Any]) {
+        let restaurant = Restaurant.init(id: UUID().uuidString, name: name, latitude: latitude, longitude: longitude, rating: rating, userRatingsTotal: userRatingsTotal)
+
+        let json: [String: Any] = [
+            "name": restaurant.name,
+            "place_id": restaurant.id,
+            "geometry": [
+                "location": [
+                    "lat": restaurant.latitude,
+                    "lng": restaurant.longitude
+                ]
+            ],
+            "rating": restaurant.rating,
+            "user_ratings_total": restaurant.userRatingsTotal
+        ].compactMapValues { $0 }
+        return (restaurant, json)
     }
 
     class HTTPClientSpy: HTTPClient {
