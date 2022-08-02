@@ -39,9 +39,7 @@ enum RestaurantMapper {
         case invalidData
     }
 
-    private static var validStatusCodes: [Int] { .init(200...299)
-    }
-
+    private static var validStatusCodes: [Int] { .init(200...299) }
 
     static func map(_ data: Data, _ response: HTTPURLResponse) throws -> [Restaurant] {
         guard validStatusCodes.contains(response.statusCode) else {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class RemoteRestaurantLoader {
+public class RemoteRestaurantLoader: RestaurantLoader {
     public typealias Result = Swift.Result<[Restaurant], Error>
 
     private let url: URL
@@ -25,7 +25,7 @@ public class RemoteRestaurantLoader {
 
     private var validStatusCodes: [Int] = .init(200...299)
 
-    public func load(completion: @escaping (Result) -> Void) {
+    public func load(completion: @escaping (RestaurantLoader.Result) -> Void) {
         client.get(url: url) { [weak self] result in
             switch result {
             case let .success((data, response)):
@@ -33,10 +33,10 @@ public class RemoteRestaurantLoader {
                     let items = try RestaurantMapper.map(data, response)
                     completion(.success(items))
                 } catch {
-                    completion(.failure(.invalidData))
+                    completion(.failure(Error.invalidData))
                 }
             case .failure:
-                completion(.failure(.connectionError))
+                completion(.failure(Error.connectionError))
             }
         }
     }

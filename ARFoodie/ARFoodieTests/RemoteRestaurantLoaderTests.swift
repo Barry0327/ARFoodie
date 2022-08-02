@@ -110,17 +110,24 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
     private func expect(
         _ sut: RemoteRestaurantLoader,
-        toCompleteWithResult result: RemoteRestaurantLoader.Result,
+        toCompleteWithResult expectedResult: RemoteRestaurantLoader.Result,
         when action: () -> Void,
         file: StaticString = #filePath,
         line: UInt = #line
     ) {
-        var capturedResult: [RemoteRestaurantLoader.Result] = []
-        sut.load() { result in capturedResult.append(result) }
+
+        sut.load() { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedItems), .success(expectedItems)):
+                XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
+            case let (.failure(receivedError as RemoteRestaurantLoader.Error), .failure(expectedError)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            default:
+                XCTFail("Expected \(expectedResult), but got \(receivedResult) instead", file: file, line: line)
+            }
+        }
 
         action()
-
-        XCTAssertEqual(capturedResult, [result], file: file, line: line)
     }
 
     private func makeRestaurant(
