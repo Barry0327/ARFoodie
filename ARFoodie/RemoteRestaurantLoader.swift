@@ -27,6 +27,7 @@ public class RemoteRestaurantLoader: RestaurantLoader {
 
     public func load(completion: @escaping (RestaurantLoader.Result) -> Void) {
         client.get(url: url) { [weak self] result in
+            guard self != nil else { return }
             switch result {
             case let .success((data, response)):
                 do {

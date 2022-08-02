@@ -92,6 +92,23 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         }
     }
 
+    func test_load_doesNotDeliversResultIfSUTInstanceHasBeenDeallocated() {
+        let url = URL(string: "https://a-given-url.com")!
+        let client = HTTPClientSpy()
+        var sut: RemoteRestaurantLoader? = RemoteRestaurantLoader(url: url, client: client)
+
+        var capturedResult: [RestaurantLoader.Result] = []
+
+        sut?.load(completion: { result in
+            capturedResult.append(result)
+        })
+
+        sut = nil
+        client.completeWithResult(.failure(anyError()))
+
+        XCTAssertTrue(capturedResult.isEmpty)
+    }
+
     // MARK: - Helpers
 
     private func makeSUT(
