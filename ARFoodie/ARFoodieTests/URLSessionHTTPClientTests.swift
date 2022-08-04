@@ -84,12 +84,6 @@ class URLSessionHTTPClientTests: XCTestCase {
         return sut
     }
 
-    private func trackMemoryLeak(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, file: file, line: line)
-        }
-    }
-
     class URLProtocolStub: URLProtocol {
         private static var stub: Stub?
         private static var requestObserver: ((URLRequest) -> Void)?

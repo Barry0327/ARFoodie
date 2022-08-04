@@ -17,6 +17,7 @@
 		974C650F28997ED2009634FB /* RestaurantMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650E28997ED2009634FB /* RestaurantMapper.swift */; };
 		974C6511289C014A009634FB /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6510289C014A009634FB /* URLSessionHTTPClientTests.swift */; };
 		974C6514289C027A009634FB /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6513289C027A009634FB /* SharedTestHelpers.swift */; };
+		974C6516289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6515289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		974C650E28997ED2009634FB /* RestaurantMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapper.swift; sourceTree = "<group>"; };
 		974C6510289C014A009634FB /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		974C6513289C027A009634FB /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		974C6515289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				974C6513289C027A009634FB /* SharedTestHelpers.swift */,
+				974C6515289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				974C650928958602009634FB /* RemoteRestaurantLoaderTests.swift in Sources */,
+				974C6516289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				974C6511289C014A009634FB /* URLSessionHTTPClientTests.swift in Sources */,
 				974C6514289C027A009634FB /* SharedTestHelpers.swift in Sources */,
 			);

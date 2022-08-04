@@ -207,10 +207,4 @@ class RemoteRestaurantLoaderTests: XCTestCase {
             headerFields: nil
         )!
     }
-
-    private func trackMemoryLeak(_ instance: AnyObject, file: StaticString, line: UInt) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, file: file, line: line)
-        }
-    }
 }
