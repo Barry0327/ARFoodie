@@ -195,14 +195,6 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         }
     }
 
-    private func anyError() -> NSError {
-        .init(domain: "Test", code: 0)
-    }
-
-    private func anyURL() -> URL {
-        URL(string: "https://any.com")!
-    }
-
     private func valid2XXStatusCodes() -> [Int] {
         [200, 201, 250, 299]
     }

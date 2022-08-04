@@ -15,6 +15,7 @@
 		974C650B28958F75009634FB /* RemoteRestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650A28958F75009634FB /* RemoteRestaurantLoader.swift */; };
 		974C650D28958FA2009634FB /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650C28958FA2009634FB /* HTTPClient.swift */; };
 		974C650F28997ED2009634FB /* RestaurantMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650E28997ED2009634FB /* RestaurantMapper.swift */; };
+		974C6514289C027A009634FB /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6513289C027A009634FB /* SharedTestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		974C650A28958F75009634FB /* RemoteRestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteRestaurantLoader.swift; sourceTree = SOURCE_ROOT; };
 		974C650C28958FA2009634FB /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		974C650E28997ED2009634FB /* RestaurantMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapper.swift; sourceTree = "<group>"; };
+		974C6513289C027A009634FB /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		974C64F428956EAC009634FB /* ARFoodieTests */ = {
 			isa = PBXGroup;
 			children = (
+				974C6512289C0235009634FB /* Helpers */,
 				974C650828958602009634FB /* RemoteRestaurantLoaderTests.swift */,
 			);
 			path = ARFoodieTests;
@@ -111,6 +114,14 @@
 				974C650E28997ED2009634FB /* RestaurantMapper.swift */,
 			);
 			path = "Restaurant API";
+			sourceTree = "<group>";
+		};
+		974C6512289C0235009634FB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				974C6513289C027A009634FB /* SharedTestHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				974C650928958602009634FB /* RemoteRestaurantLoaderTests.swift in Sources */,
+				974C6514289C027A009634FB /* SharedTestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
