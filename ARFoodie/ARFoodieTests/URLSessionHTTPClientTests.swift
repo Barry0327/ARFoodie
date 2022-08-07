@@ -8,32 +8,6 @@
 import XCTest
 import ARFoodie
 
-class URLSessionHTTPClient: HTTPClient {
-    let session: URLSession
-
-    init(session: URLSession = URLSession.shared) {
-        self.session = session
-    }
-
-    private struct UnexpectedValuesRepresentation: Error {}
-
-    func get(url: URL, completion: @escaping (HTTPClient.Result) -> Void) {
-        let request = URLRequest.init(url: url)
-        session.dataTask(with: request) { data, response, error in
-            if let data = data, let response = response as? HTTPURLResponse {
-                completion(.success((data, response)))
-            }
-            else if let error = error {
-                completion(.failure(error))
-            }
-            else {
-                completion(.failure(UnexpectedValuesRepresentation()))
-            }
-        }
-        .resume()
-    }
-}
-
 class URLSessionHTTPClientTests: XCTestCase {
     override func setUp() {
         super.setUp()

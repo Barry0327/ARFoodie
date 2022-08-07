@@ -18,6 +18,7 @@
 		974C6511289C014A009634FB /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6510289C014A009634FB /* URLSessionHTTPClientTests.swift */; };
 		974C6514289C027A009634FB /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6513289C027A009634FB /* SharedTestHelpers.swift */; };
 		974C6516289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6515289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift */; };
+		974C6518289F80FD009634FB /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6517289F80FD009634FB /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		974C6510289C014A009634FB /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 		974C6513289C027A009634FB /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		974C6515289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		974C6517289F80FD009634FB /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				974C650A28958F75009634FB /* RemoteRestaurantLoader.swift */,
 				974C650C28958FA2009634FB /* HTTPClient.swift */,
 				974C650E28997ED2009634FB /* RestaurantMapper.swift */,
+				974C6517289F80FD009634FB /* URLSessionHTTPClient.swift */,
 			);
 			path = "Restaurant API";
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				974C650F28997ED2009634FB /* RestaurantMapper.swift in Sources */,
 				974C650D28958FA2009634FB /* HTTPClient.swift in Sources */,
 				974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */,
+				974C6518289F80FD009634FB /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
