@@ -10,10 +10,10 @@ jobs:
   build:
 
     runs-on: macos-latest
+    env:
+      DEVELOPER_DIR: /Applications/Xcode-13.4.1.app/Contents/Developer
     
     steps:
     - uses: actions/checkout@v3
-    - name: Select Xcode
-      run: sudo xcode-select -switch '/Applications/Xcode-13.4.1.app/Contents/Developer'
     - name: Build and test
       run: xcodebuild clean build test -workspace ARFoodie/ARFoodieApp.xcworkspace -scheme ARFoodie CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRE=NO
