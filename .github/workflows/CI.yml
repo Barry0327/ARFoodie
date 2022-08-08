@@ -1,0 +1,20 @@
+name: Swift
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: macos-12
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_13.4.1.app/Contents/Developer
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Build and test
+      run: xcodebuild clean build test -workspace ARFoodieApp.xcworkspace -scheme ARFoodie CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRE=NO
