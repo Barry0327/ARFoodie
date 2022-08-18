@@ -154,15 +154,21 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         rating: Double? = nil,
         userRatingsTotal: Double? = nil
     ) -> (model: Restaurant, json: [String: Any]) {
-        let restaurant = Restaurant.init(id: UUID().uuidString, name: name, latitude: latitude, longitude: longitude, rating: rating, userRatingsTotal: userRatingsTotal)
+        let restaurant = Restaurant.init(
+            id: UUID().uuidString,
+            name: name,
+            coordinate: .init(longitude: longitude, latitude: latitude),
+            rating: rating,
+            userRatingsTotal: userRatingsTotal
+        )
 
         let json: [String: Any] = [
             "name": restaurant.name,
             "place_id": restaurant.id,
             "geometry": [
                 "location": [
-                    "lat": restaurant.latitude,
-                    "lng": restaurant.longitude
+                    "lat": restaurant.coordinate.latitude,
+                    "lng": restaurant.coordinate.longitude
                 ]
             ],
             "rating": restaurant.rating,

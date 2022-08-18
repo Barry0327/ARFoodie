@@ -31,7 +31,13 @@ enum RestaurantMapper {
         let user_ratings_total: Double?
 
         var restaurant: Restaurant {
-            .init(id: place_id, name: name, latitude: geometry.location.lat, longitude: geometry.location.lng, rating: rating, userRatingsTotal: user_ratings_total)
+            .init(
+                id: place_id,
+                name: name,
+                coordinate: .init(longitude: geometry.location.lng, latitude: geometry.location.lat),
+                rating: rating,
+                userRatingsTotal: user_ratings_total
+            )
         }
     }
 

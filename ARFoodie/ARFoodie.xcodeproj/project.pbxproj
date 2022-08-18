@@ -20,6 +20,7 @@
 		974C6518289F80FD009634FB /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6517289F80FD009634FB /* URLSessionHTTPClient.swift */; };
 		975470E228ADD622006CC83A /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975470E128ADD622006CC83A /* RestaurantViewModel.swift */; };
 		975470E628ADD8BF006CC83A /* RestaurantViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975470E528ADD8BF006CC83A /* RestaurantViewModelTests.swift */; };
+		975470E828ADF0FB006CC83A /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975470E728ADF0FB006CC83A /* Coordinate.swift */; };
 		97E3961B28A16BCC00151E1A /* ARFoodieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E3961328A16BCC00151E1A /* ARFoodieiOS.framework */; };
 		97E3962028A16BCC00151E1A /* ARFoodieiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E3961F28A16BCC00151E1A /* ARFoodieiOSTests.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		974C6517289F80FD009634FB /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		975470E128ADD622006CC83A /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
 		975470E528ADD8BF006CC83A /* RestaurantViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModelTests.swift; sourceTree = "<group>"; };
+		975470E728ADF0FB006CC83A /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		97E3961328A16BCC00151E1A /* ARFoodieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARFoodieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E3961A28A16BCC00151E1A /* ARFoodieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E3961F28A16BCC00151E1A /* ARFoodieiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFoodieiOSTests.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				974C650128957D6C009634FB /* Restaurant.swift */,
+				975470E728ADF0FB006CC83A /* Coordinate.swift */,
 			);
 			path = "Restaurant Feature";
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				974C650B28958F75009634FB /* RemoteRestaurantLoader.swift in Sources */,
 				974C650228957D6C009634FB /* Restaurant.swift in Sources */,
 				974C650F28997ED2009634FB /* RestaurantMapper.swift in Sources */,
+				975470E828ADF0FB006CC83A /* Coordinate.swift in Sources */,
 				974C650D28958FA2009634FB /* HTTPClient.swift in Sources */,
 				974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */,
 				974C6518289F80FD009634FB /* URLSessionHTTPClient.swift in Sources */,

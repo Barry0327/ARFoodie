@@ -10,16 +10,14 @@ import Foundation
 public struct Restaurant: Equatable {
     public let id: String
     public let name: String
-    public let latitude: Double
-    public let longitude: Double
+    public let coordinate: Coordinate
     public let rating: Double?
     public let userRatingsTotal: Double?
 
-    public init(id: String, name: String, latitude: Double, longitude: Double, rating: Double?, userRatingsTotal: Double?) {
+    public init(id: String, name: String, coordinate: Coordinate, rating: Double?, userRatingsTotal: Double?) {
         self.id = id
         self.name = name
-        self.latitude = latitude
-        self.longitude = longitude
+        self.coordinate = coordinate
         self.rating = rating
         self.userRatingsTotal = userRatingsTotal
     }
