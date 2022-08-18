@@ -125,9 +125,9 @@
 		974C64F428956EAC009634FB /* ARFoodieTests */ = {
 			isa = PBXGroup;
 			children = (
-				974C6512289C0235009634FB /* Helpers */,
-				974C650828958602009634FB /* RemoteRestaurantLoaderTests.swift */,
-				974C6510289C014A009634FB /* URLSessionHTTPClientTests.swift */,
+				974C6512289C0235009634FB /* SharedHelpers */,
+				975470E328ADD640006CC83A /* Restaurant API */,
+				975470E428ADD678006CC83A /* Restaurant Presentation */,
 			);
 			path = ARFoodieTests;
 			sourceTree = "<group>";
@@ -152,13 +152,37 @@
 			path = "Restaurant API";
 			sourceTree = "<group>";
 		};
-		974C6512289C0235009634FB /* Helpers */ = {
+		974C6512289C0235009634FB /* SharedHelpers */ = {
 			isa = PBXGroup;
 			children = (
 				974C6513289C027A009634FB /* SharedTestHelpers.swift */,
 				974C6515289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift */,
 			);
-			path = Helpers;
+			path = SharedHelpers;
+			sourceTree = "<group>";
+		};
+		975470E028ADD5DE006CC83A /* Restaurant Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				975470E128ADD622006CC83A /* RestaurantViewModel.swift */,
+			);
+			path = "Restaurant Presentation";
+			sourceTree = "<group>";
+		};
+		975470E328ADD640006CC83A /* Restaurant API */ = {
+			isa = PBXGroup;
+			children = (
+				974C650828958602009634FB /* RemoteRestaurantLoaderTests.swift */,
+				974C6510289C014A009634FB /* URLSessionHTTPClientTests.swift */,
+			);
+			path = "Restaurant API";
+			sourceTree = "<group>";
+		};
+		975470E428ADD678006CC83A /* Restaurant Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Restaurant Presentation";
 			sourceTree = "<group>";
 		};
 		97E3961428A16BCC00151E1A /* ARFoodieiOS */ = {
