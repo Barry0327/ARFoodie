@@ -44,6 +44,17 @@ class RestaurantViewModelTests: XCTestCase {
         XCTAssertEqual(loader.loadCallCount, 2, "Expected another load request once first request complete successfully")
     }
 
+    func test_loadTwice_requestTwiceIfPreviousRequestCompleteWithError() {
+
+        let (sut, loader) = makeSUT()
+
+        sut.load()
+        loader.completeLoadingWithError()
+        sut.load()
+
+        XCTAssertEqual(loader.loadCallCount, 2, "Expected another load request once first request complete with error")
+    }
+
     // MARK: - Helpers
 
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: RestaurantViewModel, loader: LoaderSpy) {
@@ -71,6 +82,10 @@ class RestaurantViewModelTests: XCTestCase {
         func completeLoading(with restaurants: [Restaurant] = [], at index: Int = 0) {
             requests[index].send(restaurants)
             requests[index].send(completion: .finished)
+        }
+
+        func completeLoadingWithError(at index: Int = 0) {
+            requests[index].send(completion: .failure(anyError()))
         }
     }
 }
