@@ -16,6 +16,13 @@ class RestaurantViewModelTests: XCTestCase {
         XCTAssertEqual(loader.loadCallCount, 0)
     }
 
+    func test_load_requestRestaurantsFromLoader() {
+        let (sut, loader) = makeSUT()
+
+        sut.load()
+        XCTAssertEqual(loader.loadCallCount, 1, "Expected a load request once call")
+    }
+
     // MARK: - Helpers
 
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: RestaurantViewModel, loader: LoaderSpy) {

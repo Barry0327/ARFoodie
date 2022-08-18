@@ -14,4 +14,13 @@ public final class RestaurantViewModel {
     public init(loader: @escaping () -> AnyPublisher<[Restaurant], Error>) {
         self.loader = loader
     }
+
+    public func load() {
+        loader()
+            .sink { completion in
+
+            } receiveValue: { restaurants in
+
+            }
+    }
 }
