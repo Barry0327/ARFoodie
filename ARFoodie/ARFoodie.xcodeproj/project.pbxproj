@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		974C64F128956EAC009634FB /* ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974C64E828956EAB009634FB /* ARFoodie.framework */; };
-		974C64F728956EAC009634FB /* ARFoodie.h in Headers */ = {isa = PBXBuildFile; fileRef = 974C64EB28956EAB009634FB /* ARFoodie.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		974C650228957D6C009634FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650128957D6C009634FB /* Restaurant.swift */; };
 		974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6506289581A6009634FB /* RestaurantLoader.swift */; };
 		974C650928958602009634FB /* RemoteRestaurantLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650828958602009634FB /* RemoteRestaurantLoaderTests.swift */; };
@@ -21,7 +20,6 @@
 		974C6518289F80FD009634FB /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6517289F80FD009634FB /* URLSessionHTTPClient.swift */; };
 		97E3961B28A16BCC00151E1A /* ARFoodieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E3961328A16BCC00151E1A /* ARFoodieiOS.framework */; };
 		97E3962028A16BCC00151E1A /* ARFoodieiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E3961F28A16BCC00151E1A /* ARFoodieiOSTests.swift */; };
-		97E3962128A16BCC00151E1A /* ARFoodieiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 97E3961528A16BCC00151E1A /* ARFoodieiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		974C64E828956EAB009634FB /* ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		974C64EB28956EAB009634FB /* ARFoodie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARFoodie.h; sourceTree = "<group>"; };
 		974C64F028956EAC009634FB /* ARFoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		974C650128957D6C009634FB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		974C6506289581A6009634FB /* RestaurantLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantLoader.swift; sourceTree = "<group>"; };
@@ -56,7 +53,6 @@
 		974C6515289C2067009634FB /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		974C6517289F80FD009634FB /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		97E3961328A16BCC00151E1A /* ARFoodieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARFoodieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		97E3961528A16BCC00151E1A /* ARFoodieiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARFoodieiOS.h; sourceTree = "<group>"; };
 		97E3961A28A16BCC00151E1A /* ARFoodieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E3961F28A16BCC00151E1A /* ARFoodieiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFoodieiOSTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,7 +118,6 @@
 			children = (
 				974C650028957D34009634FB /* Restaurant Feature */,
 				974C650428958110009634FB /* Restaurant API */,
-				974C64EB28956EAB009634FB /* ARFoodie.h */,
 			);
 			path = ARFoodie;
 			sourceTree = "<group>";
@@ -170,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				97E3962828A16BFD00151E1A /* Restaurant UI */,
-				97E3961528A16BCC00151E1A /* ARFoodieiOS.h */,
 			);
 			path = ARFoodieiOS;
 			sourceTree = "<group>";
@@ -197,7 +191,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				974C64F728956EAC009634FB /* ARFoodie.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +198,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97E3962128A16BCC00151E1A /* ARFoodieiOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
