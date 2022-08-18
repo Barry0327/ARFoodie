@@ -11,10 +11,18 @@ import ARFoodie
 
 class RestaurantViewModelTests: XCTestCase {
     func test_init_doseNotRequestRestaurants() {
-        let loader = LoaderSpy()
-        let _ = RestaurantViewModel(loader: loader.loadPublisher)
+        let (_, loader) = makeSUT()
 
         XCTAssertEqual(loader.loadCallCount, 0)
+    }
+
+    // MARK: - Helpers
+
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: RestaurantViewModel, loader: LoaderSpy) {
+        let loader = LoaderSpy()
+        let sut = RestaurantViewModel(loader: loader.loadPublisher)
+
+        return (sut, loader)
     }
 
     private class LoaderSpy {
