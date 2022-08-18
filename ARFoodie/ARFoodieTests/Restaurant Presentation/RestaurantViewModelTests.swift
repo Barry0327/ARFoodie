@@ -22,6 +22,8 @@ class RestaurantViewModelTests: XCTestCase {
         let loader = LoaderSpy()
         let sut = RestaurantViewModel(loader: loader.loadPublisher)
 
+        trackMemoryLeak(loader, file: file, line: line)
+        trackMemoryLeak(sut, file: file, line: line)
         return (sut, loader)
     }
 
