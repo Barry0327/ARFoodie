@@ -11,6 +11,8 @@ import Combine
 public final class RestaurantViewModel {
     let loader: () -> AnyPublisher<[Restaurant], Error>
     @Published private(set) var isLoading: Bool = false
+    private var cancellable: AnyCancellable?
+
     public init(loader: @escaping () -> AnyPublisher<[Restaurant], Error>) {
         self.loader = loader
     }
@@ -18,9 +20,10 @@ public final class RestaurantViewModel {
     public func load() {
         guard isLoading == false else { return }
         isLoading = true
-        loader()
-            .sink { completion in
 
+        cancellable = loader()
+            .sink { [weak self] completion in
+                self?.isLoading = false
             } receiveValue: { restaurants in
 
             }
