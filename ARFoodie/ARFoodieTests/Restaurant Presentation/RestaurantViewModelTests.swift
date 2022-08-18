@@ -23,6 +23,16 @@ class RestaurantViewModelTests: XCTestCase {
         XCTAssertEqual(loader.loadCallCount, 1, "Expected a load request once call")
     }
 
+    func test_loadTwice_doseNotRequestTwiceIfPreviousRequestNotCompleteYet() {
+
+        let (sut, loader) = makeSUT()
+
+        sut.load()
+        sut.load()
+
+        XCTAssertEqual(loader.loadCallCount, 1, "Expected only a load request before first request complete")
+    }
+
     // MARK: - Helpers
 
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: RestaurantViewModel, loader: LoaderSpy) {
