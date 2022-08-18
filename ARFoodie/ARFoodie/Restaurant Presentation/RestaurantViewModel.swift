@@ -6,7 +6,12 @@
 //
 
 import Foundation
+import Combine
 
-final class RestaurantViewModel {
-    
+public final class RestaurantViewModel {
+    let loader: () -> AnyPublisher<[Restaurant], Error>
+
+    public init(loader: @escaping () -> AnyPublisher<[Restaurant], Error>) {
+        self.loader = loader
+    }
 }
