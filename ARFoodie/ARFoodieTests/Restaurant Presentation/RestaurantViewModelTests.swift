@@ -24,7 +24,6 @@ class RestaurantViewModelTests: XCTestCase {
     }
 
     func test_loadTwice_doseNotRequestTwiceIfPreviousRequestNotCompleteYet() {
-
         let (sut, loader) = makeSUT()
 
         sut.load()
@@ -34,7 +33,6 @@ class RestaurantViewModelTests: XCTestCase {
     }
 
     func test_loadTwice_requestTwiceIfPreviousRequestCompleteSuccessfully() {
-
         let (sut, loader) = makeSUT()
 
         sut.load()
@@ -45,7 +43,6 @@ class RestaurantViewModelTests: XCTestCase {
     }
 
     func test_loadTwice_requestTwiceIfPreviousRequestCompleteWithError() {
-
         let (sut, loader) = makeSUT()
 
         sut.load()
@@ -53,6 +50,23 @@ class RestaurantViewModelTests: XCTestCase {
         sut.load()
 
         XCTAssertEqual(loader.loadCallCount, 2, "Expected another load request once first request complete with error")
+    }
+
+    func test_loadAction_alterLoadingState() {
+        let (sut, loader) = makeSUT()
+        XCTAssertFalse(sut.isLoading)
+
+        sut.load()
+        XCTAssertTrue(sut.isLoading)
+
+        loader.completeLoading(at: 0)
+        XCTAssertFalse(sut.isLoading)
+
+        sut.load()
+        XCTAssertTrue(sut.isLoading)
+
+        loader.completeLoadingWithError(at: 1)
+        XCTAssertFalse(sut.isLoading)
     }
 
     // MARK: - Helpers

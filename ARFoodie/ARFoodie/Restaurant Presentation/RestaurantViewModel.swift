@@ -10,7 +10,7 @@ import Combine
 
 public final class RestaurantViewModel {
     let loader: () -> AnyPublisher<[Restaurant], Error>
-    @Published private(set) var isLoading: Bool = false
+    @Published private(set) public var isLoading: Bool = false
     private var cancellable: AnyCancellable?
 
     public init(loader: @escaping () -> AnyPublisher<[Restaurant], Error>) {
