@@ -69,6 +69,19 @@ class RestaurantViewModelTests: XCTestCase {
         XCTAssertFalse(sut.isLoading)
     }
 
+    func test_load_setRestaurantsOnceCompleteSuccessfully() {
+        let (sut, loader) = makeSUT()
+        let restaurants = [
+            makeUniqueRestaurant(name: "Test1", latitude: 10, longitude: 20),
+            makeUniqueRestaurant(name: "Test2", latitude: 20, longitude: 30)
+        ]
+        XCTAssertEqual(sut.restaurants, [])
+
+        sut.load()
+        loader.completeLoading(with: restaurants, at: 0)
+        XCTAssertEqual(sut.restaurants, restaurants)
+    }
+
     // MARK: - Helpers
 
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: RestaurantViewModel, loader: LoaderSpy) {
@@ -101,5 +114,22 @@ class RestaurantViewModelTests: XCTestCase {
         func completeLoadingWithError(at index: Int = 0) {
             requests[index].send(completion: .failure(anyError()))
         }
+    }
+
+    private func makeUniqueRestaurant(
+        name: String,
+        latitude: Double,
+        longitude: Double,
+        rating: Double? = nil,
+        userRatingsTotal: Double? = nil
+    ) -> Restaurant {
+        let restaurant = Restaurant.init(
+            id: UUID().uuidString,
+            name: name,
+            coordinate: .init(longitude: longitude, latitude: latitude),
+            rating: rating,
+            userRatingsTotal: userRatingsTotal
+        )
+        return restaurant
     }
 }
