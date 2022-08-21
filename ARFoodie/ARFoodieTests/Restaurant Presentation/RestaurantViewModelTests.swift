@@ -82,6 +82,21 @@ class RestaurantViewModelTests: XCTestCase {
         XCTAssertEqual(sut.restaurants, restaurants)
     }
 
+    func test_load_setErrorOnceCompleteWithError() {
+        let (sut, loader) = makeSUT()
+        let error = anyError()
+        XCTAssertNil(sut.error)
+
+        sut.load()
+        loader.completeLoadingWithError()
+
+        guard let receivedError = sut.error as? NSError else {
+            return XCTFail("Expected \(error) instance, got \(String(describing: sut.error)) instead")
+        }
+        XCTAssertEqual(receivedError, error)
+    }
+
+
     // MARK: - Helpers
 
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: RestaurantViewModel, loader: LoaderSpy) {

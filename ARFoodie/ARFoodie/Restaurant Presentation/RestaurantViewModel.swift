@@ -11,6 +11,7 @@ import Combine
 public final class RestaurantViewModel {
     let loader: () -> AnyPublisher<[Restaurant], Error>
     @Published private(set) public var restaurants: [Restaurant] = []
+    @Published private(set) public var error: Error? = nil
     @Published private(set) public var isLoading: Bool = false
     private var cancellable: AnyCancellable?
 
@@ -24,6 +25,9 @@ public final class RestaurantViewModel {
 
         cancellable = loader()
             .sink { [weak self] completion in
+                if case let .failure(error) = completion {
+                    self?.error = error
+                }
                 self?.isLoading = false
             } receiveValue: { [weak self] restaurants in
                 self?.restaurants = restaurants
