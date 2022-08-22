@@ -9,7 +9,8 @@ import XCTest
 import ARFoodieiOS
 
 class RestaurantSnapshotTests: XCTestCase {
-    func test_init() {
-        XCTFail("")
+    func test_initContent() {
+        let sut = ARRestaurantViewController()
+        assert(snapshot: sut.snapshot(for: .iPhone13(style: .light)), named: "RESTAURANT_INITIAL_CONTENT_light")
     }
 }
