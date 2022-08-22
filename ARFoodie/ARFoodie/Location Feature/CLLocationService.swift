@@ -25,9 +25,17 @@ public final class CLLocationService: NSObject {
 
     func getLocation(completion: @escaping Completion) {
         let authorizationStatus = manager.authorizationStatus
+        #if os(macOS)
+        guard authorizationStatus == .authorizedAlways else {
+            return completion(.failure(Error.notAuthorized))
+        }
+        #endif
+
+        #if os(iOS)
         guard authorizationStatus == .authorizedWhenInUse else {
             return completion(.failure(Error.notAuthorized))
         }
+        #endif
 
         self.completion = completion
         manager.requestLocation()
