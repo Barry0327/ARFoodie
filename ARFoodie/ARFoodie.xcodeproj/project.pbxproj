@@ -26,6 +26,7 @@
 		97E3961B28A16BCC00151E1A /* ARFoodieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E3961328A16BCC00151E1A /* ARFoodieiOS.framework */; };
 		97E3962028A16BCC00151E1A /* RestaurantSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E3961F28A16BCC00151E1A /* RestaurantSnapshotTests.swift */; };
 		97F9D66D28B32F7000AAE062 /* ARRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9D66C28B32F7000AAE062 /* ARRestaurantViewController.swift */; };
+		97F9D67328B3371B00AAE062 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 97F9D67228B3371B00AAE062 /* SnapshotTesting */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F9D67328B3371B00AAE062 /* SnapshotTesting in Frameworks */,
 				97E3961B28A16BCC00151E1A /* ARFoodieiOS.framework in Frameworks */,
 				85207DFB8041726B5B5A2B6B /* Pods_ARFoodieiOSTests.framework in Frameworks */,
 			);
@@ -352,6 +354,9 @@
 				97E3961D28A16BCC00151E1A /* PBXTargetDependency */,
 			);
 			name = ARFoodieiOSTests;
+			packageProductDependencies = (
+				97F9D67228B3371B00AAE062 /* SnapshotTesting */,
+			);
 			productName = ARFoodieiOSTests;
 			productReference = 97E3961A28A16BCC00151E1A /* ARFoodieiOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -392,6 +397,9 @@
 				Base,
 			);
 			mainGroup = 974C64DE28956EAB009634FB;
+			packageReferences = (
+				97F9D67128B3371A00AAE062 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = 974C64E928956EAB009634FB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -942,6 +950,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		97F9D67128B3371A00AAE062 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		97F9D67228B3371B00AAE062 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 97F9D67128B3371A00AAE062 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 974C64DF28956EAB009634FB /* Project object */;
 }
