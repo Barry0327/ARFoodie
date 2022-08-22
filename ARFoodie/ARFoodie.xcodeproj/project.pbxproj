@@ -23,6 +23,7 @@
 		975470E828ADF0FB006CC83A /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975470E728ADF0FB006CC83A /* Coordinate.swift */; };
 		97E3961B28A16BCC00151E1A /* ARFoodieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E3961328A16BCC00151E1A /* ARFoodieiOS.framework */; };
 		97E3962028A16BCC00151E1A /* RestaurantSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E3961F28A16BCC00151E1A /* RestaurantSnapshotTests.swift */; };
+		97F9D66D28B32F7000AAE062 /* ARRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9D66C28B32F7000AAE062 /* ARRestaurantViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		97E3961328A16BCC00151E1A /* ARFoodieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARFoodieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E3961A28A16BCC00151E1A /* ARFoodieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E3961F28A16BCC00151E1A /* RestaurantSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSnapshotTests.swift; sourceTree = "<group>"; };
+		97F9D66C28B32F7000AAE062 /* ARRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRestaurantViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 		97E3962828A16BFD00151E1A /* Restaurant UI */ = {
 			isa = PBXGroup;
 			children = (
+				97F9D66C28B32F7000AAE062 /* ARRestaurantViewController.swift */,
 			);
 			path = "Restaurant UI";
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 					};
 					97E3961228A16BCC00151E1A = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 					97E3961928A16BCC00151E1A = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -427,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F9D66D28B32F7000AAE062 /* ARRestaurantViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +689,7 @@
 		97E3962228A16BCC00151E1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -706,6 +712,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -714,6 +721,7 @@
 		97E3962328A16BCC00151E1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -745,6 +753,7 @@
 		97E3962428A16BCC00151E1A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
@@ -763,6 +772,7 @@
 		97E3962528A16BCC00151E1A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
