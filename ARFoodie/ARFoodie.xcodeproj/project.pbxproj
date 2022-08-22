@@ -27,6 +27,8 @@
 		97E3962028A16BCC00151E1A /* RestaurantSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E3961F28A16BCC00151E1A /* RestaurantSnapshotTests.swift */; };
 		97F9D66D28B32F7000AAE062 /* ARRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9D66C28B32F7000AAE062 /* ARRestaurantViewController.swift */; };
 		97F9D67328B3371B00AAE062 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 97F9D67228B3371B00AAE062 /* SnapshotTesting */; };
+		97F9D67628B33D2200AAE062 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9D67528B33D2200AAE062 /* UIViewController+Snapshot.swift */; };
+		97F9D67828B33F0100AAE062 /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9D67728B33F0100AAE062 /* XCTestCase+Snapshot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		97E3961A28A16BCC00151E1A /* ARFoodieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E3961F28A16BCC00151E1A /* RestaurantSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSnapshotTests.swift; sourceTree = "<group>"; };
 		97F9D66C28B32F7000AAE062 /* ARRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRestaurantViewController.swift; sourceTree = "<group>"; };
+		97F9D67528B33D2200AAE062 /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
+		97F9D67728B33F0100AAE062 /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		9D67D791D031E69A314BDE84 /* Pods-ARFoodieiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieiOS.release.xcconfig"; path = "Target Support Files/Pods-ARFoodieiOS/Pods-ARFoodieiOS.release.xcconfig"; sourceTree = "<group>"; };
 		C37A48144038A885C4DB0E64 /* Pods_ARFoodieiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodieiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -233,6 +237,7 @@
 		97E3961E28A16BCC00151E1A /* ARFoodieiOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				97F9D67428B33D0500AAE062 /* Helpers */,
 				97F9D66B28B32F1900AAE062 /* Restaurant UI */,
 			);
 			path = ARFoodieiOSTests;
@@ -252,6 +257,15 @@
 				97E3961F28A16BCC00151E1A /* RestaurantSnapshotTests.swift */,
 			);
 			path = "Restaurant UI";
+			sourceTree = "<group>";
+		};
+		97F9D67428B33D0500AAE062 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				97F9D67528B33D2200AAE062 /* UIViewController+Snapshot.swift */,
+				97F9D67728B33F0100AAE062 /* XCTestCase+Snapshot.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E07AA6605BEDB3DD58DD4944 /* Frameworks */ = {
@@ -547,6 +561,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F9D67828B33F0100AAE062 /* XCTestCase+Snapshot.swift in Sources */,
+				97F9D67628B33D2200AAE062 /* UIViewController+Snapshot.swift in Sources */,
 				97E3962028A16BCC00151E1A /* RestaurantSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
