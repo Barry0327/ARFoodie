@@ -16,6 +16,13 @@ end
 
 def ios_pods
   pod 'TransitionButton'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
+  pod 'ARCL'
+  pod 'IHProgressHUD', :git => 'https://github.com/Swiftify-Corp/IHProgressHUD.git'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'  
+  pod 'StatusAlert'
+  pod 'Cosmos', '~> 23.0.0'
+  pod 'TransitionButton'
 end
 
 target 'ARFoodieiOS' do
