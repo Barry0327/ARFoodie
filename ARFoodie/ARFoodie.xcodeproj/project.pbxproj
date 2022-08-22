@@ -29,6 +29,7 @@
 		97F9D67628B33D2200AAE062 /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9D67528B33D2200AAE062 /* UIViewController+Snapshot.swift */; };
 		97F9D67828B33F0100AAE062 /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9D67728B33F0100AAE062 /* XCTestCase+Snapshot.swift */; };
 		97F9D67A28B3634B00AAE062 /* RestaurantEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9D67928B3634B00AAE062 /* RestaurantEndpointTests.swift */; };
+		97F9D67C28B36BCE00AAE062 /* RestaurantEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F9D67B28B36BCE00AAE062 /* RestaurantEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		97F9D67528B33D2200AAE062 /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
 		97F9D67728B33F0100AAE062 /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
 		97F9D67928B3634B00AAE062 /* RestaurantEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantEndpointTests.swift; sourceTree = "<group>"; };
+		97F9D67B28B36BCE00AAE062 /* RestaurantEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantEndpoint.swift; sourceTree = "<group>"; };
 		9D67D791D031E69A314BDE84 /* Pods-ARFoodieiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieiOS.release.xcconfig"; path = "Target Support Files/Pods-ARFoodieiOS/Pods-ARFoodieiOS.release.xcconfig"; sourceTree = "<group>"; };
 		C37A48144038A885C4DB0E64 /* Pods_ARFoodieiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodieiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -188,6 +190,7 @@
 				974C650C28958FA2009634FB /* HTTPClient.swift */,
 				974C650E28997ED2009634FB /* RestaurantMapper.swift */,
 				974C6517289F80FD009634FB /* URLSessionHTTPClient.swift */,
+				97F9D67B28B36BCE00AAE062 /* RestaurantEndpoint.swift */,
 			);
 			path = "Restaurant API";
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				974C650B28958F75009634FB /* RemoteRestaurantLoader.swift in Sources */,
 				974C650228957D6C009634FB /* Restaurant.swift in Sources */,
 				974C650F28997ED2009634FB /* RestaurantMapper.swift in Sources */,
+				97F9D67C28B36BCE00AAE062 /* RestaurantEndpoint.swift in Sources */,
 				975470E828ADF0FB006CC83A /* Coordinate.swift in Sources */,
 				974C650D28958FA2009634FB /* HTTPClient.swift in Sources */,
 				974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */,
