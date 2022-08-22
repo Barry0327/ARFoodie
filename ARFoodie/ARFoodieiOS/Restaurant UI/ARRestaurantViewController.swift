@@ -8,5 +8,5 @@
 import UIKit
 
 public final class ARRestaurantViewController: UIViewController {
-    
+
 }

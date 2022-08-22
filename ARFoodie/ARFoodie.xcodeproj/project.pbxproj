@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		319EB28057A60AF52FCFFF55 /* Pods_ARFoodieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD44EBB85334FD1A6A84723 /* Pods_ARFoodieiOS.framework */; };
 		974C64F128956EAC009634FB /* ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974C64E828956EAB009634FB /* ARFoodie.framework */; };
 		974C650228957D6C009634FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650128957D6C009634FB /* Restaurant.swift */; };
 		974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6506289581A6009634FB /* RestaurantLoader.swift */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1DD44EBB85334FD1A6A84723 /* Pods_ARFoodieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91002D55CC7EF24C9EFC87C8 /* Pods-ARFoodieiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieiOS.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodieiOS/Pods-ARFoodieiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		974C64E828956EAB009634FB /* ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974C64F028956EAC009634FB /* ARFoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		974C650128957D6C009634FB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		97E3961A28A16BCC00151E1A /* ARFoodieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E3961F28A16BCC00151E1A /* RestaurantSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSnapshotTests.swift; sourceTree = "<group>"; };
 		97F9D66C28B32F7000AAE062 /* ARRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRestaurantViewController.swift; sourceTree = "<group>"; };
+		9D67D791D031E69A314BDE84 /* Pods-ARFoodieiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieiOS.release.xcconfig"; path = "Target Support Files/Pods-ARFoodieiOS/Pods-ARFoodieiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319EB28057A60AF52FCFFF55 /* Pods_ARFoodieiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +104,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51BAF8E2E4E34BDB3F9F1274 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				91002D55CC7EF24C9EFC87C8 /* Pods-ARFoodieiOS.debug.xcconfig */,
+				9D67D791D031E69A314BDE84 /* Pods-ARFoodieiOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 		974C64DE28956EAB009634FB = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +122,8 @@
 				97E3961428A16BCC00151E1A /* ARFoodieiOS */,
 				97E3961E28A16BCC00151E1A /* ARFoodieiOSTests */,
 				974C64E928956EAB009634FB /* Products */,
+				51BAF8E2E4E34BDB3F9F1274 /* Pods */,
+				E07AA6605BEDB3DD58DD4944 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -228,6 +245,14 @@
 			path = "Restaurant UI";
 			sourceTree = "<group>";
 		};
+		E07AA6605BEDB3DD58DD4944 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DD44EBB85334FD1A6A84723 /* Pods_ARFoodieiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -288,6 +313,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97E3962628A16BCC00151E1A /* Build configuration list for PBXNativeTarget "ARFoodieiOS" */;
 			buildPhases = (
+				D09DD3ADB310F1D3EF0C9A63 /* [CP] Check Pods Manifest.lock */,
 				97E3960E28A16BCC00151E1A /* Headers */,
 				97E3960F28A16BCC00151E1A /* Sources */,
 				97E3961028A16BCC00151E1A /* Frameworks */,
@@ -398,6 +424,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D09DD3ADB310F1D3EF0C9A63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARFoodieiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		974C64E428956EAB009634FB /* Sources */ = {
@@ -688,6 +739,7 @@
 		};
 		97E3962228A16BCC00151E1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91002D55CC7EF24C9EFC87C8 /* Pods-ARFoodieiOS.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -720,6 +772,7 @@
 		};
 		97E3962328A16BCC00151E1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D67D791D031E69A314BDE84 /* Pods-ARFoodieiOS.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
