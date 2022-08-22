@@ -10,5 +10,5 @@ import Foundation
 public protocol RestaurantLoader {
     typealias Result = Swift.Result<[Restaurant], Error>
     
-    func load(completion: @escaping (Result) -> Void)
+    func load(coordinate: Coordinate, completion: @escaping (Result) -> Void)
 }

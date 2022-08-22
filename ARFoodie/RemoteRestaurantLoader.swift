@@ -25,7 +25,7 @@ public class RemoteRestaurantLoader: RestaurantLoader {
 
     private var validStatusCodes: [Int] = .init(200...299)
 
-    public func load(completion: @escaping (RestaurantLoader.Result) -> Void) {
+    public func load(coordinate: Coordinate, completion: @escaping (RestaurantLoader.Result) -> Void) {
         client.get(url: url) { [weak self] result in
             guard self != nil else { return }
             switch result {

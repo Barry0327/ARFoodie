@@ -13,7 +13,7 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         let url = URL(string: "https://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
 
-        sut.load() { _ in }
+        sut.load(coordinate: anyCoordinate()) { _ in }
 
         XCTAssertEqual(client.requestedURLs, [url])
     }
@@ -22,8 +22,8 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         let url = URL(string: "https://a-given-url.com")!
         let (sut, client) = makeSUT(url: url)
 
-        sut.load() { _ in }
-        sut.load() { _ in }
+        sut.load(coordinate: anyCoordinate()) { _ in }
+        sut.load(coordinate: anyCoordinate()) { _ in }
 
         XCTAssertEqual(client.requestedURLs, [url, url])
     }
@@ -99,7 +99,7 @@ class RemoteRestaurantLoaderTests: XCTestCase {
 
         var capturedResult: [RestaurantLoader.Result] = []
 
-        sut?.load(completion: { result in
+        sut?.load(coordinate: anyCoordinate(), completion: { result in
             capturedResult.append(result)
         })
 
@@ -133,7 +133,7 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         line: UInt = #line
     ) {
 
-        sut.load() { receivedResult in
+        sut.load(coordinate: anyCoordinate()) { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.success(receivedItems), .success(expectedItems)):
                 XCTAssertEqual(receivedItems, expectedItems, file: file, line: line)
@@ -145,6 +145,10 @@ class RemoteRestaurantLoaderTests: XCTestCase {
         }
 
         action()
+    }
+
+    private func anyCoordinate() -> Coordinate {
+        .init(longitude: 123, latitude: 23)
     }
 
     private func makeRestaurant(
