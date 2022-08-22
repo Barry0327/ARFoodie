@@ -9,23 +9,29 @@ import XCTest
 import ARFoodie
 
 class RemoteRestaurantLoaderTests: XCTestCase {
-    func test_load_requestDataFromURL() {
-        let url = URL(string: "https://a-given-url.com")!
-        let (sut, client) = makeSUT(url: url)
+    func test_load_requestDataFromRestaurantEndpoint() {
+        let baseURL = URL(string: "https://a-given-url.com")!
+        let (sut, client) = makeSUT(baseURL: baseURL)
+        let coordinate = anyCoordinate()
+        let expectedURL = RestaurantEndpoint.get(from: coordinate).url(baseURL: baseURL)
 
-        sut.load(coordinate: anyCoordinate()) { _ in }
+        sut.load(coordinate: coordinate) { _ in }
 
-        XCTAssertEqual(client.requestedURLs, [url])
+        XCTAssertEqual(client.requestedURLs, [expectedURL])
     }
 
-    func test_loadTwice_requestDataFromURLTwice() {
-        let url = URL(string: "https://a-given-url.com")!
-        let (sut, client) = makeSUT(url: url)
+    func test_loadTwice_requestDataFromRestaurantEndpointTwice() {
+        let baseURL = URL(string: "https://a-given-url.com")!
+        let (sut, client) = makeSUT(baseURL: baseURL)
+        let firstCoordinate = Coordinate.init(longitude: 123, latitude: 20)
+        let secondCoordinate = Coordinate.init(longitude: -123, latitude: -20)
+        let firstExpectedURL = RestaurantEndpoint.get(from: firstCoordinate).url(baseURL: baseURL)
+        let secondExpectedURL = RestaurantEndpoint.get(from: secondCoordinate).url(baseURL: baseURL)
 
-        sut.load(coordinate: anyCoordinate()) { _ in }
-        sut.load(coordinate: anyCoordinate()) { _ in }
+        sut.load(coordinate: firstCoordinate) { _ in }
+        sut.load(coordinate: secondCoordinate) { _ in }
 
-        XCTAssertEqual(client.requestedURLs, [url, url])
+        XCTAssertEqual(client.requestedURLs, [firstExpectedURL, secondExpectedURL])
     }
 
     func test_load_deliversErrorOnClientError() {
@@ -93,9 +99,8 @@ class RemoteRestaurantLoaderTests: XCTestCase {
     }
 
     func test_load_doesNotDeliversResultIfSUTInstanceHasBeenDeallocated() {
-        let url = URL(string: "https://a-given-url.com")!
         let client = HTTPClientSpy()
-        var sut: RemoteRestaurantLoader? = RemoteRestaurantLoader(url: url, client: client)
+        var sut: RemoteRestaurantLoader? = RemoteRestaurantLoader(baseURL: anyURL(), client: client)
 
         var capturedResult: [RestaurantLoader.Result] = []
 
@@ -112,12 +117,12 @@ class RemoteRestaurantLoaderTests: XCTestCase {
     // MARK: - Helpers
 
     private func makeSUT(
-        url: URL = URL(string: "https://any.com")!,
+        baseURL: URL = anyURL(),
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> (sut: RemoteRestaurantLoader, clientSpy: HTTPClientSpy) {
         let client = HTTPClientSpy()
-        let sut = RemoteRestaurantLoader(url: url, client: client)
+        let sut = RemoteRestaurantLoader(baseURL: baseURL, client: client)
 
         trackMemoryLeak(sut, file: file, line: line)
         trackMemoryLeak(client, file: file, line: line)
@@ -148,7 +153,7 @@ class RemoteRestaurantLoaderTests: XCTestCase {
     }
 
     private func anyCoordinate() -> Coordinate {
-        .init(longitude: 123, latitude: 23)
+        .init(longitude: .random(in: -180...180), latitude: .random(in: -90...90))
     }
 
     private func makeRestaurant(

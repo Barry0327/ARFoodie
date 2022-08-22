@@ -10,12 +10,12 @@ import Foundation
 public class RemoteRestaurantLoader: RestaurantLoader {
     public typealias Result = Swift.Result<[Restaurant], Error>
 
-    private let url: URL
     private let client: HTTPClient
+    private let baseURL: URL
 
-    public init(url: URL, client: HTTPClient) {
-        self.url = url
+    public init(baseURL: URL, client: HTTPClient) {
         self.client = client
+        self.baseURL = baseURL
     }
 
     public enum Error: Swift.Error {
@@ -26,6 +26,8 @@ public class RemoteRestaurantLoader: RestaurantLoader {
     private var validStatusCodes: [Int] = .init(200...299)
 
     public func load(coordinate: Coordinate, completion: @escaping (RestaurantLoader.Result) -> Void) {
+        let url = RestaurantEndpoint.get(from: coordinate).url(baseURL: baseURL)
+
         client.get(url: url) { [weak self] result in
             guard self != nil else { return }
             switch result {
