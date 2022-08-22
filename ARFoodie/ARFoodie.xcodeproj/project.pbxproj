@@ -158,6 +158,7 @@
 		974C64EA28956EAB009634FB /* ARFoodie */ = {
 			isa = PBXGroup;
 			children = (
+				97F9D67F28B3881C00AAE062 /* Location Feature */,
 				974C650028957D34009634FB /* Restaurant Feature */,
 				974C650428958110009634FB /* Restaurant API */,
 				975470E028ADD5DE006CC83A /* Restaurant Presentation */,
@@ -179,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				974C650128957D6C009634FB /* Restaurant.swift */,
-				975470E728ADF0FB006CC83A /* Coordinate.swift */,
 			);
 			path = "Restaurant Feature";
 			sourceTree = "<group>";
@@ -235,7 +235,6 @@
 		97E3961428A16BCC00151E1A /* ARFoodieiOS */ = {
 			isa = PBXGroup;
 			children = (
-				97F9D67D28B37C1000AAE062 /* CLLocationService.swift */,
 				97E3962828A16BFD00151E1A /* Restaurant UI */,
 			);
 			path = ARFoodieiOS;
@@ -273,6 +272,15 @@
 				97F9D67728B33F0100AAE062 /* XCTestCase+Snapshot.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		97F9D67F28B3881C00AAE062 /* Location Feature */ = {
+			isa = PBXGroup;
+			children = (
+				975470E728ADF0FB006CC83A /* Coordinate.swift */,
+				97F9D67D28B37C1000AAE062 /* CLLocationService.swift */,
+			);
+			path = "Location Feature";
 			sourceTree = "<group>";
 		};
 		E07AA6605BEDB3DD58DD4944 /* Frameworks */ = {
