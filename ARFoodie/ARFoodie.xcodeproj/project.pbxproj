@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		319EB28057A60AF52FCFFF55 /* Pods_ARFoodieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD44EBB85334FD1A6A84723 /* Pods_ARFoodieiOS.framework */; };
+		85207DFB8041726B5B5A2B6B /* Pods_ARFoodieiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37A48144038A885C4DB0E64 /* Pods_ARFoodieiOSTests.framework */; };
 		974C64F128956EAC009634FB /* ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 974C64E828956EAB009634FB /* ARFoodie.framework */; };
 		974C650228957D6C009634FB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C650128957D6C009634FB /* Restaurant.swift */; };
 		974C6507289581A6009634FB /* RestaurantLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974C6506289581A6009634FB /* RestaurantLoader.swift */; };
@@ -46,6 +47,8 @@
 
 /* Begin PBXFileReference section */
 		1DD44EBB85334FD1A6A84723 /* Pods_ARFoodieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38CDA20B64839C5D46BD1B78 /* Pods-ARFoodieiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieiOSTests.release.xcconfig"; path = "Target Support Files/Pods-ARFoodieiOSTests/Pods-ARFoodieiOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		4DDDB060E96C9888E26297DE /* Pods-ARFoodieiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieiOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodieiOSTests/Pods-ARFoodieiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91002D55CC7EF24C9EFC87C8 /* Pods-ARFoodieiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieiOS.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodieiOS/Pods-ARFoodieiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		974C64E828956EAB009634FB /* ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974C64F028956EAC009634FB /* ARFoodieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +70,7 @@
 		97E3961F28A16BCC00151E1A /* RestaurantSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantSnapshotTests.swift; sourceTree = "<group>"; };
 		97F9D66C28B32F7000AAE062 /* ARRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRestaurantViewController.swift; sourceTree = "<group>"; };
 		9D67D791D031E69A314BDE84 /* Pods-ARFoodieiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieiOS.release.xcconfig"; path = "Target Support Files/Pods-ARFoodieiOS/Pods-ARFoodieiOS.release.xcconfig"; sourceTree = "<group>"; };
+		C37A48144038A885C4DB0E64 /* Pods_ARFoodieiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodieiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97E3961B28A16BCC00151E1A /* ARFoodieiOS.framework in Frameworks */,
+				85207DFB8041726B5B5A2B6B /* Pods_ARFoodieiOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +114,8 @@
 			children = (
 				91002D55CC7EF24C9EFC87C8 /* Pods-ARFoodieiOS.debug.xcconfig */,
 				9D67D791D031E69A314BDE84 /* Pods-ARFoodieiOS.release.xcconfig */,
+				4DDDB060E96C9888E26297DE /* Pods-ARFoodieiOSTests.debug.xcconfig */,
+				38CDA20B64839C5D46BD1B78 /* Pods-ARFoodieiOSTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -249,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				1DD44EBB85334FD1A6A84723 /* Pods_ARFoodieiOS.framework */,
+				C37A48144038A885C4DB0E64 /* Pods_ARFoodieiOSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -332,9 +340,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97E3962728A16BCC00151E1A /* Build configuration list for PBXNativeTarget "ARFoodieiOSTests" */;
 			buildPhases = (
+				4FB0325FAB19B380610455B1 /* [CP] Check Pods Manifest.lock */,
 				97E3961628A16BCC00151E1A /* Sources */,
 				97E3961728A16BCC00151E1A /* Frameworks */,
 				97E3961828A16BCC00151E1A /* Resources */,
+				AB2AD66DCAC421418A7A10B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -426,6 +436,45 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4FB0325FAB19B380610455B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARFoodieiOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB2AD66DCAC421418A7A10B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARFoodieiOSTests/Pods-ARFoodieiOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARFoodieiOSTests/Pods-ARFoodieiOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARFoodieiOSTests/Pods-ARFoodieiOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D09DD3ADB310F1D3EF0C9A63 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -805,6 +854,7 @@
 		};
 		97E3962428A16BCC00151E1A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DDDB060E96C9888E26297DE /* Pods-ARFoodieiOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -824,6 +874,7 @@
 		};
 		97E3962528A16BCC00151E1A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38CDA20B64839C5D46BD1B78 /* Pods-ARFoodieiOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

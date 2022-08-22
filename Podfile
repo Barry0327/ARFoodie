@@ -14,14 +14,16 @@ post_install do |installer|
   end
 end
 
+def ios_pods
+  pod 'TransitionButton'
+end
+
 target 'ARFoodieiOS' do
   project 'ARFoodie/ARFoodie'
-
-  pod 'ARCL'
-  pod 'IHProgressHUD', :git => 'https://github.com/Swiftify-Corp/IHProgressHUD.git'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'  
-  pod 'StatusAlert'
-  pod 'Cosmos', '~> 23.0.0'
-  pod 'TransitionButton'
-
+  ios_pods
 end
+
+target 'ARFoodieiOSTests' do
+  project 'ARFoodie/ARFoodie'
+  ios_pods
+end 
