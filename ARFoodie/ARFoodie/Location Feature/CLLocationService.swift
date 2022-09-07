@@ -8,22 +8,21 @@
 import Foundation
 import CoreLocation
 
-public final class CLLocationService: NSObject {
-    typealias Completion = (Result<Coordinate, Error>) -> Void
+public final class CLLocationService: NSObject, CoordinateLoader {
     private(set) lazy var manager: CLLocationManager = {
         let manager = CLLocationManager()
         manager.delegate = self
         return manager
     }()
 
-    private var completion: Completion?
+    private var completion: CoordinateLoader.Completion?
 
     public enum Error: Swift.Error {
         case notAuthorized
         case invalidLocation
     }
 
-    func getLocation(completion: @escaping Completion) {
+    func loadCoordinate(completion: @escaping CoordinateLoader.Completion) {
         let authorizationStatus = manager.authorizationStatus
         #if os(macOS)
         guard authorizationStatus == .authorizedAlways else {
