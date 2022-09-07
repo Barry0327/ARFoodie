@@ -36,7 +36,18 @@
 		A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37B25DE6B03004A41DC /* NiblessView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9701295D28C8A33800E87BFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97D25674224B1F9C00175E42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97D2567B224B1F9C00175E42;
+			remoteInfo = ARFoodieApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		9701295928C8A33800E87BFE /* ARFoodieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		970230DA225907D600BD8AF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		97187ABA2251D4F30096E52D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9738E835226576B100EA2CBC /* LiveStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamManager.swift; sourceTree = "<group>"; };
@@ -106,6 +117,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9701295628C8A33800E87BFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97D25679224B1F9C00175E42 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,6 +139,13 @@
 			children = (
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9701295A28C8A33800E87BFE /* ARFoodieAppTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ARFoodieAppTests;
 			sourceTree = "<group>";
 		};
 		97686B0B288AFE2C00B0A5BE /* API */ = {
@@ -219,6 +244,7 @@
 			children = (
 				97D2567E224B1F9C00175E42 /* ARFoodieApp */,
 				97B718E3226EB9C50010BF33 /* Assets.xcassets */,
+				9701295A28C8A33800E87BFE /* ARFoodieAppTests */,
 				97D2567D224B1F9C00175E42 /* Products */,
 				4A247BB393FA43DF454E13D3 /* Pods */,
 			);
@@ -228,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				97D2567C224B1F9C00175E42 /* ARFoodieApp.app */,
+				9701295928C8A33800E87BFE /* ARFoodieAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -358,6 +385,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9701295828C8A33800E87BFE /* ARFoodieAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9701295F28C8A33800E87BFE /* Build configuration list for PBXNativeTarget "ARFoodieAppTests" */;
+			buildPhases = (
+				9701295528C8A33800E87BFE /* Sources */,
+				9701295628C8A33800E87BFE /* Frameworks */,
+				9701295728C8A33800E87BFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9701295E28C8A33800E87BFE /* PBXTargetDependency */,
+			);
+			name = ARFoodieAppTests;
+			productName = ARFoodieAppTests;
+			productReference = 9701295928C8A33800E87BFE /* ARFoodieAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		97D2567B224B1F9C00175E42 /* ARFoodieApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97D2568E224B1F9E00175E42 /* Build configuration list for PBXNativeTarget "ARFoodieApp" */;
@@ -382,10 +427,14 @@
 		97D25674224B1F9C00175E42 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Chen Yi-Wei";
 				TargetAttributes = {
+					9701295828C8A33800E87BFE = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 97D2567B224B1F9C00175E42;
+					};
 					97D2567B224B1F9C00175E42 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
@@ -412,11 +461,19 @@
 			projectRoot = "";
 			targets = (
 				97D2567B224B1F9C00175E42 /* ARFoodieApp */,
+				9701295828C8A33800E87BFE /* ARFoodieAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9701295728C8A33800E87BFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97D2567A224B1F9C00175E42 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -449,6 +506,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9701295528C8A33800E87BFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97D25678224B1F9C00175E42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -483,6 +547,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		9701295E28C8A33800E87BFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97D2567B224B1F9C00175E42 /* ARFoodieApp */;
+			targetProxy = 9701295D28C8A33800E87BFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		97D25688224B1F9E00175E42 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -496,6 +568,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9701296028C8A33800E87BFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V3QMHS4SB9;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BarryChen.ARFoodieAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARFoodieApp.app/ARFoodieApp";
+			};
+			name = Debug;
+		};
+		9701296128C8A33800E87BFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V3QMHS4SB9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = BarryChen.ARFoodieAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARFoodieApp.app/ARFoodieApp";
+			};
+			name = Release;
+		};
 		97D2568C224B1F9E00175E42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -686,6 +802,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9701295F28C8A33800E87BFE /* Build configuration list for PBXNativeTarget "ARFoodieAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9701296028C8A33800E87BFE /* Debug */,
+				9701296128C8A33800E87BFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		97D25677224B1F9C00175E42 /* Build configuration list for PBXProject "ARFoodieApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
