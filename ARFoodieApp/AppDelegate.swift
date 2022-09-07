@@ -7,28 +7,13 @@
 //
 
 import UIKit
-import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let testing = NSClassFromString("XCTest") != nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        guard testing == false else { return true }
-
-        GMSServices.provideAPIKey(Secrets.apiKey)
-
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let viewModel = MainViewModel(
-            placesService: GooglePlacesService(),
-            locationService: LocationManager()
-        )
-        let mainViewController = MainARViewController(viewModel: viewModel)
-        window?.rootViewController = mainViewController
-        window?.makeKeyAndVisible()
 
         return true
     }

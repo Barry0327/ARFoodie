@@ -20,7 +20,6 @@
 		A45D2865261DB798006FB358 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2864261DB798006FB358 /* UIColor+.swift */; };
 		A45D2869261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2868261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift */; };
 		A45D292A261DC0B6006FB358 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45D2929261DC0B6006FB358 /* String+.swift */; };
-		A48D4EC7261C66EB00EDB570 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */; };
 		A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */; };
 		A4D57B7A25E4F64C00124731 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D57B7925E4F64C00124731 /* ErrorMessage.swift */; };
 		A4FCB37C25DE6B03004A41DC /* NiblessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCB37B25DE6B03004A41DC /* NiblessView.swift */; };
@@ -94,9 +93,7 @@
 		A48D4EC0261C33EC00EDB570 /* RestaurantPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPinView.swift; sourceTree = "<group>"; };
 		A48D4EC6261C66EB00EDB570 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		A495F3F026157180001CD738 /* GooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
-		A495F3F426157CE0001CD738 /* place_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = place_detail.json; sourceTree = "<group>"; };
 		A495F3F72615A849001CD738 /* GooglePlacesEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesEnvelope.swift; sourceTree = "<group>"; };
-		A495F4432615C689001CD738 /* nearby_places.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = nearby_places.json; sourceTree = "<group>"; };
 		A495F44B2615D018001CD738 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 		A4D57B7625E4EEBF00124731 /* NibLessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLessViewController.swift; sourceTree = "<group>"; };
 		A4D57B7925E4F64C00124731 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
@@ -253,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				97686B0C288AFF0D00B0A5BE /* Shared */,
-				A495F3F326157C9F001CD738 /* API Cache */,
 				A468426D261481060061C278 /* Main */,
 				A48D4EC5261C66CC00EDB570 /* Detail */,
 				97CF46C52278221D0011D5F8 /* ARFoodie.entitlements */,
@@ -352,15 +348,6 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		A495F3F326157C9F001CD738 /* API Cache */ = {
-			isa = PBXGroup;
-			children = (
-				A495F4432615C689001CD738 /* nearby_places.json */,
-				A495F3F426157CE0001CD738 /* place_detail.json */,
-			);
-			path = "API Cache";
-			sourceTree = "<group>";
-		};
 		A4FCB37525DE6819004A41DC /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,7 +387,6 @@
 				97D25678224B1F9C00175E42 /* Sources */,
 				97D25679224B1F9C00175E42 /* Frameworks */,
 				97D2567A224B1F9C00175E42 /* Resources */,
-				97D25698224CBB6C00175E42 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -423,6 +409,7 @@
 				TargetAttributes = {
 					9701295828C8A33800E87BFE = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 						TestTargetID = 97D2567B224B1F9C00175E42;
 					};
 					97D2567B224B1F9C00175E42 = {
@@ -475,26 +462,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		97D25698224CBB6C00175E42 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		9701295528C8A33800E87BFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -515,7 +482,6 @@
 				A40CE67C25E6493E00F8BB27 /* Declarative.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewController+.swift in Sources */,
 				A45D285B261DB66D006FB358 /* SCNNode+.swift in Sources */,
-				A48D4EC7261C66EB00EDB570 /* DetailViewModel.swift in Sources */,
 				A45D2857261DACD0006FB358 /* Secrets.swift in Sources */,
 				97D25680224B1F9C00175E42 /* AppDelegate.swift in Sources */,
 				A4D57B7725E4EEBF00124731 /* NibLessViewController.swift in Sources */,
@@ -553,6 +519,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
@@ -562,10 +529,16 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = BarryChen.ARFoodieAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARFoodieApp.app/ARFoodieApp";
@@ -577,11 +550,17 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = BarryChen.ARFoodieAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
