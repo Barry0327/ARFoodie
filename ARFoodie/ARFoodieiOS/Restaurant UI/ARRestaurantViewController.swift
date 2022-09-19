@@ -9,11 +9,12 @@ import UIKit
 import ARCL
 import TransitionButton
 import ChameleonFramework
+import ARFoodie
 
 public final class ARRestaurantViewController: UIViewController {
     private let sceneLocationView: SceneLocationView = SceneLocationView()
 
-    private lazy var searchButton: TransitionButton = {
+    public private(set) lazy var searchButton: TransitionButton = {
         let button = TransitionButton()
         button.backgroundColor = UIColor.flatWatermelonDark()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -26,9 +27,21 @@ public final class ARRestaurantViewController: UIViewController {
         let attributeString = NSAttributedString(string: "找美食", attributes: textAttributes)
         button.setAttributedTitle(attributeString, for: .normal)
         button.spinnerColor = UIColor(hexString: "feffdf")!
+        button.addTarget(self, action: #selector(searchButtonDidTap), for: .touchUpInside)
         return button
     }()
 
+    let viewModel: RestaurantViewModel
+
+    public init(viewModel: RestaurantViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,5 +71,11 @@ public final class ARRestaurantViewController: UIViewController {
         NSLayoutConstraint.activate([
             width, height, bottom, centerX
         ])
+    }
+
+    @objc
+    private func searchButtonDidTap() {
+        searchButton.startAnimation()
+        viewModel.load()
     }
 }
