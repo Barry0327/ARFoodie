@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '15.0'
+platform :ios, '14.0'
 use_frameworks!
 workspace 'ARFoodieApp'
 
@@ -19,7 +19,6 @@ def ios_pods
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'
   pod 'ARCL'
   pod 'IHProgressHUD', :git => 'https://github.com/Swiftify-Corp/IHProgressHUD.git'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon.git', :branch => 'swift5'  
   pod 'StatusAlert'
   pod 'Cosmos', '~> 23.0.0'
   pod 'TransitionButton'
@@ -32,5 +31,15 @@ end
 
 target 'ARFoodieiOSTests' do
   project 'ARFoodie/ARFoodie'
+  ios_pods
+end 
+
+target 'ARFoodieApp' do
+  project 'ARFoodieApp'
+  ios_pods
+end
+
+target 'ARFoodieAppTests' do
+  project 'ARFoodieApp'
   ios_pods
 end 

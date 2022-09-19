@@ -3,11 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		016B5B830104F7FCDCF5BB3E /* Pods_ARFoodieAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA9E0BBB17C3D48D15B1EEB /* Pods_ARFoodieAppTests.framework */; };
+		782F7A6A86C135A54351F5AB /* Pods_ARFoodieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51B7B2B1B2551D82DEB7204C /* Pods_ARFoodieApp.framework */; };
 		9701296328C8A73300E87BFE /* ARRestaurantUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9701296228C8A73300E87BFE /* ARRestaurantUIIntegrationTests.swift */; };
+		9762110628D6A7560010CF5E /* ARRestaurantUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9762110528D6A7560010CF5E /* ARRestaurantUIComposer.swift */; };
+		9762110C28D81FD50010CF5E /* ARFoodieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9762110A28D805C50010CF5E /* ARFoodieiOS.framework */; };
+		9762110D28D81FD50010CF5E /* ARFoodieiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9762110A28D805C50010CF5E /* ARFoodieiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9762110F28D822EC0010CF5E /* ARFoodie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9762110828D805C20010CF5E /* ARFoodie.framework */; };
+		9762111028D822EC0010CF5E /* ARFoodie.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9762110828D805C20010CF5E /* ARFoodie.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		97A6C8E422632FE0002FAA90 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8E322632FE0002FAA90 /* UIViewController+.swift */; };
 		97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A6C8F722648CEA002FAA90 /* UIControl+YYAdd.m */; };
 		97B718E4226EB9C50010BF33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97B718E3226EB9C50010BF33 /* Assets.xcassets */; };
@@ -36,7 +43,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9762110E28D81FD50010CF5E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9762110D28D81FD50010CF5E /* ARFoodieiOS.framework in Embed Frameworks */,
+				9762111028D822EC0010CF5E /* ARFoodie.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		13AF04A62211B8C7485F718F /* Pods-ARFoodieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodieAppTests/Pods-ARFoodieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		51B7B2B1B2551D82DEB7204C /* Pods_ARFoodieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A36152BD5DE3B1284CB0A20 /* Pods-ARFoodieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieApp.debug.xcconfig"; path = "Target Support Files/Pods-ARFoodieApp/Pods-ARFoodieApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9701295928C8A33800E87BFE /* ARFoodieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARFoodieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9701296228C8A73300E87BFE /* ARRestaurantUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRestaurantUIIntegrationTests.swift; sourceTree = "<group>"; };
 		970230DA225907D600BD8AF2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +73,9 @@
 		9756357222682003009AE63B /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		975635792269B677009AE63B /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		9756357B2269BBBA009AE63B /* ProfileViewController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+handlers.swift"; sourceTree = "<group>"; };
+		9762110528D6A7560010CF5E /* ARRestaurantUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARRestaurantUIComposer.swift; sourceTree = "<group>"; };
+		9762110828D805C20010CF5E /* ARFoodie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARFoodie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9762110A28D805C50010CF5E /* ARFoodieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARFoodieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A49FA92253569D00DC4B43 /* RestaurantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
 		97A49FAB225358AC00DC4B43 /* RestaurantDetailManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailManager.swift; sourceTree = "<group>"; };
 		97A49FAD2254DC5A00DC4B43 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
@@ -81,6 +109,7 @@
 		97D25696224CB2FD00175E42 /* RestaurantInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantInfoManager.swift; sourceTree = "<group>"; };
 		97D25699224CD04F00175E42 /* Portocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portocol.swift; sourceTree = "<group>"; };
 		97E610D72273097C00A8C199 /* UserPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPolicyViewController.swift; sourceTree = "<group>"; };
+		9EA9E0BBB17C3D48D15B1EEB /* Pods_ARFoodieAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ARFoodieAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A40CE67625E647FF00F8BB27 /* SignUpInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInputField.swift; sourceTree = "<group>"; };
 		A40CE67B25E6493E00F8BB27 /* Declarative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declarative.swift; sourceTree = "<group>"; };
 		A426D73325E4DDCC0082D577 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +132,8 @@
 		A4E1A972261331C000C1EC5C /* UIViewCotroller+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewCotroller+Rx.swift"; sourceTree = "<group>"; };
 		A4FCB37625DE6880004A41DC /* SignInRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRootView.swift; sourceTree = "<group>"; };
 		A4FCB37B25DE6B03004A41DC /* NiblessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessView.swift; sourceTree = "<group>"; };
+		B7E03B46BEE80585868D1E36 /* Pods-ARFoodieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieApp.release.xcconfig"; path = "Target Support Files/Pods-ARFoodieApp/Pods-ARFoodieApp.release.xcconfig"; sourceTree = "<group>"; };
+		BB19CD1F6C3FA48609E5A4E2 /* Pods-ARFoodieAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ARFoodieAppTests.release.xcconfig"; path = "Target Support Files/Pods-ARFoodieAppTests/Pods-ARFoodieAppTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				016B5B830104F7FCDCF5BB3E /* Pods_ARFoodieAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +149,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9762110C28D81FD50010CF5E /* ARFoodieiOS.framework in Frameworks */,
+				9762110F28D822EC0010CF5E /* ARFoodie.framework in Frameworks */,
+				782F7A6A86C135A54351F5AB /* Pods_ARFoodieApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +161,10 @@
 		4A247BB393FA43DF454E13D3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				5A36152BD5DE3B1284CB0A20 /* Pods-ARFoodieApp.debug.xcconfig */,
+				B7E03B46BEE80585868D1E36 /* Pods-ARFoodieApp.release.xcconfig */,
+				13AF04A62211B8C7485F718F /* Pods-ARFoodieAppTests.debug.xcconfig */,
+				BB19CD1F6C3FA48609E5A4E2 /* Pods-ARFoodieAppTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -136,6 +175,17 @@
 				9701296228C8A73300E87BFE /* ARRestaurantUIIntegrationTests.swift */,
 			);
 			path = ARFoodieAppTests;
+			sourceTree = "<group>";
+		};
+		9762110728D805C20010CF5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9762110A28D805C50010CF5E /* ARFoodieiOS.framework */,
+				9762110828D805C20010CF5E /* ARFoodie.framework */,
+				51B7B2B1B2551D82DEB7204C /* Pods_ARFoodieApp.framework */,
+				9EA9E0BBB17C3D48D15B1EEB /* Pods_ARFoodieAppTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		97686B0B288AFE2C00B0A5BE /* API */ = {
@@ -237,6 +287,7 @@
 				9701295A28C8A33800E87BFE /* ARFoodieAppTests */,
 				97D2567D224B1F9C00175E42 /* Products */,
 				4A247BB393FA43DF454E13D3 /* Pods */,
+				9762110728D805C20010CF5E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,6 +311,7 @@
 				97D25692224C9E8B00175E42 /* View */,
 				97D2568B224B1F9E00175E42 /* Info.plist */,
 				A45D2873261DB861006FB358 /* Legacy */,
+				9762110528D6A7560010CF5E /* ARRestaurantUIComposer.swift */,
 			);
 			path = ARFoodieApp;
 			sourceTree = "<group>";
@@ -369,9 +421,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9701295F28C8A33800E87BFE /* Build configuration list for PBXNativeTarget "ARFoodieAppTests" */;
 			buildPhases = (
+				32EA8449E836E62B295F4BA4 /* [CP] Check Pods Manifest.lock */,
 				9701295528C8A33800E87BFE /* Sources */,
 				9701295628C8A33800E87BFE /* Frameworks */,
 				9701295728C8A33800E87BFE /* Resources */,
+				FE17041233D4FE172C2A5F30 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -387,9 +441,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97D2568E224B1F9E00175E42 /* Build configuration list for PBXNativeTarget "ARFoodieApp" */;
 			buildPhases = (
+				2C6FB9FFAC4FA0693B9600E4 /* [CP] Check Pods Manifest.lock */,
 				97D25678224B1F9C00175E42 /* Sources */,
 				97D25679224B1F9C00175E42 /* Frameworks */,
 				97D2567A224B1F9C00175E42 /* Resources */,
+				9762110E28D81FD50010CF5E /* Embed Frameworks */,
+				3D3BA590E26E24D5C236E5D7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -465,6 +522,87 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C6FB9FFAC4FA0693B9600E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARFoodieApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32EA8449E836E62B295F4BA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ARFoodieAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D3BA590E26E24D5C236E5D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARFoodieApp/Pods-ARFoodieApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARFoodieApp/Pods-ARFoodieApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARFoodieApp/Pods-ARFoodieApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE17041233D4FE172C2A5F30 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARFoodieAppTests/Pods-ARFoodieAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ARFoodieAppTests/Pods-ARFoodieAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ARFoodieAppTests/Pods-ARFoodieAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9701295528C8A33800E87BFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -482,6 +620,7 @@
 				97A6C8F922648CEA002FAA90 /* UIControl+YYAdd.m in Sources */,
 				A45D2865261DB798006FB358 /* UIColor+.swift in Sources */,
 				A45D2869261DB7C6006FB358 /* UINavigationController+statusBarStyle.swift in Sources */,
+				9762110628D6A7560010CF5E /* ARRestaurantUIComposer.swift in Sources */,
 				A45D285F261DB724006FB358 /* CALayer+.swift in Sources */,
 				A40CE67C25E6493E00F8BB27 /* Declarative.swift in Sources */,
 				97A6C8E422632FE0002FAA90 /* UIViewController+.swift in Sources */,
@@ -520,6 +659,7 @@
 /* Begin XCBuildConfiguration section */
 		9701296028C8A33800E87BFE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13AF04A62211B8C7485F718F /* Pods-ARFoodieAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -532,7 +672,7 @@
 					"$(inherited)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -551,6 +691,7 @@
 		};
 		9701296128C8A33800E87BFE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB19CD1F6C3FA48609E5A4E2 /* Pods-ARFoodieAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -559,7 +700,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V3QMHS4SB9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -695,6 +836,7 @@
 		};
 		97D2568F224B1F9E00175E42 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A36152BD5DE3B1284CB0A20 /* Pods-ARFoodieApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -714,6 +856,7 @@
 					"DISABLE_PUSH_NOTIFICATIONS=1",
 				);
 				INFOPLIST_FILE = ARFoodieApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -730,6 +873,7 @@
 		};
 		97D25690224B1F9E00175E42 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7E03B46BEE80585868D1E36 /* Pods-ARFoodieApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -749,6 +893,7 @@
 					"DISABLE_PUSH_NOTIFICATIONS=1",
 				);
 				INFOPLIST_FILE = ARFoodieApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
